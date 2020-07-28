@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'alma';
+  src: url(/fonts/alma/AlmaMono-Regular.otf);
+  src: url(/fonts/alma/almamono-regular-webfont.woff) format('woff'),
+    url(/fonts/alma/almamono-regular-webfont.woff2) format('woff2'),
+    url(/fonts/alma/AlmaMono-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: 'alma';
+	src: url(/fonts/alma/AlmaMono-Bold.otf);
+	src: url(/fonts/alma/almamono-bold-webfont.woff) format('woff'),
+		url(/fonts/alma/almamono-bold-webfont.woff2) format('woff2'),
+		url(/fonts/alma/AlmaMono-Bold.ttf) format('truetype');
+	font-weight: bold;
+	font-style: bold;
+}
+
+body {
+  font-family: 'alma', monospace, 'Courier New', Courier, Times;
+  color: white;
+  /* background-color: rgb(51, 51, 51); */
+  background-color: black;
+}
+
+::selection {
+	background: #fdf52b;
+}
+
+p+h2 {
+  padding-top: 1.5em;
+}
+
+a:link {
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+  background: #fdf52b;
+}
+
+a,
+a:visited {
+  text-decoration: underline;
+  color: inherit;
+}
+
+footer {
+  text-transform: uppercase;
+  padding-top: 14px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  height: 30px;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  box-shadow: 0px 0px 25px lightgrey;
+}
+
+ul {
+  list-style-type: square;
+  text-align: left;
+}
