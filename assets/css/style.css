@@ -1,19 +1,19 @@
 @font-face {
   font-family: 'alma';
-  src: url(/fonts/alma/AlmaMono-Regular.otf);
-  src: url(/fonts/alma/almamono-regular-webfont.woff) format('woff'),
-    url(/fonts/alma/almamono-regular-webfont.woff2) format('woff2'),
-    url(/fonts/alma/AlmaMono-Regular.ttf) format('truetype');
+  src: url(../fonts/alma/AlmaMono-Regular.otf);
+  src: url(../fonts/alma/almamono-regular-webfont.woff) format('woff'),
+    url(../fonts/alma/almamono-regular-webfont.woff2) format('woff2'),
+    url(../fonts/alma/AlmaMono-Regular.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
 	font-family: 'alma';
-	src: url(/fonts/alma/AlmaMono-Bold.otf);
-	src: url(/fonts/alma/almamono-bold-webfont.woff) format('woff'),
-		url(/fonts/alma/almamono-bold-webfont.woff2) format('woff2'),
-		url(/fonts/alma/AlmaMono-Bold.ttf) format('truetype');
+	src: url(../fonts/alma/AlmaMono-Bold.otf);
+	src: url(../fonts/alma/almamono-bold-webfont.woff) format('woff'),
+		url(../fonts/alma/almamono-bold-webfont.woff2) format('woff2'),
+		url(../fonts/alma/AlmaMono-Bold.ttf) format('truetype');
 	font-weight: bold;
 	font-style: bold;
 }
