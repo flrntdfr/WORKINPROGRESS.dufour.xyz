@@ -1,0 +1,39 @@
+# Website
+title: Florent Dufour
+owner: Florent Dufour
+email: florent@dufour.xyz
+description: >-
+  Welcome to the lab!
+baseurl: ""
+url: "https://lab.dufour.xyz"
+title_separator: " | "
+language: en
+encoding: utf-8
+timezone: Europe/Paris
+keywords: "florent, dufour, lab"
+theme-color: "#000"
+
+# Plugins
+gems:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
