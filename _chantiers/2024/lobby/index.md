@@ -5,7 +5,7 @@ started: 2024-08-04 00:00
 modified: 
 archived:
 type: web
-slug: "123"
+permalink: /2024/lobby
 ---
 
 <!--
