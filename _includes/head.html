@@ -29,6 +29,10 @@
     {% endfor %}
 {% endif %}
 
+{% if page.p5js %}
+    <link rel="stylesheet" href="/assets/lib/p5js/v{{ page.p5js }}/p5.js" type="text/css" />
+{% endif %}
+
 {% if page.header_raw_inject %}
     {% for item in page.header_raw_inject %}
     {{ item }}

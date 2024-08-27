@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'alma';
+  src: url(../fonts/alma/AlmaMono-Regular.otf);
+  src: url(../fonts/alma/almamono-regular-webfont.woff) format('woff'),
+    url(../fonts/alma/almamono-regular-webfont.woff2) format('woff2'),
+    url(../fonts/alma/AlmaMono-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: 'alma';
+	src: url(../fonts/alma/AlmaMono-Bold.otf);
+	src: url(../fonts/alma/almamono-bold-webfont.woff) format('woff'),
+		url(../fonts/alma/almamono-bold-webfont.woff2) format('woff2'),
+		url(../fonts/alma/AlmaMono-Bold.ttf) format('truetype');
+	font-weight: bold;
+	font-style: bold;
+}
+
+body {
+  font-family: 'alma', monospace, 'Courier New', Courier, Times;
+  color: white;
+  background-color: black;
+}
+
+a:link {
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a,
+a:visited {
+  text-decoration: underline;
+  color: inherit;
+}
+
+ul {
+  list-style-type: square;
+  text-align: left;
+}
+
+#indicator {
+  animation: color-change 3s infinite;
+}
+
+@keyframes color-change {
+  0% { color: #00FF00; }
+  50% { color: yellow; }
+  100% { color: #00FF00; }
+}

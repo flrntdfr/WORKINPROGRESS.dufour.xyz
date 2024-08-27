@@ -5,13 +5,18 @@ email: florent@dufour.xyz
 description: >-
   Welcome to the lab!
 baseurl: ""
-url: "https://lab.dufour.xyz"
+url: "https://wip.dufour.xyz"
 title_separator: " | "
 language: en
 encoding: utf-8
 timezone: Europe/Paris
-keywords: "florent, dufour, lab"
+keywords: "florent, dufour, wip, chantiers, projects"
 theme-color: "#000"
+
+collections:
+  chantiers:
+    output: true
+    permalink: "/:path/:title"
 
 # Plugins
 gems:
