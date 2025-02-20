@@ -6,7 +6,7 @@ finished: 2017-09-13
 modified: 2024-08-15
 featured: false
 open_to_public: false
-type: remix
+tags: remix
 ---
 
 Description goes here

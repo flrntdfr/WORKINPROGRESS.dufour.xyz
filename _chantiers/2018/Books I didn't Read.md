@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: Books I didn't read
-type:
+tags:
     - list
     - drawings
 started: 2018-11-24 11:04

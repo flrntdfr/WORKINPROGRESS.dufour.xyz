@@ -4,9 +4,8 @@ title: Seuls nos soupirs, Sententia
 started: 2016-06-11
 finished: 2016-07-11
 modified: 2024-08-10
-type: video clip
+tags: shortfilm
 location: Berlin
-slug: ""
 ---
 
 Description goes here

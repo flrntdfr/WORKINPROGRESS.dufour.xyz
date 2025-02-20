@@ -2,7 +2,7 @@
 layout: chantier
 p5js: "1.4.2"
 title: Cairo
-type: generative
+tags: generative
 started: 2018-07-01
 finished: 2018-11-02
 modified: 2024-10-16

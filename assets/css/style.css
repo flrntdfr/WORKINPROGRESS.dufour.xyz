@@ -1,7 +1,9 @@
-body {
-  font-family: Helvetica, Arial, sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
+body {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+}
 a:link {
   text-decoration: underline;
 }
@@ -16,7 +18,12 @@ a:visited {
   color: inherit;
 }
 
-ul {
-  list-style-type: square;
-  text-align: left;
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 20px;
+  line-height: 2;
 }

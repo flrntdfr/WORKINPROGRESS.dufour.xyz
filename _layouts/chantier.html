@@ -12,20 +12,121 @@ archived: 2019-03-06 11:04
 open_to_public: false
 featured: false
 location: Paris
-slug: ""
+href: https://example.com
+tech: photography, VSCO, Lightroom, iPhone 13 Pro Max
+tags: [photo, essay]
 ---
+
+<style>
+  body {
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  metadata {
+    width: 400px;
+    flex-shrink: 0;  /* Prevents metadata from shrinking */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid black;
+  }
+
+  metadata table {
+    width: 100%;
+    border-spacing: 0;
+    table-layout: fixed;
+  }
+
+  metadata th {
+    text-align: left;
+    padding-right: 10px;
+    width: 30%;
+    vertical-align: top;
+  }
+
+  metadata td {
+    width: 70%;
+    word-wrap: break-word;
+  }
+
+  data {
+    flex: 1;  /* Takes up remaining space */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+  }
+</style>
 
 {% assign finished_sec = page.started  | date: '%s' %}
 {% assign started_sec  = page.finished | date: '%s' %}
 {% assign seconds_diff = started_sec | minus: finished_sec %}
 {% assign days_diff = seconds_diff | divided_by: 86400 %}
 
-<h1><a href="{% link _chantiers/2024/lobby/index.md %}">←</a> {{ page.title }}</h1>
+<metadata>
+<h1><a href="{% link _chantiers/2024/lobby.md %}">←</a> {{ page.title }}</h1>
+<table>
+  <tr>
+          {% if page.featured %}
+          <tr>
+            <th>featured</th>
+            <td>✭</td>
+          </tr>
+          {% endif %}
+            <th>started</th>
+            <td>{{ page.started }}</td>
+          </tr>
+          {% if page.finished %}
+          <tr>
+            <th>finished</th>
+            <td>{{ page.finished }} ({{ days_diff }})</td>
+          </tr>
+          {% endif %}
+          {% if page.archived %}
+          <tr>
+            <th>archived</th>
+            <td>{{ page.archived }}</td>
+          </tr>
+          {% endif %}
+          {% if page.location %}
+          <tr>
+            <th>location</th>
+            <td>{{ page.location }}</td>
+          </tr>
+          {% endif %}
+          {% if page.tech %}
+          <tr>
+            <th>tech</th>
+            <td>{{ page.tech }}</td>
+          </tr>
+          {% endif %}
+    
+    {% if page.tags %}
+    <tr>
+      <th>tags</th>
+      <td>{{ page.tags | join: ", "}}</td> <!--- TODO: voir category -->
+    </tr>
+    {% endif %}
+    {% if page.href %}
+          <tr>
+            <th>href</th>
+            <td><a href="{{ page.href }}" >{{ page.title }} ➟</a></td>
+          </tr>
+          {% endif %}
+    {% if page.description %}
+    <tr>
+      <th>description</th>
+      <td>{{ page.description }}</td>
+    </tr>
+    {% endif %}
 
-<ul>
-  <li>Started: {{ page.started }}</li>
-  {% if page.finished %}<li>Finished: {{ page.finished }} (duration: {{ days_diff }} days){% endif %}</li>
-  <li>Location: {{ page.location }}</li>
-</ul>
 
+        </table>
+</metadata>
+
+<data>
 {{ content }}
+</data>

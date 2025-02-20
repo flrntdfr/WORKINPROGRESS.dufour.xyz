@@ -1,7 +1,7 @@
 ---
 layout: chantier
-title: Le bruit des perles \#110
-type: covert art
+title: Le bruit des perles 110
+tags: photo
 started: 2019-08-16 13:35
 finished: 2019-10-09 00:00
 modified: 2024-08-16
