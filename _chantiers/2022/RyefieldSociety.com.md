@@ -14,4 +14,4 @@ description: |
     Made with jekyll
 ---
 
-iframe qui est un snapshot de la landing page: cliquer = ouvrir
+{% include iframe.html content="https://RyefieldSociety.com" %}

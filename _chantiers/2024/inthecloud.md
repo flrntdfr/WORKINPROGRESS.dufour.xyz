@@ -5,12 +5,9 @@ started: 2024-08-08 02:00
 modified: 
 archived:
 featured: true
+tags: start-up
 href: https://inthecloud.today
-type:
-    - web
-    - self-hosted
 location: München
-slug: today
 ---
 
-Include iframe.
+{% include iframe.html content="https://inthecloud.today" %}

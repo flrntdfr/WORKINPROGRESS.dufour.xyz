@@ -5,8 +5,10 @@ started: 2017-07-01 03:00
 finished:
 modified: 2024-08-10
 featured: true
-tags: short film
+tags: shortfilm
 location: Freiburg, Germany
+description: |
+    LA NUIT est notre premier court métrage.
 ---
 
-Description
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VTiOGRI1tf4?si=qo2o-80FuVxU7Pts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

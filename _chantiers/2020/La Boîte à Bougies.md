@@ -5,7 +5,7 @@ started: 2020-12-13 20:55:37
 finished: 2023-04-02 08:54:23
 modified: 2024-08-16 13:55:01
 featured: false
-location: München
+location: München, Reykjavik
 tags: podcast
 ---
 
@@ -14,4 +14,4 @@ Start the podcast with my Friend Heloise
 
 ---
 
-https://podcast.dufour.xyz
+{% include iframe.html content="https://podcast.dufour.xyz/la-boite-a-bougies" %}
