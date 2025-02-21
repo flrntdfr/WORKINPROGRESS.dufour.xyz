@@ -6,7 +6,9 @@ modified:
 archived:
 featured: true
 tags: start-up
-href: https://inthecloud.today
+href:
+    label: inthecloud.today
+    url: https://inthecloud.today
 location: München
 ---
 

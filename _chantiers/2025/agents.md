@@ -7,6 +7,9 @@ finished:
 modified: 
 featured: false
 location: Munich
+tags: essay
+description: |
+    Description goes here.
 ---
 
 # aa_inbox

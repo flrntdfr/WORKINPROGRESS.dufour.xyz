@@ -1,0 +1,35 @@
+---
+layout: blank
+css:
+  - style.css
+
+# Arguments
+p5js: "1.4.2"
+title: title
+started: 2019-03-06 11:04
+finished: 2019-03-06 11:04
+archived: 2019-03-06 11:04
+open_to_public: false
+featured: false
+location: Paris
+href: https://example.com
+tech: photography, VSCO, Lightroom, iPhone 13 Pro Max
+tags: [photo, essay]
+---
+
+{{ content }}
+
+{% assign finished_sec = page.started  | date: '%s' %}
+{% assign started_sec  = page.finished | date: '%s' %}
+{% assign seconds_diff = started_sec | minus: finished_sec %}
+{% assign days_diff = seconds_diff | divided_by: 86400 %}
+
+<tr>
+  <th>finished</th>
+  <td>
+    <span onclick="toggleDaysDiff(this)" style="cursor: default" title="{{ days_diff }} days">
+      {{ page.finished | date: "%d.%m.%Y" }}
+      <span class="days-diff" style="display: none">({{ days_diff }})</span>
+    </span>
+  </td>
+</tr>

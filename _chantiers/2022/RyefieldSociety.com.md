@@ -7,7 +7,9 @@ modified: 2024-08-16
 featured: false
 location: München
 tags: web
-href: https://ryefieldsociety.com
+href:
+    label: ryefieldsociety.com
+    url: https://ryefieldsociety.com
 description: |
     Wesite for the artist RyefieldSociety
     First website to learn flex box

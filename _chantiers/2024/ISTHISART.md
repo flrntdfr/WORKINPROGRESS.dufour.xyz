@@ -5,8 +5,12 @@ type: street art, promotion
 started: 2024-02-14 13:30
 location: Munich
 featured: true
-slug: "&#x3f;"
+tags: performance
+href:
+    label: "@isthisart0x3f"
+    url: https://www.instagram.com/isthisart0x3f/
+description: |
+    This is the description.
 ---
 
-
-iframe of the instagram profile
+![width=100px]({% link _chantiers/2024/assets/ISTHISART.svg %})

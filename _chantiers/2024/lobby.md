@@ -1,14 +1,13 @@
 ---
 layout: chantier-standalone
-title: lobby
+title: lobby (you are here)
 started: 2024-08-04 00:00
-modified:
+finished: 2025-02-20 00:00
 archived:
-type: web
+tags: web
 href: https://workinprogress.dufour.xyz/lobby
-open_to_public: true
-finished: false
 tech: html, css, Jekyll
+permalink: "/"
 ---
 
 # 🏗️ WORKINPROGRESS.dufour.xyz 🚧
@@ -16,16 +15,6 @@ tech: html, css, Jekyll
 Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}. for some time. Others are not anymore. You can learn more on my blog: https://blog.dufour.xyz/lab-project-un-hibernated. Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}. for some time. Others are not anymore. You can learn more on my blog: https://blog.dufour.xyz/lab-project-un-hibernated
 
 <div class="row">
-  <div class="column">
-    <h2>Active construction sites</h2>
-    <ul>
-      {% for chantier in site.chantiers reversed %}
-      {% unless chantier.finished %}
-      <li><strong>{{ chantier.started | date: "%Y" }}</strong> <a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.featured == true %}✭{% endif %} <span style="color: darkgrey; font-weight: 350;">{{ chantier.tags | join: ", " }} </span> </li>
-      {% endunless %}
-      {% endfor %}
-    </ul>
-  </div>
   <div class="column">
     <h2>Finished construction sites</h2>
     <ul>
@@ -36,9 +25,19 @@ Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}.
       {% endfor %}
     </ul>
   </div>
+  <div class="column">
+    <h2>Active construction sites</h2>
+    <ul>
+      {% for chantier in site.chantiers reversed %}
+      {% unless chantier.finished %}
+      <li><strong>{{ chantier.started | date: "%Y" }}</strong> <a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.featured == true %}✭{% endif %} <span style="color: darkgrey; font-weight: 350;">{{ chantier.tags | join: ", " }} </span> </li>
+      {% endunless %}
+      {% endfor %}
+    </ul>
+  </div>
 </div>
 
-Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}. for some time. Others are not anymore. You can Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}. for some time. Others are not anymore. You can learn more on my blog: https://blog.dufour.xyz/lab-project-un-hibernated 🚧
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 <style>
 .banner {
@@ -47,11 +46,8 @@ Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}.
   left: 0;
   width: 100%;
   background-color:#fdf52b;
-  padding: 10px 0;
   overflow: hidden;
   white-space: nowrap;
-  padding: 0;
-  margin: 0;
 }
 
 .banner p {
@@ -71,6 +67,8 @@ Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}.
   }
 }
 </style>
+
+<br><br><br>
 
 <div class="banner">
   <p>Update {{ "now" | date: "%m/%Y" }}: A new feature has been added to enhance user experience. Bug fixes and performance improvements have also been made. Stay tuned for more updates!</p>

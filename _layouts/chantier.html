@@ -1,5 +1,5 @@
 ---
-layout: blank
+layout: chantier-base
 css:
   - style.css
 
@@ -16,6 +16,7 @@ href: https://example.com
 tech: photography, VSCO, Lightroom, iPhone 13 Pro Max
 tags: [photo, essay]
 ---
+
 
 <style>
   body {
@@ -37,18 +38,19 @@ tags: [photo, essay]
   metadata table {
     width: 100%;
     border-spacing: 0;
-    table-layout: fixed;
+    table-layout: auto;  /* Changed from fixed to auto */
   }
 
   metadata th {
-    text-align: left;
+    text-align: right;
     padding-right: 10px;
-    width: 30%;
+    width: 1%;  /* This makes the th column as small as possible */
+    white-space: nowrap;  /* Prevents th text from wrapping */
     vertical-align: top;
   }
 
   metadata td {
-    width: 70%;
+    width: 99%;  /* This forces td to take most of the space */
     word-wrap: break-word;
   }
 
@@ -57,17 +59,16 @@ tags: [photo, essay]
     padding: 20px;
     display: flex;
     flex-direction: column;
-
   }
 </style>
 
 {% assign finished_sec = page.started  | date: '%s' %}
 {% assign started_sec  = page.finished | date: '%s' %}
 {% assign seconds_diff = started_sec | minus: finished_sec %}
-{% assign days_diff = seconds_diff | divided_by: 86400 %}
+{% assign days_diff = seconds_diff | divided_by: 86400 | plus: 1 %}
 
 <metadata>
-<h1><a href="{% link _chantiers/2024/lobby.md %}">←</a> {{ page.title }}</h1>
+<h1 style="word-wrap: break-word;"><a href="{% link _chantiers/2024/lobby.md %}">←</a> {{ page.title }}</h1>
 <table>
   <tr>
           {% if page.featured %}
@@ -76,13 +77,19 @@ tags: [photo, essay]
             <td>✭</td>
           </tr>
           {% endif %}
+          <tr>
             <th>started</th>
-            <td>{{ page.started }}</td>
+            <td><span  title="{{ page.started }}">{{ page.started | date: "%d.%m.%Y" }}</span></td>            
           </tr>
           {% if page.finished %}
           <tr>
             <th>finished</th>
-            <td>{{ page.finished }} ({{ days_diff }})</td>
+            <td>
+              <span onclick="toggleDaysDiff(this)" style="cursor: default" title="{{ page.finished }}">
+                {{ page.finished | date: "%d.%m.%Y" }}
+                <span class="days-diff" style="display: none">({{ days_diff }})</span>
+              </span>
+            </td>
           </tr>
           {% endif %}
           {% if page.archived %}
@@ -113,7 +120,7 @@ tags: [photo, essay]
     {% if page.href %}
           <tr>
             <th>href</th>
-            <td><a href="{{ page.href }}" >{{ page.title }} ➟</a></td>
+            <td><a href="{{ page.href.url}}"" >{{ page.href.label }} ➟</a></td>
           </tr>
           {% endif %}
     {% if page.description %}
@@ -130,3 +137,10 @@ tags: [photo, essay]
 <data>
 {{ content }}
 </data>
+
+<script>
+  function toggleDaysDiff(element) {
+    const daysDiffSpan = element.querySelector('.days-diff');
+    daysDiffSpan.style.display = daysDiffSpan.style.display === 'none' ? 'inline' : 'none';
+  }
+</script>

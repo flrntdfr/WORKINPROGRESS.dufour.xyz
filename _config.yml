@@ -1,5 +1,5 @@
 # Website
-title: Florent Dufour
+title: WORKINPROGRESS
 owner: Florent Dufour
 email: florent@dufour.xyz
 description: >-
@@ -14,15 +14,22 @@ keywords: "florent, dufour, wip, chantiers, projects"
 theme-color: "#fdf52b"
 theme-color-dark: "#333"
 
+# Plugins
+gems:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
 collections:
   chantiers:
     output: true
     permalink: "/:path.html"
 
-# Plugins
-gems:
-  - jekyll-sitemap
-  - jekyll-seo-tag
+# https://github.com/jekyll/jekyll-feed
+feed:
+  collections:
+    chantiers:
+      path: "/rss"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

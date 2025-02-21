@@ -2,10 +2,22 @@
 layout: chantier
 title: AskGPT
 started: 2024-08-04 00:00
-modified: 
+modified: 2025-02-21 10:48:27 
 archived:
-type: web
-slug: ""
+tags: web LLM
+tech: Javascript, GPT2
+featured: true
+description: |
+    A take on what an aligned LLM is
+
+    OpenAI introduced search, and theimportance of citations.
+---
+
+```sh
+>>> ▎
+
+```
+
 ---
 
 - Can I water my plants with sparkling water?

@@ -5,18 +5,10 @@ started: 2024-08-04 19:06
 finished: 2024-08-05 19:07
 modified: 2024-08-04 19:07
 tags: web
-href: http://localhost:4000
+tech: html
+href:
+    label: localhost:4000
+    url: http://localhost:4000
 description: |
-    This construction site is reserved for testing purposes.
+    This construction site is intended for testing purposes only.
 ---
-
-<button onclick="showTested()">test</button>
-<p id="tested-label" style="display: none;">tested</p>
-
-<script>
-function showTested() {
-    document.getElementById("tested-label").style.display = "block";
-}
-</script>
-
-

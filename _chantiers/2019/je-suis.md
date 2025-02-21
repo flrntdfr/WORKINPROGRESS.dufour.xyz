@@ -1,11 +1,10 @@
 ---
 layout: chantier
 title: Je suis
-type:
-    - list
-    - stable diffusion
 started: 2019-03-06 11:09
-ended: 
+finished:  
+tags: drawing performace
+tech: stable-diffusion
 ---
 
 Je suis

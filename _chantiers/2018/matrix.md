@@ -5,7 +5,8 @@ finished: 2017-04-13 00:00
 modified: 2024-08-09
 title: matrix
 featured: false
-tags: generative
+tags: web
+tech: p5.js
 ---
 
 Hello

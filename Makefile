@@ -8,7 +8,7 @@ JEKYLL         := docker run --rm --volume="$$PWD:/srv/jekyll" -p $(JEKYLL_PORT)
 build: ## Build the website locally
 	$(JEKYLL) $@
 serve: ## Build and serve the website locally
-	$(JEKYLL) $@ --trace 
+	$(JEKYLL) $@ --trace --livereload
 clean: ## Clean caches
 	$(JEKYLL) $@
 nuke:  ## Nuke caches and temp files 
