@@ -9,12 +9,14 @@ featured: false
 location: Munich
 tags: essay
 description: |
-    Description goes here.
+    With the developments in the field of agents and the rumours surrounding the filed, I deiced to evaluate what I reasonably want them to do, and lay down a benchmark for 2025, see wehere we go
 ---
 
-# aa_inbox
+# Introduction
 
-- https://huyenchip.com//2025/01/07/agents.html
+## aa_inbox
+
+uyenchip.com//2025/01/07/agents.html
 - https://www.macworld.com/article/2605386
 - Notify me trains to Portugal are back
 

@@ -10,5 +10,5 @@ href:
     label: "@flrnt.dfr"
     url: https://www.instagram.com/flrnt.dfr
 description: |
-    Pourquoi j'ao crée un compte. Importabce de la msuique a redonné envie
+    Pourquoi j'ao crée un compte. Importabce de la msuique a redonné envie. Importance de tout prendre en photo avec le poirtable. C'est quoi l'esprit Instagram que j'essaye d'incarner?
 ---

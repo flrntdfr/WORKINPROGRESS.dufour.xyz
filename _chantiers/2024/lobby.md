@@ -39,6 +39,8 @@ Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}.
 
 This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
+For inquiries, please get in touch: contact@dufour.xyz, biz@dufour.xyz.
+
 <style>
 .banner {
   position: fixed;
