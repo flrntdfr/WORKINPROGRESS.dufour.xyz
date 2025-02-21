@@ -3,7 +3,7 @@ layout: chantier
 title: Instagram
 started: 2018-01-12 12:00
 finished: 
-tech: iPhone SE, iPhone 13 Pro Max, VSCO, Lighroom
+tech: iPhone SE, iPhone 13 Pro Max, VSCO, Lightroom
 tags: [photo]
 featured: true
 href:

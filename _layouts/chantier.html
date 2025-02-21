@@ -39,6 +39,7 @@ tags: [photo, essay]
     width: 100%;
     border-spacing: 0;
     table-layout: auto;  /* Changed from fixed to auto */
+    margin-bottom: 1em;
   }
 
   metadata th {
@@ -79,7 +80,7 @@ tags: [photo, essay]
           {% endif %}
           <tr>
             <th>started</th>
-            <td><span  title="{{ page.started }}">{{ page.started | date: "%d.%m.%Y" }}</span></td>            
+            <td><span  title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span></td>            
           </tr>
           {% if page.finished %}
           <tr>
@@ -123,15 +124,10 @@ tags: [photo, essay]
             <td><a href="{{ page.href.url}}"" >{{ page.href.label }} ➟</a></td>
           </tr>
           {% endif %}
-    {% if page.description %}
-    <tr>
-      <th>description</th>
-      <td>{{ page.description }}</td>
-    </tr>
-    {% endif %}
-
-
         </table>
+      {% if page.description %}
+      {{ page.description }}
+      {% endif %}
 </metadata>
 
 <data>

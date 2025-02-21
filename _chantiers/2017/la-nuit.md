@@ -1,10 +1,9 @@
 ---
 layout: chantier
 title: LA NUIT
-started: 2017-07-01 03:00
-finished:
+started: 2017-06-01 13:00
+finished: 2017-07-01 03:00
 modified: 2024-08-10
-featured: true
 tags: shortfilm
 location: Freiburg, Germany
 description: |
