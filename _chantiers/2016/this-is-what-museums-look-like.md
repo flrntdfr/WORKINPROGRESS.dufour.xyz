@@ -5,7 +5,7 @@ started: 2016-01-01 00:00
 finished: 
 modified: 2024-08-04 19:37
 featured: true
-tags: [drawing, list]
+tags: list illustration
 location: Belleville
 description: |
     These museums are ephemeral and fragile constructions exhibiting a unique and inexpressible feature such as a memory or emotion. When using words fails, silently visiting a museum usually succeeds in conveying something. There is often a museum for the lack of better words. A museum can host other museums and multiple museums can assemble in a composite, more complex, installation of museums. Museums are not limited in size and occur where the laws of physics are mostly irrelevant.

@@ -1,0 +1,15 @@
+---
+layout: chantier
+title: SOTA
+started: 2025-01-01 14:25
+tags: music
+parent: EC*
+href:
+    label: Apple Music
+    url: https://music.apple.com/fr/playlist/ec1995/pl.u-RRbVyD2IygoeWG?l=en
+description: |
+    SOA is an attempt to map state of the art music produced by my generation.  SOTA 1. sûr insta on poste le SOTA en note de profile 2. On les collecte dans EC1995 3. Des mixtapes sur du4://BELLEVILLE. Contracted under: EC*. this is what I think my generation sounds like.
+---
+
+
+<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="100%" style="width:100%;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/fr/playlist/ec1995/pl.u-RRbVyD2IygoeWG?l=en"></iframe>

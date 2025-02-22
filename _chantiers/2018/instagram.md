@@ -11,4 +11,6 @@ href:
     url: https://www.instagram.com/flrnt.dfr
 description: |
     Pourquoi j'ao crée un compte. Importabce de la msuique a redonné envie. Importance de tout prendre en photo avec le poirtable. C'est quoi l'esprit Instagram que j'essaye d'incarner?
+    <br>
+    I use highlights to also showcase pictures of my daily life.
 ---

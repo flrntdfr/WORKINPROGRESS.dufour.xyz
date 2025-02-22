@@ -10,9 +10,11 @@ href:
     url: https://youtu.be/9M4W0oZhYMw
 tags: shortfilm
 description: |
-    Découvrez l'histoire invraisemblable d'un vélo ordinaire.
+    <Découvrez l'histoire invraisemblable d'un vélo ordinaire.
     <br><br>
-    Prix: Lyon Young Film Festival, Selection Officielle 2018 & Alsacomédie 2028.
+    Prix:
+    <li>Selection Officielle 2018 Lyon Young Film Festival</li>
+    <li>Selection Alsacomédie 2018</li>
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9M4W0oZhYMw?si=l6q2eJXF1fL8PRiV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

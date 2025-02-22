@@ -2,15 +2,14 @@
 layout: chantier
 p5js: "1.4.2"
 title: Cairo
-tags: generative
+tags: illustration
 started: 2018-07-01
 finished: 2018-11-02
 modified: 2024-10-16
 location: Strasbourg
-slug: open
 ---
 
-This is a series of experimentation with 2D vectorial drawings and bezier lines.
+This is a series of experimentation with 2D vectorial images and bezier lines.
 Cairo was meant as an introduction before starting experimenting with post script.
 Mettre les vidéos
 

@@ -5,6 +5,7 @@ started: 2017-06-01 13:00
 finished: 2017-07-01 03:00
 modified: 2024-08-10
 tags: shortfilm
+tech: Final Cut Pro X, Color Finale
 location: Freiburg, Germany
 description: |
     LA NUIT est notre premier court métrage.

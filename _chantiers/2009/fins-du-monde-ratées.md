@@ -8,12 +8,8 @@ location: Belleville
 featured: false
 tags: [list]
 tech: Microsoft Excel
----
-
-- Orginally wrtitten in excel macro, this is a javascript re write
-- Steps from that I didn’t know I already survived end of the world in 2012. (That would have made it less scary.)
-- Caveat: Project archived in 2020, no more events are logged since then
-
+description: |
+    Orginally wrtitten in excel macro, this is a javascript re write Steps from that I didn’t know I already survived end of the world in 2012. (That would have made it less scary.) Caveat: Project archived in 2020, no more events are logged since then
 ---
 
 Your date of birth: 01 / 01 / 1995

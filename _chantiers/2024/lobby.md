@@ -73,5 +73,5 @@ For inquiries, please get in touch: contact@dufour.xyz, biz@dufour.xyz.
 <br><br><br>
 
 <div class="banner">
-  <p>Update {{ "now" | date: "%m/%Y" }}: A new feature has been added to enhance user experience. Bug fixes and performance improvements have also been made. Stay tuned for more updates!</p>
+  <p>Update {{ "now" | date: "%m.%Y" }}: A new feature has been added to enhance user experience. Bug fixes and performance improvements have also been made. Stay tuned for more updates!</p>
 </div>
