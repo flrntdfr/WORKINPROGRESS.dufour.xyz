@@ -6,9 +6,7 @@ started: 2024-02-14 13:30
 location: Munich
 featured: true
 tags: performance
-href:
-    label: "@isthisart0x3f"
-    url: https://www.instagram.com/isthisart0x3f/
+tech: stickers, UV treated vinyl
 description: |
     This is the description.
 ---

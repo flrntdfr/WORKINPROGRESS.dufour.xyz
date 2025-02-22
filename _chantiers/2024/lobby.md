@@ -50,7 +50,7 @@ Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}.
     </div>
 
     <div style="flex: 1; margin-left: 3%; max-width: 600px;">
-      <h2>Active projects</h2>
+      <h2>Ongoing projects</h2>
       <div style="flex: 1;">
         <table>
           <thead>
@@ -86,7 +86,9 @@ Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}.
 
 This project is published (and hosted) [on GitHub](https://github.com/flrnt.dfr/WORKINPROGRESS.dufour.xyz) and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-For inquiries, please get in touch: florent@dufour.xyz, biz@dufour.xyz.
+Infos: [info@dufour.xyz](mailto:info@dufour.xyz)
+<br>
+Business: [biz@dufour.xyz](mail:biz@dufour.xyz)
 
 <style>
 

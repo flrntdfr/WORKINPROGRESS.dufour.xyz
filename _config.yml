@@ -12,7 +12,7 @@ encoding: utf-8
 timezone: Europe/Paris
 keywords: "florent, dufour, wip, chantiers, projects"
 theme-color: "#fdf52b"
-theme-color-dark: "#333"
+theme-color-dark: "#fdf52b"
 
 # Plugins
 gems:

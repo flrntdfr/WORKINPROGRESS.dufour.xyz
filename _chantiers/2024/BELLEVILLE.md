@@ -1,10 +1,10 @@
 ---
 layout: chantier
-title: BELLEVILLE
+title: BELLEVILLE records
 started: 2024-01-01
 finished: 
-location: Berlin
-tags: music DJ
+location: Munich
+tags: music
 href:
     label: soundcloud
     url: 

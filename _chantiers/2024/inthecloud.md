@@ -10,6 +10,8 @@ href:
     label: inthecloud.today
     url: https://inthecloud.today
 location: München
+description: |
+    inthecloud.today operates DNS, domain names, cloud instances, SMTP servers etc
 ---
 
 {% include iframe.html content="https://inthecloud.today" %}
