@@ -6,6 +6,9 @@ started: 2020-09-01 09:00
 #finished: 2027-11-30 17:00
 tags: research
 tech: OpenStack, Quobyte, AMD-SEV/SNP, Nvidia H100, Hiwi
+href:
+    label: digimed-bayern.de
+    url: https://www.digimed-bayern.de/en.html
 description: |
     The DigiMed secure Cloud is one artifcat of the 27Mio€ project by Bavaria. Confidential. Beginning nothing
     Now IaaS 
@@ -21,11 +24,12 @@ description: |
 
 # Milestones
 
-- 2025: _DFG (pending) (hope not gets crossed)_
-- 2024: DigiMed 2.0 we apply for more money and get granted §Mio and WP 6 continues.
-- 2024: TRE becomes its own team and becomes the trustworthy AI branch of BDAI with biomedical usecases
-- 2021: Hardware is in place
-- 2018: DigiMed  — prior — 24Mio€ [Press release]()
+- 03.2025: _DFG (pending) (hope not gets crossed)_
+- 12.2024: DigiMed 2.0 we apply for more money and get granted §Mio and WP 6 continues.
+- 11.2024: BayLfD
+- 11.2024: TRE becomes its own team and becomes the trustworthy AI branch of BDAI with biomedical usecases
+- 11.2021: Hardware is in place
+- 10.2018: DigiMed  — prior — 24Mio€ [Press release]()
 
 # Contributions
 

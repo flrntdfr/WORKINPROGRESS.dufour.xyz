@@ -39,7 +39,7 @@ Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}.
                     {% if chantier.started %}
                     <tr>
                     <td><b>{{ label_year }}</b></td>
-                    <td><a href="{{ chantier.url }}">{{ chantier.title }}</a><span style="color: darkgrey; font-weight: 350;"> {{ chantier.tags | join: ", " }}</span></td>
+                    <td><a href="{{ chantier.url }}">{{ chantier.title }}</a>{% if chantier.featured %}	✭ {% endif %}<span style="color: darkgrey; font-weight: 350;"> {{ chantier.tags | join: ", " }}</span></td>
                     </tr>
                     {% endif %}
                 {% endif %}
@@ -72,7 +72,7 @@ Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}.
                     {% if chantier.started %}
                     <tr>
                     <td><b>{{ label_year }}</b></td>
-                    <td><a href="{{ chantier.url }}">{{ chantier.title }}</a><span style="color: darkgrey; font-weight: 350;"> {{ chantier.tags | join: ", " }}</span></td>
+                    <td><a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.featured %}	✭ {% endif %} <span style="color: darkgrey; font-weight: 350;"> {{ chantier.tags | join: ", " }}</span></td>
                     </tr>
                     {% endif %}
                 {% endunless %}

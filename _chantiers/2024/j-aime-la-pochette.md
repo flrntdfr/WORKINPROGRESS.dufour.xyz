@@ -3,7 +3,6 @@ layout: chantier
 title: J'aime la pochette
 tags: list
 started: 2024-04-16 20:12
-featured: true
 href:
     label: Apple Music
     url: https://embed.music.apple.com/fr/playlist/jaime-la-pochette

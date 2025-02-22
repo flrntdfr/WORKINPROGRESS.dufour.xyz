@@ -4,8 +4,7 @@ title: IS THIS ART?
 type: street art, promotion
 started: 2024-02-14 13:30
 location: Munich
-featured: true
-tags: performance
+tags: promotion performance
 tech: stickers, UV treated vinyl
 description: |
     This is the description.
