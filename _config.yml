@@ -24,6 +24,8 @@ collections:
   chantiers:
     output: true
     permalink: "/:path.html"
+  x:
+    output: true
 
 # https://github.com/jekyll/jekyll-feed
 feed:

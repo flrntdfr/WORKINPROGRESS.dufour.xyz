@@ -14,34 +14,91 @@ permalink: "/"
 
 Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}. for some time. Others are not anymore. You can learn more on my blog: https://blog.dufour.xyz/lab-project-un-hibernated. Welcome. This over here have been in progress as of {{ "now" | date: "%m/%Y" }}. for some time. Others are not anymore. You can learn more on my blog: https://blog.dufour.xyz/lab-project-un-hibernated
 
-<div class="row">
-  <div class="column">
-    <h2>Finished construction sites</h2>
-    <ul>
-      {% for chantier in site.chantiers reversed %}
-      {% if chantier.finished %}
-      <li><strong>{{ chantier.started | date: "%Y" }}</strong> <a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.featured == true %}✭{% endif %} <span style="color: darkgrey; font-weight: 350;">{{ chantier.tags | join: ", " }} </span></li>
-      {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-  <div class="column">
-    <h2>Active construction sites</h2>
-    <ul>
-      {% for chantier in site.chantiers reversed %}
-      {% unless chantier.finished %}
-      <li><strong>{{ chantier.started | date: "%Y" }}</strong> <a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.featured == true %}✭{% endif %} <span style="color: darkgrey; font-weight: 350;">{{ chantier.tags | join: ", " }} </span> </li>
-      {% endunless %}
-      {% endfor %}
-    </ul>
-  </div>
-</div>
+ 
+  <div style="display: flex; gap: 2rem; flex-wrap: wrap-reverse;">
+    <div style="flex: 1; margin-left: 3%; max-width: 600px;">
+      <h2>Finished projects</h2>
+      <div style="flex: 1;">
+        <table>
+          <thead>
+          </thead>
+          <tbody>
+            {% assign last_year = 0 %}
+            {% assign current_year = 0 %}
+            {% assign label_year = 0 %}
+            {% for chantier in site.chantiers reversed %}
+                {% if chantier.finished %}
+                {% assign current_year = chantier.started | date: "%Y" %}
 
-This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+                {% if current_year != last_year %}
+                    {% assign label_year = current_year %}
+                    {% assign last_year = chantier.started | date: "%Y" %}
+                {% else %}
+                    {% assign label_year = "" %}
+                {% endif %}
+                    {% if chantier.started %}
+                    <tr>
+                    <td><b>{{ label_year }}</b></td>
+                    <td><a href="{{ chantier.url }}">{{ chantier.title }}</a><span style="color: darkgrey; font-weight: 350;"> {{ chantier.tags | join: ", " }}</span></td>
+                    </tr>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-For inquiries, please get in touch: contact@dufour.xyz, biz@dufour.xyz.
+    <div style="flex: 1; margin-left: 3%; max-width: 600px;">
+      <h2>Active projects</h2>
+      <div style="flex: 1;">
+        <table>
+          <thead>
+          </thead>
+          <tbody>
+            {% assign last_year = 0 %}
+            {% assign current_year = 0 %}
+            {% assign label_year = 0 %}
+            {% for chantier in site.chantiers reversed %}
+                {% unless chantier.finished %}
+                {% assign current_year = chantier.started | date: "%Y" %}
+
+                {% if current_year != last_year %}
+                    {% assign label_year = current_year %}
+                    {% assign last_year = chantier.started | date: "%Y" %}
+                {% else %}
+                    {% assign label_year = "" %}
+                {% endif %}
+                    {% if chantier.started %}
+                    <tr>
+                    <td><b>{{ label_year }}</b></td>
+                    <td><a href="{{ chantier.url }}">{{ chantier.title }}</a><span style="color: darkgrey; font-weight: 350;"> {{ chantier.tags | join: ", " }}</span></td>
+                    </tr>
+                    {% endif %}
+                {% endunless %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+This project is published (and hosted) [on GitHub](https://github.com/flrnt.dfr/WORKINPROGRESS.dufour.xyz) and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+For inquiries, please get in touch: florent@dufour.xyz, biz@dufour.xyz.
 
 <style>
+
+tr {
+    height: 2em;
+}
+
+td {
+    padding-right: 15px;
+    vertical-align: top;
+}
+    
 .banner {
   position: fixed;
   bottom: 0;
