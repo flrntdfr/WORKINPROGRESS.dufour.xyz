@@ -10,20 +10,9 @@ tech: Apple Music, iTunes, iPod touch 32 GB, eMule.
 started: 2010-09-01 20:00
 modified: 2023-05-27 15:45
 description:
-    300 playlists I maintain in an Attempt at mapping the electronic music I'm listening to, once I have time to look into it. How do I perceive and classify music? It allows me to know what I am listening to Example
-    <br<br>
-    - EC83 (LC 257) Break beat qu'aimerait bien quelqu'une que je connais, dans un style intelligent.
-    - EC3310 Music I think I'll listen to when I am as old as my parents https://music.apple.com/fr/playlist/ec3310/pl.u-ZmblKx1i1P9pGq?l=en
-    - EC303 (DG) peak time acid 
-    - EC_ microélectronique / electronica 
-    - EC1995
-    - ECÅ music released or inspired by the Music for dreams label
-    - ECA great openener
-    - ECBlip layering component 
-    - ECÈve devrait être coupée 
-    - ECCSD - CSD in Munich
+    EC* is perhaps my most ambition project. I am curating more that 300 playlists I maintain in an Attempt at mapping the electronic music I like.
     <br><br>
-    27.05.2023 Museum für Kunst und Gewerbe Hamburg&#x3a; Revoir exhib Hambourg cartes de kohonen, ça a l'air cool, et c'est pas d'hier, ça a l'air solide.
+    It is a mean for me to navigate what I am listening to.
 
 ---
 

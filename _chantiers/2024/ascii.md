@@ -1,21 +1,28 @@
 ---
 layout: chantier
-title: ascii art
+title: ASCII I use
 started: 2022-09-12 21:32
 finished: 2024-01-12 21:00
 tags: list
-tech: ¯\_(ツ)_/¯, MonoDraw
-description: Ascii Art I like
+tech: ¯\_(ツ)_/¯
+description: Ascii I like and have saved as snippets for when I text.
 ---
 
 ```txt
-# Table flipping
+
 
 ʕノ•ᴥ•ʔノ ︵ ┻━┻
 
 (ノ^_^)ノ┻━┻ ┬─┬ ノ( ^_^ノ)
 
 (@.@)
+
+
+---------
+
+
+┻━┻︵ヽ(`Д´)ﾉ︵ ┻━┻
+
 
 
 ```
