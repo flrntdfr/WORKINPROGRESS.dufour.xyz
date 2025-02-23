@@ -1,8 +1,8 @@
 .DS_Store
 .vscode
 
+*.draft*
 
 .jekyll-cache
 _site
-Gemfile.lock
 .bundle

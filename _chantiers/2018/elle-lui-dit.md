@@ -4,12 +4,13 @@ title: Elle lui dit
 started: 2018-02-05 12:29
 finished: 2018-08-06 14:45
 tech: iPhone SE, VSCO, Instagram
+location: Strasbourg, Paris, София, Reykjavik
 href:
     label: "@flrnt.dfr"
     url: "https://instagram.com/flrnt.dfr"
 tags: photo
 description: |
-    Avec "Elle lui dit", j'ai voulu d'explorer les différentes formes de masculinité autour de moi. Dans cette photo de photo, Project aiming at noticing forms of masculinity around me Pictures edited with VSCO or Lightroom 4. Captions were redacted from the pictures "Elle lui dit",, what could she possibly say. I show what I observed as masculiity around me. Do they (girls) notice the same? Qu'est ce que je remarque? Est-ce que je remarque des choses attraction ou aversion? Notice in the square format of Instagram.
+    Avec "Elle lui dit", j'ai voulu d'explorer les différentes formes de masculinité autour de moi. Dans cette photo de photo, Project aiming at noticing forms of masculinity around me Pictures edited with VSCO or Lightroom 4. Captions were redacted from the pictures "Elle lui dit",, what could she possibly say. I show what I observed as masculiity around me. Do they (girls) notice the same? Qu'est ce que je remarque? Est-ce que je remarque des choses attraction ou aversion? Notice in the square format of Instagram. Au cours de mes voyages en 2018
     <br><br>
     <i>Elle lui dit qu'avec lui c'est différent, special, intemporel.</i>
 ---

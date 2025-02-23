@@ -1,10 +1,11 @@
 ---
-layout: chantier
+layout: chantier-essay
 title: (Post-) modernism in Munich
 started: 2024-01-01
 finished: 
 location: Munich
 tags: essay photo
+author: Florent Dufour
 ---
 
 Munich was christiened an international city in 1972. Its auto motor insdustry has been ... since the war. Strong economy.

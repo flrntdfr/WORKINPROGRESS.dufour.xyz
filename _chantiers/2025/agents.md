@@ -1,10 +1,10 @@
 ---
-layout: chantier
+layout: chantier-essay
 title: Workflow benchmark for Agents
-type: challenge
 started: 2025-02-20 20:26
 finished: 
 modified: 
+author: Florent Dufour
 featured: false
 location: Munich
 tags: essay

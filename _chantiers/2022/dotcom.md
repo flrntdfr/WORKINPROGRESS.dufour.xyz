@@ -28,5 +28,6 @@ description: |
 - omg.lol
 - sci-hub.se
 - Wiki leaks
+- mac.com
 
 Updated 02.2025.

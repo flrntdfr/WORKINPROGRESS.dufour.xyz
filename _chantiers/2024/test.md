@@ -10,5 +10,5 @@ href:
     label: localhost:4000
     url: http://localhost:4000
 description: |
-    This construction site is intended for testing purposes only.
+    This project is intended for testing purposes only.
 ---
