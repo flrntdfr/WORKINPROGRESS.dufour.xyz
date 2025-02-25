@@ -4,7 +4,7 @@ title: Il était un vélo
 started: 2019-01-01 00:00
 finished: 2019-04-12 00:00
 featured: false
-location: Belfort, FR
+location: Belfort
 href:
     label: Youtube
     url: https://youtu.be/9M4W0oZhYMw

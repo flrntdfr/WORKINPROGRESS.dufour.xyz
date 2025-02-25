@@ -3,10 +3,8 @@ layout: chantier
 title: AskGPT
 started: 2024-08-04 00:00
 modified: 2025-02-21 10:48:27 
-archived:
 tags: web LLM
 tech: Javascript, GPT2
-featured: true
 description: |
     A take on what an aligned LLM is
 
@@ -19,6 +17,8 @@ description: |
 ```
 
 ---
+
+<!--
 
 - Can I water my plants with sparkling water?
 - Can I trust a country that has red on its flag?
@@ -43,3 +43,5 @@ description: |
 - Why does time exist?
 - Why do babies suck their thumb even before being born 
 - Does any air company have “Lost” on their entairtainement system?
+
+-->

@@ -5,9 +5,6 @@ started: 2018-03-01 09:00
 finished:  2018-09-01 17:00
 tags: research
 tech: java, mass-spectrometry
-href:
-  label: GitHub
-  rul: 
 description: |
   What was the project digital polymers, MS-Decoder etc.
   MS-Decoder Research Explain digital polymer Reference papers

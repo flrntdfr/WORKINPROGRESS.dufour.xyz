@@ -1,8 +1,10 @@
 ---
 layout: chantier
 title: Ph.D.
-started: 2022-004-01
+featured: true
+started: 2022-04-01 09:00
 finished: 
+author: Dr. Florent Dufour
 tech: 
 tags: research
 description: |

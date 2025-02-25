@@ -4,7 +4,7 @@ title: EC*
 tags: list music
 featured: true
 href:
-    label: Apple Music
+    label: "@flrntdfr"
     url: https://music.apple.com/profile/flrntdfr
 tech: Apple Music, iTunes, iPod touch 32 GB, eMule.
 started: 2010-09-01 20:00
