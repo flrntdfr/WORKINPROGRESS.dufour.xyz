@@ -36,8 +36,8 @@
     {% endfor %}
 {% endif %}
 
-{% if page.p5js %}
-    <link rel="stylesheet" href="/assets/lib/p5js/v{{ page.p5js }}/p5.js" type="text/css" />
+{% if page.lib %}
+    <script type="text/javascript" src="/assets/lib/{{ page.lib }}"></script>
 {% endif %}
 
 
