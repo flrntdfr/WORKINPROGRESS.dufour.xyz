@@ -4,6 +4,8 @@ title: First date cards
 started: 2022-05-15 23:48
 finished: 2025-01-19 19:45
 tags: list
+description: |
+  Is a collection on 60 questions
 ---
 
 <style>
@@ -148,7 +150,7 @@ tags: list
   <li>Are you afraid to die?</li>
   <li>What do you blame yourself for?</li>
   <li>What have you promised in you life?</li>
-  <li>Do you think that you know everything that is necessary to know?</li>
+  <li>How much of what's necessary to know do you know?</li>
   <li>What are your core values?</li>
   <li>What do you want? Right now?</li>
   <li>How do you usually decide if you like something or not?</li>

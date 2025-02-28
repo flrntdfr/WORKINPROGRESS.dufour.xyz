@@ -6,7 +6,7 @@ started: 2020-09-01 09:00
 #finished: 2027-11-30 17:00
 tags: research
 location: Leibniz Supercomputing Centre
-tech: OpenStack, Quobyte, AMD-SEV/SNP, Nvidia H100, Hiwi
+tech: OpenStack, Quobyte, AMD-SEV/SNP, Nvidia H100
 href:
     label: digimed-bayern.de
     url: https://www.digimed-bayern.de/en.html
