@@ -31,7 +31,8 @@ description: |
 | **12.2024** | DigiMed 2.0 we apply for more money and get granted §Mio and WP 6 continues. |
 | **11.2024** | BayLfD |
 | **11.2024** | TRE becomes its own team and becomes the trustworthy AI branch of BDAI with biomedical usecases |
-| **11.2021** | First petabyte of storage is online |
+| **01.2022** | First user training |
+| **11.2020** | First petabyte of storage is online |
 | **10.2018** | (prior) DigiMed  — prior — 24Mio€ [Press release]() |
 
 # Contributions
@@ -42,7 +43,7 @@ description: |
 1. _HerzFit Paper_
 
 ## Talks
-1. F. Dufour, “Towards the Medicine of the Future in Bavaria and Germany, One Heartbeat at the Time With Confidential Computing,” in Open Confidential Computing Conference (OC3), Online, 2023. [WIP/OC3 →]({% link _x/2023/oc3/index.md %})
+1. F. Dufour, “Towards the Medicine of the Future in Bavaria and Germany, One Heartbeat at the Time With Confidential Computing,” in Open Confidential Computing Conference (OC3), Online, 2023. [WIP/OC3 →]({% link x/2023/oc3/index.md %})
 1. Medical valley 2025
 1. OpenInfra 2025
 

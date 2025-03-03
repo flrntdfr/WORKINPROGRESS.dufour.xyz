@@ -1,6 +1,7 @@
 ---
 layout: chantier
 title: test
+hidden: true
 started: 2024-08-04 19:06
 finished: 2024-08-05 19:07
 modified: 2024-08-04 19:07

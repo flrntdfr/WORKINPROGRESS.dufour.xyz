@@ -7,6 +7,9 @@ finished:
 author: Dr. Florent Dufour
 tech: 
 tags: research
+href:
+    label: "AIM Lab"
+    url: https://aim-lab.io
 description: |
     abc
 ---

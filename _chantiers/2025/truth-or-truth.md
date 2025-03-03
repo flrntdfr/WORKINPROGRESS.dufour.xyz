@@ -1,11 +1,11 @@
 ---
 layout: chantier
-title: First date cards
+title: Truth or Truth
 started: 2022-05-15 23:48
 finished: 2025-01-19 19:45
-tags: list
+tags: list game
 description: |
-  Is a collection on 60 questions
+  Is a collection on 60 questions.
 ---
 
 <style>
@@ -147,6 +147,7 @@ description: |
 </style>
 
 <ol class="questions-list">
+  <li>Pick a card</li>
   <li>Are you afraid to die?</li>
   <li>What do you blame yourself for?</li>
   <li>What have you promised in you life?</li>

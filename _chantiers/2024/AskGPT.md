@@ -4,7 +4,7 @@ title: AskGPT
 started: 2024-08-04 00:00
 modified: 2025-02-21 10:48:27 
 tags: web LLM
-tech: Javascript, GPT2
+tech: GPT2
 description: |
     A take on what an aligned LLM is
 

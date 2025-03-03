@@ -21,6 +21,6 @@ In the first part of this talk, we will focus on the Bavarian Cloud for Health R
 
 In the second part of this talk, we will focus on a new axis of research opened by confidential computing in the area of Privacy-Preserving AI. While approaches like Differential Privacy, Secure Multiparty Computation, or Homomorphic Encryption allow parties to collaborate on confidential data, they come at the expense of the model’s utility. We will discuss how TEEs can be repurposed for AI workloads and allow to train models privately, at high velocity, and without reducing the model’s accuracy. The emphasis will be put on computer vision applications with convolutional neural networks, secure inference in TEEs, hardware acceleration with GPUs, and remote attestation of the privacy guarantee.
 
-- Schedule: as [PDF]({% link _x/2023/oc3/schedule.pdf %})
-- Slides: as [PDF]({% link _x/2023/oc3/slides.pdf %})
-- Abstract: as [PDF]({% link _x/2023/oc3/abstract.pdf %})
+- Schedule: as [PDF]({% link x/2023/oc3/schedule.pdf %})
+- Slides: as [PDF]({% link x/2023/oc3/slides.pdf %})
+- Abstract: as [PDF]({% link x/2023/oc3/abstract.pdf %})
