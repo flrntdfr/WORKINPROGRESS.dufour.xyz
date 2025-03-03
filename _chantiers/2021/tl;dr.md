@@ -62,7 +62,7 @@ description: The tl;dr I've learned from people around me.
 	<p>You're not between your ears.</p>
 	<p>Time is not mine to give.</p>
 	<p>Can you imagine if they created the earth sober?</p>
-	<p>And this is how you get nowhere fast.</p>
+	<p>And this is how you get nowhere, fast.</p>
 	<p>It's not a lie, it's self deception.</p>
 	<p>I'll deal with the consequences later.</p>
 	<p>It's never a big deal. Until it is.</p>
@@ -119,6 +119,49 @@ description: The tl;dr I've learned from people around me.
 	<p>Les choses auraient pu être un peu différentes. Ou un peu pareilles.</p>
 	<p>À peter plus haut que ton cul, forcément ça pue.</p>
 	<p>On n'enterre pas un corps tiède.</p>
+	<p>You can not compare pains.</p>
+	<p>Where there is will, there is a way.</p>
+	<p>Allow the situation to become part of you.</p>
+	<p>It doesn't happen to you, it happens for you.</p>
+	<p>You need to stay in the light.</p>
+	<p>Answers will be given.</p>
+	<p>Un oiseau au bord du précipice est serein.</p>
+	<p>Thoughts lead to action.</p>
+	<p>It's time to let go.</p>
+	<p>Rebuild your damn ship and sail away.</p>
+	<p>On s'habitue à tout (Vitaa).</p>
+	<p>You want an open mind? You should have an open door. (Who you spend time with help you open your mind).</p>
+	<p>Tu es encore en train de te construire.</p>
+	<p>You'll cross that bridge. When you get to it.</p>
+	<p>Je suis en train d'apprendre.</p>
+	<p>Welcome change.</p>
+	<p>Let the past go.</p>
+	<p>Time is never redeemed.</p>
+	<p>Aim at the highest good.</p>
+	<p>Approval comes from within.</p>
+	<p>Nothing is lost forever.</p>
+	<p>Let fate take care of the rest.</p>
+	<p>Je serai triste demain.</p>
+	<p>La négativité se détruit par elle même.</p>
+	<p>It only gets better from here.</p>
+	<p>Actions have consequences.</p>
+	<p>Understand with knowledge.</p>
+	<p>Failures build your sense of humor.</p>
+	<p>You are stronger than you think.</p>
+	<p>Les bonnes choses prennent du temps.</p>
+	<p>How much good can you do?</p>
+	<p>If you don't want to get burned, don't put your hand in the fire.</p>
+	<p>Je n'ai pas baissé les bras. Je n'ai pas baissé les bras.</p>
+	<p>Everything that comes your way is a blessing.</p>
+	<p>À l'intérieur le feu me réchauffe, ne me brûle pas.</p>
+	<p>Purpose will keep you going.</p>
+	<p>Start from where you are.</p>
+	<p>Finish what you started.</p>
+	<p>Let it burn.</p>
+	<p>It takes no time to achieve nothing.</p>
+	<p>It takes trees to make matches.</p>
+	<p>It takes blue to come out of the blue.</p>
+	<p>It takes time to explore space.</p>
 </div>
 
 
