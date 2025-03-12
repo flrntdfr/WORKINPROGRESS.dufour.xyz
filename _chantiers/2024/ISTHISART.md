@@ -3,7 +3,7 @@ layout: chantier
 title: IS THIS ART?
 type: street art, promotion
 started: 2024-02-14 13:30
-finished: 2024-12-20 17:45
+ended: 2024-12-20 17:45
 location: Munich
 tags: promotion
 tech: stickers

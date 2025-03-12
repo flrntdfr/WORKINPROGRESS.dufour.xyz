@@ -2,7 +2,7 @@
 layout: chantier-essay
 title: Turning 30
 started: 2025-09-01 08:00
-finished: 2025-09-01 14:00
+ended: 2025-09-01 14:00
 tags: essay
 author: Florent Dufour
 location: Munich, GER

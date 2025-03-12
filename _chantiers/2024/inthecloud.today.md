@@ -1,5 +1,5 @@
 ---
-layout: chantier
+layout: chantier-full-width
 title: inthecloud.today
 started: 2024-08-08 02:00
 modified: 

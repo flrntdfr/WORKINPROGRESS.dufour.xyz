@@ -2,7 +2,7 @@
 layout: chantier
 title: MS-DECODER
 started: 2018-03-01 09:00
-finished:  2018-09-01 17:00
+ended:  2018-09-01 17:00
 tags: research
 tech: java, mass-spectrometry
 description: |

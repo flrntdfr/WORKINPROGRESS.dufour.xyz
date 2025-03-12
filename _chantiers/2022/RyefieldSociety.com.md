@@ -1,8 +1,8 @@
 ---
-layout: chantier
+layout: chantier-full-width
 title: ryefieldsociety.com
 started: 2021-08-09 23:49:53
-finished: 2022-08-08 01:00
+ended: 2022-08-08 01:00
 modified: 2024-08-16
 featured: false
 location: München

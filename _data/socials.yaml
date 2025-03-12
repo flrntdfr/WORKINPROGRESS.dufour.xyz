@@ -39,7 +39,7 @@ scholar:
   label: Florent Dufour
   fa: fab fa-google
 orcid:
-  name: ORCIF
+  name: ORCID
   url: https://orcid.org/0000-0001-6902-7314
   label: 0000-0001-6902-7314
   fa: fab fa-orcid

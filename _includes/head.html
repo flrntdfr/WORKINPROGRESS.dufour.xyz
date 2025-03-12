@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ site.title | append: site.title_separator | append: page.title }}</title>
+    <title>{{page.title }} ({{ site.title }})</title>
 
 {% if page.header_raw_inject %}
     {% for item in page.header_raw_inject %}
@@ -42,7 +42,7 @@
 
 
 
-    <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | prepend: site.baseurl }}">
+    <link rel="icon" type="image/gif" href="{% link x/2025/favicons/digging-man-steve-kangas.gif %}">
 
     {% seo %}
 </head>

@@ -2,21 +2,23 @@
 layout: chantier
 title: tl;dr
 started: 2015-06-06 13:59
-finished: 2021-12-12
+ended: 2021-12-12 23:58
 tags: list
 lib: typedv2.1.0.min.js
-description: The tl;dr I've learned from people around me.
 ---
 
 <div id="typed-strings">
+	<p>Feed everyone.</p>
+	<p>She was god coming to you as a teaching.</p>
+	<p>From here we go sublime.</p>
+	<p>Form follows function.</p>
 	<p>You are feeding the wrong wolf.</p>
 	<p>You keep moving on with your life.</p>
 	<p>It is always up to the most conscious person to let go first.</p>
 	<p>Tu es ta propre entrave.</p>
-	<p>It all comes from the inside.</p>
+	<p>It all comes from within.</p>
 	<p>I will tell them that you're gone.</p>
 	<p>You are the hammers and the piano.</p>
-	<p>You arrived at the airport, but it's too late.</p>
 	<p>You drink a lot of water in your life.</p>
 	<p>No ones dies before their time.</p>
 	<p>You've never been in control of the narrative.</p>
@@ -125,12 +127,12 @@ description: The tl;dr I've learned from people around me.
 	<p>It doesn't happen to you, it happens for you.</p>
 	<p>You need to stay in the light.</p>
 	<p>Answers will be given.</p>
-	<p>Un oiseau au bord du précipice est serein.</p>
+	<p>Un oiseau au bord du précipice reste serein.</p>
 	<p>Thoughts lead to action.</p>
 	<p>It's time to let go.</p>
 	<p>Rebuild your damn ship and sail away.</p>
 	<p>On s'habitue à tout (Vitaa).</p>
-	<p>You want an open mind? You should have an open door. (Who you spend time with help you open your mind).</p>
+	<p>You want an open mind? You should have an open door.</p>
 	<p>Tu es encore en train de te construire.</p>
 	<p>You'll cross that bridge. When you get to it.</p>
 	<p>Je suis en train d'apprendre.</p>
@@ -162,9 +164,10 @@ description: The tl;dr I've learned from people around me.
 	<p>It takes trees to make matches.</p>
 	<p>It takes blue to come out of the blue.</p>
 	<p>It takes time to explore space.</p>
+	<p>Don't let Paris become a museum.</p>
+	<p>Time is the ability to find stuff in space.</p>
+	<p>You can only do one thing at a time.</p>
 </div>
-
-
 
 <style>
 /* Cursor */

@@ -2,7 +2,7 @@
 title: Gradients
 layout: chantier
 started: 2021-06-25 14:00
-finished: 2021-12-12
+ended: 2021-12-12
 tags: web
 description: >-
     This is the description

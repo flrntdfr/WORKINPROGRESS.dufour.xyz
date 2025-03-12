@@ -2,7 +2,7 @@
 layout: chantier-columns
 title: Elle lui dit
 started: 2018-02-05 12:29
-finished: 2018-08-06 14:45
+ended: 2018-08-06 14:45
 tech: iPhone SE, VSCO, Instagram
 href:
     label: "flrnt.dfr"

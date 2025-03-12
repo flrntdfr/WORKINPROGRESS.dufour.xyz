@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: chantier
 title: OC3 202
 permalink: /x/2023/oc3
 ---

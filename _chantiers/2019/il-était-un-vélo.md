@@ -2,7 +2,7 @@
 layout: chantier
 title: Il était un vélo
 started: 2019-01-01 00:00
-finished: 2019-04-12 00:00
+ended: 2019-04-12 00:00
 featured: false
 location: Belfort
 href:

@@ -15,7 +15,7 @@ article {
       <h1 itemprop="headline">{{ page.title }}</h1>
       <h2 itemprop="alternativeHeadline">{{ page.subtitle }}</h2>
       <div class="byline">
-        <time datetime="{{ page.finished | time_tag }}" itemprop="datePublished">{{ page.finished | date: "%b, %-d %Y" }} — </time>
+        <time datetime="{{ page.ended | time_tag }}" itemprop="datePublished">{{ page.ended | date: "%b, %-d %Y" }} — </time>
         <span itemprop="locationCreated">{{ page.location }}</span>
         <p itemprop="author">{{ page.author }}</p>
       </div>

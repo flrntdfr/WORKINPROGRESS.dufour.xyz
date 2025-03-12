@@ -2,7 +2,7 @@
 layout: chantier-essay
 title: Modernism in Munich
 started: 2024-01-01
-finished: 
+ended: 
 location: Munich
 tags: essay urbanism
 author: Florent Dufour

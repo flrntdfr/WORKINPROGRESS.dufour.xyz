@@ -2,7 +2,7 @@
 layout: chantier-essay
 title: Workflow benchmark for Agents
 started: 2025-02-20 20:26
-finished: 
+ended: 
 modified: 
 author: Florent Dufour
 featured: false

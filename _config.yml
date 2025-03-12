@@ -1,12 +1,11 @@
 # Website
-title: WORKINPROGRESS
+title: WIP
 owner: Florent Dufour
 email: florent@dufour.xyz
 description: >-
   Welcome to the lab!
 baseurl: ""
-url: "https://wip.dufour.xyz"
-title_separator: " | "
+url: "https://WORKINPROGRESS.dufour.xyz"
 language: en
 encoding: utf-8
 timezone: Europe/Paris

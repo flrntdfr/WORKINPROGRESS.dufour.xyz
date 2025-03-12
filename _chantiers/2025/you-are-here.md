@@ -2,7 +2,7 @@
 layout: chantier-standalone
 title: You are here
 started: 2024-08-04 00:00
-finished: 2025-01-20 00:00
+ended: 2025-01-20 00:00
 archived:
 tags: web
 href: https://WORKINPROGRESS.dufour.xyz/lobby
@@ -67,16 +67,16 @@ You've just stumbled upon a collection of thoughts, experiments, and digital art
             {% assign label_year = 0 %}
             {% for chantier in site.chantiers reversed %}
                 {% unless chantier.hidden %}
-                {% if chantier.finished %}
-                {% assign current_year = chantier.finished | date: "%Y" %}
+                {% if chantier.ended %}
+                {% assign current_year = chantier.ended | date: "%Y" %}
 
                 {% if current_year != last_year %}
                     {% assign label_year = current_year %}
-                    {% assign last_year = chantier.finished | date: "%Y" %}
+                    {% assign last_year = chantier.ended | date: "%Y" %}
                 {% else %}
                     {% assign label_year = "" %}
                 {% endif %}
-                    {% if chantier.finished %}
+                    {% if chantier.ended %}
                     <tr>
                     <td><b>{{ label_year }}</b></td>
                     <td><a href="{{ chantier.url }}">{{ chantier.title }}</a>{% if chantier.featured %}	✭ {% endif %}<span style="color: darkgrey; font-weight: 350;"> {{ chantier.tags | join: ", " }}</span></td>
@@ -101,7 +101,7 @@ You've just stumbled upon a collection of thoughts, experiments, and digital art
             {% assign current_year = 0 %}
             {% assign label_year = 0 %}
             {% for chantier in site.chantiers reversed %}
-                {% unless chantier.finished %}
+                {% unless chantier.ended %}
                 {% unless chantier.hidden %}
                 {% assign current_year = chantier.started | date: "%Y" %}
 

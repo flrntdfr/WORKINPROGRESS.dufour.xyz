@@ -2,7 +2,7 @@
 layout: chantier
 title: Redbone Remix, Alan Watts
 started: 2017-09-06
-finished: 2017-09-13
+ended: 2017-09-13
 modified: 2024-08-15
 featured: false
 open_to_public: false

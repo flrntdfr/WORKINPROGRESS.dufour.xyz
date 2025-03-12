@@ -3,7 +3,7 @@ layout: chantier
 title: Ph.D.
 featured: true
 started: 2022-04-01 09:00
-finished: 
+ended: 
 author: Dr. Florent Dufour
 tech: 
 tags: research

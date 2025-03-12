@@ -2,7 +2,7 @@
 layout: chantier
 title: Truth or Truth
 started: 2022-05-15 23:48
-finished: 2025-01-19 19:45
+ended: 2025-01-19 19:45
 tags: list game
 description: |
   Is a collection on 60 questions.
@@ -205,6 +205,9 @@ description: |
   <li>Imagine a world in which everyone share your opinions. How would it look like?</li>
   <li>What's the last illegal thing you've done?</li>
   <li>What do you like that isn't popular already?</li>
+  <li>What have you done for yourself?</li>
+  <li>When's the last time you've done something for the first time?</li>
+  <li>Are you living up to your potential?</li>
 </ol>
 
 <div class="card-deck-container">
