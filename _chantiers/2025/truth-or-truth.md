@@ -3,7 +3,7 @@ layout: chantier
 title: Truth or Truth
 started: 2022-05-15 23:48
 ended: 2025-01-19 19:45
-tags: list game
+tags: game list
 description: |
   Is a collection on 60 questions.
 ---
@@ -147,15 +147,20 @@ description: |
 </style>
 
 <ol class="questions-list">
-  <li>Pick a card</li>
+  <li>Truth or Truth?</li>
+  <li>What do you think people say when they talk about you?</li>
   <li>Are you afraid to die?</li>
   <li>What do you blame yourself for?</li>
   <li>What have you promised in you life?</li>
-  <li>How much of what's necessary to know do you know?</li>
+  <li>How much of what's necessary to know do think you know?</li>
   <li>What are your core values?</li>
+  <li>What gives you hope?</li>
+  <li>Do you think there is something important that we have yet to discover?<br> (Something like fire, chocolate, or semi conductors...)</li>
   <li>What do you want? Right now?</li>
+  <li>Is there something everyone should own?</li>
   <li>How do you usually decide if you like something or not?</li>
   <li>When did you lied last?</li>
+  <li>What's the first thing you'd do with freewill?</li>
   <li>What are some secret weird things you do?</li>
   <li>Do you sometimes ask yourself why you think certain things?</li>
   <li>What percentage of people would you say are good looking?</li>
@@ -172,7 +177,6 @@ description: |
   <li>You manage to become the benevolent world dictator, what's your first move?</li>
   <li>What do you like about yourself?</li>
   <li>How do you honestly feel about global warming?</li>
-  <li>Do you think it's possible that we haven't discovered something as important as fire or chocolate yet?</li>
   <li>Explain why you have those apps on your phone homescreen.</li>
   <li>We put you in a room with 10 random people. What are you sure you've done more than any of them in your life?</li>
   <li>Do you believe in art?</li>
@@ -217,9 +221,9 @@ description: |
   
   <div class="question-selector">
     <div class="button-group">
-      <button class="nav-button" id="prev-button">Previous</button>
-      <button class="nav-button" id="random-button">Random</button>
-      <button class="nav-button" id="next-button">Next</button>
+      <button class="nav-button" id="prev-button">← Previous truth</button>
+      <button class="nav-button" id="random-button">Random truth</button>
+      <button class="nav-button" id="next-button">Next truth →</button>
     </div>
   </div>
 </div>

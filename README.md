@@ -1,1 +1,1 @@
-Source code of WORKINPROGRESS.dufour.xyz.
+Source code of [WORKINPROGRESS.dufour.xyz](https://WORKINPROGRESS.dufour.xyz).

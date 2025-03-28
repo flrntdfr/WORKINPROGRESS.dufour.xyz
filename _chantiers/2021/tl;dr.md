@@ -9,6 +9,9 @@ lib: typedv2.1.0.min.js
 
 <div id="typed-strings">
 	<p>Feed everyone.</p>
+	<p>No time is free.</p>
+	<p>All will prosper.</p>
+	<p>The better you get, the better you better get.</p>
 	<p>She was god coming to you as a teaching.</p>
 	<p>From here we go sublime.</p>
 	<p>Form follows function.</p>
@@ -24,7 +27,7 @@ lib: typedv2.1.0.min.js
 	<p>You've never been in control of the narrative.</p>
 	<p>It's called a low grade panic attack.</p>
 	<p>You start focusing on differences instead of similarities.</p>
-	<p>Truth fits your narrative.</p>
+	<p>Truth fits my narrative.</p>
 	<p>C'est ça réussir sa vie.</p>
 	<p>It takes two hands to hold a baby.</p>
 	<p>L'enfer c'est les autres.</p>
@@ -119,7 +122,6 @@ lib: typedv2.1.0.min.js
 	<p>Aimer c'est décevoir un peu.</p>
 	<p>I'm not jaleaous, I'm weird.</p>
 	<p>Les choses auraient pu être un peu différentes. Ou un peu pareilles.</p>
-	<p>À peter plus haut que ton cul, forcément ça pue.</p>
 	<p>On n'enterre pas un corps tiède.</p>
 	<p>You can not compare pains.</p>
 	<p>Where there is will, there is a way.</p>
@@ -153,10 +155,9 @@ lib: typedv2.1.0.min.js
 	<p>Les bonnes choses prennent du temps.</p>
 	<p>How much good can you do?</p>
 	<p>If you don't want to get burned, don't put your hand in the fire.</p>
-	<p>Je n'ai pas baissé les bras. Je n'ai pas baissé les bras.</p>
 	<p>Everything that comes your way is a blessing.</p>
 	<p>À l'intérieur le feu me réchauffe, ne me brûle pas.</p>
-	<p>Purpose will keep you going.</p>
+	<p>Purpose keeps people going.</p>
 	<p>Start from where you are.</p>
 	<p>Finish what you started.</p>
 	<p>Let it burn.</p>

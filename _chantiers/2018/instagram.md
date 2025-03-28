@@ -7,6 +7,6 @@ tech: iPhone 13 Pro Max, iPhone SE, Lightroom, VSCO
 tags: photo
 featured: true
 href:
-    label: "flrnt.dfr"
+    label: Instagram
     url: https://www.instagram.com/flrnt.dfr
 ---

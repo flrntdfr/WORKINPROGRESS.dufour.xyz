@@ -5,7 +5,7 @@ tags: list
 started: 2024-04-16 20:12
 href:
     label: Apple Music
-    url: https://embed.music.apple.com/fr/playlist/jaime-la-pochette
+    url: https://music.apple.com/fr/playlist/jaime-la-pochette
 tech: Apple Music
 parent: EC* # TODO
 description:
