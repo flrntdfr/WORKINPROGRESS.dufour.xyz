@@ -5,15 +5,16 @@ started: 2022-05-15 23:48
 ended: 2025-01-19 19:45
 tags: game list
 description: |
-  Truth or Truth is a game to play during the first date.
+  Truth or Truth is a game made for first dates.
 ---
 
-<script>
+<script type="module">
   document.addEventListener('DOMContentLoaded', function() {
     const questions = [
       "Truth or Truth?",
       "What do you think people say when they talk about you?",
       "What have you promised in you life?",
+      "How would you describe your worldview?",
       "Are you afraid to die?",
       "What do you blame yourself for?",
       "How much of what's necessary to know do think you know?",
@@ -77,7 +78,6 @@ description: |
     
     let currentIndex = 0;
     
-    /* Function to generate random crookedness */
     function crook() {
       const rotation = (Math.random() * 6) - 3; /* Random rotation between -3 and 3 degrees */
       const translateX = (Math.random() * 10) - 5; /* Random X translation between -5px and 5px */
@@ -185,9 +185,7 @@ description: |
 </div>
 
 <style>
-  /*
-   * COMMON
-   */
+  /* COMMON */
 
   .no-select {
     -webkit-user-select: none;
@@ -196,9 +194,7 @@ description: |
     user-select: none;
   }
   
-  /*
-   * CARDS
-   */
+  /* CARDS */
 
   .card-deck-container {
     display: flex;
@@ -302,9 +298,7 @@ description: |
     color: #888;
   }
 
-  /* 
-   * BUTTONS
-   */
+  /* BUTTONS */
 
   .question-selector {
     display: flex;

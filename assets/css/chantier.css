@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-wrap: wrap;
+}
+
+h1 {
+    word-wrap: break-word;
+}
+
+metadata {
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid black;
+    flex: 0 0 450px;
+}
+
+data {
+    padding: 20px;
+    box-sizing: border-box;
+    min-width: 400px;
+    flex: 1 0 400px;
+}
+
+metadata table {
+    width: 100%;
+    border-spacing: 0;
+    table-layout: auto;
+    margin-bottom: 1em;
+}
+
+metadata th {
+    text-align: right;
+    padding-right: 10px;
+    width: 1%;
+    /* column as small as possible */
+    white-space: nowrap;
+    /* Prevents th text from wrapping */
+    vertical-align: top;
+}
+
+metadata td {
+    width: 99%;
+    /* This forces td to take most of the space */
+    word-wrap: break-word;
+}
+
+img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 900px) {
+    body {
+        display: block;
+    }
+    
+    metadata {
+        border-right: none;
+        border-bottom: 1px solid black;
+        width: 450px;
+        min-width: 450px;
+        max-width: 450px;
+    }
+    
+    data {
+        display: block;
+        width: 450px;
+        min-width: 450px;
+        max-width: 450px;
+        flex: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    metadata {
+        width: auto;
+        min-width: 0;
+        max-width: 100%;
+        flex: 1 1 auto;
+    }
+    
+    data {
+        display: flex;
+        width: auto;
+        min-width: 0;
+        max-width: 100%;
+        flex: 1 1 auto;
+    }
+}

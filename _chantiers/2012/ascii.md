@@ -1,11 +1,12 @@
 ---
 layout: chantier
-title: ASCII I use
-started: 2012-09-12 21:32
-ended: 2024-01-12 21:00
+title: ASCII I like
+started: 2010-09-12 21:32
+ended: 2012-10-10 21:00
 tags: list
 tech: ¯\_(ツ)_/¯
-description: Ascii I like and have saved as snippets for when I text.
+description: |
+  Before emojis were... On MSN
 ---
 
 ```txt
@@ -17,33 +18,11 @@ description: Ascii I like and have saved as snippets for when I text.
 
 ┻━┻︵ヽ(`Д´)ﾉ︵ ┻━┻
 
----------
-
 (@.@)
 
----------
+ʕ •ᴥ•ʔ
 
-|  \ \ | |/ /
-|  |\ `' ' /
-|  ;'      \      / ,
-| ;    _,   |    / / ,
-| |   (  `-.;_,-' '-' ,
-| `,   `-._       _,-'_
-|,-`.    `.)    ,<_,-'_,
-,'    `.   /   ,'  `;-' _,
-;        `./   /`,    \-'
-|        /   |  ;\   |\
-|       ;_,._|_,  `, ' \
-|        \    \ `       `,
-`      __ `    \         ;,
-\   ,'  `      \,       ;;
-\_(            ;,      ;;
-|  \           `;,     ;;
-|  |`.          `;;,   ;'
-|  |  `-.        ;;;;,;'
-|  |    |`-.._  ,;;;;;'
-|  |    |   | ``';;;'
-
+ʕっ• ᴥ • ʔっ
 
                     'c.
                  ,xNMM.

@@ -1,21 +1,94 @@
 ---
 layout: blank
 css:
-  - style.css
+  - site.css
+  - chantier.css
 
 # Arguments
-p5js: "1.4.2"
+hidden: false
 title: title
 started: 2019-03-06 11:04
 ended: 2019-03-06 11:04
-archived: 2019-03-06 11:04
-open_to_public: false
 featured: false
 location: Paris
 href: https://example.com
 tech: photography, VSCO, Lightroom, iPhone 13 Pro Max
-tags: [photo, essay]
+tags: photo memo
 ---
 
+{% assign ended_sec = page.started  | date: '%s' %}
+{% assign started_sec  = page.ended | date: '%s' %}
+{% assign seconds_diff = started_sec | minus: ended_sec %}
+{% assign days_diff = seconds_diff | divided_by: 86400 | plus: 1 %}
+
+<metadata>
+<h1><a href="{% link _chantiers/2025/lobby.md %}">←</a> {{ page.title }}</h1>
+<table>
+<tr>
+        {% if page.featured %}
+        <tr>
+            <th>featured</th>
+            <td>✭</td>
+        </tr>
+        {% endif %}
+        <tr>
+            <th>started</th>
+            <td><span  title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span></td>            
+        </tr>
+        {% if page.ended %}
+        <tr>
+            <th>ended</th>
+            <td>
+            <span onclick="toggleDaysDiff(this)" style="cursor: default" title="{{ page.ended }}">
+                {{ page.ended | date: "%d.%m.%Y" }}
+                <span class="days-diff" style="display: none">({{ days_diff }})</span>
+            </span>
+            </td>
+        </tr>
+        {% endif %}
+        {% if page.archived %}
+        <tr>
+            <th>archived</th>
+            <td>{{ page.archived }}</td>
+        </tr>
+        {% endif %}
+        {% if page.location %}
+        <tr>
+            <th>location</th>
+            <td>{{ page.location }}</td>
+        </tr>
+        {% endif %}
+        {% if page.tech %}
+        <tr>
+            <th>tech</th>
+            <td>{{ page.tech }}</td>
+        </tr>
+        {% endif %}
+    
+    {% if page.tags %}
+    <tr>
+    <th>tags</th>
+    <td>{{ page.tags | join: ", "}}</td> <!--- TODO: voir category -->
+    </tr>
+    {% endif %}
+    {% if page.href %}
+        <tr>
+            <th>href</th>
+            <td><a href="{{ page.href.url}}"" >{{ page.href.label }} ➟</a></td>
+        </tr>
+        {% endif %}
+        </table>
+    {% if page.description %}
+    {{ page.description }}
+    {% endif %}
+</metadata>
 
 {{ content }}
+
+<script>
+function toggleDaysDiff(element) {
+    const daysDiffSpan = element.querySelector('.days-diff');
+    daysDiffSpan.style.display = daysDiffSpan.style.display === 'none' ? 'inline' : 'none';
+}
+</script>
+

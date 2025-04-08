@@ -5,12 +5,15 @@ started: 2015-06-06 13:59
 ended: 2021-12-12 23:58
 tags: list
 lib: typedv2.1.0.min.js
+description: |
+  A collection of conversation enders I gathered because they made sense at the time.
 ---
 
 <div id="typed-strings">
 	<p>Feed everyone.</p>
 	<p>No time is free.</p>
 	<p>All will prosper.</p>
+	<p>Pay attention to what has your attention.</p>
 	<p>The better you get, the better you better get.</p>
 	<p>She was god coming to you as a teaching.</p>
 	<p>From here we go sublime.</p>
@@ -133,7 +136,7 @@ lib: typedv2.1.0.min.js
 	<p>Thoughts lead to action.</p>
 	<p>It's time to let go.</p>
 	<p>Rebuild your damn ship and sail away.</p>
-	<p>On s'habitue à tout (Vitaa).</p>
+	<p>On s'habitue à tout.</p>
 	<p>You want an open mind? You should have an open door.</p>
 	<p>Tu es encore en train de te construire.</p>
 	<p>You'll cross that bridge. When you get to it.</p>

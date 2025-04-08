@@ -9,7 +9,7 @@ tech: stable-diffusion
 
 Je suis
 
-Collectés depuis 2016, je collectionne les facette de moi même. En 2024, j’essaye d’incarner une par jour.
+Collectés depuis 2016, je collectionne les facette de moi même. En 2024, j’memoe d’incarner une par jour.
 1 selfie tous les jours.
 J’ai la liste et je décide qui je vais être pour le jour 
 Photo avec le jour
