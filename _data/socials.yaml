@@ -25,7 +25,7 @@ flickr:
   fa: fab fa-flickr
 dockerhub:
   Name: Docker Hub
-  url: https://hub.docker.com/u/florentdufour"
+  url: https://hub.docker.com/u/flrntdfr"
   label: florentdufour
   fa: fab fa-docker
 soundcloud:
