@@ -5,7 +5,7 @@ started: 2016-01-01 00:00
 ended: 
 modified: 2024-08-04 19:37
 featured: true
-tags: list illustration
+labels: list illustration
 tech: Index cards, Uniball micro black
 location: Belleville
 description:

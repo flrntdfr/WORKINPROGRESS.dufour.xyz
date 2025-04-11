@@ -3,7 +3,7 @@ layout: chantier
 title: Je suis
 started: 2019-03-06 11:09
 ended:  
-tags: illustration performace
+labels: illustration performace
 tech: stable-diffusion
 ---
 

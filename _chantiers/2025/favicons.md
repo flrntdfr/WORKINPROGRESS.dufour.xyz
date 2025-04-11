@@ -3,7 +3,7 @@ layout: chantier
 title: "Favicons"
 started: 2025-03-12 20:15:30
 ended: 
-tags: list
+labels: list
 location: www
 hidden: true
 ---

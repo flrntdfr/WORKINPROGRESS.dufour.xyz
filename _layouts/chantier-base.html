@@ -4,53 +4,62 @@ css:
   - site.css
   - chantier.css
 
-# Arguments
-hidden: false
+hidden: true
 title: title
-started: 2019-03-06 11:04
-ended: 2019-03-06 11:04
-featured: false
-location: Paris
-href: https://example.com
-tech: photography, VSCO, Lightroom, iPhone 13 Pro Max
-tags: photo memo
+started:
+ended:
+modified:
+featured:
+location:
+href: 
+    label:
+    url:
+related:
+    label:
+    url:
+tech:
+labels:
 ---
 
+{% comment %} CALCULATE PROJECT DURATION {% endcomment %}
 {% assign ended_sec = page.started  | date: '%s' %}
 {% assign started_sec  = page.ended | date: '%s' %}
 {% assign seconds_diff = started_sec | minus: ended_sec %}
 {% assign days_diff = seconds_diff | divided_by: 86400 | plus: 1 %}
 
 <metadata>
-<h1><a href="{% link _chantiers/2025/lobby.md %}">←</a> {{ page.title }}</h1>
-<table>
-<tr>
+    <h1><a href="/">←</a> {{ page.title }}</h1>
+    <table>
+        <tr>
         {% if page.featured %}
         <tr>
             <th>featured</th>
             <td>✭</td>
         </tr>
         {% endif %}
+        {% if page.ended == page.started %}
         <tr>
-            <th>started</th>
-            <td><span  title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span></td>            
-        </tr>
-        {% if page.ended %}
-        <tr>
-            <th>ended</th>
-            <td>
-            <span onclick="toggleDaysDiff(this)" style="cursor: default" title="{{ page.ended }}">
-                {{ page.ended | date: "%d.%m.%Y" }}
-                <span class="days-diff" style="display: none">({{ days_diff }})</span>
-            </span>
+            <th>posted</th>
+            <td><span title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>
-        {% endif %}
-        {% if page.archived %}
+        {% else %}
         <tr>
-            <th>archived</th>
-            <td>{{ page.archived }}</td>
+            <th>started</th>
+            <td><span title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span>
+            </td>
         </tr>
+            {% if page.ended %}
+            <tr>
+                <th>ended</th>
+                <td>
+                    <span onclick="toggleDaysDiff(this)" style="cursor: default" title="{{ page.ended }}">
+                        {{ page.ended | date: "%d.%m.%Y" }}
+                        <span class="days-diff" style="display: none">({{ days_diff }})</span>
+                    </span>
+                </td>
+            </tr>
+            {% endif %}
         {% endif %}
         {% if page.location %}
         <tr>
@@ -58,29 +67,36 @@ tags: photo memo
             <td>{{ page.location }}</td>
         </tr>
         {% endif %}
+        {% if page.labels %}
+        <tr>
+            <th>label{% if page.labels.size > 1%}s{% endif %}</th>
+            <td>{{ page.labels | join: ", "}}</td>
+        </tr>
+        {% endif %}
         {% if page.tech %}
         <tr>
             <th>tech</th>
-            <td>{{ page.tech }}</td>
+            <td>{{ page.tech | join: ", "}}</td>
         </tr>
         {% endif %}
-    
-    {% if page.tags %}
-    <tr>
-    <th>tags</th>
-    <td>{{ page.tags | join: ", "}}</td> <!--- TODO: voir category -->
-    </tr>
-    {% endif %}
-    {% if page.href %}
+        {% if page.href %}
         <tr>
             <th>href</th>
-            <td><a href="{{ page.href.url}}"" >{{ page.href.label }} ➟</a></td>
+            <td><a href="{{ page.href.url}}" >{{ page.href.label }} ➟</a></td>
         </tr>
         {% endif %}
-        </table>
+    </table>
     {% if page.description %}
-    {{ page.description }}
+        {{ page.description }}
     {% endif %}
+    <br><br>
+    {% if page.related %}
+    Related project:
+    <ul>
+        <li><a href="{% link {{ page.related.url }} %}">{{ page.related.label }} ➟</a></li>
+    </ul>
+{% endif %}
+
 </metadata>
 
 {{ content }}
@@ -91,4 +107,3 @@ function toggleDaysDiff(element) {
     daysDiffSpan.style.display = daysDiffSpan.style.display === 'none' ? 'inline' : 'none';
 }
 </script>
-

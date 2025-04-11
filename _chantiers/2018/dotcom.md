@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: .com
-tags: list
+labels: list
 started: 2018-04-30 17:09:28
 ended: 2018-05-12 14:04:39
 featured: false

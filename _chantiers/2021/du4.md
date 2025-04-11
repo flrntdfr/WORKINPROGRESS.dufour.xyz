@@ -2,7 +2,7 @@
 layout: chantier
 title: /usr/local/bin/du4
 started: 2021-05-04 16:07
-tags: code
+labels: code
 ended: 
 description: >-
     This is the description

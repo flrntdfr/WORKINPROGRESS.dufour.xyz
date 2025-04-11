@@ -3,7 +3,7 @@ layout: chantier
 title: MS-DECODER
 started: 2018-03-01 09:00
 ended:  2018-09-01 17:00
-tags: research
+labels: research
 tech: java, mass-spectrometry
 description: |
   What was the project digital polymers, MS-Decoder etc.

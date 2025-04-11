@@ -3,7 +3,7 @@ layout: chantier
 title: Polydopamine
 started: 2017-07-01 09:00
 ended:  2017-08-31 17:00
-tags: research
+labels: research
 href:
     label: UMR 1121
     url: https://www.biomaterials-bioengineering.com

@@ -3,7 +3,7 @@ layout: chantier
 title: tl;dr
 started: 2015-06-06 13:59
 ended: 2021-12-12 23:58
-tags: list
+labels: list
 lib: typedv2.1.0.min.js
 description: |
   A collection of conversation enders I gathered because they made sense at the time.

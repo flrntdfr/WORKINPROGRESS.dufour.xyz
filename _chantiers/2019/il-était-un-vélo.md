@@ -8,7 +8,7 @@ location: Belfort
 href:
     label: YouTube
     url: https://youtu.be/9M4W0oZhYMw
-tags: shortfilm
+labels: shortfilm
 description: |
     Découvrez l'histoire invraisemblable d'un vélo ordinaire.
 ---

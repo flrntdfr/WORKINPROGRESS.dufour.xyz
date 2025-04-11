@@ -3,7 +3,7 @@ title: Gradients
 layout: chantier
 started: 2021-06-25 14:00
 ended: 2021-12-12
-tags: web
+labels: web
 description: >-
     This is the description
 location: Belleville

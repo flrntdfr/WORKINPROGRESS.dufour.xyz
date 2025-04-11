@@ -4,7 +4,7 @@ title: Access denied
 type: web
 started: 2025-02-19 13:30
 ended: 2025-02-19 13:40
-tags: web
+labels: web
 ---
 
 <div class="overlay"></div>

@@ -6,7 +6,7 @@ ended: 2017-09-13
 modified: 2024-08-15
 featured: false
 open_to_public: false
-tags: remix
+labels: remix
 description: |
     Description goes here
 ---

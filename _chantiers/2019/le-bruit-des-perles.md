@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: Cover art&#x3a; Le bruit des perles 110
-tags: photo
+labels: photo
 started: 2019-08-16 13:35
 ended: 2019-10-09 00:00
 modified: 2024-08-16

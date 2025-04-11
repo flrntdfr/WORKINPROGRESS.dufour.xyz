@@ -3,7 +3,7 @@ layout: chantier-columns
 title: Riccardo's iPhone
 started: 2019-01-01 00:00
 ended: 2020-01-01 00:00
-tags: illustration
+labels: illustration
 tech: Pixelmator
 ---
 

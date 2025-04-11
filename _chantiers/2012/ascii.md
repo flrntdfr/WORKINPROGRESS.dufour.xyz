@@ -3,7 +3,7 @@ layout: chantier
 title: ASCII I like
 started: 2010-09-12 21:32
 ended: 2012-10-10 21:00
-tags: list
+labels: list
 tech: ¯\_(ツ)_/¯
 description: |
   Before emojis were... On MSN

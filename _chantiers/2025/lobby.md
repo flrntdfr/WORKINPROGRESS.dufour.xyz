@@ -4,10 +4,10 @@ title: Lobby
 started: 2024-08-04 00:00
 ended: 2025-01-20 00:00
 archived:
-tags: web
+labels: web
 href: https://WORKINPROGRESS.dufour.xyz/lobby
-tech: html, css, Jekyll
-hidden: true
+tech: html, css, js, Jekyll
+hidden: 
 permalink: "/"
 ---
 
@@ -44,7 +44,7 @@ a:link {
 }
 
 a:visited {
-  color: purple;
+  color: darkgrey;
 }
 
 @keyframes banner-slide {
@@ -87,7 +87,7 @@ This is a multi-media repository of projects I've been working on since 2009.  I
                   {% if chantier.ended %}
                   <tr>
                   <td><b>{{ label_year }}</b></td>
-                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a>{% if chantier.featured %}	✭ {% endif %}<span style="color: darkgrey; font-weight: 350;"> {{ chantier.tags | join: ", " }}</span></td>
+                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a>{% if chantier.featured %}	✭ {% endif %}<span style="color: darkgrey; font-weight: 350;"> {{ chantier.labels | join: ", " }}</span></td>
                   </tr>
                   {% endif %}
               {% endif %}
@@ -123,7 +123,7 @@ This is a multi-media repository of projects I've been working on since 2009.  I
                   {% if chantier.started %}
                   <tr>
                   <td><b>{{ label_year }}</b></td>
-                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.featured %}	✭ {% endif %} <span style="color: darkgrey; font-weight: 350;"> {{ chantier.tags | join: ", " }}</span></td>
+                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.featured %}	✭ {% endif %} <span style="color: darkgrey; font-weight: 350;"> {{ chantier.labels | join: ", " }}</span></td>
                   </tr>
                   {% endif %}
               {% endunless %}

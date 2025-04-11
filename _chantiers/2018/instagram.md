@@ -4,7 +4,7 @@ title: Instagram
 started: 2018-01-12 12:00
 ended: 
 tech: iPhone 13 Pro Max, iPhone SE, Lightroom, VSCO
-tags: photo
+labels: photo
 featured: true
 href:
     label: Instagram

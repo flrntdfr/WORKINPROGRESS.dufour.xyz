@@ -7,7 +7,7 @@ modified: 2024-08-16
 featured: false
 location: München
 tech: Jekyll, Flexbox
-tags: web
+labels: web
 href:
     label: ryefieldsociety.com
     url: https://ryefieldsociety.com

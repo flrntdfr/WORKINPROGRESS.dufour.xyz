@@ -4,7 +4,7 @@ layout: chantier-memo
 started: 2024-01-01
 ended: 
 location: Munich
-tags: memo urbanism
+labels: memo urbanism
 author: Florent Dufour
 ---
 

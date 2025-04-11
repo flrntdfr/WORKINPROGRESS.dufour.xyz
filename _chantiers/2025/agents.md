@@ -7,7 +7,7 @@ modified:
 author: Florent Dufour
 featured: false
 location: Munich
-tags: memo
+labels: memo
 description: |
     With the developments in the field of agents and the rumours surrounding the filed, I deiced to evaluate what I reasonably want them to do, and lay down a benchmark for 2025, see wehere we go
 ---

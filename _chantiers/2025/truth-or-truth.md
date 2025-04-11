@@ -3,7 +3,7 @@ layout: chantier
 title: Truth or Truth
 started: 2022-05-15 23:48
 ended: 2025-01-19 19:45
-tags: game list
+labels: game list
 description: |
   Truth or Truth is a game made for first dates.
 ---

@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: EC*
-tags: list music
+labels: list music
 featured: true
 href:
     label: "Apple Music"

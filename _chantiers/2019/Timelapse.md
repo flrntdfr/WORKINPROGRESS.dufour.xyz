@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: Timelape
-tags: shortfilm
+labels: shortfilm
 location: Illkirch-Graffenstadten
 started: 2017-01-01 00:00
 ended: 2019-08-29

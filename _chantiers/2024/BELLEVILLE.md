@@ -4,7 +4,7 @@ title: BELLEVILLE records
 started: 2024-01-01
 ended: 
 location: Munich
-tags: music
+labels: music
 href:
     label: soundcloud
     url: 

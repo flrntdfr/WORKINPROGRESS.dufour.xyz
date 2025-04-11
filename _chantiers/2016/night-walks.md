@@ -5,7 +5,7 @@ started: 2016-02-10
 ended: 2016-04-10
 modified: 2024-08-10
 featured: 
-tags: shortfilm
+labels: shortfilm
 location: Basel
 href:
     label: YouTube

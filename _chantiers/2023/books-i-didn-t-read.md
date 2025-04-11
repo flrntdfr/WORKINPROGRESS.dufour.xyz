@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: Books I didn't read
-tags: list illustration
+labels: list illustration
 started: 2018-11-24 11:04
 ended: 2023-09-22 22:26
 modified: 2024-08-10

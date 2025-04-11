@@ -3,7 +3,7 @@ layout: chantier
 title: "Ministres"
 started: 2024-07-17 11:08
 ended: 
-tags: list illustration
+labels: list illustration
 location: Paris
 ---
 
@@ -22,8 +22,15 @@ location: Paris
 - Ministre associé au redressement de la jeunesse
 - Ministre de la sieste et des retraites.
 - Ministre chargé à la promotion du capitalisme moderne.
-- Ministre chargé au rayonnement de la France outre-mer.
-- Ministre de la France et des Français à l'étranger.
+- Ministre chargé au rayonnement de la France en outre-mer.
+
+- Ministre de la France et des français à l'étranger.
 - Ministre de l'~~intéligence~~ intelligence artificielle
 - Ministre de la lutte contre le complotisme et la corruption.
-- Ministre de la pluie et du beau temps.
+- Ministre de la pluie et du beau temps
+- Ministre du court terme
+- Ministre de la décroissance et du triomphe social
+- Ministre de la réhabilitation des zones à faible émissions
+- Ministre de la revalorisation des salaires
+- Ministre de la conjoncture économique
+- Ministre de la fatigue démocratique
