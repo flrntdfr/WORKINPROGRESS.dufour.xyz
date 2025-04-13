@@ -1,45 +1,36 @@
-linkedin: 
-  name: LinkedIn
-  url: https://www.linkedin.com/in/flrntdfr/?locale=en_US
+- name: LinkedIn
+  url: "https://www.linkedin.com/in/flrntdfr/?locale=en_US"
   label: flrntdfr
-  fa: fab fa-linkedin
-github:
-  name: GitHub
-  url: https://github.com/flrntdfr
+  fa: fa-brands fa-linkedin
+- name: GitHub
+  url: "https://github.com/flrntdfr"
   label: flrntdfr
-  fa: fab fa-github-square
-researchgate:
-  name: ResearchGate
-  url: https://www.researchgate.net/profile/Florent_Dufour2
+  fa: fa-brands fa-github
+- name: ResearchGate
+  url: "https://www.researchgate.net/profile/Florent_Dufour2"
   label: Florent Dufour
-  fa: fab fa-researchgate
-instagram:
-  name: Instagram
-  url: https://www.instagram.com/flrnt.dfr/
+  fa: fa-brands fa-researchgate
+- name: Instagram
+  url: "https://www.instagram.com/flrnt.dfr/"
   label: "@flrnt.dfr"
-  fa: fab fa-instagram-square
-flickr:
-  name: flickr
-  url: https://www.flickr.com/people/bipytrigo?rb=1
-  label: bipytrigo
-  fa: fab fa-flickr
-dockerhub:
-  Name: Docker Hub
-  url: https://hub.docker.com/u/flrntdfr"
+  fa: fa-brands fa-instagram
+- name: Docker Hub
+  url: "https://hub.docker.com/u/flrntdfr"
   label: florentdufour
-  fa: fab fa-docker
-soundcloud:
-  name: SoundCloud
-  url: https://soundcloud.com/flrntdfr
+  fa: fa-brands fa-docker
+- name: SoundCloud
+  url: "https://soundcloud.com/flrntdfr"
   label: flrntdfr
   fa: fa-brands fa-soundcloud
-scholar:
-  name: Google Scholar
-  url: https://scholar.google.com/citations?user=7cJM1YsAAAAJ
+- name: Google Scholar
+  url: "https://scholar.google.com/citations?user=7cJM1YsAAAAJ"
   label: Florent Dufour
-  fa: fab fa-google
-orcid:
-  name: ORCID
-  url: https://orcid.org/0000-0001-6902-7314
+  fa: fa-brands fa-google
+- name: ORCID
+  url: "https://orcid.org/0000-0001-6902-7314"
   label: 0000-0001-6902-7314
-  fa: fab fa-orcid
+  fa: fa-brands fa-orcid
+- name: Mastodon
+  url: "https://piaille.fr/@flrntdfr"
+  label: "@flrntdfr"
+  fa: fa-brands fa-maston

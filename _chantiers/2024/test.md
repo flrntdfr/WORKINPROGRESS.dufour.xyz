@@ -7,12 +7,9 @@ ended: 2030-08-05 19:07
 modified: 2024-08-04 19:07
 featured: true
 location: 127.0.0.1
-href:
-    label: href-label
-    url: href-url
 labels: [test1, test2]
-tech: [html, css, js]
-
+tech: [tech1, tech2, tech3]
+permalink: /test
 href:
     label: localhost:4000
     url: http://localhost:4000

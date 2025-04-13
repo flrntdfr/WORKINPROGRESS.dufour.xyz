@@ -1,24 +1,26 @@
-# Website
-title: WIP
-owner: Florent Dufour
-email: florent@dufour.xyz
-description: >-
-  Welcome to the lab!
-baseurl: ""
-url: "https://WORKINPROGRESS.dufour.xyz"
-language: en
+title: WORK IN PROGRESS
+title_short: WIP
 encoding: utf-8
-timezone: Europe/Paris
+owner: Florent Dufour
+email: info@dufour.xyz
+
+author: Florent Dufour
+description: This is the description # TODO
 keywords: "florent, dufour, wip, chantiers, projects"
+languages: [en, fr]
+url: "https://WORKINPROGRESS.dufour.xyz"
+
+
+timezone: Europe/Paris
+
 theme-color: "#fdf52b"
-theme-color-dark: "#fdf52b"
 
 # Plugins
 gems:
   - jekyll-sitemap
-  - jekyll-seo-tag
   - jekyll-feed
 
+# Collections
 collections:
   chantiers:
     output: true

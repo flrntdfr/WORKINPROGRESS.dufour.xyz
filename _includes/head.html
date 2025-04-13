@@ -1,50 +1,79 @@
 <head>
-    <meta charset="{{ site.encoding }}">
     <meta http-equiv="Content-Type" content="text/html;charset={{ site.encoding }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>{{page.title }} ({{ site.title }})</title>
-
-{% if page.header_raw_inject %}
-    {% for item in page.header_raw_inject %}
-     {{ item }}
-    {% endfor %}
-{% endif %}
-
-    <meta name="description" content="{{ site.description }}">
-    <meta name="language" content="{{ site.language }}">
-    <meta name="keywords" content="{{ site.keywords }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="{{ site.theme-color }}">
+    
+    <title>{{page.title }} ({{ site.title_short }})</title>
 
-    <meta itemprop="name" content="{{ site.name }}">
-    <meta itemprop="description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description }}{% endif %}">
-    <meta itemprop="image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ site.default_img | absolute_url }}{% endif %}">
+    <meta name="author" content="{{ site.author }}">
+    <meta name="description" content="{{ site.description | escape }}">
+    <meta name="keywords" content="{{ site.keywords }}">
+    <meta name="language" content="{{ site.languages | join: ', ' }}">
 
+    <meta property="og:title" content="Florent Dufour">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:description" content="{{ site.description | escape }}">
+    <meta property="og:url" content="{{ site.url }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ site.url }}{% link /x/2024/avatar-500.jpg %}">
+    <meta property="og:image:alt" content="Florent Dufour">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ site.title }} · {{ site.author}}">
+    <meta name="twitter:description" content="{{ site.description | escape }}">
+    <meta name="twitter:image" content="{{ site.url }}{% link /x/2024/avatar-500.jpg %}">
+
+    <link rel="me" href="https://piaille.fr/@flrntdfr">
+    <meta name="fediverse:creator" content="@flrntdfr@piaille.fr">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% link /x/2025/favicons/dot/dot-180.png %}">
+    <link rel="apple-touch-icon" sizes="64x64" href="{% link /x/2025/favicons/dot/dot-64.png %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% link /x/2025/favicons/dot/dot-60.png %}">
+    <link rel="apple-touch-icon" sizes="48x48" href="{% link /x/2025/favicons/dot/dot-48.png %}">
+    <link rel="apple-touch-icon" sizes="32x32" href="{% link /x/2025/favicons/dot/dot-32.png %}">
+    <link rel="apple-touch-icon" sizes="16x16" href="{% link /x/2025/favicons/dot/dot-16.png %}">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="{% link /x/2025/favicons/dot/dot-192.png %}">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{% link /x/2025/favicons/dot/dot-180.png %}">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{% link /x/2025/favicons/dot/dot-152.png %}">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{% link /x/2025/favicons/dot/dot-120.png %}">
+
+    <link rel="mask-icon" href="{% link /x/2025/favicons/dot/dot.svg %}" color="#000000">
+    <link rel="shortcut icon" href="{% link /x/2025/favicons/digging/digging-man-steve-kangas.gif %}">
+
+    {% if page.favicon %}
+    <link rel="icon" type="{{ page.favicon_type | default: 'image/gif' }}" href="{{ page.favicon }}">
+    {% else %}
+    <link rel="icon" type="image/gif" href="{% link x/2025/favicons/digging/digging-man-steve-kangas.gif %}">
+    {% endif %}
+
+    {% if page.header_raw_inject %}
+    {% for item in page.header_raw_inject %}
+    {{ item }}
+    {% endfor %}
+    {% endif %}
+
+    <link rel="canonical" href="https://dufour.xyz">
     <link type="application/atom+xml" rel="alternate" href="/rss" title="WORKINPROGRESS.dufour.xyz"/>
 
-{% if layout.css %}
+    {% if layout.css %}
     {% for item in layout.css %}
-    <link rel="stylesheet" href="{{ item | prepend: '/assets/css/' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ item | prepend: '/assets/css/' | relative_url }}" type="text/css"/>
     {% endfor %}
-{% endif %}
+    {% endif %}
 
-{% if page.css %}
+    {% if page.css %}
     {% for item in page.css %}
-    <link rel="stylesheet" href="{{ item | prepend: '/assets/css/' }}" type="text/css" />
+    <link rel="stylesheet" href="{{ item | prepend: '/assets/css/' }}" type="text/css"/>
     {% endfor %}
-{% endif %}
+    {% endif %}
 
-{% if page.lib %}
+    {% if page.lib %}
     <script type="text/javascript" src="/assets/lib/{{ page.lib }}"></script>
-{% endif %}
+    {% endif %}
+    <script type="application/ld+json">
+    {% include schema.json %}
+    </script>
 
-
-{% if page.favicon %}
-    <link rel="icon" type="{{ page.favicon_type | default: 'image/gif' }}" href="{{ page.favicon }}">
-{% else %}
-    <link rel="icon" type="image/gif" href="{% link x/2025/favicons/digging-man-steve-kangas.gif %}">
-{% endif %}
-
-    {% seo %}
 </head>
