@@ -29,7 +29,8 @@ labels:
 {% assign days_diff = seconds_diff | divided_by: 86400 | plus: 1 %}
 
 <metadata>
-    <h1><a href="/">←</a> {{ page.title }}</h1>
+    <div class="metadata-content">
+    <h1><a href="/" onclick="back(event)">←</a> {{ page.title }}</h1>
     <table>
         <tr>
         {% if page.featured %}
@@ -62,6 +63,12 @@ labels:
             </tr>
             {% endif %}
         {% endif %}
+        {% if page.modified %}
+        <tr>
+            <th>modified</th>
+            <td><span title="{{ page.modified | date: "%d.%m.%Y %H:%M"}}">{{ page.modified | date: "%d.%m.%Y" }}</span>
+        </tr>
+        {% endif %}
         {% if page.location %}
         <tr>
             <th>location</th>
@@ -83,7 +90,7 @@ labels:
         {% if page.href %}
         <tr>
             <th>href</th>
-            <td><a href="{{ page.href.url}}" >{{ page.href.label }} ➟</a></td>
+            <td><a href="{{ page.href.url}}" target="_blank" rel="noopener noreferrer">{{ page.href.label }} ➟</a></td>
         </tr>
         {% endif %}
     </table>
@@ -94,17 +101,31 @@ labels:
     {% if page.related %}
     Related project:
     <ul>
-        <li><a href="{% link {{ page.related.url }} %}">{{ page.related.label }} ➟</a></li>
+        <li><a href="{% link {{ page.related.url }} %}">{{ page.related.label }}</a></li>
     </ul>
 {% endif %}
-
+</div>
 </metadata>
 
+<data>
+<div class="data-content">
 {{ content }}
+</div>
+</data>
 
 <script>
 function toggleDaysDiff(element) {
     const daysDiffSpan = element.querySelector('.days-diff');
     daysDiffSpan.style.display = daysDiffSpan.style.display === 'none' ? 'inline' : 'none';
+}
+</script>
+<script>
+function back(event) {
+    event.preventDefault();
+    if (document.referrer && document.referrer.includes(window.location.host)) {
+        history.back();
+    } else {
+        window.location.href = '/';
+    }
 }
 </script>
