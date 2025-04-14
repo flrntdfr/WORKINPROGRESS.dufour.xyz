@@ -97,8 +97,8 @@ labels:
     {% if page.description %}
         {{ page.description }}
     {% endif %}
-    <br><br>
     {% if page.related %}
+    <br><br>
     Related project:
     <ul>
         <li><a href="{% link {{ page.related.url }} %}">{{ page.related.label }}</a></li>

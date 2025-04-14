@@ -12,9 +12,9 @@ h1 {
 metadata {
     padding: 20px;
     box-sizing: border-box;
-    display: flex;
     flex-direction: column;
     border-right: 1px solid black;
+    display: flex;
     flex: 0 0 450px;
 }
 
@@ -22,7 +22,7 @@ data {
     padding: 20px;
     box-sizing: border-box;
     min-width: 400px;
-    flex: 1 0 400px;
+    flex: 0 0 400px;
 }
 
 metadata table {
@@ -62,6 +62,11 @@ img {
     metadata {
         border-right: none;
         border-bottom: 1px solid black;
+        flex: none;
+    }
+
+    .metadata-content {
+        border-right: none;
         width: 450px;
         min-width: 450px;
         max-width: 450px;
@@ -86,7 +91,7 @@ img {
         width: auto;
         min-width: 0;
         max-width: 100%;
-        flex: 1 1 auto;
+        flex: 0 1 auto;
     }
     
     data {
@@ -94,6 +99,6 @@ img {
         width: auto;
         min-width: 0;
         max-width: 100%;
-        flex: 1 1 auto;
+        flex: 0 1 auto;
     }
 }
