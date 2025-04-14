@@ -12,6 +12,7 @@ description: |
 - awake.com
 - com.com
 - earth.com
+- example.com
 - fart-in-a-box.com
 - fun.com
 - girlfriend.com
@@ -19,6 +20,5 @@ description: |
 - pets.com
 - relentless.com
 - think.com
-- told-you.com
 - www.com
 - x.com
