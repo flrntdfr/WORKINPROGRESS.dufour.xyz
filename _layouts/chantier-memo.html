@@ -6,21 +6,50 @@ layout: chantier
 article {
     max-width: 600px;
 }
+
+/* DO NOT TRY THIS AT HOME */
+
+header {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* This will ensure Safari can still find the byline */
+.byline {
+    position: static;
+    clip: auto;
+    width: auto;
+    height: auto;
+    opacity: 0.01;
+    pointer-events: none;
+}
 </style>
 
-<!-- Browser reader -->
 <article itemscope itemtype="http://schema.org/Article">
-    <header style="display:none;">
-      <h1 itemprop="headline">{{ page.title }}</h1>
+  <header>
+    <h1 itemprop="headline">{{ page.title }}</h1>
+    {% if page.subtitle %}
       <h2 itemprop="alternativeHeadline">{{ page.subtitle }}</h2>
-      <div class="byline">
-        <time datetime="{{ page.ended | time_tag }}" itemprop="datePublished">{{ page.ended | date: "%b, %-d %Y" }} — </time>
-        <span itemprop="locationCreated">{{ page.location }}</span>
-        <p itemprop="author">{{ page.author }}</p>
-      </div>
-    </header>
-    
-    <div itemprop="articleBody">
-      {{ content }}
-    </div>
+    {% endif %}
+    <p class="byline">
+      {% if page.author %}
+      By <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+      {% endif %}
+      {% if page.location %}
+      in <span itemprop="locationCreated">{{ page.location }}</span>
+      {% endif %}
+      <time datetime="{{ page.ended | date_to_xmlschema }}" itemprop="datePublished">{{ page.ended | date: "%B %-d, %Y" }}</time>
+    </p>
+  </header>
+
+  <section itemprop="articleBody">
+    {{ content }}
+  </section>
 </article>
