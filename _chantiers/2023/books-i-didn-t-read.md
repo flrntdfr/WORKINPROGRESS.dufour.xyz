@@ -1,16 +1,12 @@
 ---
 layout: chantier
 title: Books I didn't read
-labels: list illustration
+labels: [list, illustration]
 started: 2018-11-24 11:04
 ended: 2023-09-22 22:26
-modified: 2024-08-10
-featured: false
 location: Strasbourg
----
-
-- Inspired by the tumblr: https://booksididnt.tumblr.com/
-
+description: |
+    Inspired by the tumblr: https://booksididnt.tumblr.com/
 ---
 
 Things get better from here.

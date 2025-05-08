@@ -1,12 +1,12 @@
 ---
 layout: chantier
-title: BELLEVILLE records
+title: L'Enclave Records
 started: 2024-01-01
 ended: 
 location: Munich
-labels: music
+labels: [music]
 href:
-    label: soundcloud
+    label: SoundCloud
     url: 
 description: |
     Description goes here

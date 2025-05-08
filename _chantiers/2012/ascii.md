@@ -1,17 +1,15 @@
 ---
 layout: chantier
-title: ASCII I like
+title: ASCII
 started: 2010-09-12 21:32
 ended: 2012-10-10 21:00
-labels: list
+labels: [list]
 tech: ¯\_(ツ)_/¯
 description: |
   Before emojis were... On MSN
 ---
 
 ```txt
-
-
 ʕノ•ᴥ•ʔノ ︵ ┻━┻
 
 (ノ^_^)ノ┻━┻ ┬─┬ ノ( ^_^ノ)
@@ -55,6 +53,4 @@ description: |
             .   '=.__.=' `='      *
    +                         +
         O      *        '       .
-
-
 ```

@@ -1,16 +1,15 @@
 ---
-title: Gradients
 layout: chantier
+title: Gradients
 started: 2021-06-25 14:00
 ended: 2021-12-12
-labels: web
+labels: [web]
 description: >-
-    This is the description
+    Alternative names for gradients at https://uigradients.com
 location: Belleville
-tech: css
 ---
 
-1 gradient at the time
+https://raw.githubusercontent.com/ghosh/uiGradients/master/gradients.json
 
 - 365 tomorrows
 - Le ciel a des oreilles

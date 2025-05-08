@@ -1,11 +1,10 @@
 ---
 layout: chantier
-title: AskGPT
+title: TruthLLM 3.5
 started: 2024-08-04 00:00
-modified: 2025-02-21 10:48:27 
-labels: web LLM
-tech: GPT2
+labels: [LLM, web]
 description: |
+    Post Truth
     A take on what an aligned LLM is
 
     OpenAI introduced search, and theimportance of citations.
@@ -15,8 +14,6 @@ description: |
 >>> ▎
 
 ```
-
----
 
 <!--
 

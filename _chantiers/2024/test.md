@@ -6,7 +6,7 @@ started: 2030-08-05 19:07
 ended: 2030-08-05 19:07
 modified: 2024-08-04 19:07
 featured: true
-location: 127.0.0.1
+location: 127.0.0.1:4000
 labels: [test1, test2]
 tech: [tech1, tech2, tech3]
 permalink: /test
@@ -25,3 +25,13 @@ description: |
 ---
 
 This project is intended for testing purposes only.
+
+# This is h1 level…
+
+## … and h2
+
+This is body, in _italic_, and **bold**.
+
+> ☞ <span style="font-family: Garamond">_This is a quote_</span>
+
+<h1 style="font-family: Garamond">This is serif</h1>

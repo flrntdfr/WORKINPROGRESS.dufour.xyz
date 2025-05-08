@@ -3,13 +3,17 @@ layout: chantier
 title: tl;dr
 started: 2015-06-06 13:59
 ended: 2021-12-12 23:58
-labels: list
+labels: [list]
 lib: typedv2.1.0.min.js
 description: |
   A collection of conversation enders I gathered because they made sense at the time.
 ---
 
 <div id="typed-strings">
+	<p>Some things are complicated.</p>
+	<p>Qui a dit que ce serait facile?</p>
+	<p>That's too early to disagree.</p>
+	<p>Tout n'as pas besoin d'être compliqué.</p>
 	<p>Feed everyone.</p>
 	<p>No time is free.</p>
 	<p>All will prosper.</p>
@@ -168,18 +172,16 @@ description: |
 	<p>It takes trees to make matches.</p>
 	<p>It takes blue to come out of the blue.</p>
 	<p>It takes time to explore space.</p>
-	<p>Don't let Paris become a museum.</p>
+	<p>Paris is not just a museum.</p>
 	<p>Time is the ability to find stuff in space.</p>
 	<p>You can only do one thing at a time.</p>
 </div>
 
 <style>
-/* Cursor */
 	.typed-cursor {
 		opacity: 1;
 	}
 
-	/* If fade out option is set */
 	.typed-fade-out {
 	  opacity: 0;
 }

@@ -3,7 +3,7 @@ layout: chantier
 title: "Ministres"
 started: 2024-07-17 11:08
 ended: 
-labels: list illustration
+labels: [list, illustration]
 location: Paris
 ---
 
@@ -23,7 +23,6 @@ location: Paris
 - Ministre de la sieste et des retraites.
 - Ministre chargé à la promotion du capitalisme moderne.
 - Ministre chargé au rayonnement de la France en outre-mer.
-
 - Ministre de la France et des français à l'étranger.
 - Ministre de l'~~intéligence~~ intelligence artificielle
 - Ministre de la lutte contre le complotisme et la corruption.
@@ -31,6 +30,12 @@ location: Paris
 - Ministre du court terme
 - Ministre de la décroissance et du triomphe social
 - Ministre de la réhabilitation des zones à faible émissions
-- Ministre de la revalorisation des salaires
-- Ministre de la conjoncture économique
+- Ministre de la conjoncture économique et de la revalorisation des salaires
 - Ministre de la fatigue démocratique
+- Ministre de la technocratie abilité au refactoring de la démocratie
+- Ministre des maladies préventables
+- Ministre de la croissance sociale et de la culture hors sol
+- Ministre du capitalisme chronique
+- Ministre de l'apéro
+- Ministre de la Macarena
+- Ministre de ... et de l'ordre international 

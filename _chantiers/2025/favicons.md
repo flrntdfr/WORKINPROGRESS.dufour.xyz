@@ -1,10 +1,9 @@
 ---
 layout: chantier
+hidden: true
 title: "Favicons"
 started: 2025-03-12 20:15:30
-ended: 
-labels: list
-hidden: true
+labels: [list]
 ---
 
 <style>

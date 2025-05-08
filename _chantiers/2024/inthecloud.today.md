@@ -5,7 +5,7 @@ started: 2024-08-08 02:00
 modified: 
 archived:
 featured: true
-labels: start-up
+labels: [start-up]
 href:
     label: inthecloud.today
     url: https://inthecloud.today

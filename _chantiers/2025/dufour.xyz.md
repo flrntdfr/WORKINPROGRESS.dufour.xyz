@@ -6,6 +6,6 @@ ended: 2025-02-28
 href:
     label: GitHub
     url: https://github.com/flrntdfr/flrntdfr.github.io/
-labels: web
+labels: [web]
 hidden: true
 ---

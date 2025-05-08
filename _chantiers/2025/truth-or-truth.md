@@ -3,9 +3,9 @@ layout: chantier
 title: Truth or Truth
 started: 2022-05-15 23:48
 ended: 2025-01-19 19:45
-labels: game list
+labels: [game, list]
 description: |
-  Truth or Truth is a game made for first dates.
+  Truth or Truth is a game made for truth. It 
 ---
 
 <script type="module">
@@ -16,7 +16,10 @@ description: |
       "What have you promised in you life?",
       "How would you describe your worldview?",
       "Are you afraid to die?",
+      "What's the last lie you told yourself?",
+      "What is not one of your qualities?",
       "What do you blame yourself for?",
+      "Do you sometimes do things that you hate?",
       "How much of what's necessary to know do think you know?",
       "What are your core values?",
       "What gives you hope?",
@@ -26,6 +29,7 @@ description: |
       "When did you lied last?",
       "What's the first thing you'd do with freewill?",
       "What are some secret weird things you do?",
+      "Are there any topics you choose to avoid with your parents?",
       "Do you sometimes ask yourself why you think certain things?",
       "What percentage of people would you say are good looking?",
       "What are the most valuable things everyone should know?",

@@ -3,10 +3,9 @@ layout: chantier
 title: LA NUIT
 started: 2017-06-01 13:00
 ended: 2017-07-01 03:00
-modified: 2024-08-10
-labels: shortfilm
-tech: Final Cut Pro X, Color Finale
-location: Freiburg
+labels: [shortfilm]
+tech: [Final Cut Pro X, Color Finale]
+location: Freiburg im Breisgau
 description: |
     LA NUIT est notre premier court métrage.
 ---

@@ -1,17 +1,14 @@
 ---
 layout: chantier
-p5js: "1.4.2"
 title: Cairo
 labels: illustration
 started: 2018-07-01
 ended: 2018-11-02
-modified: 2024-10-16
 location: Strasbourg
----
-
-This is a series of experimentation with 2D vectorial images and bezier lines.
-Cairo was meant as an introduction before starting experimenting with post script.
-Mettre les vidéos
+labels: [illustration]
+tech: [cairo, p5.js]
+description: |
+    This is a series of experimentation with 2D vectorial images and bezier lines with the cairo library. Cairo was meant as an introduction before starting experimenting with post script. Mettre les vidéos
 
 ---
 

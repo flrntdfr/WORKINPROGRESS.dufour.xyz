@@ -1,10 +1,9 @@
 ---
 layout: chantier
 title: Access denied
-type: web
 started: 2025-02-19 13:30
 ended: 2025-02-19 13:40
-labels: web
+labels: [web]
 ---
 
 <div class="overlay"></div>
@@ -89,14 +88,8 @@ labels: web
 </style>
 
 <script>
-// Optional: Close on overlay click
-document.querySelector('.overlay').addEventListener('click', function() {
-    window.history.back();
-});
-
-// Optional: Close on Escape key
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') window.history.back();
+    if (e.key === 'Enter') window.history.back();
 });
 </script>
 

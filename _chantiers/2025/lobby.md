@@ -4,9 +4,11 @@ title: Lobby
 started: 2024-08-04 00:00
 ended: 2025-01-20 00:00
 archived:
-labels: web
-href: https://WORKINPROGRESS.dufour.xyz/lobby
-tech: html, css, js, Jekyll
+labels: [web]
+href: 
+  label: WIP
+  url: https://WORKINPROGRESS.dufour.xyz/lobby
+tech: [html, css, js, Jekyll]
 hidden: 
 permalink: "/"
 ---
@@ -59,7 +61,7 @@ a:visited {
 
 <h1 style="word-wrap: break-word;">🏗️ WORKINPROGRESS.dufour.xyz 🚧</h1>
 
-This is a multi-media repository of projects I've been working on since 2009.  I explain more in the [README]({% link _chantiers/2025/README.draft.md %}).
+This is a multi-media repository maintained by Florent Dufour. Refer to the [README]({% link _chantiers/2025/README.md %}) for more information.
 
 <div style="display: flex; gap: 2rem; flex-wrap: wrap-reverse;">
   <div style="flex: 1; margin-left: 3%; max-width: 600px;">

@@ -2,9 +2,8 @@
 title: Modernism in Munich
 layout: chantier-memo
 started: 2024-01-01
-ended: 
 location: Munich
-labels: memo urbanism
+labels: [memo, urbanism]
 author: Florent Dufour
 ---
 

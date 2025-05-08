@@ -3,10 +3,9 @@ layout: chantier
 title: Seuls nos soupirs, Sententia
 started: 2016-06-11
 ended: 2016-07-11
-modified: 2024-08-10
-labels: shortfilm
+labels: [shortfilm]
 location: Berlin
-tech: Final Cut Pro X
+tech: [Final Cut Pro X]
 href:
     label: YouTube
     url: https://youtu.be/JbqOXQBRsIM

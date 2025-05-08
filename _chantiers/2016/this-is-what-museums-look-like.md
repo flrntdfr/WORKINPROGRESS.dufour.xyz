@@ -1,18 +1,17 @@
 ---
 layout: chantier-full-width
 title: this is what museums look like
-started: 2016-01-01 00:00
+started: 2016-01-01 23:42
 ended: 
-modified: 2024-08-04 19:37
 featured: true
-labels: list illustration
-tech: Index cards, Uniball micro black
+labels: [list, illustration]
+tech: [Index cards, Uniball micro]
 location: Belleville
 description:
 ---
 
 <style>
-    data {
+    .data-content {
         background-image: url({% link _chantiers/2016/assets/this-is-what-museums-look-like.jpg %});
         background-repeat: no-repeat;
         background-position: center;

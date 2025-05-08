@@ -1,7 +1,7 @@
 ---
 layout: chantier-standalone
 title: Proceed with caution
-labels: web
+labels: [web]
 started: 2025-02-19 13:30
 ended: 2025-02-19 14:00
 location: Munich
