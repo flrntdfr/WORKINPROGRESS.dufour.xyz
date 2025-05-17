@@ -24,7 +24,6 @@ description: |
 ---
 
 <style>
-
 data h2 {
     margin-bottom: 0;
 }
@@ -43,7 +42,15 @@ ul li:last-child, ol li:last-child {
     margin-bottom: 0;
 }
 
+/* Add spacing to table rows */
+table tr {
+    height: 2em;  /* Increase row height */
+}
 
+table td {
+    padding: 0.5em 0;  /* Add vertical padding to cells */
+    vertical-align: top;  /* Align content to the top */
+}
 </style>
 
 # Milestones
@@ -65,24 +72,24 @@ ul li:last-child, ol li:last-child {
 1. _HPC Paper naweiluo_
 1. _HerzFit Paper_
 1.  **Comparative Overview of Medical Research Data Platforms: Interoperability, Privacy, and Federated Learning in Translational Biomedical Research**
-1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, and D. Kranzlmüller, **“Towards Confidential Computing: A Secure Cloud Architecture for Big Data Analytics and AI,”** in IEEE International Conference on Cloud Computing (IEEE CLOUD), (Chicago, Illinois, USAI), 2023.
+1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, and D. Kranzlmüller, **"Towards Confidential Computing: A Secure Cloud Architecture for Big Data Analytics and AI,"** in IEEE International Conference on Cloud Computing (IEEE CLOUD), (Chicago, Illinois, USAI), 2023.
 
 ## Talks
-- 2025: F. Dufour, Jan Peschke, **“How to build 
-a confidential cloud”? — A platform for next generation medical research**, OpenInfra Sweden, Stockholm.
-- 2024: F. Dufour, **“We built a Trusted Research Environment
-for health research - 10 strategic and technical lessons learned”**, in Medical Valley, Online.
-- 2023: F. Dufour, **“Towards the Medicine of the Future in Bavaria and Germany, One Heartbeat at the Time With Confidential Computing”** in Open Confidential Computing Conference (OC3), Online. [(YouTube)](https://www.youtube-nocookie.com/embed/013OkV_LupE)
+- 2025: F. Dufour, Jan Peschke, **"How to build 
+a confidential cloud"? — A platform for next generation medical research**, OpenInfra Sweden, Stockholm.
+- 2024: F. Dufour, **"We built a Trusted Research Environment
+for health research - 10 strategic and technical lessons learned"**, in Medical Valley, Online.
+- 2023: F. Dufour, **"Towards the Medicine of the Future in Bavaria and Germany, One Heartbeat at the Time With Confidential Computing"** in Open Confidential Computing Conference (OC3), Online. [(YouTube)](https://www.youtube-nocookie.com/embed/013OkV_LupE)
 
 ## Posters
-1. F. Dufour, N. Zhou, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **“Towards Confidential Computing: A Cloud Architecture for Big Data Analytics and AI in Biomedical Research (poster),”** in ISC, Hamburg, Germany, May 2023. 
-1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **“ DigiMed Cloud: A Highly-Secure Cloud for Big Data Analytics and AI in Biomedical Research (poster),”** in Hipeac, Munich, Germany, Jan 2024. 
+1. F. Dufour, N. Zhou, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **"Towards Confidential Computing: A Cloud Architecture for Big Data Analytics and AI in Biomedical Research (poster),",** in ISC, Hamburg, Germany, May 2023. 
+1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **" DigiMed Cloud: A Highly-Secure Cloud for Big Data Analytics and AI in Biomedical Research (poster),",** in Hipeac, Munich, Germany, Jan 2024. 
 
 ## Supervision and co-supervision
-- Vinzent Bode, **“Title”**, Ludwig-Maximilians-Universität Munich. (2025)
-- Julia Moosmayr, **“Implementierung von ausgewählten C5-Kriterien für Cloud-Dienste im Gesundheitswesen unter Berücksichtigung von NIS2 und ISO 27001: Eine Fallstudie der DigiMed Secure Cloud”** (2025)
-- Yassine Sfar, **“DigiMed Trusted Research Environment: Strategic Market Positioning for Healthcare Sovereignty, Privacy, and Utility of Medical Data”**, Technical University of Munich (2025).
-- Valentin Pfeil, **“Confidential Computing Via Hardware Trusted Execution Environments by an Openstack HPC Capable Cloud”**, University of the Bundeswehr Munich (2024).
+- Vinzent Bode, **"Title",** Ludwig-Maximilians-Universität Munich. (2025)
+- Julia Moosmayr, **"Implementierung von ausgewählten C5-Kriterien für Cloud-Dienste im Gesundheitswesen unter Berücksichtigung von NIS2 und ISO 27001: Eine Fallstudie der DigiMed Secure Cloud"** (2025)
+- Yassine Sfar, **"DigiMed Trusted Research Environment: Strategic Market Positioning for Healthcare Sovereignty, Privacy, and Utility of Medical Data"**, Technical University of Munich (2025).
+- Valentin Pfeil, **"Confidential Computing Via Hardware Trusted Execution Environments by an Openstack HPC Capable Cloud"**, University of the Bundeswehr Munich (2024).
 
 
 ## Press releases

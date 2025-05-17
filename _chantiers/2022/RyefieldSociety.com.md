@@ -1,4 +1,5 @@
 ---
+hidden: true
 layout: chantier-full-width
 title: ryefieldsociety.com
 started: 2021-08-09 23:49:53

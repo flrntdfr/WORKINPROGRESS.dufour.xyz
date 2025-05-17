@@ -1,0 +1,8 @@
+- version: v{{ now }}-rc
+  description: Bug fixes and performance improvements
+- version: v2025.04
+  description: Consistent branding with dufour.xyz
+- version: v2025.03
+  description: 200 first museums uploaded
+- version: v2025.01
+  description: Housekeeping

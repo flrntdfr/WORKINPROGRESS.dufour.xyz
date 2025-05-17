@@ -5,19 +5,18 @@ started: 2022-05-15 23:48
 ended: 2025-01-19 19:45
 labels: [game, list]
 description: |
-  Truth or Truth is a game made for truth. It 
+  Truth or Truth is a deck of 60 question-answering cards that can be played on a first date.
 ---
 
 <script type="module">
   document.addEventListener('DOMContentLoaded', function() {
     const questions = [
       "Truth or Truth?",
-      "What do you think people say when they talk about you?",
+      "What do people say when they talk about you?",
       "What have you promised in you life?",
       "How would you describe your worldview?",
       "Are you afraid to die?",
       "What's the last lie you told yourself?",
-      "What is not one of your qualities?",
       "What do you blame yourself for?",
       "Do you sometimes do things that you hate?",
       "How much of what's necessary to know do think you know?",
@@ -25,59 +24,54 @@ description: |
       "What gives you hope?",
       "Do you think there is something important that we have yet to discover?\n\n(Something like fire, chocolate, or semi conductors...)",
       "Is there something everyone should own?",
-      "How do you usually decide if you like something or not?",
-      "When did you lied last?",
+      "How do you decide if you like something or not?",
+      "When did you lie for the last time?",
       "What's the first thing you'd do with freewill?",
-      "What are some secret weird things you do?",
-      "Are there any topics you choose to avoid with your parents?",
-      "Do you sometimes ask yourself why you think certain things?",
-      "What percentage of people would you say are good looking?",
-      "What are the most valuable things everyone should know?",
-      "What do you think other people are so sure about?\nAnd what are they so sure about you?",
+      "Are there topics you choose to avoid with your parents?",
+      "How do you explain that you think certain things?",
+      "Are many people good looking?",
+      "What are the most important facts everyone should know?",
+      "What do you think other people are so sure about?",
       "What do you think is the best invention of all time?",
       "How normal do you think you are?",
       "What's the last argument you lost?",
-      "What did you prefer about your bedroom when you were a kid?",
+      "How did you like your kid's bedroom?",
       "What have you sacrificed in your life?",
-      "What did you notice last about yourself?",
-      "What do you think is the most iconic object of our time?\n\n(What do you think was the previous one?)",
-      "What are you certain about yourself?",
-      "You manage to become the benevolent world dictator, what's your first move?",
+      "What did you last notice about yourself?",
+      "What do you think is the most iconic object of our time?",
+      "You become benevolent world dictator, what's your first move?",
       "What do you like about yourself?",
-      "How do you honestly feel about global warming?",
-      "Explain why you have those apps on your phone homescreen.",
-      "We put you in a room with 10 random people. What are you sure you've done more than any of them in your life?",
+      "How do you honestly feel about climate change?",
+      "What's the first album you bought?",
+      "We put you in a room with 9 people. What have you done more than any one of them?",
       "Do you believe in art?",
       "How do you usually disappoint yourself?",
-      "What have you learned later than most people?",
+      "What have you learned later than everyone?",
       "What's your drive?",
       "It's Friday evening. You're alone at home and have no plans. What do you do?",
-      "Do you usually like what you're saying?",
+      "Do you usually like what you are saying?",
       "What would you like to change about yourself?",
       "What's your life philosophy?",
       "What have you been missing lately?",
-      "Tell me your worst date? (worst break up?)",
       "What's your definition of reality?",
       "How many people do you hate?",
       "What misconception do people have about you?",
       "What are you addicted to?",
-      "Do you think fashion is real?",
-      "What do you want to build?",
       "Are you superficial?",
-      "How does it feel to be you?",
-      "Have you ever met someone that reminds you of yourself?",
+      "Is fashion real?",
+      "What do you want to build?",
+      "How would you feel if you met yourself?",
       "How do you like your life so far?",
-      "How do you deal with uncertainty?",
       "What are you most certain about?",
-      "What's the most meaningful thing your parents ever gave you?",
-      "What's an unpopular opinion of yours?",
+      "How do you deal with uncertainty?",
+      "What's the most meaningful thing a parent should give to its kid?",
+      "What's your most unpopular opinion?",
       "Do you miss being a kid?",
-      "Imagine a world in which everyone share your opinions. How would it look like?",
+      "A world where everyone thinks like you. How does it look like?",
       "What's the last illegal thing you've done?",
-      "What do you like that isn't popular already?",
-      "What have you done for yourself?",
       "When's the last time you've done something for the first time?",
-      "Are you living up to your potential?"
+      "Are you living up to your potential?",
+      "Do people tell you often that you will succeed?"
     ];
     
     let currentIndex = 0;
@@ -298,7 +292,7 @@ description: |
     right: 15px;
     font-size: 1rem;
     padding: 5px 10px;
-    font-family: 'Marker Felt', cursive;
+    font-family: 'Inter', Helvetica, sans-serif;
     color: #888;
   }
 

@@ -5,14 +5,18 @@ started: 2015-06-06 13:59
 ended: 2021-12-12 23:58
 labels: [list]
 lib: typedv2.1.0.min.js
-description: |
-  A collection of conversation enders I gathered because they made sense at the time.
+description: tl;dr is a must of conversion enders I collected during the period 2015 → 2021.
 ---
 
 <div id="typed-strings">
 	<p>Some things are complicated.</p>
+	<p>It's not a cooking trick, it's a secret.</p>
+	<p>Stop helping me!</p>
+	<p>It's not what it looks like.</p>
+	<p>Just fucking tell her that you're sorry.</p>
 	<p>Qui a dit que ce serait facile?</p>
 	<p>That's too early to disagree.</p>
+	<p>It's not a cooking trick, it's a secret.</p>
 	<p>Tout n'as pas besoin d'être compliqué.</p>
 	<p>Feed everyone.</p>
 	<p>No time is free.</p>
@@ -21,7 +25,7 @@ description: |
 	<p>The better you get, the better you better get.</p>
 	<p>She was god coming to you as a teaching.</p>
 	<p>From here we go sublime.</p>
-	<p>Form follows function.</p>
+	<p>You just have to remember that form follows function.</p>
 	<p>You are feeding the wrong wolf.</p>
 	<p>You keep moving on with your life.</p>
 	<p>It is always up to the most conscious person to let go first.</p>
@@ -52,7 +56,7 @@ description: |
 	<p>This is how it feels.</p>
 	<p>Here's an idea: it's not different this time.</p>
 	<p>There will be suffering no more.</p>
-	<p>Do you wanna be right or do you wanna be happy?</p>
+	<p>Do you want to be right or do you want to be happy?</p>
 	<p>You've never felt so close to what you're doing.</p>
 	<p>Si tu tombes il y aura des bras pour de rattraper.</p>
 	<p>Do not hold on to what is gone.</p>
@@ -143,7 +147,7 @@ description: |
 	<p>On s'habitue à tout.</p>
 	<p>You want an open mind? You should have an open door.</p>
 	<p>Tu es encore en train de te construire.</p>
-	<p>You'll cross that bridge. When you get to it.</p>
+	<p>Sometimes people cross bridges.</p>
 	<p>Je suis en train d'apprendre.</p>
 	<p>Welcome change.</p>
 	<p>Let the past go.</p>

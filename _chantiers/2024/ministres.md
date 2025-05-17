@@ -38,4 +38,6 @@ location: Paris
 - Ministre du capitalisme chronique
 - Ministre de l'apéro
 - Ministre de la Macarena
-- Ministre de ... et de l'ordre international 
+- Ministre de ... et de l'ordre international
+- Ministre de l'intérêt humain (commun?)
+- Ministre de l'obsolescence

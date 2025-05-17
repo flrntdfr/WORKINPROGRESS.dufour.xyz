@@ -61,7 +61,7 @@ a:visited {
 
 <h1 style="word-wrap: break-word;">🏗️ WORKINPROGRESS.dufour.xyz 🚧</h1>
 
-This is a multi-media repository maintained by Florent Dufour. Refer to the [README]({% link _chantiers/2025/README.md %}) for more information.
+This is a multi-media repository maintained by Florent Dufour. Refer to the [README]({% link README.md %}) for more information.
 
 <div style="display: flex; gap: 2rem; flex-wrap: wrap-reverse;">
   <div style="flex: 1; margin-left: 3%; max-width: 600px;">

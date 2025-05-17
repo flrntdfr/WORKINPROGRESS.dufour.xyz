@@ -1,9 +1,9 @@
 ---
 layout: chantier
-title: Seuls nos soupirs, Sententia
+title: Clip&#x3a; Sententia by Seuls Nos Soupirs
 started: 2016-06-11
 ended: 2016-07-11
-labels: [shortfilm]
+labels: [clip]
 location: Berlin
 tech: [Final Cut Pro X]
 href:

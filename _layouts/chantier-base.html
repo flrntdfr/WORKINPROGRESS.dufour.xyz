@@ -99,10 +99,11 @@ labels:
     {% endif %}
     {% if page.related %}
     <br><br>
-    Related project:
+    <!-- Related project:
     <ul>
         <li><a href="{% link {{ page.related.url }} %}">{{ page.related.label }}</a></li>
-    </ul>
+    </ul> -->
+    Related project: <a href="{% link {{ page.related.url }} %}">{{ page.related.label }}</a>.
 {% endif %}
 </div>
 </metadata>

@@ -17,7 +17,7 @@ description: |
     It is inspired by the graffiti DÉFENSE d'ÉLEPHANT in Paris
 
     Nous sommes à l'angle de la rue Louis Blanc et de la rue Philippe de Girard, dans le X° arrondissement.
-    <iframe src="https://www.google.com/maps/embed?pb=!4v1742034782747!6m8!1m7!1szWgObl4TQgYG8Bk0s-cF_Q!2m2!1d48.8826705839156!2d2.362238466371915!3f180.13665516268432!4f-1.3587718142888576!5f0.7820865974627469" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!4v1742034782747!6m8!1m7!1szWgObl4TQgYG8Bk0s-cF_Q!2m2!1d48.8826705839156!2d2.362238466371915!3f180.13665516268432!4f-1.3587718142888576!5f0.7820865974627469" height="450" width="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ---
 
 {% include random-image.html images="

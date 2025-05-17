@@ -1,9 +1,9 @@
 ---
 layout: chantier
-title: Ryefield Society, Night Walks
+title: Clip&#x3a; Night Walks by Ryefield Society
 started: 2016-02-10
 ended: 2016-04-10
-labels: [shortfilm]
+labels: [clip]
 location: Basel
 href:
     label: YouTube
