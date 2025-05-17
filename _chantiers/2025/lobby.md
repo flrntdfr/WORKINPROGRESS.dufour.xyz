@@ -23,24 +23,6 @@ td {
     vertical-align: top;
 }
     
-.banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color:#fdf52b;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.banner p {
-  display: inline-block;
-  padding-left: 100%;
-  animation: banner-slide 60s linear infinite;
-  /* Enable GPU acceleration */
-  transform: translateZ(0);
-}
-
 a:link {
   color: black;
 }

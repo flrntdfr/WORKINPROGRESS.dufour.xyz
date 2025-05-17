@@ -1,8 +1,18 @@
-- version: v{{ now }}-rc
-  description: Bug fixes and performance improvements
-- version: v2025.04
-  description: Consistent branding with dufour.xyz
-- version: v2025.03
-  description: 200 first museums uploaded
-- version: v2025.01
-  description: Housekeeping
+# Emojis:
+# 🚧 🏗️ 🔨 🛠️ ⚒️ 🔧 🔩 ⚙️ 📝 📊 📈 🧰 👷 🚦 📋 🚨
+
+- emoji: 🚦
+  version: v2025.09
+  description: Publish WIP on internet.
+- emoji: 📊
+  version: v2025.04
+  description: Consistent branding with dufour.xyz.
+- emoji: 🏗️
+  version: v2025.03
+  description: 200 first museums uploaded.
+- emoji: 🚧
+  version: ce3e2c375312c9ae8337753ddec929abf743667a
+  description: Rough draft of WIP.
+- emoji: 🔨
+  version: bc1b0d17a7b3100e83bfeafdcfebd7f57eaf99ab
+  description: Initial commit.

@@ -1,5 +1,5 @@
 ---
-#hidden: true
+hidden: true
 layout: chantier
 title: CHANGELOG
 started: 2025-05-17
@@ -8,9 +8,10 @@ description: |
     Changelog for the website.
 ---
 
-<ul>
+## v{{ "now" | date: "%Y.%m" }}-rc
+{% include random-emoji.html %} Bug fixes and performance improvements.
+
 {% for log in site.data.changelog %}
-        <h2>{{ log.version }}</h2>
-        <p>{{ log.description }}</p>
+## {{ log.version }}
+{% include random-emoji.html %} {{ log.description }}
 {% endfor %}
-</ul>

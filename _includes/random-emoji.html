@@ -1,0 +1,19 @@
+{% comment %}
+  Random Emoji Display - Liquid Template
+  Usage: {% include random-emoji.html %}
+  
+  This include will display a random emoji from a predefined array using Liquid templating.
+  You can also pass a custom emoji array using the 'emojis' parameter:
+  {% include random-emoji.html emojis="🌟,🎉,🚀,💫,🔥" %}
+{% endcomment %}
+
+{% if include.emojis %}
+  {% assign emoji_array = include.emojis | split: "," %}
+{% else %}
+  {% assign emoji_array = "🚧,🏗️,🔨,🛠️,⚒️,🔧,🔩,⚙️,📝,📊,📈,🧰,👷,🚦,📋" | split: "," %}
+{% endif %}
+
+{% assign array_size = emoji_array | size %}
+{% assign random_index = "now" | date: "%N" | modulo: array_size %}
+
+{{ emoji_array[random_index] }} 
