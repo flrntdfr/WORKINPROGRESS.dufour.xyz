@@ -1,15 +1,10 @@
 ---
+hidden: true
 layout: chantier-standalone
-title: Lobby
+title: WIP | Content Management System
 started: 2024-08-04 00:00
-ended: 2025-01-20 00:00
-archived:
 labels: [web]
-href: 
-  label: WIP
-  url: https://WORKINPROGRESS.dufour.xyz/lobby
 tech: [html, css, js, Jekyll]
-hidden: 
 permalink: "/"
 ---
 
@@ -43,7 +38,7 @@ a:visited {
 
 <h1 style="word-wrap: break-word;">🏗️ WORKINPROGRESS.dufour.xyz 🚧</h1>
 
-This is a multi-media repository maintained by Florent Dufour. Refer to the [README]({% link README.md %}) for more information.
+This is a multi-media repository maintained by Florent Dufour. Refer to the [README]({% link _chantiers/2025/README.md %}) for more information.
 
 <div style="display: flex; gap: 2rem; flex-wrap: wrap-reverse;">
   <div style="flex: 1; margin-left: 3%; max-width: 600px;">
@@ -119,7 +114,7 @@ This is a multi-media repository maintained by Florent Dufour. Refer to the [REA
   </div>
 </div>
 
-This project is published (and hosted) [on GitHub](https://github.com/flrnt.dfr/WORKINPROGRESS.dufour.xyz) and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+This project is published (and hosted) [on GitHub](https://github.com/flrntdfr/WORKINPROGRESS.dufour.xyz) and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 → Info: [info@dufour.xyz](mailto:info@dufour.xyz) \
 → Business: [biz@dufour.xyz](mail:biz@dufour.xyz)

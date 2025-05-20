@@ -40,11 +40,13 @@ labels:
         </tr>
         {% endif %}
         {% if page.ended == page.started %}
+        {% unless page.ended == nil %}
         <tr>
             <th>posted</th>
             <td><span title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>
+        {% endunless %}
         {% else %}
         <tr>
             <th>started</th>

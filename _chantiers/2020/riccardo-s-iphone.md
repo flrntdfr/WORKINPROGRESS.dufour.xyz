@@ -7,6 +7,12 @@ labels: [illustration]
 tech: [Pixelmator]
 ---
 
+<style>
+img {
+    max-width: 350px !important;
+}
+</style>
+
 
 <img src="{% link x/2020/riccardo-s-iphone/do-not-disturb.jpg %}" alt="Do Not Disturb" />
 <img src="{% link x/2020/riccardo-s-iphone/instagram.jpg %}" alt="Instagram" />

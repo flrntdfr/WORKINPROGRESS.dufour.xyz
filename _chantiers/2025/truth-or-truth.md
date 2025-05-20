@@ -49,7 +49,7 @@ description: |
       "What have you learned later than everyone?",
       "What's your drive?",
       "It's Friday evening. You're alone at home and have no plans. What do you do?",
-      "Do you usually like what you are saying?",
+      "Do you usually like what you say?",
       "What would you like to change about yourself?",
       "What's your life philosophy?",
       "What have you been missing lately?",
@@ -71,7 +71,7 @@ description: |
       "What's the last illegal thing you've done?",
       "When's the last time you've done something for the first time?",
       "Are you living up to your potential?",
-      "Do people tell you often that you will succeed?"
+      "Do people often tell you that you will succeed?"
     ];
     
     let currentIndex = 0;

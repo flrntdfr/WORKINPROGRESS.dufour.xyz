@@ -35,7 +35,7 @@ JavaScript
 - Use event delegation for efficient event handling.
 - Implement proper error handling and logging.
 - Optimize for performance (e.g., debounce, throttle for scroll/resize events).
-- Use comments in the form /* */
+- Use comments in the form "/* */", never "//"
 
 Jekyll
 - Utilize Jekyll's front matter for page-specific metadata.

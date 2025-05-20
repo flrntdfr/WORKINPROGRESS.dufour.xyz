@@ -153,7 +153,7 @@ description: |
       strings: [
       "I'm a Ph.D. Student in AI for medicine.",
       "Internet changed my life.",
-      "I work on AI, CCC, LLM, PET, DP, TEE, and TRE.",
+      "I work on AI, CCC, DP, LLM, PET, TEE, and TRE.",
       "I know enough HTML to be &#x3C;blink&#x3E; dangerous &#x3C;/blink&#x3E;.",
       "Later that day, ʕノ•ᴥ•ʔノ ︵ ┻━┻.",
       "Check my Instagram.",
@@ -173,7 +173,6 @@ description: |
     ]
     });
     </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"94138fc3da67925d","version":"2025.4.0-1-g37f21b1","r":1,"token":"96f5a68a72494c6eb074fe7ac1015725","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
 </body>
 </html>
 ```

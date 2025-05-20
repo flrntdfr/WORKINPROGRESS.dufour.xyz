@@ -30,6 +30,22 @@ header {
     opacity: 0.01;
     pointer-events: none;
 }
+
+.figure:has(+ .figcaption) {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.figcaption {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.figcaption em {
+    color: darkgray;
+    font-style: normal;
+    font-size: 0.8em;
+}
 </style>
 
 <article itemscope itemtype="http://schema.org/Article">

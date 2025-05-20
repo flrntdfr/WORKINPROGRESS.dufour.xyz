@@ -3,9 +3,10 @@ layout: chantier
 title: tl;dr
 started: 2015-06-06 13:59
 ended: 2021-12-12 23:58
+location: Everywhere
 labels: [list]
 lib: typedv2.1.0.min.js
-description: tl;dr is a must of conversion enders I collected during the period 2015 → 2021.
+description: tl;dr is a must of conversion enders I collected during the period mid 2015 → 2021.
 ---
 
 <div id="typed-strings">
@@ -106,7 +107,7 @@ description: tl;dr is a must of conversion enders I collected during the period 
 	<p>Comment on fait quand on n'aime pas ce qu'on désire?</p>
 	<p>C'est comme avoir peur du passé.</p>
 	<p>Sometimes crashing into a wall opens new doors.</p>
-	<p>You can invent a new religion if I want.</p>
+	<p>You can invent a new religion if you want.</p>
 	<p>Mon cœur bat un peu plus vite quand je suis prêt de toi.</p>
 	<p>La vengeance est un plat réchauffé.</p>
 	<p>It's like falling in love on a break up song.</p>

@@ -1,13 +1,19 @@
 # Makefile
 # 2021 - 2025
 
+# Pre-processing
+
+img:
+	# TODO
+
+# Jekyll
+
 JEKYLL_PORT    := 4000
 JEKYLL_FLAGS   := --trace --livereload
 
-
-build: ## Build the website locally
+build: img ## Build the website locally
 	jekyll $@
-serve: ## Build and serve the website locally
+serve: build ## Build and serve the website locally
 	jekyll $@ $(JEKYLL_FLAGS)
 clean: ## Clean caches
 	jekyll $@

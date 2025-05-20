@@ -41,3 +41,4 @@ location: Paris
 - Ministre de ... et de l'ordre international
 - Ministre de l'intérêt humain (commun?)
 - Ministre de l'obsolescence
+- ministre délégué chargé du ... et des Français de l’étranger

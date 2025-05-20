@@ -2,23 +2,9 @@
 layout: chantier
 title: Access denied
 started: 2025-02-19 13:30
-ended: 2025-02-19 13:40
+ended: 2025-02-19 13:30
 labels: [web]
 ---
-
-<div class="overlay"></div>
-<div class="native-alert">
-    <div class="native-alert-title">
-        Access Denied
-    </div>
-    <div class="native-alert-content">
-        This incident will be reported.
-    </div>
-    <div class="native-alert-buttons">
-        <button class="native-button" onclick="window.history.back()">Report</button>
-    </div>
-</div>
-
 
 <style>
 .native-alert {
@@ -87,9 +73,47 @@ labels: [web]
 }
 </style>
 
+<div class="overlay"></div>
+<div class="native-alert">
+    <div class="native-alert-title">
+        Access Denied
+    </div>
+    <div class="native-alert-content">
+        This incident will be reported.
+    </div>
+    <div class="native-alert-buttons">
+        <button class="native-button" onclick="window.location.href='/'">Report</button>
+    </div>
+</div>
+
 <script>
+/* Store the current URL */
+const currentUrl = window.location.href;
+
+/* Add initial history entries */
+for (let i = 0; i < 10; i++) {
+    history.pushState(null, '', currentUrl);
+}
+
+/* Handle back button clicks */
+window.addEventListener('popstate', function(e) {
+    /* Add more history entries */
+    for (let i = 0; i < 5; i++) {
+        history.pushState(null, '', currentUrl);
+    }
+});
+
+/* Handle any clicks on the page */
+document.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') {
+        e.preventDefault();
+        history.pushState(null, '', currentUrl);
+    }
+});
+
+/* Report by Enter button */
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') window.history.back();
+    if (e.key === 'Enter') window.location.href='/';
 });
 </script>
 
