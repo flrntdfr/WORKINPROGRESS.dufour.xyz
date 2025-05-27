@@ -9,7 +9,7 @@ description: |
     Changelog for the content management system.
 related:
   label: content management system
-  url: _chantiers/2025/cms.md
+  url: _chantiers/2024/cms.md
 ---
 
 ## v{{ "now" | date: "%Y.%m" }}-rc

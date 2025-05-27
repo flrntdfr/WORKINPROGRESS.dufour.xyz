@@ -13,7 +13,7 @@ JEKYLL_FLAGS   := --trace --livereload
 
 build: img ## Build the website locally
 	jekyll $@
-serve: build ## Build and serve the website locally
+serve: ## Build and serve the website locally
 	jekyll $@ $(JEKYLL_FLAGS)
 clean: ## Clean caches
 	jekyll $@

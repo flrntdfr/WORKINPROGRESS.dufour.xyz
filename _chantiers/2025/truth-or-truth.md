@@ -35,7 +35,7 @@ description: |
       "What do you think is the best invention of all time?",
       "How normal do you think you are?",
       "What's the last argument you lost?",
-      "How did you like your kid's bedroom?",
+      "How did you like your bedroom as a kid?",
       "What have you sacrificed in your life?",
       "What did you last notice about yourself?",
       "What do you think is the most iconic object of our time?",

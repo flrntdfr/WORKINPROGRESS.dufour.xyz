@@ -51,6 +51,6 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - *.draft*
-  - *.ko*
+  - "*.draft*"
+  - "*.ko*"
 

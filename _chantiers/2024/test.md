@@ -6,12 +6,11 @@ started: 2030-08-05 19:07
 ended: 2030-08-05 19:07
 modified: 2024-08-04 19:07
 featured: true
-location: 127.0.0.1:4000
 labels: [test1, test2]
 tech: [tech1, tech2, tech3]
 permalink: /test
 href:
-    label: localhost:4000
+    label: http://localhost:4000
     url: http://localhost:4000
 related:
     label: favicons

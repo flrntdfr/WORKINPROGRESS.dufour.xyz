@@ -6,17 +6,19 @@ ended: 2021-12-12 23:58
 location: Everywhere
 labels: [list]
 lib: typedv2.1.0.min.js
-description: tl;dr is a must of conversion enders I collected during the period mid 2015 → 2021.
+description: tl;dr are one-line summaries of phone calls I made during the period mid 2015 → 2021.
 ---
 
 <div id="typed-strings">
+	<p>Le verbe n'est pas l'action.</p>
 	<p>Some things are complicated.</p>
+	<p>It all comes from the inside.</p>
 	<p>It's not a cooking trick, it's a secret.</p>
 	<p>Stop helping me!</p>
 	<p>It's not what it looks like.</p>
 	<p>Just fucking tell her that you're sorry.</p>
 	<p>Qui a dit que ce serait facile?</p>
-	<p>That's too early to disagree.</p>
+	<p>It's too early to disagree.</p>
 	<p>It's not a cooking trick, it's a secret.</p>
 	<p>Tout n'as pas besoin d'être compliqué.</p>
 	<p>Feed everyone.</p>
@@ -86,8 +88,6 @@ description: tl;dr is a must of conversion enders I collected during the period 
 	<p>Did you really need this help from God?</p>
 	<p>The future is coming.</p>
 	<p>On ne sépare pas les gens qui ont la même odeur.</p>
-	<p>La beauté est une putain, je préfère l'argent.</p>
-	<p>On laisse tous une chaussure dans le frigo de quelqu'un d'autre.</p>
 	<p>Atmen nicht vergessen.</p>
 	<p>Be who you are.</p>
 	<p>The map is not the territory.</p>
@@ -163,7 +163,6 @@ description: tl;dr is a must of conversion enders I collected during the period 
 	<p>Actions have consequences.</p>
 	<p>Understand with knowledge.</p>
 	<p>Failures build your sense of humor.</p>
-	<p>You are stronger than you think.</p>
 	<p>Les bonnes choses prennent du temps.</p>
 	<p>How much good can you do?</p>
 	<p>If you don't want to get burned, don't put your hand in the fire.</p>
