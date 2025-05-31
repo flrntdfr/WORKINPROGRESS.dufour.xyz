@@ -6,10 +6,10 @@ started: 2020-07-28 12:49:28
 ended: 
 labels: [list]
 description: |
-    Changelog for the content management system.
+    Changelog for the website.
 related:
-  label: content management system
-  url: _chantiers/2024/cms.md
+  label: website
+  url: _chantiers/2024/website.md
 ---
 
 ## v{{ "now" | date: "%Y.%m" }}-rc

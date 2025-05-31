@@ -5,7 +5,7 @@ started: 2022-05-15 23:48
 ended: 2025-01-19 19:45
 labels: [game, list]
 description: |
-  Truth or Truth is a deck of 60 question-answering cards that can be played on a first date.
+  Truth or Truth is a deck of XX question-answering cards that can be played on a first date.
 ---
 
 <script type="module">
@@ -14,6 +14,7 @@ description: |
       "Truth or Truth?",
       "What do people say when they talk about you?",
       "What have you promised in you life?",
+      "What memory do you cherish the most?",
       "How would you describe your worldview?",
       "Are you afraid to die?",
       "What's the last lie you told yourself?",
@@ -26,6 +27,8 @@ description: |
       "Is there something everyone should own?",
       "How do you decide if you like something or not?",
       "When did you lie for the last time?",
+      "Are you happy?",
+      "What's your definition of the word courage?",
       "What's the first thing you'd do with freewill?",
       "Are there topics you choose to avoid with your parents?",
       "How do you explain that you think certain things?",
@@ -43,11 +46,13 @@ description: |
       "What do you like about yourself?",
       "How do you honestly feel about climate change?",
       "What's the first album you bought?",
-      "We put you in a room with 9 people. What have you done more than any one of them?",
+      "We put you in a room with 9 people. What have you done more than any of them?",
       "Do you believe in art?",
-      "How do you usually disappoint yourself?",
+      "Who's your role model?",
+      "How do you sometimes disappoint yourself?",
       "What have you learned later than everyone?",
       "What's your drive?",
+      "Why is the sky blue?",
       "It's Friday evening. You're alone at home and have no plans. What do you do?",
       "Do you usually like what you say?",
       "What would you like to change about yourself?",

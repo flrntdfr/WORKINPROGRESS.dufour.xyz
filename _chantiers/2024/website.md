@@ -1,44 +1,16 @@
 ---
 hidden: true
 layout: chantier-standalone
-title: WIP | Content Management System
+title: WIP Website
 started: 2024-08-04 00:00
 labels: [web]
 tech: [html, css, js, Jekyll]
 permalink: "/"
 ---
 
-<style>
-tr {
-    height: 2em;
-}
-
-td {
-    padding-right: 15px;
-    vertical-align: top;
-}
-    
-a:link {
-  color: black;
-}
-
-a:visited {
-  color: darkgrey;
-}
-
-@keyframes banner-slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-</style>
-
 <h1 style="word-wrap: break-word;">🏗️ WORKINPROGRESS.dufour.xyz 🚧</h1>
 
-This is a multi-media repository maintained by Florent Dufour. Refer to the [README]({% link _chantiers/2025/README.md %}) for more information.
+This is a multi-media repository of projects maintained by Florent Dufour. Refer to the [README]({% link _chantiers/2025/README.md %}) for more information.
 
 <div style="display: flex; gap: 2rem; flex-wrap: wrap-reverse;">
   <div style="flex: 1; margin-left: 3%; max-width: 600px;">
@@ -128,3 +100,31 @@ This project is published (and hosted) [on GitHub](https://github.com/flrntdfr/W
 <div class="banner">
   {% include banner.html %}
 </div>
+
+<style>
+tr {
+    height: 2em;
+}
+
+td {
+    padding-right: 15px;
+    vertical-align: top;
+}
+    
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: darkgrey;
+}
+
+@keyframes banner-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+</style>
