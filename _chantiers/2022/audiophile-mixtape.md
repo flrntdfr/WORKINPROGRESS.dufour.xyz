@@ -6,8 +6,7 @@ started: 2022-05-21
 location: Munich High-End Audio
 labels: [list, music]
 href:
-    label: Apple Music
-    url: https://music.apple.com/fr/playlist/audiophile-playlist/pl.u-RRbVNM7TygoeWG?l=en
+  - ["Apple Music", "https://music.apple.com/fr/playlist/audiophile-playlist/pl.u-RRbVNM7TygoeWG?l=en"]
 description: |
     Songs I would like to listen to (loud) on a very good sound system.
 ---

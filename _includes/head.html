@@ -2,7 +2,12 @@
     <meta http-equiv="Content-Type" content="text/html;charset={{ site.encoding }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    {% if page.theme-color %}
+    <meta name="theme-color" content="{{ page.theme-color }}">
+    {% else %}
     <meta name="theme-color" content="{{ site.theme-color }}">
+    {% endif %}
     
     <title>{{page.title }} ({{ site.title_short }})</title>
 

@@ -8,8 +8,7 @@ featured: false
 location: München
 labels: [web]
 href:
-    label: ryefieldsociety.com
-    url: https://ryefieldsociety.com
+  - ["ryefieldsociety.com", "https://ryefieldsociety.com"]
 ---
 
 {% include iframe.html content="https://RyefieldSociety.com" %}

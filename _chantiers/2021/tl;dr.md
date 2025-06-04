@@ -6,7 +6,7 @@ ended: 2021-12-12 23:58
 location: Everywhere
 labels: [list]
 lib: typedv2.1.0.min.js
-description: tl;dr are one-line summaries of phone calls I made during the period mid 2015 → 2021.
+description: tl;dr are one-line summaries of text conversations I had during the period mid 2015 → 2021.
 ---
 
 <div id="typed-strings">

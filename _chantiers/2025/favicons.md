@@ -4,6 +4,9 @@ hidden: true
 title: "Favicons"
 started: 2025-03-12 20:15:30
 labels: [list]
+related:
+  label: website
+  url: _chantiers/2024/website.md
 ---
 
 <style>

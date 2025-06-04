@@ -10,8 +10,7 @@ labels: [test1, test2]
 tech: [tech1, tech2, tech3]
 permalink: /test
 href:
-    label: http://localhost:4000
-    url: http://localhost:4000
+  - ["http://localhost:4000", "http://localhost:4000"]
 related:
     label: favicons
     url: _chantiers/2025/favicons.md

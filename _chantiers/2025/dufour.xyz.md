@@ -4,8 +4,7 @@ title: dufour.xyz
 started: 2018-02-05
 ended: 
 href:
-    label: GitHub
-    url: https://github.com/flrntdfr/flrntdfr.github.io/
+  - ["GitHub", "https://github.com/flrntdfr/flrntdfr.github.io/"]
 labels: [web]
 description: |
     Portable Static plain html, css, js 
@@ -175,4 +174,3 @@ description: |
     </script>
 </body>
 </html>
-```

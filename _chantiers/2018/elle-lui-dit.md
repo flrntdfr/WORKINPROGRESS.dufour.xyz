@@ -6,8 +6,7 @@ ended: 2018-08-06 14:45
 labels: [photo]
 tech: [iPhone SE, VSCO]
 href:
-    label: "Instagram"
-    url: "https://instagram.com/flrnt.dfr"
+  - ["Instagram", "https://instagram.com/flrnt.dfr"]
 labels: photo
 description: |
     Avec "Elle lui dit", j'ai voulu d'explorer les différentes formes de masculinité autour de moi. Dans cette photo de photo, Project aiming at noticing forms of masculinity around me Pictures edited with VSCO or Lightroom 4. Captions were redacted from the pictures "Elle lui dit",, what could she possibly say. I show what I observed as masculiity around me. Do they (girls) notice the same? Qu'est ce que je remarque? Est-ce que je remarque des choses attraction ou aversion? Notice in the square format of Instagram. Au cours de mes voyages en 2018. Is an instagram project

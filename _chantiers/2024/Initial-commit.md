@@ -6,8 +6,7 @@ started: 2024-08-04 00:00
 labels: [web]
 tech: [git]
 href:
-    label: GitHub
-    url: https://github.com/flrntdfr/WORKINPROGRESS.dufour.xyz/commits/master/
+  - ["GitHub", "https://github.com/flrntdfr/WORKINPROGRESS.dufour.xyz/commits/master/"]
 related:
     label: content management system
     url: _chantiers/2024/website.md

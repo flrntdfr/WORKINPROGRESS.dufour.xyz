@@ -5,8 +5,7 @@ labels: [list]
 started: 2013-06-18
 ended: 2025-04-11 15:20
 href:
-    label: Apple Music
-    url: https://music.apple.com/fr/playlist/jaime-la-pochette
+  - ["Apple Music", "https://music.apple.com/fr/playlist/jaime-la-pochette"]
 related:
     label: J'aime la pochette
     url: _chantiers/2024/pochette.md

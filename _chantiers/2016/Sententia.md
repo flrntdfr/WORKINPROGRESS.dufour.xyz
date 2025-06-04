@@ -7,8 +7,7 @@ labels: [clip]
 location: Berlin
 tech: [Final Cut Pro X]
 href:
-    label: YouTube
-    url: https://youtu.be/JbqOXQBRsIM
+  - ["YouTube", "https://youtu.be/JbqOXQBRsIM"]
 description: |
     Shortfilm for the release of ... Made of video archives. Square format
 ---

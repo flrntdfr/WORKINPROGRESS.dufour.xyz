@@ -5,8 +5,7 @@ started: 2018-01-01 00:00
 ended: 2019-04-12 00:00
 location: Belfort
 href:
-    label: YouTube
-    url: https://youtu.be/9M4W0oZhYMw
+  - ["YouTube", "https://youtu.be/9M4W0oZhYMw"]
 labels: [shortfilm]
 description: |
     Découvrez l'histoire invraisemblable d'un vélo ordinaire.

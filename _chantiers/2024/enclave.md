@@ -6,8 +6,7 @@ ended:
 location: Munich
 labels: [music]
 href:
-    label: SoundCloud
-    url: 
+  - ["SoundCloud", ""]
 description: |
     Description goes here
 ---

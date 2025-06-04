@@ -7,8 +7,7 @@ archived:
 featured: true
 labels: [start-up]
 href:
-    label: inthecloud.today
-    url: https://inthecloud.today
+  - ["inthecloud.today", "https://inthecloud.today"]
 location: München
 description: |
     inthecloud.today operates DNS, domain names, cloud instances, SMTP servers etc

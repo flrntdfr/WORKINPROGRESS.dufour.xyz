@@ -12,11 +12,11 @@ JEKYLL_PORT    := 4000
 JEKYLL_FLAGS   := --trace --livereload
 
 build: img ## Build the website locally
-	jekyll $@
+	bundle exec jekyll $@
 serve: ## Build and serve the website locally
-	jekyll $@ $(JEKYLL_FLAGS)
+	bundle exec jekyll $@ $(JEKYLL_FLAGS)
 clean: ## Clean caches
-	jekyll $@
+	bundle exec jekyll $@
 nuke: clean ## Nuke caches and temp files 
 	trash -rf ._* .jekyll* _site Gemfile.lock
 help:  ## Print this help

@@ -8,8 +8,7 @@ location: Leibniz Supercomputing Centre
 labels: [research]
 tech: [OpenStack, Quobyte, AMD-SEV/SNP, Nvidia H200]
 href:
-    label: digimed-bayern.de
-    url: https://www.digimed-bayern.de/en.html
+  - ["digimed-bayern.de", "https://www.digimed-bayern.de/en.html"]
 description: |
     The DigiMed secure Cloud is one artifcat of the 27Mio€ project by Bavaria. Confidential. Beginning nothing
     Now IaaS 

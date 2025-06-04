@@ -42,7 +42,7 @@ labels:
         {% if page.ended == page.started %}
         {% unless page.ended == nil %}
         <tr>
-            <th>posted</th>
+            <th>created</th>
             <td><span title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>
@@ -89,12 +89,12 @@ labels:
             <td>{{ page.tech | join: ", "}}</td>
         </tr>
         {% endif %}
-        {% if page.href %}
+        <!-- {% if page.href %}
         <tr>
             <th>href</th>
             <td><a href="{{ page.href.url}}" target="_blank" rel="noopener noreferrer">{{ page.href.label }} ➟</a></td>
         </tr>
-        {% endif %}
+        {% endif %} -->
     </table>
     {% if page.description %}
         {{ page.description }}
@@ -105,8 +105,13 @@ labels:
     <ul>
         <li><a href="{% link {{ page.related.url }} %}">{{ page.related.label }}</a></li>
     </ul> -->
-    Related project: <a href="{% link {{ page.related.url }} %}">{{ page.related.label }}</a>.
-{% endif %}
+    <p><strong>Related project:</strong> <a href="{% link {{ page.related.url }} %}">{{ page.related.label }}</a>.</p>
+    {% endif %}
+
+    {% for href in page.href %}
+    <p>[{{ forloop.index }}]: <a href="{{ href[1]}}" target="_blank" rel="noopener noreferrer">{{ href[0] }} ➟</a></p>
+    {% endfor %}
+
 </div>
 </metadata>
 

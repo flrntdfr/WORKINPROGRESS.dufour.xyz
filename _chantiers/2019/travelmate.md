@@ -9,8 +9,7 @@ description: |
     <br><br>
     <b>From the band</b>: This playlist contains films comprising the Travelmate Videoproject. Film snippets were sent to us from fans, friends and complete strangers around the globe, inspired by the songs on the Travelmate LP. Max. 1 minute pr. song from each collaborator. Yrsa Wedel expertly edited the snippets into 12 beautiful moving poems. Will be added as we move along. Huge big thanks to everyone involved. 
 href:
-    label: YouTube
-    url: https://www.youtube.com/playlist?list=PLNXhezV4jSPH_YPbawOvxA4igJh4Qi4oZ
+  - ["YouTube", "https://www.youtube.com/playlist?list=PLNXhezV4jSPH_YPbawOvxA4igJh4Qi4oZ"]
 
 
 ---

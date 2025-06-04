@@ -4,10 +4,9 @@ title: EC*
 labels: [list, music]
 featured: true
 href:
-    label: "Apple Music"
-    url: https://music.apple.com/profile/flrntdfr
+  - ["@flrntdfr, on Apple Music", "https://music.apple.com/profile/flrntdfr"]
 tech: [Apple Music, iTunes, iPod touch 32 GB, eMule]
 started: 2010-09-01 20:00
 description:
-    EC* is perhaps my most ambition project. I have curated more than 60 days of electronic music in 300 playliste. EC* is an Attempt at mapping the electronic music I like.
+    EC* is a system of 300 playlists [1] that allows me to navigate the electronic music I like.
 ---
