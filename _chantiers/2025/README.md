@@ -8,6 +8,7 @@ author: Florent Dufour
 location: Munich
 hidden: true # Useless outside of _chantiers
 labels: [memo]
+permalink: "/README"
 ---
 
 Hi, my name is Florent Dufour and I am the maintainer of this place. I like to think of it as a multi-media autobiography. It consists of projects I started collecting a kid. Everything here is a project, even making this website was a project. I published the it on my 30<sup>th</sup> birthday as a present to myself. 

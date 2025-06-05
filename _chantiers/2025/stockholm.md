@@ -17,9 +17,9 @@ description: While spending the weekend in stockholm [1], I made word associatio
 ![CURIOSITY AND FOCUS]({% link x/2025/Stockholm/4.jpg %})
 ![CURVES AND VELOCITY]({% link x/2025/Stockholm/5.jpg %})
 ![PEACE AND PRINCIPLES]({% link x/2025/Stockholm/6.jpg %})
-![PROSPECTIVE ET PLANIFICATION]({% link x/2025/Stockholm/7.jpg %})
+{% comment %} ![PROSPECTIVE ET PLANIFICATION]({% link x/2025/Stockholm/7.jpg %}) {% endcomment %}
 ![CENTRES ET GRAVITÉ]({% link x/2025/Stockholm/8.jpg %})
 ![NEW AND INTERESTING]({% link x/2025/Stockholm/9.jpg %})
 ![TRUTH AND TRUTH]({% link x/2025/Stockholm/10.jpg %})
-![TECHNOLOGY AND OPTIMISM]({% link x/2025/Stockholm/11.jpg %})
-![ALPHABÉTISATION ET CRÉATIVITÉ]({% link x/2025/Stockholm/12.jpg %})
+{% comment %} ![TECHNOLOGY AND OPTIMISM]({% link x/2025/Stockholm/11.jpg %}) {% endcomment %}
+{% comment %} ![ALPHABÉTISATION ET CRÉATIVITÉ]({% link x/2025/Stockholm/12.jpg %}) {% endcomment %}

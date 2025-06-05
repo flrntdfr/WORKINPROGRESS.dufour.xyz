@@ -1,20 +1,22 @@
 ---
 hidden: true
 layout: chantier-standalone
-title: WIP Website
+title: The website
 started: 2024-08-04 00:00
 labels: [web]
 tech: [html, css, js, Jekyll]
 permalink: "/"
+description: |
+    This is a multi-media repository of projects I am working on. For more information, read the <a href="/README">README</a>.
 ---
 
 <h1 style="word-wrap: break-word;">🏗️ WORKINPROGRESS.dufour.xyz 🚧</h1>
 
-This is a multi-media repository of projects maintained by Florent Dufour. Refer to the [README]({% link _chantiers/2025/README.md %}) for more information.
+{{ page.description }}
 
 <div style="display: flex; gap: 2rem; flex-wrap: wrap-reverse;">
   <div style="flex: 1; margin-left: 3%; max-width: 600px;">
-    <h2>Finished projects</h2>
+    <h2>Closed projects</h2>
     <div style="flex: 1;">
       <table>
         <thead>
@@ -50,7 +52,7 @@ This is a multi-media repository of projects maintained by Florent Dufour. Refer
   </div>
 
   <div style="flex: 1; margin-left: 3%; max-width: 600px;">
-    <h2>Ongoing projects</h2>
+    <h2>Open projects</h2>
     <div style="flex: 1;">
       <table>
         <thead>

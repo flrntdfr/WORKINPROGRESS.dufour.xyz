@@ -11,6 +11,7 @@ description: tl;dr are one-line summaries of text conversations I had during the
 
 <div id="typed-strings">
 	<p>Le verbe n'est pas l'action.</p>
+	<p>La vie est une cacahuète.</p>
 	<p>Some things are complicated.</p>
 	<p>It all comes from inside.</p>
 	<p>It's not a cooking trick, it's a secret.</p>

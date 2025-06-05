@@ -6,7 +6,7 @@ started: 2025-03-12 20:15:30
 labels: [list]
 related:
   label: website
-  url: _chantiers/2024/website.md
+  url: _chantiers/2024/the-website.md
 ---
 
 <style>

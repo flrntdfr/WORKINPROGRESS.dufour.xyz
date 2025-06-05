@@ -8,8 +8,8 @@ labels: [list]
 description: |
     Changelog for the website.
 related:
-  label: website
-  url: _chantiers/2024/website.md
+  label: the website
+  url: _chantiers/2024/the-website.md
 ---
 
 ## v{{ "now" | date: "%Y.%m" }}-rc
