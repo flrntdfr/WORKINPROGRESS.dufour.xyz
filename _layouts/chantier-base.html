@@ -13,11 +13,7 @@ featured:
 location:
 permalink:
 href: 
-    label:
-    url:
-related:
-    label:
-    url:
+    - ["", "", ""]
 tech:
 labels:
 ---
@@ -108,9 +104,11 @@ labels:
     <p><strong>Related project:</strong> <a href="{% link {{ page.related.url }} %}">{{ page.related.label }}</a>.</p>
     {% endif %}
 
+    <div class="href">
     {% for href in page.href %}
-    <p>[{{ forloop.index }}]: <a href="{{ href[1]}}" target="_blank" rel="noopener noreferrer">{{ href[0] }} ➟</a></p>
+    <p>{{ href[0] }} <a href="{{ href[2]}}" target="_blank" rel="noopener noreferrer">{{ href[1] }} ➟</a></p>
     {% endfor %}
+    </div>
 
 </div>
 </metadata>

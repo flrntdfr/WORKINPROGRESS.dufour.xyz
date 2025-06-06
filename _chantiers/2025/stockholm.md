@@ -2,7 +2,7 @@
 layout: chantier
 title: Stockholm
 started: 2025-05-24 22:20
-ended: 2025-05-25 18:10
+ended: 2025-06-04 23:10
 location: Stockholm
 tech: Stable diffusion
 labels: [list, illustration]
@@ -23,3 +23,4 @@ description: While spending the weekend in stockholm [1], I made word associatio
 ![TRUTH AND TRUTH]({% link x/2025/Stockholm/10.jpg %})
 {% comment %} ![TECHNOLOGY AND OPTIMISM]({% link x/2025/Stockholm/11.jpg %}) {% endcomment %}
 {% comment %} ![ALPHABÉTISATION ET CRÉATIVITÉ]({% link x/2025/Stockholm/12.jpg %}) {% endcomment %}
+![ATTRACTION ET AVERSION]({% link x/2025/Stockholm/13.jpg %})

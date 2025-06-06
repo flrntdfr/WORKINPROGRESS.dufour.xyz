@@ -7,7 +7,7 @@ labels: [research]
 tech: [Bitcoin, Hyperledger, Java SpringBoot]
 location: Université de Lorraine
 href:
-  - ["dune-eole.fr", "https://www.dune-eole.fr"]
+  - ["• ", "dune-eole.fr", "https://www.dune-eole.fr"]
 description: |
     data privacy and blockchain technology .2019 – 2020
     Complete my experience in data science with real world problematic of data privacy

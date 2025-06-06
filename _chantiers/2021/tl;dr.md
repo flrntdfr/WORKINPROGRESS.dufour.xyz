@@ -10,6 +10,7 @@ description: tl;dr are one-line summaries of text conversations I had during the
 ---
 
 <div id="typed-strings">
+	<p>Le temps fait tout le temps le ménage.</p>
 	<p>Le verbe n'est pas l'action.</p>
 	<p>La vie est une cacahuète.</p>
 	<p>Some things are complicated.</p>
