@@ -1,4 +1,4 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// https://aka.ms/devcontainer.json
 // README at: https://github.com/devcontainers/templates/tree/main/src/jekyll
 {
 	"name": "Jekyll",
@@ -11,7 +11,12 @@
 	"forwardPorts": [4000, 35729],
 
 	// Uncomment the next line to run commands after the container is created.
-	"postCreateCommand": "make serve"
+	"postCreateCommand": "make serve",
+
+	// Mount GPG directory from host to sign git commits
+	"mounts": [
+		"source=${localEnv:HOME}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached,readonly"
+	]
 
 	// Configure tool-specific properties.
 	// "customizations": {},
