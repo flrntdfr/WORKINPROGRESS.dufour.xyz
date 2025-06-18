@@ -4,7 +4,7 @@ title: J'aime la pochette
 labels: [list]
 started: 2024-04-16 20:12
 href:
-  - ["Apple Music", "https://music.apple.com/fr/playlist/jaime-la-pochette"]
+  - ["", "Apple Music", "https://music.apple.com/fr/playlist/jaime-la-pochette"]
 description:
     Collection d'albums dont j'aime la pochette.<br>
     Collection of album arts I like.

@@ -11,12 +11,12 @@
   label: Florent Dufour
   fa: fa-brands fa-researchgate
 - name: Instagram
-  url: "https://www.instagram.com/flrnt.dfr/"
-  label: "@flrnt.dfr"
+  url: "https://www.instagram.com/flrntdfr/"
+  label: "@flrntdfr"
   fa: fa-brands fa-instagram
 - name: Docker Hub
   url: "https://hub.docker.com/u/flrntdfr"
-  label: florentdufour
+  label: flrntdfr
   fa: fa-brands fa-docker
 - name: SoundCloud
   url: "https://soundcloud.com/flrntdfr"

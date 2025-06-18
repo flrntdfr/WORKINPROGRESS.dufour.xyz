@@ -10,6 +10,8 @@ description: |
 related:
   label: the website
   url: _chantiers/2024/the-website.md
+href:
+  - ["→", "The website", "{% link _chantiers/2024/the-website.md %}"]
 ---
 
 ## v{{ "now" | date: "%Y.%m" }}-rc

@@ -41,28 +41,20 @@ ul li:last-child, ol li:last-child {
     margin-bottom: 0;
 }
 
-/* Add spacing to table rows */
-table tr {
-    height: 2em;  /* Increase row height */
-}
 
-table td {
-    padding: 0.5em 0;  /* Add vertical padding to cells */
-    vertical-align: top;  /* Align content to the top */
-}
 </style>
 
 # Milestones
 
-|---:|:---|
-| **03.2025** | (pending) DFG (pending) (hope not gets crossed) |
-| **03.2025** | Onboarding of the GRZ/GHGA |
-| **12.2024** | DigiMed 2.0 we apply for more money and get granted §Mio and WP 6 continues. |
-| **11.2024** | BayLfD |
-| **11.2024** | TRE becomes its own team and becomes the trustworthy AI branch of BDAI with biomedical usecases |
-| **01.2022** | First user training |
-| **11.2020** | First petabyte of storage is online |
-| **10.2018** | (prior) DigiMed  — prior — 24Mio€ [Press release]() |
+|-:|:-|
+| **Mar. 2025** | (pending) DFG (pending) (hope not gets crossed) |
+| **Mar. 2025** | Onboarding of the GRZ/GHGA |
+| **Dec.2024** | DigiMed 2.0 we apply for more money and get granted §Mio and WP 6 continues. |
+| **Nov. 2024** | BayLfD |
+| **Nov. 2024** | TRE becomes its own team and becomes the trustworthy AI branch of BDAI with biomedical usecases |
+| **Jan. 2022** | First user training |
+| **Nov. 2020** | First petabyte of storage is online |
+| (**Oct. 2018**) | (prior) DigiMed  — prior — 24Mio€ [Press release]() |
 
 # Contributions
 

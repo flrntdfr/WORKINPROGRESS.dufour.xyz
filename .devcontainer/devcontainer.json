@@ -13,7 +13,7 @@
 	// Uncomment the next line to run commands after the container is created.
 	"postCreateCommand": "make serve",
 
-	// Mount GPG directory from host to sign git commits
+	// Make git and GPG work in the container
 	"mounts": [
 		"source=${localEnv:HOME}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached,readonly"
 	]
