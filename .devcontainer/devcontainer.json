@@ -7,6 +7,17 @@
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
+	"customizations": {
+		"vscode": {
+		  "settings": {},
+		  "extensions": [
+			"anysphere.remote-containers",
+			"Gruntfuggly.todo-tree",
+			"redhat.vscode-yaml"
+		  ]
+		}
+	  },
+
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [4000, 35729],
 
@@ -16,11 +27,11 @@
 	// Make git and GPG work in the container
 	"mounts": [
 		"source=${localEnv:HOME}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached,readonly"
-	]
+	],
 
 	// Configure tool-specific properties.
 	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"remoteUser": "vscode"
 }
