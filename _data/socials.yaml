@@ -34,3 +34,7 @@
   url: "https://piaille.fr/@flrntdfr"
   label: "@flrntdfr"
   fa: fa-brands fa-maston
+- name: X
+  url: "https://x.com/flrntdfr"
+  label: "@flrntdfr"
+  fa: fa-brands fa-x
