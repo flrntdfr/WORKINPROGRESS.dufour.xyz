@@ -13,7 +13,7 @@ featured:
 location:
 permalink:
 href: 
-    - ["", "", ""]
+    - ["int/ext", "citation", "label", "target"]
 tech:
 labels:
 ---
@@ -89,18 +89,14 @@ labels:
     {% if page.description %}
         {{ page.description }}
     {% endif %}
-    {% if page.related %}
-    <br><br>
-    <!-- Related project:
-    <ul>
-        <li><a href="{% link {{ page.related.url }} %}">{{ page.related.label }}</a></li>
-    </ul> -->
-    <p><strong>Related project:</strong> <a href="{% link {{ page.related.url }} %}">{{ page.related.label }}</a>.</p>
-    {% endif %}
-
-    <div class="href">
+        <div class="href">
     {% for href in page.href %}
-    <p>{{ href[0] }} <a href="{{ href[2]}}" target="_blank" rel="noopener noreferrer">{{ href[1] }}</a></p>
+    {% if href[0] == "int" %}
+        <p>{{ href[1] }} <a href="{% link {{ href[3] }} %}">{{ href[2]}}</a></p>
+    {% else if href[0] == "ext" %}
+        <p>{{ href[1] }} <a href="{{ href[3]}}" target="_blank" rel="noopener noreferrer">{{ href[2] }}</a></p>
+    {% else %}
+    {% endif %}
     {% endfor %}
     </div>
 

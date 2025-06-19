@@ -67,10 +67,9 @@ ul li:last-child, ol li:last-child {
 
 ## Talks
 - 2025: F. Dufour, Jan Peschke, **"How to build 
-a confidential cloud"? — A platform for next generation medical research**, OpenInfra Sweden, Stockholm.
-- 2024: F. Dufour, **"We built a Trusted Research Environment
-for health research - 10 strategic and technical lessons learned"**, in Medical Valley, Online.
-- 2023: F. Dufour, **"Towards the Medicine of the Future in Bavaria and Germany, One Heartbeat at the Time With Confidential Computing"** in Open Confidential Computing Conference (OC3), Online. [(YouTube)](https://www.youtube-nocookie.com/embed/013OkV_LupE)
+a confidential cloud"? — A platform for next generation medical research**, OpenInfra Sweden, Stockholm. ([link]({% link _chantiers/2025/OpenInfra.md %})).
+- 2024: F. Dufour, **"We built a Trusted Research Environment for health research - 10 strategic and technical lessons learned"**, in Medical Valley, Online.
+- 2023: F. Dufour, **"Towards the Medicine of the Future in Bavaria and Germany, One Heartbeat at the Time With Confidential Computing"** in Open Confidential Computing Conference (OC3), Online. ([link]({% link _chantiers/2023/OC3.md %}))
 
 ## Posters
 1. F. Dufour, N. Zhou, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **"Towards Confidential Computing: A Cloud Architecture for Big Data Analytics and AI in Biomedical Research (poster),",** in ISC, Hamburg, Germany, May 2023. 
