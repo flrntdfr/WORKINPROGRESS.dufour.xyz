@@ -36,6 +36,46 @@
             fi
           '';
         };
+
+        packages.default = pkgs.stdenv.mkDerivation {
+          pname = "workinprogress-dufour-xyz";
+          version = "1.0.0";
+          
+          src = ./.;
+          
+          buildInputs = with pkgs; [
+            ruby_3_2
+            bundler
+            glibcLocales
+          ];
+          
+          buildPhase = ''
+            # Set up proper locale and encoding
+            export LC_ALL=en_US.UTF-8
+            export LANG=en_US.UTF-8
+            export LC_CTYPE=en_US.UTF-8
+            
+            # Set up local gem installation for build
+            export BUNDLE_PATH="vendor/bundle"
+            export BUNDLE_BIN="vendor/bin"
+            
+            # Install gems
+            bundle install --path vendor/bundle --binstubs vendor/bin
+            
+            # Build the site
+            export JEKYLL_ENV=production
+            bundle exec jekyll build --destination $out
+          '';
+          
+          installPhase = "echo 'Site built successfully'";
+          
+          meta = with pkgs.lib; {
+            description = "WORKINPROGRESS.dufour.xyz Jekyll site";
+            homepage = "https://WORKINPROGRESS.dufour.xyz";
+            license = licenses.mit;
+            platforms = platforms.all;
+          };
+        };
       }
     );
 } 
