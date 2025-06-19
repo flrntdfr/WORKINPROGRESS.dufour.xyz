@@ -22,11 +22,13 @@
             gnumake
           ];
           
+          # Static environment variables
+          env = {
+            BUNDLE_PATH = ".direnv/bundle";
+            BUNDLE_BIN = ".direnv/bin";
+          };
+          
           shellHook = ''
-            # Set up local gem installation
-            export BUNDLE_PATH=".direnv/bundle"
-            export BUNDLE_BIN=".direnv/bin"
-            
             # Install gems locally if not already installed
             if [ ! -d ".direnv/bundle/ruby" ]; then
               echo "Installing gems locally in .direnv..."
