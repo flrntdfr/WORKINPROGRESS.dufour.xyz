@@ -1,19 +1,20 @@
 ---
 layout: chantier-base
-css:
-  - site.css
 ---
 
 <style>
   data {
-    flex: 1;  /* Takes up remaining space */
+    flex: 1;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    /* max-width: 1200px; */ NEW
+    height: 100vh;
+  }
+  
+  .data-content {
+    flex: 1;
   }
 </style>
 
-<data>
+
 {{ content }}
-</data>

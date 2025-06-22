@@ -1,5 +1,5 @@
 ---
-layout: chantier
+layout: chantier-full
 title: La Boîte à Bougies
 started: 2020-12-13 20:55:37
 ended: 2023-04-02 08:54:23
