@@ -17,10 +17,9 @@ img {
 
 # 2025
 
-- ![]({% link x/2025/favicons/dot/dot-32.png %})
-
-- ![https://blog.geocities.institute/archives/4841]({% link x/2025/favicons/digging/digging-man-steve-kangas.gif %})
+- ![]({% link /assets/2025/favicons/dot/dot-32.png %})
+- ![https://blog.geocities.institute/archives/4841]({% link /assets/2025/favicons/digging/digging-man-steve-kangas.gif %})
 
 # 2018
 
-- ![]({% link x/2025/favicons/bpt/bpt.ico %})
+- ![]({% link /assets/2025/favicons/bpt/bpt.ico %})

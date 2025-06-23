@@ -42,3 +42,13 @@ a:visited {
   padding: 20px;
   line-height: 2;
 }
+
+.blink {
+  animation: blink-animation 1s step-start 0s infinite;
+}
+
+@keyframes blink-animation {
+  50% {
+    opacity: 0;
+  }
+}
