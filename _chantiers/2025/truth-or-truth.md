@@ -101,32 +101,29 @@ description: |
       topCard.style.transform = crook();
     }
     
+    function animateAndDisplay(transform) {
+      const topCard = document.querySelector('.card-top');
+      const duration = 150;
+
+      topCard.style.transform = transform;
+      
+      setTimeout(() => {
+        displayCurrentCard();
+      }, duration);
+    }
+    
     function showPreviousQuestion() {
       if (!questions || questions.length === 0) return;
       
       currentIndex = (currentIndex - 1 + questions.length) % questions.length;
-      
-      /* Animation */
-      const topCard = document.querySelector('.card-top');
-      topCard.style.transform = 'translateX(-20px)';
-      
-      setTimeout(() => {
-        displayCurrentCard();
-      }, 150);
+      animateAndDisplay('translateX(-20px)');
     }
     
     function showNextQuestion() {
       if (!questions || questions.length === 0) return;
       
       currentIndex = (currentIndex + 1) % questions.length;
-      
-      /* Animation */
-      const topCard = document.querySelector('.card-top');
-      topCard.style.transform = 'translateX(20px)';
-      
-      setTimeout(() => {
-        displayCurrentCard();
-      }, 150);
+      animateAndDisplay('translateX(20px)');
     }
     
     function showRandomQuestion() {
@@ -139,13 +136,7 @@ description: |
         currentIndex = Math.floor(Math.random() * questions.length);
       } while (questions.length > 1 && currentIndex === oldIndex);
       
-      /* Animation */
-      const topCard = document.querySelector('.card-top');
-      topCard.style.transform = 'scale(0.95)';
-      
-      setTimeout(() => {
-        displayCurrentCard();
-      }, 150);
+      animateAndDisplay('scale(0.95)');
     }
     
     /* Initialize with first card and random crookedness */
