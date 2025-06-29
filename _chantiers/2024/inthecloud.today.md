@@ -1,5 +1,5 @@
 ---
-layout: chantier-blank
+layout: chantier-href
 title: inthecloud.today
 started: 2024-08-08 02:00
 modified: 
@@ -11,4 +11,4 @@ description: |
     inthecloud.today operates DNS, domain names, cloud instances, SMTP servers etc
 ---
 
-{% include iframe.html content="https://inthecloud.today" %}
+https://inthecloud.today
