@@ -75,12 +75,22 @@ let shuffledOrder = [];
 
 document.addEventListener('DOMContentLoaded', function() {
     if (museums && museums.length > 0) {
+        preloadImages();
         shuffledOrder = [...Array(museums.length).keys()];
         showMuseum(0);
     } else {
         document.getElementById('museumText').textContent = 'No museum data found. Check _data/museums.json.';
     }
 });
+
+function preloadImages() {
+    museums.forEach(museum => {
+        if (museum.image) {
+            const img = new Image();
+            img.src = `/assets/2016/museums/${museum.image}`;
+        }
+    });
+}
 
 function showMuseum(index) {
     if (!museums || museums.length === 0) return;
