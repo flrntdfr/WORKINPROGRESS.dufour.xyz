@@ -8,7 +8,8 @@ location: Leibniz Supercomputing Centre
 labels: [research]
 tech: [OpenStack, Quobyte, AMD-SEV/SNP, Nvidia H200]
 href:
-  - ["digimed-bayern.de", "https://www.digimed-bayern.de/en.html"]
+  - ["ext", "<b>Consortium website:</b>", "digimed-bayern.de", "https://www.digimed-bayern.de/en.html"]
+  - ["ext", "<b>Cloud documentation:</b>", "pages.gitlab.lrz.de", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]
 description: |
     The DigiMed secure Cloud is one artifcat of the 27Mio€ project by Bavaria. Confidential. Beginning nothing
     Now IaaS 
@@ -46,15 +47,17 @@ ul li:last-child, ol li:last-child {
 
 # Milestones
 
+| Date | Stone |
 |-:|:-|
-| **Mar. 2025** | (pending) DFG (pending) (hope not gets crossed) |
-| **Mar. 2025** | Onboarding of the GRZ/GHGA |
-| **Dec.2024** | DigiMed 2.0 we apply for more money and get granted §Mio and WP 6 continues. |
-| **Nov. 2024** | BayLfD |
-| **Nov. 2024** | TRE becomes its own team and becomes the trustworthy AI branch of BDAI with biomedical usecases |
-| **Jan. 2022** | First user training |
-| **Nov. 2020** | First petabyte of storage is online |
-| (**Oct. 2018**) | (prior) DigiMed  — prior — 24Mio€ [Press release]() |
+| **07.2025** | DigiMed secure cloud becomes one of the 6 nodes of the GHGA |
+| **03.2025** | (pending) DFG (pending) (hope not gets crossed) |
+| **03.2025** | Onboarding of the GRZ/GHGA |
+| **12.2024** | DigiMed 2.0 we apply for more money and get granted §Mio and WP 6 continues. |
+| **11.2024** | BayLfD |
+| **11.2024** | TRE becomes its own team and becomes the trustworthy AI branch of BDAI with biomedical usecases |
+| **01.2022** | First user training |
+| **11.2020** | First petabyte of storage is online |
+| **10.2018** | (prior) DigiMed  — prior — 24Mio€ [Press release]() |
 
 # Contributions
 

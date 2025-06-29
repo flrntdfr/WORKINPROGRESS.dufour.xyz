@@ -1,5 +1,5 @@
 ---
-layout: chantier-full-width
+layout: chantier-blank
 title: this is what museums look like
 started: 2016-01-01 23:42
 ended: 

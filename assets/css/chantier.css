@@ -22,7 +22,26 @@ data {
     padding: 20px;
     box-sizing: border-box;
     min-width: 400px;
-    flex: 0 0 400px;
+    flex: 1;
+}
+
+/* Simple table styling */
+data table {
+    width: 100%;
+    margin: 1em 0;
+    table-layout: auto;
+}
+
+data table th {
+    padding: 8px;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+data table td {
+    padding: 0.4em;
+    word-wrap: break-word;
+    vertical-align: top;
 }
 
 metadata table {

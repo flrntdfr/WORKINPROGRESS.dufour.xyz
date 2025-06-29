@@ -27,6 +27,10 @@ description: tl;dr are one-line summaries of text conversations I had during the
 <script>
 	const strings = [
 		"Le temps fait toujours son travail.",
+		"Ce qui compte c'est que ça aurait pu être vrai.",
+		"J'en ai marre.",
+		"Everything is everything.",
+		"Porter son attention c'est faire exister.",
 		"Show don't tell.",
 		"Le verbe n'est pas l'action.",
 		"La vie est une cacahuète.",

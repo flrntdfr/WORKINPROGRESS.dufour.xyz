@@ -6,11 +6,7 @@ started: 2022-04-01 09:00
 ended: 
 labels: research
 href:
-  - ["AIM Lab", "https://aim-lab.io"]
+  - ["ext", "<b>AIM Lab</b>", "aim-lab.io", "https://aim-lab.io"]
 description: |
-    Do, ut reprehenderit dolore mollit dolore. Dolore mollit dolore ipsum ex. Dolore ipsum ex consectetur, duis lorem. Consectetur duis lorem dolor commodo non non. Lorem dolor commodo non non dolor. Commodo non non dolor laboris sunt voluptate. Non dolor, laboris sunt voluptate est officia officia.
-    <br><br>
-    Ut reprehenderit dolore mollit dolore ipsum ex consectetur. Dolore mollit dolore ipsum ex. Dolore ipsum ex consectetur, duis lorem. Consectetur duis lorem dolor commodo non non. Lorem dolor commodo non non dolor. Commodo non non dolor laboris sunt voluptate. Non dolor, laboris sunt voluptate est officia officia. Sunt voluptate est, officia officia sed pariatur. Officia officia sed pariatur occaecat enim consequat.
-    <br><br>
-    Reprehenderit dolore, mollit dolore. Dolore ipsum ex consectetur, duis lorem. Consectetur duis lorem dolor commodo non non. Lorem dolor commodo non non dolor. Commodo non non dolor laboris sunt voluptate. Non dolor, laboris sunt voluptate est officia officia. Sunt voluptate est, officia officia sed pariatur. Officia officia sed pariatur occaecat enim consequat. Sed pariatur, occaecat enim consequat. Enim consequat sunt minim duis.
+    I am a Ph.D. student at the Institute of AI in Healthcare and Medicine at the Technical University of Munich (TUM) under the supervision of Prof. Dr. Daniel Rückert and PD Dr. Georgios Kaissis. I completed my undergraduate studies at the intersection of France, Germany, and Switzerland, where I studied biotechnology and data science for healthcare. Before engaging in my Ph.D., I joined the Big Data and AI team at the Leibniz Supercomputing Centre to build a pilot Trusted Research Environment (TRE) for cardiovascular disease in the scope of the DigiMed Bayern Project. Currently, I am working on privacy-enhancing technologies like differential privacy and confidential computing. I am exploring ways to use them to build trustworthy, secure, and robust machine learning systems.
 ---

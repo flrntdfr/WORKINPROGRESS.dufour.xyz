@@ -6,9 +6,6 @@ ended: 2025-06-04 23:10
 location: Stockholm
 tech: Stable diffusion
 labels: [list, illustration]
-href:
-    - ["int", "<sup>1</sup>", "OpenInfra Forum Stockholm", "_chantiers/2025/OpenInfra.md"]
-description: While spending the weekend in stockholm<sup>1</sup>, I made word association that were relevant to the city and the mod of the moment. OpenStack 15<sup>th</sup> birthday celebration, OpenInfra Forum Stockholm.
 ---
 
 ![LIFE AND TOOLS]({% link assets/2025/framed-words/1.jpg %})

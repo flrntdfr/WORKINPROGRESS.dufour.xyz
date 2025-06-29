@@ -16,6 +16,9 @@ permalink: "/all"
 {%- assign current_year = "now" | date: "%Y" -%}
 {%- assign current_year_projects = 0 -%}
 
+{%- comment -%} Capture build start time {%- endcomment -%}
+{%- capture build_start_time -%}{{ site.time | date: "%s" }}{%- endcapture -%}
+
 {%- comment -%} Process all chantiers {%- endcomment -%}
 {%- for chantier in site.chantiers -%}
   {%- assign ended_value = chantier.ended -%}
@@ -86,6 +89,8 @@ Longest Running Project: N/A (no open projects)
 {%- endif %}
 Projects started this year: {{ current_year_projects }}
 Average projects per year: {{ total_chantiers | divided_by: sorted_years.size | round: 1 }}
+Build time: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}
+Build duration: {{ site.build_duration }} seconds
 ```
 <br>
 
@@ -140,6 +145,8 @@ Average projects per year: {{ total_chantiers | divided_by: sorted_years.size | 
 
 ---
 
-*Last updated: {{ "now" | date: "%Y-%m-%d %H:%M" }}*
+_Last updated: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}_
+
+
 
 ---

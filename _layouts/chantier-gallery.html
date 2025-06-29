@@ -1,0 +1,43 @@
+---
+layout: chantier-base
+---
+
+<style>
+  data {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .data-content {
+    flex: 1;
+  }
+
+  .image-gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  .image-gallery img {
+    flex-shrink: 0;
+    max-height: 500px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  /* Override any paragraph styling that might interfere */
+  .image-gallery p {
+    margin: 0;
+    padding: 0;
+    display: contents;
+  }
+</style>
+
+<div class="image-gallery">
+  {{ content }}
+</div> 

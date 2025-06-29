@@ -1,4 +1,5 @@
 ---
+hidden: true
 layout: chantier
 title: Open Confidential Computing Conference 2023
 started: 2023-03-15

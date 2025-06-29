@@ -6,12 +6,7 @@ started: 2020-07-28 12:49:28
 ended: 
 labels: [list]
 description: |
-    Changelog for the website.
-related:
-  label: the website
-  url: _chantiers/2024/the-website.md
-href:
-  - ["→", "The website", "{% link _chantiers/2024/the-website.md %}"]
+    Changelog of the website.
 ---
 
 ## v{{ "now" | date: "%Y.%m" }}-rc

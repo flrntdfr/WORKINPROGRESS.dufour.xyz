@@ -1,5 +1,5 @@
 ---
-layout: chantier-base
+layout: chantier-full
 ---
 
 {% assign image_files = site.static_files | where_exp: "file", "file.path contains '{{ include.source }}'" | where_exp: "file", "file.extname == '.jpg'" %}
