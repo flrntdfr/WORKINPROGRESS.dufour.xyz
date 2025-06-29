@@ -5,8 +5,6 @@ started: 2011-09-04
 ended:
 location: Belleville
 labels: [mixtape]
-href:
-  - ["Apple Music", "https://music.apple.com/fr/playlist/autant-que-les-oiseaux-aiment-lair/pl.u-Ldbq47rtNmR6Kz?l=en"]
 description: Forward the playlist to the DJ.
 ---
 

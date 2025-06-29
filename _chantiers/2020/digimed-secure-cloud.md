@@ -47,7 +47,7 @@ ul li:last-child, ol li:last-child {
 
 # Milestones
 
-| Date | Stone |
+| Mile | Stone |
 |-:|:-|
 | **07.2025** | DigiMed secure cloud becomes one of the 6 nodes of the GHGA |
 | **03.2025** | (pending) DFG (pending) (hope not gets crossed) |

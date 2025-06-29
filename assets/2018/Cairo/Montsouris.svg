@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 132.29166 132.29167" width="132.29166" height="132.29167">
+  <defs/>
+  <g id="Canvas_1" fill-opacity="1" fill="none" stroke-dasharray="none" stroke="none" stroke-opacity="1">
+    <title>Canvas 1</title>
+    <rect fill="white" x="0" y="0" width="132.29166" height="132.29167"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Group_2">
+        <title>layer1</title>
+        <g id="Group_3">
+          <title>g6483</title>
+          <g id="Group_4">
+            <title>g6475</title>
+            <g id="Group_5">
+              <title>g6468</title>
+              <g id="Group_6">
+                <title>g6462</title>
+                <g id="Group_7">
+                  <title>g6457</title>
+                  <g id="Graphic_9">
+                    <title>circle1543</title>
+                    <path d="M 66.07447 45.217653 C 66.07447 47.288155 65.25197 49.273837 63.78791 50.7379 C 62.32385 52.201963 60.338156 53.02446 58.267664 53.02446 C 56.19717 53.02446 54.21148 52.201963 52.74742 50.7379 C 51.283357 49.273837 50.460857 47.288155 50.460857 45.217653 C 50.460857 43.14715 51.283357 41.16147 52.74742 39.697407 C 54.21148 38.233343 56.19717 37.410846 58.267664 37.410846 C 60.338156 37.410846 62.32385 38.233343 63.78791 39.697407 C 65.25197 41.16147 66.07447 43.14718 66.07447 45.217653" fill="black"/>
+                  </g>
+                  <g id="Graphic_8">
+                    <title>circle1540</title>
+                    <path d="M 68.6358 96.95235 C 40.82649 98.32915 17.166471 76.90139 15.78966 49.09208 C 14.41285 21.282774 38.26516 43.84086 66.07447 45.217653 C 79.42897 45.878833 55.87277 80.46615 43.783787 86.17932 C 31.694802 91.8925 115.8349 30.75171 116.49608 44.10621 C 117.87288 71.91552 96.44511 95.57553 68.6358 96.95235" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".8108695"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
