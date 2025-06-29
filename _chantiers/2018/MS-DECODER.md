@@ -4,10 +4,7 @@ title: MS-DECODER
 started: 2018-03-01 09:00
 ended:  2018-09-01 17:00
 labels: [research]
-tech: [Java, Mass spectrometry]
-description: |
-  What was the project digital polymers, MS-Decoder etc.
-  MS-Decoder Research Explain digital polymer Reference papers
+tech: [Java, Q-Exactive 2000]
 ---
 
 # Contributions
@@ -15,4 +12,4 @@ description: |
 1. Laurent, E., Amalian, J.-A., Parmentier, M., Oswald, L., Al Ouahabi, A., Dufour, F., Launay, K., Clément, J.-L., Gigmes, D., Delsuc, M.-A., et al. (2020).
 **High-Capacity Digital Polymers: Storing Images in Single Molecules.** Macromolecules.
 1. Cavallo, G., Poyer, S., Amalian, J.-A., Dufour, F., Burel, A., Carapito, C., Charles, L., and Lutz, J.-F. (2018). **Cleavable binary dyads: simplifying data extraction and increasing storage density in digital polymers**. Angewandte Chemie.
-1. The Master thesis: TODO
+1. Dufour, F. (2018). **MS-Decoder: Milliseconds Sequencing Software For Digitally Encoded Polymers**. Master Thesis, École Supérieure de Biotechnologie de Strasbourg.
