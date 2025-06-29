@@ -203,15 +203,17 @@ description: |
     align-items: center;
     justify-content: center;
     padding: 20px;
-    gap: 30px;
+    gap: 0px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .card-stack {
     position: relative;
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
     height: 400px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     display: flex;
     justify-content: center;
   }
@@ -223,6 +225,7 @@ description: |
     border-radius: 8px;
     background-color: #fffdf7;
     padding: 30px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -313,6 +316,7 @@ description: |
 
   .button-group {
     display: flex;
+    justify-content: center;
     gap: 10px;
     margin-top: 10px;
   }
@@ -337,4 +341,45 @@ description: |
     transform: translateY(0);
   }
 
+  @media (max-width: 600px) {
+    .card-deck-container {
+      padding: 10px;
+      gap: 10px;
+    }
+
+    .card-stack {
+      height: 350px;
+      margin-bottom: 0;
+    }
+
+    .card {
+      min-height: 280px;
+      padding: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .card-middle {
+      transform: rotate(-3deg) translateX(-5px) translateY(5px);
+    }
+
+    .card-bottom {
+      transform: rotate(2deg) translateX(5px) translateY(10px);
+    }
+
+    .card-index {
+        font-size: 0.8rem;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .button-group {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-button {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
 </style>
