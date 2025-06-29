@@ -2,6 +2,7 @@
 hidden: true
 layout: chantier
 title: All the content of the website
+started: 2025-06-27 17:46
 permalink: "/all"
 ---
 
@@ -89,8 +90,6 @@ Longest Running Project: N/A (no open projects)
 {%- endif %}
 Projects started this year: {{ current_year_projects }}
 Average projects per year: {{ total_chantiers | divided_by: sorted_years.size | round: 1 }}
-Build time: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}
-Build duration: {{ site.build_duration }} seconds
 ```
 <br>
 
@@ -140,6 +139,34 @@ Build duration: {{ site.build_duration }} seconds
     </ul>
   </details>
 {%- endfor -%}
+
+{% comment %} Display hidden chantiers {% endcomment %}
+{%- assign hidden_chantiers = "" | split: "" -%}
+{%- for chantier in site.chantiers -%}
+  {%- if chantier.hidden -%}
+    {%- assign hidden_chantiers = hidden_chantiers | push: chantier -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if hidden_chantiers.size > 0 -%}
+  <details>
+    <summary>zz_hidden <span style="color: darkgrey;">({{ hidden_chantiers.size }})</span></summary>
+    <ul>
+      {%- assign sorted_hidden_chantiers = hidden_chantiers | sort: 'title' -%}
+      {%- for chantier in sorted_hidden_chantiers -%}
+        <li>
+          <a href="{{ chantier.url }}">{{ chantier.title }}</a>
+          {%- if chantier.featured %} ✭{%- endif -%}
+          {%- if chantier.ended -%}
+            <span style="color: darkgrey;">({{ chantier.ended | date: "%Y" }})</span>
+          {%- else -%}
+            <span style="color: darkgrey;">({{ chantier.started | date: "%Y" }})</span>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </details>
+{%- endif -%}
 
 <br>
 

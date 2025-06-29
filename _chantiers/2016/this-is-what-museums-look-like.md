@@ -60,9 +60,9 @@ description:
 <div class="header-controls">
     <p id="museumText" class="info"></p>
     <div class="controls">
-        <button onclick="previousMuseum()">← Previous</button>
-        <button onclick="shuffleMuseums()">↔ Shuffle</button>
         <button onclick="nextMuseum()">→ Next</button>
+        <button onclick="shuffleMuseums()">↔ Shuffle</button>
+        <button onclick="previousMuseum()">← Previous</button>
     </div>
 </div>
 
