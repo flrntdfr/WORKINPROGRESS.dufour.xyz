@@ -3,11 +3,11 @@
 
 :root {
   --accent-color: #fdf52b;
-  --accent-color-dark: lightgrey;
+  --accent-color-dark: #333333;
   --font-color: black;
   --font-color-dark: white ;
   --background-color: white;
-  --background-color-dark: #333;
+  --background-color-dark: #000000;
 }
 
 body {
@@ -50,5 +50,21 @@ a:visited {
 @keyframes blink-animation {
   50% {
     opacity: 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--background-color-dark);
+    color: var(--font-color-dark);
+  }
+
+  a:hover {
+    background: var(--accent-color-dark);
+  }
+
+  ::selection {
+    background: var(--accent-color-dark);
+    color: black;
   }
 }

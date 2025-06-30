@@ -32,6 +32,23 @@ feed:
     chantiers:
       path: "/rss"
 
+webrick:
+  headers:
+    "Cross-Origin-Opener-Policy": "same-origin"
+    "Cross-Origin-Embedder-Policy": "require-corp"
+
+defaults:
+  -
+    scope:
+      path: "assets/lib"
+    values:
+      static_file: true
+  -
+    scope:
+      path: "assets/models"
+    values:
+      static_file: true
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -55,4 +72,14 @@ exclude:
   - "*.ko*"
   - .direnv/
   - result/
+  - .idea
+
+include:
+  - _headers
+  - _redirects
+  - assets/lib/
+  - assets/models/
+
+# Markdown Processing
+# ... existing code ...
 

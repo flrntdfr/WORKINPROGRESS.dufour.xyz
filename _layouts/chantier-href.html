@@ -184,7 +184,7 @@ data {
     {% if line contains "http" %}
       {% assign url = line | strip %}
       <div class="redirect-message">
-        <h2>Redirecting to External Site</h2>
+        <h2>Redirecting to External&nbsp;Site</h2>
         <p>A new tab will be opened with the following destination:</p>
         <div class="url-display">{{ url }}</div>
         <div class="waiting-container">
@@ -210,7 +210,8 @@ data {
 document.addEventListener('DOMContentLoaded', function() {
   var uuidElement = document.getElementById('uuid-display');
   if (uuidElement) {
-    uuidElement.textContent = 'Ray ID: ' + crypto.randomUUID();
+    var uuid = crypto.randomUUID();
+    uuidElement.textContent = 'Ray ID: ' + uuid.slice(0, -1) + '4';
   }
 });
 </script>

@@ -11,33 +11,43 @@ description: |
     This is a series of experimentation with 2D vectorial images and bezier lines with the cairo library. Cairo was meant as an introduction before starting experimenting with post script. Mettre les vidéos
 
 ---
-**Montsouris**<br>
-![Montsouris](/assets/2018/cairo/montsouris.svg)
 
-**Couché de soleil sur la mer**<br>
-![Couché de soleil sur la mer](/assets/2018/cairo/fouesnant.svg)
-
-**La Mort**<br>
-![La Mort](/assets/2018/cairo/La Mort.svg)
-
-**La Villette**<br>
-![La Villette](/assets/2018/cairo/La Villette.svg)
-
-<div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
-    <div style="flex: 1; min-width: 500px;">
-        <strong>Stockholm</strong><br>
-        <div id="stockholm-canvas" style="display: flex; justify-content: center;"></div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;">
+    <div>
+        <strong>une souris</strong><br>
+        <img src="/assets/2018/cairo/montsouris.svg" alt="Montsouris" />
     </div>
-    <div style="flex: 1; min-width: 500px;">
-        <strong>Lancieu</strong><br>
-        <div id="lancieu-canvas" style="display: flex; justify-content: center;"></div>
+    <div>
+        <strong>un couché de soleil sur la mer</strong><br>
+        <img src="/assets/2018/cairo/fouesnant.svg" alt="Couché de soleil sur la mer" />
     </div>
-    <div style="flex: 1; min-width: 500px;">
-        <strong>Kissing under the rain</strong><br>
-        <div id="mazagran-canvas" style="display: flex; justify-content: center;"></div>
+    <div>
+        <strong>un scarabé</strong><br>
+        <img src="/assets/2018/cairo/La Villette.svg" alt="La Villette" />
+    </div>
+    <div>
+        <strong>une télévision éteinte</strong><br>
+        <img src="/assets/2018/cairo/TV.svg" alt="TV" />
     </div>
 </div>
 
+{% comment %}
+**La Mort**<br>
+![La Mort](/assets/2018/cairo/La Mort.svg)
+{% endcomment %}
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;">
+    <div>
+        <strong>le bonheur</strong><br>
+        <div id="lancieu-canvas" style="display: flex; justify-content: center;"></div>
+    </div>
+    <div>
+        <strong>le malheur</strong><br>
+        <div id="la-pluie-tombe-canvas" style="display: flex; justify-content: center;"></div>
+    </div>
+</div>
+
+{% comment %}
 **Pravčická-brána**<br>
 ![Pravčická-brána](/assets/2018/cairo/Pravčická-brána.svg)
 
@@ -50,14 +60,12 @@ description: |
         <img src="/assets/2018/cairo/Shell.svg" alt="Shell" style="width: 100%; height: auto;">
     </div>
 </div>
-
-**TV**<br>
-![TV](/assets/2018/cairo/TV.svg)
+{% endcomment %}
 
 <script src="/assets/lib/p5.v1.4.2.min.js"></script>
 <script>
 const lancieuSketch = (p) => {
-    let nLines = 40;
+    let nLines;
     let lines = [];
 
     class Line {
@@ -72,8 +80,8 @@ const lancieuSketch = (p) => {
             p.translate(p.width / 2, p.height / 2);
             p.rotate(this.angle);
             p.stroke(0);
-            p.strokeWeight(3);
-            p.line(0, 50, 0, 400);
+            p.strokeWeight(p.map(p.width, 200, 500, 1.5, 3, true));
+            p.line(0, p.height * 0.1, 0, p.height * 0.8);
             p.pop();
             if (this.turnRight) this.angle += this.speed;
             else this.angle -= this.speed;
@@ -81,7 +89,9 @@ const lancieuSketch = (p) => {
     }
 
     p.setup = function() {
-        p.createCanvas(500, 500);
+        const size = p._userNode.parentElement.clientWidth || 500;
+        p.createCanvas(size, size);
+        nLines = p.floor(p.map(size, 200, 500, 20, 40, true));
         let circleAngle = 0;
         let slicedCircleAngle = p.TWO_PI / nLines;
 
@@ -96,7 +106,7 @@ const lancieuSketch = (p) => {
     function drawCircle() {
         p.noStroke();
         p.fill(0, 0, 0);
-        p.ellipse(250, 250, 60, 60);
+        p.ellipse(p.width / 2, p.height / 2, p.width * 0.12, p.width * 0.12);
     }
 
     p.draw = function() {
@@ -117,7 +127,7 @@ const lancieuSketch = (p) => {
 new p5(lancieuSketch, 'lancieu-canvas');
 
 const mazagranSketch = (p) => {
-    let nDrops = 60;
+    let nDrops;
     let drops = [];
 
     class Drop {
@@ -128,20 +138,20 @@ const mazagranSketch = (p) => {
             this.z = p.random(0, this.maxDepth);
             this.ySpeed = p.map(this.z, 0, this.maxDepth, 4, 10);
             this.g = 0.2;
-            this.length = p.map(this.z, 0, 20, 10, 25);
+            this.length = p.map(this.z, 0, 20, p.height * 0.02, p.height * 0.05);
         }
 
         fall() {
             this.y += this.ySpeed;
             this.ySpeed += this.g;
             if (this.y > p.height) {
-                this.y = p.random(-20, -40);
+                this.y = p.random(-p.height * 0.04, -p.height * 0.08);
                 this.ySpeed = p.map(this.z, 0, this.maxDepth, 4, 10);
             }
         }
 
         show() {
-            p.strokeWeight(3);
+            p.strokeWeight(p.map(p.width, 200, 500, 1, 3, true));
             p.strokeCap(p.ROUND);
             p.stroke(0);
             p.line(this.x, this.y, this.x, this.y + this.length);
@@ -149,7 +159,9 @@ const mazagranSketch = (p) => {
     }
 
     p.setup = function() {
-        p.createCanvas(500, 500);
+        const size = p._userNode.parentElement.clientWidth || 500;
+        p.createCanvas(size, size);
+        nDrops = p.floor(p.map(size, 200, 500, 30, 60, true));
         for (let i = 0; i < nDrops; i++) {
             drops.push(new Drop());
         }
@@ -158,7 +170,7 @@ const mazagranSketch = (p) => {
     function drawCircle() {
         p.noStroke();
         p.fill(0, 0, 0);
-        p.ellipse(p.width / 2, 150, 60, 60);
+        p.ellipse(p.width / 2, p.height * 0.3, p.width * 0.12, p.width * 0.12);
     }
 
     p.draw = function() {
@@ -176,48 +188,5 @@ const mazagranSketch = (p) => {
     };
 };
 
-new p5(mazagranSketch, 'mazagran-canvas');
-
-const stockholmSketch = (p) => {
-    const iteration = 10;
-    const minDiameter = 15.614 * 2 + 10;
-    const maxDiameter = 500 - 10;
-
-    function computeDiameters(min, max, count) {
-        const diameters = [];
-        if (count === 0) return diameters;
-        if (count === 1) {
-            diameters.push(min);
-            return diameters;
-        }
-        const step = (max - min) / (count - 1);
-        for (let i = 0; i < count; i++) {
-            diameters.push(min + i * step);
-        }
-        return diameters;
-    }
-
-    p.setup = function() {
-        p.createCanvas(500, 500);
-        p.background(255);
-
-        const diameters = computeDiameters(minDiameter, maxDiameter, iteration);
-
-        p.noFill();
-        p.strokeWeight(3);
-        p.stroke(0);
-
-        for (const d of diameters) {
-            p.ellipse(p.width / 2, p.height / 2, d);
-        }
-
-        p.fill(255, 0, 0);
-        p.noStroke();
-        p.ellipse(p.width / 2, p.height / 2, 15.614 * 2);
-
-        p.noLoop();
-    };
-};
-
-new p5(stockholmSketch, 'stockholm-canvas');
+new p5(mazagranSketch, 'la-pluie-tombe-canvas');
 </script>
