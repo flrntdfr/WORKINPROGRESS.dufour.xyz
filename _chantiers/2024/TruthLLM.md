@@ -91,19 +91,17 @@ description: |
                 }
             });
 
-            luckyButton.addEventListener('click', () => {
+            luckyButton.addEventListener('click', (e) => {
                 console.log('Lucky button clicked. Text content is:', luckyButton.textContent);
                 if (luckyButton.classList.contains('reset-mode')) {
-                    /* Reset mode: clear everything */
-                    input.value = '';
-                    output.textContent = '';
-                    luckyButton.textContent = "I'm feeling lucky";
-                    luckyButton.classList.remove('reset-mode');
-                    setRandomPlaceholder();
+                    /* Reset mode: reload the page */
+                    window.location.reload();
                 } else if (luckyButton.textContent === "I'm feeling lucky") {
+                    e.preventDefault();
                     input.value = input.placeholder;
                     luckyButton.textContent = 'Ask';
                 } else {
+                    e.preventDefault();
                     runLLM();
                 }
             });
@@ -145,25 +143,33 @@ description: |
                     console.log('Result stream:', resultStream);
                     
                     let fullText = '';
+                    let previousText = '';
+                    
                     for await (const chunk of resultStream) {
                         console.log('Received chunk:', chunk);
-                        fullText = chunk.generated_text;
+                        const newText = chunk.generated_text;
+                        
+                        /* Stream new tokens to screen */
+                        if (newText && newText !== previousText) {
+                            const diff = newText.substring(previousText.length);
+                            output.textContent += diff;
+                            previousText = newText;
+                        }
+                        fullText = newText;
                     }
-                    /* Remove the input question from the beginning of the output */
+                    
+                    /* Clean up the final output */
                     let cleanOutput = fullText;
                     if (fullText.toLowerCase().includes(inputText.toLowerCase())) {
                         const inputIndex = fullText.toLowerCase().indexOf(inputText.toLowerCase());
-                        if (inputIndex === 0 || inputIndex < 50) { /* Remove if at start or very early */
+                        if (inputIndex === 0 || inputIndex < 50) {
                             cleanOutput = fullText.substring(inputIndex + inputText.length).trim();
                         }
                     }
-                    /* Remove the ▎ character from the end of the output */
-                    cleanOutput = cleanOutput.replace(/▎$/, '').trim();
-                    /* Debug: log the output to see what characters are present */
-                    console.log('Raw output:', JSON.stringify(fullText));
-                    console.log('Clean output:', JSON.stringify(cleanOutput));
-                    /* Remove any invisible or special characters from the end */
+                    /* Remove special characters from the end */
                     cleanOutput = cleanOutput.replace(/[\u0000-\u001F\u007F-\u009F\u200B-\u200F\uFEFF\uFFFD▎]$/, '').trim();
+                    
+                    /* Update with cleaned version */
                     output.textContent = cleanOutput;
                 } catch (e) {
                     console.error('Error during generation:', e);
@@ -175,7 +181,7 @@ description: |
                         clearInterval(parseInt(status.dataset.dotInterval));
                         delete status.dataset.dotInterval;
                     }
-                    input.disabled = false;
+                    input.disabled = true;
                     luckyButton.disabled = false;
                     /* Switch to reset mode */
                     luckyButton.textContent = 'Reset';
@@ -212,7 +218,7 @@ description: |
 <div id="llm-container">
     <div id="llm-status">Loading model...</div>
     <div class="llm-input-container">
-        <input type="text" id="llm-input" placeholder="Loading..." disabled>
+        <input type="text" id="llm-input" placeholder="..." disabled>
         <button id="lucky-button" disabled>I'm feeling lucky</button>
     </div>
     <pre id="llm-output"></pre>
