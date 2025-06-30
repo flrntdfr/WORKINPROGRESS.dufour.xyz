@@ -61,10 +61,10 @@ labels:
             </tr>
             {% endif %}
         {% endif %}
-        {% if page.modified %}
+        {% if page.touched %}
         <tr>
-            <th>modified</th>
-            <td><span title="{{ page.modified | date: "%d.%m.%Y %H:%M"}}">{{ page.modified | date: "%d.%m.%Y" }}</span>
+            <th>touched</th>
+            <td><span title="{{ page.touched | date: "%d.%m.%Y %H:%M"}}">{{ page.touched | date: "%d.%m.%Y" }}</span>
         </tr>
         {% endif %}
         {% if page.location %}
