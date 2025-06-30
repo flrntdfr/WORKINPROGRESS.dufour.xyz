@@ -1,25 +1,16 @@
----
-layout: chantier
-title: .com
-labels: [list]
-started: 2018-04-30 17:09:28
-ended: 2018-05-12 14:04:39
-featured: false
-description: |
-    Short intro on .com bubble. Relevance of .com domains still today. When I first registered my domain, the .com was taken. Those are com domains I like or think are clever. Some are still available.
----
-
-- awake.com
-- com.com
-- earth.com
-- example.com
-- fart-in-a-box.com
-- fun.com
-- girlfriend.com
-- isthisart.com
-- pets.com
-- relentless.com
-- se.com
-- think.com
-- www.com
-- x.com
+- [awake.com ➟](https://awake.com){:target="_blank"}
+- [bonjour.com ➟](https://bonjour.com){:target="_blank"}
+- [com.com ➟](https://com.com){:target="_blank"}
+- [earth.com ➟](https://earth.com){:target="_blank"}
+- [example.com ➟](https://example.com){:target="_blank"}
+- [fun.com ➟](https://fun.com){:target="_blank"}
+- [hello.com ➟](https://hello.com){:target="_blank"}
+- [girlfriend.com ➟](https://girlfriend.com){:target="_blank"}
+- [pets.com ➟](https://pets.com){:target="_blank"}
+- [relentless.com ➟](https://relentless.com){:target="_blank"}
+- [think.com ➟](https://think.com){:target="_blank"}
+- [www.com ➟](https://www.com){:target="_blank"}
+- [x.com ➟](https://x.com){:target="_blank"}
+- [123.com ➟](https://123.com){:target="_blank"}
+- [777.com ➟](https://777.com){:target="_blank"}
+- [¯\\_(ツ)_/¯.com ➟](https://¯\\_(ツ)_/¯.com){:target="_blank"}
