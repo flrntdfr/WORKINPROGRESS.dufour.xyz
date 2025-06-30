@@ -172,7 +172,7 @@ Average projects per year: {{ total_chantiers | divided_by: sorted_years.size | 
 
 ---
 
-_Last updated: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}_
+_Last touched: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}_
 
 
 
