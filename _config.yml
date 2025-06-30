@@ -32,10 +32,10 @@ feed:
     chantiers:
       path: "/rss"
 
-webrick:
-  headers:
-    "Cross-Origin-Opener-Policy": "same-origin"
-    "Cross-Origin-Embedder-Policy": "require-corp"
+# webrick:
+#   headers:
+#     "Cross-Origin-Opener-Policy": "same-origin"
+#     "Cross-Origin-Embedder-Policy": "require-corp"
 
 defaults:
   -

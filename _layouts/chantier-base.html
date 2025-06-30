@@ -45,7 +45,7 @@ labels:
         {% endunless %}
         {% else %}
         <tr>
-            <th>started</th>
+            <th>{% assign now = 'now' | date: '%s' %}{% assign started_sec = page.started | date: '%s' %}{% if started_sec > now %}pending{% else %}started{% endif %}</th>
             <td><span title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>

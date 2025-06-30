@@ -2,6 +2,7 @@
 layout: chantier
 title: TruthLLM
 started: 2024-08-04 00:00
+ended: 2024-10-02 00:00
 labels: [LLM, web]
 tech: [GPT2]
 description: |
@@ -136,7 +137,7 @@ description: |
             }
 
             console.log('🎯 Model loaded successfully, enabling UI');
-            status.textContent = 'onnx/model_quantized.onnx';
+            status.textContent = '/gpt2/onnx/model_quantized.onnx';
             input.disabled = false;
             askButton.disabled = false;
             luckyButton.disabled = false;
@@ -174,6 +175,11 @@ description: |
                     console.log('⚠️ No input text provided, returning');
                     return;
                 }
+                
+                /* Add system prompt */
+                const systemPrompt = "Tell the truth. ";
+                const fullInput = systemPrompt + inputText;
+                console.log('🎯 Full input with system prompt:', fullInput);
 
                 console.log('🔒 Disabling input and buttons during generation');
                 input.disabled = true;
@@ -196,27 +202,31 @@ description: |
                 try {
                     console.log('🎯 Calling generator with parameters:', {
                         max_new_tokens: 1000,
-                        temperature: 0.85,
-                        top_p: 0.92,
+                        temperature: 0.7,
+                        top_p: 0.9,
                         do_sample: true,
-                        repetition_penalty: 1.15,
-                        top_k: 60,
-                        length_penalty: 1.05,
-                        no_repeat_ngram_size: 3,
+                        repetition_penalty: 1.1,
+                        top_k: 50,
+                        length_penalty: 1.0,
+                        no_repeat_ngram_size: 2,
                         early_stopping: true,
-                        stream: true
+                        stream: true,
+                        pad_token_id: 50256,
+                        eos_token_id: 50256
                     });
-                    const resultStream = await generator(inputText, { 
+                    const resultStream = await generator(fullInput, { 
                         max_new_tokens: 1000,
-                        temperature: 0.85,
-                        top_p: 0.92,
+                        temperature: 0.7,
+                        top_p: 0.9,
                         do_sample: true,
-                        repetition_penalty: 1.15,
-                        top_k: 60,
-                        length_penalty: 1.05,
-                        no_repeat_ngram_size: 3,
+                        repetition_penalty: 1.1,
+                        top_k: 50,
+                        length_penalty: 1.0,
+                        no_repeat_ngram_size: 2,
                         early_stopping: true,
-                        stream: true 
+                        stream: true,
+                        pad_token_id: 50256,
+                        eos_token_id: 50256
                     });
                     console.log('📡 Result stream received:', resultStream);
                     
@@ -253,7 +263,21 @@ description: |
                             console.log(`✂️ Removed input text, cleaned output: "${cleanOutput}"`);
                         }
                     }
-
+                    /* Remove special characters from the end */
+                    cleanOutput = cleanOutput.replace(/[\u0000-\u001F\u007F-\u009F\u200B-\u200F\uFEFF\uFFFD▎]$/, '').trim();
+                    /* Remove newlines and replace with spaces */
+                    cleanOutput = cleanOutput.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+                    /* Clean repetition errors like doesn''t -> doesn't */
+                    cleanOutput = cleanOutput.replace(/''/g, "'").replace(/""/g, '"');
+                    /* Fix whitespace before punctuation */
+                    cleanOutput = cleanOutput.replace(/\s+([.!?,:;])/g, '$1');
+                    /* Remove figures in square brackets like [8] or [/28] */
+                    cleanOutput = cleanOutput.replace(/\[\/?\d+\]/g, '');
+                    /* Remove special characters like › and … */
+                    cleanOutput = cleanOutput.replace(/[›…«»‹›]/g, '');
+                    /* Ensure output ends with a period */
+                    cleanOutput = cleanOutput.replace(/[.!?]*$/, '') + '.';
+                    console.log(`🎯 Final cleaned output: "${cleanOutput}"`);
                     
                     /* Update with cleaned version */
                     output.textContent = cleanOutput;
@@ -262,7 +286,7 @@ description: |
                     output.textContent = 'An error occurred during generation: ' + e.message;
                 } finally {
                     console.log('🏁 Generation completed, cleaning up');
-                    status.textContent = 'onnx/model_quantized.onnx';
+                    status.textContent = '/gpt2/onnx/model_quantized.onnx';
                     /* Clear the animated dots */
                     if (status.dataset.dotInterval) {
                         clearInterval(parseInt(status.dataset.dotInterval));
