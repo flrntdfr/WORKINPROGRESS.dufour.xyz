@@ -9,7 +9,7 @@ description: |
 ---
 
 <script type="module">
-    import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.6.0/dist/transformers.min.js';
+    import { pipeline, env } from '/assets/lib/transformers/transformers.min.js';
 
     const questions = [
         "Why are we here?",
