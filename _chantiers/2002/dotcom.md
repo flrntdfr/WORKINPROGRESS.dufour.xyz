@@ -40,6 +40,6 @@ description: |
 - [vide.com ➟](https://vide.com){:target="_blank" rel="noopener noreferrer"}
 - [world.com ➟](https://world.com){:target="_blank" rel="noopener noreferrer"}
 - [www.com ➟](https://www.com){:target="_blank" rel="noopener noreferrer"}
-- [x.com ➟](https://x.com){:target="_blank" rel="noopener noreferrer"}
+- [x.com ➟](https://x.com){:target="_blank" rel="noopener noreferrer"} / [o.com ➟](https://o.com){:target="_blank" rel="noopener noreferrer"} / [z.com ➟](https://z.com){:target="_blank" rel="noopener noreferrer"}
 - [123.com ➟](https://123.com){:target="_blank" rel="noopener noreferrer"}
 - [777.com ➟](https://777.com){:target="_blank" rel="noopener noreferrer"}
