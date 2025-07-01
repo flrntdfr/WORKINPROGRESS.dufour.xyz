@@ -169,9 +169,9 @@ description: |
   
   <div class="question-selector">
     <div class="button-group">
-      <button class="nav-button" id="prev-button">← Previous truth</button>
-      <button class="nav-button" id="random-button">Random truth</button>
-      <button class="nav-button" id="next-button">Next truth →</button>
+      <button class="nav-button" id="prev-button">← Previous&nbsp;truth</button>
+      <button class="nav-button" id="random-button">Random&nbsp;truth</button>
+      <button class="nav-button" id="next-button">Next&nbsp;truth →</button>
     </div>
   </div>
 </div>

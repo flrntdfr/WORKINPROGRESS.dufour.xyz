@@ -6,7 +6,7 @@ ended: 2024-10-02 00:00
 labels: [LLM, web]
 tech: [GPT2]
 description: |
-    ThruthLLM is a "Large" Language Model that will answer every question within a limit of 1000 tokens.
+    ThruthLLM is a "Large" Language Model that is instructed to answer every question truthfully in less than 1000 tokens.
 ---
 
 <script type="module">
@@ -14,6 +14,7 @@ description: |
 
     const questions = [
         "Why are we here?",
+        "Why is the sky blue?",
         "What sees when I see?",
         "Who observes my thoughts?",
         "Is reality an illusion?",
@@ -253,16 +254,8 @@ description: |
                 askButton.disabled = true;
                 luckyButton.disabled = true;
                 document.getElementById('llm-container').classList.add('generating');
-                /* Start the animated dots */
-                let dotCount = 0;
-                const dotInterval = setInterval(() => {
-                    const dots = '.'.repeat(dotCount + 1);
-                    status.textContent = `Generating${dots}`;
-                    dotCount = (dotCount + 1) % 3;
-                }, 500);
-                
-                /* Store interval ID to clear it later */
-                status.dataset.dotInterval = dotInterval;
+                /* Set generating text */
+                status.textContent = 'Generating...';
                 output.textContent = '';
                 console.log('🎬 Started animation interval, cleared output');
 
@@ -345,6 +338,14 @@ description: |
                     cleanOutput = cleanOutput.replace(/''/g, "'").replace(/""/g, '"');
                     /* Remove all whitespace before punctuation */
                     cleanOutput = cleanOutput.replace(/\s+([.!?,:;])/g, '$1');
+                    /* Ensure there's always a space after punctuation */
+                    cleanOutput = cleanOutput.replace(/([.!?,:;])([a-zA-Z])/g, '$1 $2');
+                    /* Remove period inside quotes before closing quote */
+                    cleanOutput = cleanOutput.replace(/\.\"\./g, '".');
+                    /* Remove period in front of quotes */
+                    cleanOutput = cleanOutput.replace(/\.\"/g, '"');
+                    /* Replace 3+ consecutive periods with ellipsis */
+                    cleanOutput = cleanOutput.replace(/\.{2,}/g, '…');
                     /* Fix malformed punctuation combinations */
                     cleanOutput = cleanOutput.replace(/:\s*\./g, '.');
                     cleanOutput = cleanOutput.replace(/:/g, '.');
@@ -360,6 +361,10 @@ description: |
                     cleanOutput = cleanOutput.replace(/[\(\)\[\]\{\}]/g, '');
                     /* Fix escaped single quotes */
                     cleanOutput = cleanOutput.replace(/\\'/g, "'");
+                    /* Remove tildes */
+                    cleanOutput = cleanOutput.replace(/~/g, '');
+                    /* Reduce multiple spaces to single space */
+                    cleanOutput = cleanOutput.replace(/\s+/g, ' ');
                     /* Trim whitespace */
                     cleanOutput = cleanOutput.trim();
                     /* Find first letter and make it uppercase */
@@ -386,12 +391,6 @@ description: |
                 } finally {
                     console.log('🏁 Generation completed, cleaning up');
                     status.textContent = '/gpt2/onnx/model_quantized.onnx (327.8 MB)';
-                    /* Clear the animated dots */
-                    if (status.dataset.dotInterval) {
-                        clearInterval(parseInt(status.dataset.dotInterval));
-                        delete status.dataset.dotInterval;
-                        console.log('⏹️ Cleared animation interval');
-                    }
                     document.getElementById('llm-container').classList.remove('generating');
                     input.disabled = true;
                     askButton.disabled = true;
@@ -496,5 +495,7 @@ description: |
     color: #888;
     letter-spacing: 0.5px;
 }
+
+
 
 </style>

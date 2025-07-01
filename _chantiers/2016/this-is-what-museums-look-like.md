@@ -5,7 +5,7 @@ started: 2016-01-01 23:42
 ended:
 featured: true
 labels: [list, illustration]
-tech: [Index cards, Uniball micro]
+tech: [Index cards, Black Uniball]
 location: Belleville
 description:
 ---

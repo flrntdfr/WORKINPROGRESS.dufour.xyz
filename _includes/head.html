@@ -8,31 +8,7 @@
     {% else %}
     <meta name="theme-color" content="{{ site.theme-color }}">
     {% endif %}
-    
-    <script>
-        const darkThemeColor = '#000000';
-        const lightThemeColor = document.querySelector('meta[name="theme-color"]').getAttribute('content');
-    
-        const setDarkMode = () => {
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', darkThemeColor);
-        };
-        const setLightMode = () => {
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', lightThemeColor);
-        };
-    
-        const matcher = window.matchMedia('(prefers-color-scheme: dark)');
-        if (matcher.matches) {
-            setDarkMode();
-        }
-    
-        matcher.addEventListener('change', e => {
-            if (e.matches) {
-                setDarkMode();
-            } else {
-                setLightMode();
-            }
-        });
-    </script>
+
 
     <title>{{page.title }} ({{ site.title_short }})</title>
 

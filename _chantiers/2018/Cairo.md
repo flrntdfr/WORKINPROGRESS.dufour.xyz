@@ -38,11 +38,11 @@ description: |
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;">
     <div>
-        <strong>ensoleillé</strong><br>
+        <strong>soleil</strong><br>
         <div id="lancieu-canvas" style="display: flex; justify-content: center;"></div>
     </div>
     <div>
-        <strong>mouillé</strong><br>
+        <strong>pluie</strong><br>
         <div id="la-pluie-tombe-canvas" style="display: flex; justify-content: center;"></div>
     </div>
 </div>
