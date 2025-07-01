@@ -137,7 +137,7 @@ description: |
             }
 
             console.log('🎯 Model loaded successfully, enabling UI');
-            status.textContent = '/gpt2/onnx/model_quantized.onnx';
+            status.textContent = '/gpt2/onnx/model_quantized.onnx (327.8 MB)';
             input.disabled = false;
             askButton.disabled = false;
             luckyButton.disabled = false;
@@ -279,8 +279,11 @@ description: |
                     cleanOutput = cleanOutput.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
                     /* Clean repetition errors like doesn''t -> doesn't */
                     cleanOutput = cleanOutput.replace(/''/g, "'").replace(/""/g, '"');
-                    /* Fix whitespace before punctuation */
+                    /* Remove all whitespace before punctuation */
                     cleanOutput = cleanOutput.replace(/\s+([.!?,:;])/g, '$1');
+                    /* Fix malformed punctuation combinations */
+                    cleanOutput = cleanOutput.replace(/:\s*\./g, '.');
+                    cleanOutput = cleanOutput.replace(/:/g, '.');
                     /* Remove figures in square brackets like [8] or [/28] */
                     cleanOutput = cleanOutput.replace(/\[\/?\d+\]/g, '');
                     /* Remove special characters like › and … */
@@ -311,7 +314,7 @@ description: |
                     output.textContent = 'An error occurred during generation: ' + e.message;
                 } finally {
                     console.log('🏁 Generation completed, cleaning up');
-                    status.textContent = '/gpt2/onnx/model_quantized.onnx';
+                    status.textContent = '/gpt2/onnx/model_quantized.onnx (327.8 MB)';
                     /* Clear the animated dots */
                     if (status.dataset.dotInterval) {
                         clearInterval(parseInt(status.dataset.dotInterval));
@@ -423,33 +426,4 @@ description: |
     letter-spacing: 0.5px;
 }
 
-@keyframes dots {
-    0%, 20% {
-        content: '';
-    }
-
-    40% {
-        content: '.';
-    }
-
-    60% {
-        content: '..';
-    }
-
-    80%, 100% {
-        content: '...';
-    }
-}
-
-.generating {
-    position: relative;
-}
-
-.generating::after {
-    content: '';
-    animation: dots 1.5s infinite;
-    position: absolute;
-    left: 100%;
-    top: 0;
-}
 </style>
