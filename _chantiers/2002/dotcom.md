@@ -2,11 +2,9 @@
 layout: chantier
 title: .com
 labels: [list]
-started: 2002-11-31 00:00:00
+started: 2002-12-31 00:00:00
 ended: 2002-12-31 00:00:00
 featured: false
-description: |
-    One of the early lists that I made.
 ---
 
 - [abc.com ➟](https://abc.com){:target="_blank" rel="noopener noreferrer"}

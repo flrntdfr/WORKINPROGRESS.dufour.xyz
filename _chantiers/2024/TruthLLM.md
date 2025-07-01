@@ -296,8 +296,13 @@ description: |
                     cleanOutput = cleanOutput.replace(/[\(\)\[\]\{\}]/g, '');
                     /* Trim whitespace */
                     cleanOutput = cleanOutput.trim();
-                    /* Capitalize first letter */
-                    cleanOutput = cleanOutput.charAt(0).toUpperCase() + cleanOutput.slice(1);
+                    /* Find first letter and make it uppercase */
+                    const firstLetterIndex = cleanOutput.search(/[a-zA-Z]/);
+                    if (firstLetterIndex !== -1) {
+                        cleanOutput = cleanOutput.substring(0, firstLetterIndex) + 
+                                    cleanOutput.charAt(firstLetterIndex).toUpperCase() + 
+                                    cleanOutput.substring(firstLetterIndex + 1);
+                    }
                     /* Check if output is too short */
                     if (cleanOutput.length < 3) {
                         cleanOutput = "Ask again.";

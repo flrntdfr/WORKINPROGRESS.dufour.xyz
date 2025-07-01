@@ -38,14 +38,14 @@ labels:
         {% if page.ended == page.started %}
         {% unless page.ended == nil %}
         <tr>
-            <th>posted</th>
+            <th>created</th>
             <td><span title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>
         {% endunless %}
         {% else %}
         <tr>
-            <th>{% assign now = 'now' | date: '%s' %}{% assign started_sec = page.started | date: '%s' %}{% if started_sec > now %}pending{% else %}started{% endif %}</th>
+            <th>{% assign now = 'now' | date: '%s' %}{% assign started_sec = page.started | date: '%s' %}{% if started_sec > now %}waiting{% else %}started{% endif %}</th>
             <td><span title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>
