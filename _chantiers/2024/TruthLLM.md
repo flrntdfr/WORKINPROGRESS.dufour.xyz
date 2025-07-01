@@ -6,7 +6,7 @@ ended: 2024-10-02 00:00
 labels: [LLM, web]
 tech: [GPT2]
 description: |
-    ThruthLLM is a small "Large" Language Model (LLM) that will answer any question — regardless of their complexity — in less than 1000 tokens.
+    ThruthLLM is a rather small "Large" Language Model that will answer any question — regardless of their complexity — in less than 1000 tokens.
 ---
 
 <script type="module">
@@ -159,8 +159,18 @@ description: |
             luckyButton.addEventListener('click', (e) => {
                 console.log('Lucky button clicked');
                 if (luckyButton.classList.contains('reset-mode')) {
-                    /* Reset mode: reload the page */
-                    window.location.reload();
+                    /* Reset mode: clear everything and start fresh */
+                    e.preventDefault();
+                    input.value = '';
+                    output.textContent = '';
+                    input.disabled = false;
+                    askButton.disabled = false;
+                    luckyButton.disabled = false;
+                    luckyButton.textContent = "lucky";
+                    luckyButton.classList.remove('reset-mode');
+                    setRandomPlaceholder();
+                    generateRayID();
+                    console.log('🔄 Reset completed, ready for new input');
                 } else {
                     e.preventDefault();
                     setRandomPlaceholder();
@@ -275,8 +285,23 @@ description: |
                     cleanOutput = cleanOutput.replace(/\[\/?\d+\]/g, '');
                     /* Remove special characters like › and … */
                     cleanOutput = cleanOutput.replace(/[›…«»‹›]/g, '');
-                    /* Ensure output ends with a period */
-                    cleanOutput = cleanOutput.replace(/[.!?]*$/, '') + '.';
+                    /* Remove replacement characters () */
+                    cleanOutput = cleanOutput.replace(/\uFFFD/g, '');
+                    /* Remove other unusual characters */
+                    cleanOutput = cleanOutput.replace(/[^\x00-\x7F\s]/g, '');
+                    /* Remove orphan parentheses and brackets */
+                    cleanOutput = cleanOutput.replace(/[\(\)\[\]\{\}]/g, '');
+                    /* Trim whitespace */
+                    cleanOutput = cleanOutput.trim();
+                    /* Capitalize first letter */
+                    cleanOutput = cleanOutput.charAt(0).toUpperCase() + cleanOutput.slice(1);
+                    /* Check if output is too short */
+                    if (cleanOutput.length < 3) {
+                        cleanOutput = "Ask again.";
+                    } else {
+                        /* Ensure output ends with a period */
+                        cleanOutput = cleanOutput.replace(/[.!?]*$/, '') + '.';
+                    }
                     console.log(`🎯 Final cleaned output: "${cleanOutput}"`);
                     
                     /* Update with cleaned version */
@@ -320,13 +345,18 @@ description: |
 
     main();
 
-    /* Generate and display Ray ID */
-    document.addEventListener('DOMContentLoaded', function() {
+    /* Function to generate and display Ray ID */
+    function generateRayID() {
         var uuidElement = document.getElementById('uuid-display');
         if (uuidElement) {
             var uuid = crypto.randomUUID();
             uuidElement.textContent = 'Ray ID: ' + uuid.slice(0, -1) + '4';
         }
+    }
+
+    /* Generate and display initial Ray ID */
+    document.addEventListener('DOMContentLoaded', function() {
+        generateRayID();
     });
 </script>
 
@@ -334,9 +364,9 @@ description: |
 <div id="llm-container">
     <div id="llm-status">Loading model...</div>
     <div class="llm-input-container">
+        <button id="lucky-button" disabled>lucky</button>
         <input type="text" id="llm-input" placeholder="..." disabled>
-        <button id="ask-button" disabled>Ask</button>
-        <button id="lucky-button" disabled>I'm feeling lucky</button>
+        <button id="ask-button" disabled> Ask →</button>
     </div>
     <pre id="llm-output"></pre>
     <div class="uuid-display" id="uuid-display"></div>
