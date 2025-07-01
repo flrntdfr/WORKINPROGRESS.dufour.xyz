@@ -6,7 +6,7 @@ ended: 2024-10-02 00:00
 labels: [LLM, web]
 tech: [GPT2]
 description: |
-    ThruthLLM is a rather small "Large" Language Model that will answer any question — regardless of their complexity — in less than 1000 tokens.
+    ThruthLLM is a "Large" Language Model that will answer every question within a limit of 1000 tokens.
 ---
 
 <script type="module">
@@ -73,7 +73,61 @@ description: |
         "Who decides what's fair?",
         "Can you lose what's eternal?",
         "Is longing a truth?",
-        "Why must wisdom hurt?"
+        "Why must wisdom hurt?",
+        "What is zero divided by zero?",
+        "Can you observe without changing?",
+        "Is the universe finite?",
+        "What exists between atoms?",
+        "Can time be negative?",
+        "What is infinity minus infinity?",
+        "Does consciousness collapse reality?",
+        "What is the square root of -1?",
+        "Can you measure position and momentum?",
+        "What is the speed of dark?",
+        "Does the past still exist?",
+        "What is the shape of space?",
+        "Can you count to infinity?",
+        "What is the color of a mirror?",
+        "Does quantum randomness exist?",
+        "What is the weight of light?",
+        "Can you divide by zero?",
+        "What is the sound of silence?",
+        "Does the future influence the past?",
+        "What is the temperature of a vacuum?",
+        "Can you prove you exist?",
+        "What is the size of nothing?",
+        "Does mathematics exist independently?",
+        "What is the speed of thought?",
+        "Can you observe the observer?",
+        "What is the shape of time?",
+        "Does reality require an observer?",
+        "What is the meaning of meaning?",
+        "Prove that $\\zeta(2) = \\frac{\\pi^2}{6}$.",
+        "Can leadership be taught?",
+        "Is trust measurable?",
+        "Does power reveal character?",
+        "Why do organizations fail?",
+        "Can culture be engineered?",
+        "Is growth always good?",
+        "Who owns responsibility?",
+        "Does efficiency limit creativity?",
+        "Can motivation be bought?",
+        "Why do teams conflict?",
+        "Is strategy guesswork?",
+        "Does data tell truth?",
+        "Can purpose drive profit?",
+        "Why resist change?",
+        "Is productivity happiness?",
+        "Does control inspire loyalty?",
+        "Can ambition be harmful?",
+        "Who defines success?",
+        "Is innovation predictable?",
+        "Does transparency heal?",
+        "Why does scale break things?",
+        "Can meetings be meaningful?",
+        "Is failure essential?",
+        "Does structure limit freedom?",
+        "Can money buy meaning?"
     ];
     env.logLevel = 'debug';
 
@@ -186,6 +240,9 @@ description: |
                     return;
                 }
                 
+                /* Disable ask button before generation */
+                askButton.disabled = true;
+                
                 /* Add system prompt */
                 const systemPrompt = "Tell the truth. ";
                 const fullInput = systemPrompt + inputText;
@@ -265,6 +322,13 @@ description: |
                     /* Clean up the final output */
                     console.log('🧹 Cleaning up output');
                     let cleanOutput = fullText;
+                    
+                    /* Ensure output starts with a letter */
+                    const startLetterIndex = cleanOutput.search(/[a-zA-Z]/);
+                    if (startLetterIndex > 0) {
+                        cleanOutput = cleanOutput.substring(startLetterIndex);
+                        console.log(`✂️ Removed leading non-letters, starts at index: ${startLetterIndex}`);
+                    }
                     if (fullText.toLowerCase().includes(inputText.toLowerCase())) {
                         const inputIndex = fullText.toLowerCase().indexOf(inputText.toLowerCase());
                         console.log(`🔍 Found input text at index: ${inputIndex}`);
@@ -294,6 +358,8 @@ description: |
                     cleanOutput = cleanOutput.replace(/[^\x00-\x7F\s]/g, '');
                     /* Remove orphan parentheses and brackets */
                     cleanOutput = cleanOutput.replace(/[\(\)\[\]\{\}]/g, '');
+                    /* Fix escaped single quotes */
+                    cleanOutput = cleanOutput.replace(/\\'/g, "'");
                     /* Trim whitespace */
                     cleanOutput = cleanOutput.trim();
                     /* Find first letter and make it uppercase */
@@ -374,7 +440,7 @@ description: |
     <div class="llm-input-container">
         <button id="lucky-button" disabled>lucky</button>
         <input type="text" id="llm-input" placeholder="..." disabled>
-        <button id="ask-button" disabled> Ask →</button>
+        <button id="ask-button" disabled>Ask&nbsp;→</button>
     </div>
     <pre id="llm-output"></pre>
     <div class="uuid-display" id="uuid-display"></div>
