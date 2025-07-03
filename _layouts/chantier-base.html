@@ -69,8 +69,14 @@ labels:
         {% endif %}
         {% if page.location %}
         <tr>
-            <th>location</th>
-            <td>{{ page.location }}</td>
+            <th>location{% if page.location.size > 1 %}s{% endif %}</th>
+            <td>
+                {% if page.location.size > 1 %}
+                    {{ page.location | join: ", " }}
+                {% else %}
+                    {{ page.location }}
+                {% endif %}
+            </td>
         </tr>
         {% endif %}
         {% if page.tech %}

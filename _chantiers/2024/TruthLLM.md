@@ -6,7 +6,7 @@ ended: 2024-10-02 00:00
 labels: [LLM, web]
 tech: [GPT2]
 description: |
-    ThruthLLM is a "Large" Language Model that is instructed to answer every question truthfully in less than 1000 tokens.
+    ThruthLLM is a "Large" Language Model that will answer any question in less than 1000 tokens.
 ---
 
 <script type="module">

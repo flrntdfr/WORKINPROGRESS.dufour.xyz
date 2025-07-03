@@ -1,9 +1,9 @@
 ---
 layout: chantier
 title: Je suis
-started: 2019-03-06 11:09
+started: 2016-03-06 11:09
 labels: [illustration]
-tech: [StyleGAN2]
+tech: [StyleGAN2, TX-1080i]
 description: |
     Collectés depuis 2016, je collectionne les facette de moi même. En 2024, j’memoe d’incarner une par jour. 1 selfie tous les jours. J’ai la liste et je décide qui je vais être pour le jour  Photo avec le jour
     Pitch: try to answer what did you forget? Who are you really?
