@@ -5,7 +5,7 @@ started: 2022-05-15 23:48
 ended: 2025-01-19 19:45
 labels: [game, list]
 description: |
-  Truth or Truth is a deck of XX question-answering cards that can be played on a first date.
+  Truth or Truth is a deck of cards that can be played on a first date.
 ---
 
 <script type="module">

@@ -3,7 +3,7 @@ layout: chantier
 title: Framed words
 started: 2025-05-24 22:20
 ended: 2025-06-04 23:10
-location: Stockholm
+location: [Stockholm]
 tech: Stable diffusion
 labels: [list, illustration]
 ---
@@ -13,7 +13,6 @@ labels: [list, illustration]
 ![LIGHT AND PERSPECTIVE]({% link assets/2025/framed-words/3.jpg %})
 ![CURIOSITY AND FOCUS]({% link assets/2025/framed-words/4.jpg %})
 ![CURVES AND VELOCITY]({% link assets/2025/framed-words/5.jpg %})
-![PEACE AND PRINCIPLES]({% link assets/2025/framed-words/6.jpg %})
 ![CENTRES ET GRAVITÉ]({% link assets/2025/framed-words/8.jpg %})
 ![TECHNOLOGY AND OPTIMISM]({% link assets/2025/framed-words/11.jpg %})
 ![CONFIANCE ET MONOPOLE]({% link assets/2025/framed-words/14.jpg %})
@@ -22,6 +21,7 @@ labels: [list, illustration]
 
 
 {% comment %}
+![PEACE AND PRINCIPLES]({% link assets/2025/framed-words/6.jpg %})
 ![PROSPECTIVE ET PLANIFICATION]({% link x/2025/Stockholm/7.jpg %})
 ![NEW AND INTERESTING]({% link x/2025/Stockholm/9.jpg %})
 ![TRUTH AND TRUTH]({% link x/2025/Stockholm/10.jpg %})
