@@ -1,69 +1,58 @@
 ---
-layout: chantier
+layout: chantier-columns-x2
 title: Cairo
 labels: illustration
 started: 2018-07-01
 ended: 2018-11-02
-location: Strasbourg
+location: [Strasbourg]
 labels: [illustration]
-tech: [cairo, p5.js]
-description: |
-    This is a series of experimentation with 2D vectorial images and bezier lines with the cairo library. Cairo was meant as an introduction before starting experimenting with post script. Mettre les vidéos
-
 ---
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;">
-    <div>
-        <strong>une souris</strong><br>
-        <img src="/assets/2018/cairo/montsouris.svg" alt="Montsouris" />
-    </div>
-    <div>
-        <strong>un couché de soleil sur la mer</strong><br>
-        <img src="/assets/2018/cairo/fouesnant.svg" alt="Couché de soleil sur la mer" />
-    </div>
-    <div>
-        <strong>un scarabé</strong><br>
-        <img src="/assets/2018/cairo/La Villette.svg" alt="La Villette" />
-    </div>
-    <div>
-        <strong>une télévision éteinte</strong><br>
-        <img src="/assets/2018/cairo/TV.svg" alt="TV" />
-    </div>
+<div>
+    <strong>Montsouris</strong><br>
+    <img src="{% link /assets/2018/Cairo/Montsouris.svg %}" alt="Montsouris" />
+</div>
+<div>
+    <strong>un couché de soleil sur la mer</strong><br>
+    <img src="/assets/2018/cairo/fouesnant.svg" alt="Couché de soleil sur la mer" />
+</div>
+<div>
+    <strong>Roscoff</strong><br>
+    <img src="/assets/2018/cairo/Roscoff.svg" alt="Roscoff" />
+</div>
+<div>
+    <strong>Lancieu</strong><br>
+    <div id="arcs-canvas" style="display: flex; justify-content: center;"></div>
+</div>
+<div>
+    <strong>Orangerie</strong><br>
+    <div id="lancieu-canvas" style="display: flex; justify-content: center;"></div>
+</div>
+<div>
+    <strong>Mazagran</strong><br>
+    <div id="la-pluie-tombe-canvas" style="display: flex; justify-content: center;"></div>
 </div>
 
-{% comment %}
-**La Mort**<br>
-![La Mort](/assets/2018/cairo/La Mort.svg)
-{% endcomment %}
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;">
-    <div>
-        <strong>soleil</strong><br>
-        <div id="lancieu-canvas" style="display: flex; justify-content: center;"></div>
-    </div>
-    <div>
-        <strong>pluie</strong><br>
-        <div id="la-pluie-tombe-canvas" style="display: flex; justify-content: center;"></div>
-    </div>
-</div>
-
-{% comment %}
-**Pravčická-brána**<br>
-![Pravčická-brána](/assets/2018/cairo/Pravčická-brána.svg)
-
-**Roscoff**<br>
-<div style="display: flex; gap: 20px; align-items: flex-start; width: 100%;">
-    <div style="flex: 1;">
-        <img src="/assets/2018/cairo/Roscoff.svg" alt="Roscoff" style="width: 100%; height: auto;">
-    </div>
-    <div style="flex: 1;">
-        <img src="/assets/2018/cairo/Shell.svg" alt="Shell" style="width: 100%; height: auto;">
-    </div>
-</div>
-{% endcomment %}
+<!-- ------- -->
 
 <script src="/assets/lib/p5.v1.4.2.min.js"></script>
 <script>
+function addClickToggle(p5Instance) {
+    setTimeout(() => {
+        if (p5Instance.canvas) {
+            p5Instance.canvas.addEventListener('click', function() {
+                if (p5Instance.isLooping()) {
+                    p5Instance.noLoop();
+                    console.log('Sketch paused');
+                } else {
+                    p5Instance.loop();
+                    console.log('Sketch resumed');
+                }
+            });
+        }
+    }, 100);
+}
+
 const lancieuSketch = (p) => {
     let nLines;
     let lines = [];
@@ -116,15 +105,11 @@ const lancieuSketch = (p) => {
         for (let line of lines) {
             line.show();
         }
-
-        if (p.frameCount >= 3600) {
-            p.noLoop();
-            p.print("Sketch has stopped.");
-        }
     };
 };
 
-new p5(lancieuSketch, 'lancieu-canvas');
+const lancieuInstance = new p5(lancieuSketch, 'lancieu-canvas');
+addClickToggle(lancieuInstance);
 
 const mazagranSketch = (p) => {
     let nDrops;
@@ -180,7 +165,135 @@ const mazagranSketch = (p) => {
             d.fall();
             d.show();
         }
+    };
+};
 
+const mazagranInstance = new p5(mazagranSketch, 'la-pluie-tombe-canvas');
+addClickToggle(mazagranInstance);
+
+const arcsSketch = (p) => {
+    let angle = 0;
+    let speed = 0.01;
+    let nArcs;
+
+    function drawCircle() {
+        p.noStroke();
+        p.fill(0, 0, 0);
+        p.ellipse(0, 0, p.width * 0.12, p.width * 0.12);
+    }
+
+    function drawArcs(nArcs, speed) {
+        let minR = p.width * 0.3;
+        let maxR = p.width * 0.9;
+        let deltaR = maxR - minR;
+        let increment = deltaR / nArcs;
+
+        p.stroke(0);
+        p.strokeWeight(p.map(p.width, 200, 500, 1.5, 3, true));
+        p.strokeCap(p.ROUND);
+        p.noFill();
+
+        let position = minR;
+        for (let n = 0; n < nArcs; n++) {
+            p.rotate(angle);
+            p.arc(0, 0, position, position, 0, p.TWO_PI - 1.5);
+            position += increment;
+        }
+        angle += speed;
+    }
+
+    p.setup = function() {
+        const size = p._userNode.parentElement.clientWidth || 500;
+        p.createCanvas(size, size);
+        nArcs = p.floor(p.map(size, 200, 500, 15, 25, true));
+    };
+
+    p.draw = function() {
+        p.background(255);
+        p.push();
+        p.translate(p.width / 2, p.height / 2);
+        drawCircle();
+        drawArcs(nArcs, speed);
+        p.pop();
+    };
+};
+
+const arcsInstance = new p5(arcsSketch, 'arcs-canvas');
+addClickToggle(arcsInstance);
+</script>
+
+{% comment %}
+
+<div>
+    <strong>un scarabé</strong><br>
+    <img src="/assets/2018/cairo/La Villette.svg" alt="La Villette" />
+</div>
+
+**La Mort**<br>
+![La Mort](/assets/2018/cairo/La Mort.svg)
+
+**Pravčická-brána**<br>
+![Pravčická-brána](/assets/2018/cairo/Pravčická-brána.svg)
+
+**Roscoff**<br>
+<div style="display: flex; gap: 20px; align-items: flex-start; width: 100%;">
+    <div style="flex: 1;">
+        <img src="/assets/2018/cairo/Roscoff.svg" alt="Roscoff" style="width: 100%; height: auto;">
+    </div>
+    <div style="flex: 1;">
+        <img src="/assets/2018/cairo/Shell.svg" alt="Shell" style="width: 100%; height: auto;">
+    </div>
+</div>
+
+<div>
+    <strong>une télévision éteinte</strong><br>
+    <img src="/assets/2018/cairo/TV.svg" alt="TV" />
+</div>
+
+<div>
+    <strong>cardioïde</strong><br>
+    <div id="cardioid-canvas" style="display: flex; justify-content: center;"></div>
+</div>
+
+const cardioidSketch = (p) => {
+    let totalPoints;
+    let radius;
+    let factor;
+    let circleRadius;
+
+    function getVector(index) {
+        let angle = p.map(index % totalPoints, 0, totalPoints, -p.PI, p.PI);
+        let v = p.createVector(p.cos(angle), p.sin(angle));
+        v.mult(radius);
+        return v;
+    }
+
+    p.setup = function() {
+        const size = p._userNode.parentElement.clientWidth || 500;
+        p.createCanvas(size, size);
+        totalPoints = p.floor(p.map(size, 200, 500, 150, 250, true));
+        radius = p.min(p.width, p.height) / 2 - 10;
+        factor = 2;
+        circleRadius = p.width * 0.12;
+    };
+
+    p.draw = function() {
+        p.background(255);
+        p.push();
+        p.translate(p.width / 2, p.height / 2);
+        p.noStroke();
+        p.fill(0, 0, 0);
+        p.ellipse(0, 0, circleRadius, circleRadius);
+        p.noFill();
+        p.stroke(0, 50);
+        p.strokeWeight(p.map(p.width, 200, 500, 1.5, 3, true));
+        for (let i = 0; i < totalPoints; i++) {
+            let previousPoint = getVector(i);
+            let currentPoint = getVector(i * factor);
+            p.line(previousPoint.x, previousPoint.y, currentPoint.x, currentPoint.y);
+        }
+        p.pop();
+        factor += 0.01;
         if (p.frameCount >= 3600) {
             p.noLoop();
             p.print("Sketch has stopped.");
@@ -188,5 +301,6 @@ const mazagranSketch = (p) => {
     };
 };
 
-new p5(mazagranSketch, 'la-pluie-tombe-canvas');
-</script>
+new p5(cardioidSketch, 'cardioid-canvas');
+
+{% endcomment %}

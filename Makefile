@@ -12,7 +12,7 @@ JEKYLL_PORT    := 4000
 JEKYLL_FLAGS   := --trace --livereload
 
 build: img ## Build the website locally
-	bundle exec jekyll $@
+	bundle exec jekyll $@ --verbose
 serve: ## Build and serve the website locally
 	bundle exec jekyll $@ $(JEKYLL_FLAGS)
 clean: ## Clean caches

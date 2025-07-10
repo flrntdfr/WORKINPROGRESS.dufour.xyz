@@ -10,7 +10,7 @@ description: |
 ---
 
 <script type="module">
-    import { pipeline, env } from '/assets/lib/transformers/transformers.min.js';
+    import { pipeline, env } from '{% link /assets/lib/transformers.v3.6.0.min.js %}';
 
     const questions = [
         "Why are we here?",
@@ -128,16 +128,16 @@ description: |
         "Can meetings be meaningful?",
         "Is failure essential?",
         "Does structure limit freedom?",
-        "Can money buy meaning?"
+        "Can money buy love?"
     ];
     env.logLevel = 'debug';
+    env.allowRemoteModels = true;
 
     const status = document.getElementById('llm-status');
     const input = document.getElementById('llm-input');
     const output = document.getElementById('llm-output');
     const askButton = document.getElementById('ask-button');
     const luckyButton = document.getElementById('lucky-button');
-
 
     function setRandomPlaceholder() {
         const randomIndex = Math.floor(Math.random() * questions.length);
@@ -147,7 +147,7 @@ description: |
     async function main() {
         console.log('🚀 TruthLLM: Starting main function');
         try {
-            status.textContent = 'Loading language model...';
+            status.textContent = 'Loading…';
 
             const progressCallback = (info) => {
                 console.log('📦 Progress:', info);
@@ -162,42 +162,30 @@ description: |
             };
 
             let generator;
+            
             try {
-                console.log('🔍 Attempting to load model from local path: /assets/models/onnx/model_quantized.onnx');
-                /* Load model from local assets folder */
-                generator = await pipeline('text-generation', '/assets/models/onnx/model_quantized.onnx', {
+                console.log('🌐 Attempting to load model from HuggingFace: Xenova/distilgpt2');
+                generator = await pipeline('text-generation', 'Xenova/distilgpt2', {
                     progress_callback: progressCallback,
                 });
-                console.log('✅ Successfully loaded model from local path');
-            } catch (localError) {
-                console.warn('❌ Local model loading failed, falling back to remote model...', localError);
+                console.log('✅ Successfully loaded model from HuggingFace');
+            } catch (remoteError) {
+                console.warn('❌ Remote model failed, trying with fp32...', remoteError);
                 
-                try {
-                    console.log('🌐 Attempting to load model from remote: Xenova/distilgpt2');
-                    /* Fallback to remote model */
-                    generator = await pipeline('text-generation', 'Xenova/distilgpt2', {
-                        progress_callback: progressCallback,
-                    });
-                    console.log('✅ Successfully loaded model from remote');
-                } catch (remoteError) {
-                    console.warn('❌ Remote model also failed, trying with fp32...', remoteError);
-                    
-                    console.log('🔄 Attempting to load model with fp32 precision');
-                    generator = await pipeline('text-generation', 'Xenova/distilgpt2', {
-                        dtype: 'fp32',
-                        progress_callback: progressCallback,
-                    });
-                    console.log('✅ Successfully loaded model with fp32 precision');
-                }
+                console.log('🔄 Attempting to load model with fp32 precision');
+                generator = await pipeline('text-generation', 'Xenova/distilgpt2', {
+                    dtype: 'fp32',
+                    progress_callback: progressCallback,
+                });
+                console.log('✅ Successfully loaded model with fp32 precision');
             }
 
             console.log('🎯 Model loaded successfully, enabling UI');
-            status.textContent = '/gpt2/onnx/model_quantized.onnx (327.8 MB)';
+            status.textContent = '/gpt2/onnx/model_quantized.onnx (236.96 MB)';
             input.disabled = false;
             askButton.disabled = false;
             luckyButton.disabled = false;
             setRandomPlaceholder();
-            console.log('🎲 Set random placeholder:', input.placeholder);
 
             input.addEventListener('input', () => {
                 /* Update Ask button based on input content */
@@ -205,14 +193,11 @@ description: |
             });
 
             askButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                console.log('Ask button clicked');
                 input.value = input.placeholder;
                 runLLM();
             });
 
             luckyButton.addEventListener('click', (e) => {
-                console.log('Lucky button clicked');
                 if (luckyButton.classList.contains('reset-mode')) {
                     /* Reset mode: clear everything and start fresh */
                     e.preventDefault();
@@ -225,7 +210,6 @@ description: |
                     luckyButton.classList.remove('reset-mode');
                     setRandomPlaceholder();
                     generateRayID();
-                    console.log('🔄 Reset completed, ready for new input');
                 } else {
                     e.preventDefault();
                     setRandomPlaceholder();
@@ -245,7 +229,7 @@ description: |
                 askButton.disabled = true;
                 
                 /* Add system prompt */
-                const systemPrompt = "Tell the truth. ";
+                const systemPrompt = "Tell the truth: ";
                 const fullInput = systemPrompt + inputText;
                 console.log('🎯 Full input with system prompt:', fullInput);
 
@@ -254,10 +238,10 @@ description: |
                 askButton.disabled = true;
                 luckyButton.disabled = true;
                 document.getElementById('llm-container').classList.add('generating');
+                document.body.classList.add('llm-loading');
                 /* Set generating text */
-                status.textContent = 'Generating...';
+                status.textContent = 'Answering…';
                 output.textContent = '';
-                console.log('🎬 Started animation interval, cleared output');
 
                 try {
                     console.log('🎯 Calling generator with parameters:', {
@@ -390,8 +374,9 @@ description: |
                     output.textContent = 'An error occurred during generation: ' + e.message;
                 } finally {
                     console.log('🏁 Generation completed, cleaning up');
-                    status.textContent = '/gpt2/onnx/model_quantized.onnx (327.8 MB)';
+                    status.textContent = '/gpt2/onnx/model_quantized.onnx (236.96 MB)';
                     document.getElementById('llm-container').classList.remove('generating');
+                    document.body.classList.remove('llm-loading');
                     input.disabled = true;
                     askButton.disabled = true;
                     luckyButton.disabled = false;
@@ -435,10 +420,10 @@ description: |
 
 
 <div id="llm-container">
-    <div id="llm-status">Loading model...</div>
+    <div id="llm-status">Standing by…</div>
     <div class="llm-input-container">
         <button id="lucky-button" disabled>lucky</button>
-        <input type="text" id="llm-input" placeholder="..." disabled>
+        <input type="text" id="llm-input" placeholder="…" disabled>
         <button id="ask-button" disabled>Ask&nbsp;→</button>
     </div>
     <pre id="llm-output"></pre>
@@ -496,6 +481,9 @@ description: |
     letter-spacing: 0.5px;
 }
 
-
-
+/* Apply the wait cursor to the entire page while the model is generating */
+body.llm-loading,
+body.llm-loading * {
+    cursor: wait !important;
+}
 </style>

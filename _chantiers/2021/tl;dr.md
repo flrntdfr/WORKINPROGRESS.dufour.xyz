@@ -4,8 +4,8 @@ title: tl;dr
 started: 2015-06-06 13:59
 ended: 2021-12-12 23:58
 labels: [list]
-lib: typedv2.1.0.min.js
-description: tl;dr are one-line summaries of text conversations during the period mid 2015 → 2021.
+lib: typed.v2.1.0.min.js
+description: tl;dr are one-line summaries of text conversations that happened over the period mid 2015 → 2021.
 ---
 
 <div id="typed-container"></div>

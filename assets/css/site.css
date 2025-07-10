@@ -1,36 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("../fonts/Inter-4.1/inter.css");
 
 :root {
+  --background-color: #ffffff;
+  --secondary-background: #f8f9fa;
+  --font-color: #1a1a1a;
+  --font-color-muted: #6c757d;
   --accent-color: #fdf52b;
-  --accent-color-dark: #333333;
-  --font-color: black;
-  --font-color-dark: white ;
-  --background-color: white;
-  --background-color-dark: #000000;
+  --accent-color-hover: #e8dc26;
+  --border-color: #dee2e6;
+  --selection-background: #fdf52b;
+  --selection-color: #1a1a1a;
+  --link-color: #1a1a1a;
+  --link-hover-background: #fdf52b;
+  --link-hover-color: #1a1a1a;
+  --image-opacity: 1;
+  --image-opacity-hover: 1;
+
+  --background-color-dark: #6b7280;
+  --secondary-background-dark: #4b5563;
+  --font-color-dark: #f9fafb;
+  --font-color-muted-dark: #9ca3af;
+  --accent-color-dark: #fbbf24;
+  --accent-color-hover-dark: #f59e0b;
+  --border-color-dark: #374151;
+  --selection-background-dark: #fbbf24;
+  --selection-color-dark: #1f2937;
+  --link-color-dark: #60a5fa;
+  --link-hover-background-dark: #60a5fa;
+  --link-hover-color-dark: #1f2937;
+  --image-opacity-dark: 0.9;
+  --image-opacity-hover-dark: 1;
 }
 
 body {
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-family: "Inter", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  background-color: var(--background-color);
+  color: var(--font-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: "InterVariable", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-optical-sizing: auto;
+  }
 }
 
 ::selection {
-  background: var(--accent-color);
+  background: var(--selection-background);
+  color: var(--selection-color);
 }
 
 a:link {
+  color: var(--link-color);
   text-decoration: underline;
 }
 
 a:hover {
+  background: var(--link-hover-background);
+  color: var(--link-hover-color);
   text-decoration: none;
-  background: var(--accent-color);
 }
 
 a,
 a:visited {
+  color: var(--link-color);
   text-decoration: underline;
-  color: inherit;
 }
 
 .row {
@@ -41,6 +76,27 @@ a:visited {
   flex: 50%;
   padding: 20px;
   line-height: 2;
+  border-color: var(--border-color);
+}
+
+input, textarea, select {
+  background-color: var(--secondary-background);
+  color: var(--font-color);
+  border-color: var(--border-color);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent-color);
+  outline-color: var(--accent-color);
+}
+
+img {
+  opacity: var(--image-opacity);
+  transition: opacity 0.2s ease;
+}
+
+img:hover {
+  opacity: var(--image-opacity-hover);
 }
 
 .blink {
@@ -54,17 +110,27 @@ a:visited {
 }
 
 @media (prefers-color-scheme: dark) {
+  :root {
+    /* Override color variables for dark mode */
+    --background-color: var(--background-color-dark);
+    --secondary-background: var(--secondary-background-dark);
+    --font-color: var(--font-color-dark);
+    --font-color-muted: var(--font-color-muted-dark);
+    --accent-color: var(--accent-color-dark);
+    --accent-color-hover: var(--accent-color-hover-dark);
+    --border-color: var(--border-color-dark);
+    --selection-background: var(--selection-background-dark);
+    --selection-color: var(--selection-color-dark);
+    --link-color: var(--link-color-dark);
+    --link-hover-background: var(--link-hover-background-dark);
+    --link-hover-color: var(--link-hover-color-dark);
+    --image-opacity: var(--image-opacity-dark);
+    --image-opacity-hover: var(--image-opacity-hover-dark);
+  }
+
+  /* Enhanced readability for dark mode */
   body {
-    background-color: var(--background-color-dark);
-    color: var(--font-color-dark);
-  }
-
-  a:hover {
-    background: var(--accent-color-dark);
-  }
-
-  ::selection {
-    background: var(--accent-color-dark);
-    color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
