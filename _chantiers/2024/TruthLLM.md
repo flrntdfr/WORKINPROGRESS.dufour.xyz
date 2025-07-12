@@ -155,7 +155,7 @@ description: |
                     const percentage = info.progress.toFixed(2);
                     status.textContent = `Loading ${info.file}: ${percentage}%`;
                 } else if (info.status === 'done') {
-                    status.textContent = `Finished loading ${info.file}.`;
+                    status.textContent = `Finished loading ${info.file}`;
                 } else {
                     status.textContent = `Status: ${info.status}`;
                 }
@@ -229,7 +229,7 @@ description: |
                 askButton.disabled = true;
                 
                 /* Add system prompt */
-                const systemPrompt = "Tell the truth: ";
+                const systemPrompt = "Answer the question truthfully: ";
                 const fullInput = systemPrompt + inputText;
                 console.log('🎯 Full input with system prompt:', fullInput);
 

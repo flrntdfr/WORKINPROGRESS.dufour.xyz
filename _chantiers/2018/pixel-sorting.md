@@ -1,10 +1,8 @@
 ---
 layout: chantier
-title: Pixel Sorted
-started: 2018-04-20
+title: Hiver 2017
+started: 2017-11-02
 ended: 2018-04-20
-location: [Belleville]
-tech: [Processing]
 label: [illustration]
 ---
 

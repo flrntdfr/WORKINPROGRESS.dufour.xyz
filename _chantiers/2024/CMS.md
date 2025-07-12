@@ -1,7 +1,7 @@
 ---
 hidden: true
 layout: chantier-standalone
-title: The website
+title: CMS
 started: 2024-08-04 00:00
 labels: [web]
 tech: [html, css, js, Jekyll]
@@ -94,7 +94,10 @@ This project is published (and hosted) [on GitHub](https://github.com/flrntdfr/W
 → Business: [biz@dufour.xyz](mail:biz@dufour.xyz)
 
 <div style="text-align: center;">
-  <img src="{% link /assets/img/macmade-wht.gif %}" alt="macmade">
+  <picture>
+    <source srcset="{% link /assets/img/macmade-blk.gif %}" media="(prefers-color-scheme: dark)">
+    <img src="{% link /assets/img/macmade-wht.gif %}" alt="macmade">
+  </picture>
 </div>
 
 <br><br><br><br>

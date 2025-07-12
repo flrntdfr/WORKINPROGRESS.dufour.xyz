@@ -1,8 +1,9 @@
 ---
 hidden: true
 layout: chantier
-title: All the content of the website
+title: CMS backend
 started: 2025-06-27 17:46
+ended: 2025-06-27 17:46
 permalink: "/all"
 ---
 

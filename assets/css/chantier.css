@@ -3,6 +3,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-wrap: wrap;
+    --border-color: black;
 }
 
 h1 {
@@ -13,7 +14,7 @@ metadata {
     padding: 20px;
     box-sizing: border-box;
     flex-direction: column;
-    border-right: 1px solid black;
+    border-right: 1px solid var(--border-color);
     display: flex;
     flex: 0 0 450px;
 }
@@ -89,7 +90,7 @@ img {
     
     metadata {
         border-right: none;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid var(--border-color);
         flex: none;
     }
 

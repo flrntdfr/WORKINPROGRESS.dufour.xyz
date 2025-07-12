@@ -62,6 +62,8 @@
     <link rel="canonical" href="https://dufour.xyz">
     <link type="application/atom+xml" rel="alternate" href="/rss" title="WORKINPROGRESS.dufour.xyz"/>
 
+
+    <link rel="stylesheet" href="{% link /assets/css/site.css %}" type="text/css"/>
     {% if layout.css %}
     {% for item in layout.css %}
     <link rel="stylesheet" href="{{ item | prepend: '/assets/css/' | relative_url }}" type="text/css"/>

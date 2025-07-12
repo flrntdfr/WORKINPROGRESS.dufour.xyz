@@ -27,6 +27,7 @@ description: tl;dr are one-line summaries of text conversations that happened ov
 <script>
 	const strings = [
 		"Le temps fait toujours son travail.",
+		"La jeunesse n'a pas d'âge.",
 		"Ce qui compte c'est que ça aurait pu être vrai.",
 		"J'en ai marre.",
 		"À chaque fois c'est indélébile.",
