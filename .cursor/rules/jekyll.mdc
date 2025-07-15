@@ -76,6 +76,5 @@ Documentation
 - Use consistent naming conventions for classes, IDs, and variables.
 - Document responsive breakpoints and design decisions.
 - Use JSDoc for JavaScript function documentation.
-- Always use comments in the closed form, for example /* */ instead of //
 
 Refer to MDN Web Docs for HTML, CSS, and JavaScript best practices, W3C guidelines for accessibility standards, and Jekyll documentation for static site generation best practices.

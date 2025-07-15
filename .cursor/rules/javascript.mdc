@@ -1,0 +1,7 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+- Always use comments in the closed form, for example /* */ instead of //

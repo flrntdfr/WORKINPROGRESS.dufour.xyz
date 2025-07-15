@@ -1,0 +1,91 @@
+<div class="typewriter">
+    <a href="/" style="color: inherit;">←</a>&nbsp;&nbsp;<span id="typewriter-text"></span><span class="cursor">|</span>
+</div>
+
+<style>
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+</style>
+
+<script>
+/* Only initialize if not already done */
+if (!window.typewriterInitialized) {
+    window.typewriterInitialized = true;
+    
+    let currentNumber = 404;
+    const typewriterElement = document.getElementById('typewriter-text');
+    let isTyping = false;
+    
+    function clearText() {
+        return new Promise((resolve) => {
+            const currentText = typewriterElement.innerHTML;
+            let i = currentText.length;
+            
+            function deleteChar() {
+                if (i > 0) {
+                    typewriterElement.innerHTML = currentText.substring(0, i - 1);
+                    i--;
+                    setTimeout(deleteChar, 50);
+                } else {
+                    resolve();
+                }
+            }
+            
+            if (currentText.length > 0) {
+                deleteChar();
+            } else {
+                resolve();
+            }
+        });
+    }
+    
+    function typeText(text) {
+        return new Promise((resolve) => {
+            let i = 0;
+            
+            function typeChar() {
+                if (i < text.length) {
+                    typewriterElement.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeChar, 100);
+                } else {
+                    resolve();
+                }
+            }
+            
+            typeChar();
+        });
+    }
+    
+    async function animateNumber() {
+        if (isTyping) return;
+        
+        isTyping = true;
+        
+        /* Clear current text */
+        await clearText();
+        
+        /* Type new number */
+        await typeText(currentNumber.toString());
+        
+        /* Increment for next time */
+        currentNumber++;
+        
+        isTyping = false;
+    }
+    
+    /* Start with initial animation */
+    setTimeout(() => {
+        animateNumber();
+        
+        /* Then increment every 0.5 seconds */
+        setInterval(animateNumber, 1500);
+    }, 1000);
+}
+</script> 
