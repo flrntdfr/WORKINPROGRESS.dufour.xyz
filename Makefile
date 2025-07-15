@@ -1,18 +1,20 @@
 # Makefile
 # 2021 - 2025
 
-# Pre-processing
-
-img:
-	# TODO
-
-# Jekyll
+.PHONY: img install build serve clean nuke help
 
 JEKYLL_PORT    := 4000
 JEKYLL_FLAGS   := --trace --livereload
 
-build: img ## Build the website locally
+install:
+	bundle config set --local path '.direnv/bundle'
+	bundle install
+	bundle binstubs --all
+update:
+	bundle update
+build: ## Build the website locally
 	bundle exec jekyll $@ --verbose
+	nix build
 serve: ## Build and serve the website locally
 	bundle exec jekyll $@ $(JEKYLL_FLAGS)
 clean: ## Clean caches

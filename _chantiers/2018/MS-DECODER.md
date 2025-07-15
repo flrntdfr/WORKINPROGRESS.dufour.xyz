@@ -3,6 +3,7 @@ layout: chantier
 title: MS-Decoder
 started: 2018-03-01 09:00
 ended:  2018-09-01 17:00
+location: [CNRS - Laboratoire de Spectrométrie de Masse Bioorganique]
 labels: [research]
 tech: [Java, Q-Exactive 2000]
 ---

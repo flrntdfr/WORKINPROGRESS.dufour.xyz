@@ -1,5 +1,5 @@
 {
-  description = "Minimal Jekyll development environment";
+  description = "WORKINPROGRESS.nix";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -13,16 +13,12 @@
       in {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            # Ruby and Jekyll
             ruby_3_2
             bundler
-            
-            # Development tools
             git
             gnumake
           ];
           
-          # Static environment variables
           env = {
             BUNDLE_PATH = ".direnv/bundle";
             BUNDLE_BIN = ".direnv/bin";
@@ -32,7 +28,7 @@
             # Install gems locally if not already installed
             if [ ! -d ".direnv/bundle/ruby" ]; then
               echo "Installing gems locally in .direnv..."
-              bundle install --path .direnv/bundle --binstubs .direnv/bin
+              make gems
             else
               echo "Gems already installed locally in .direnv"
             fi
@@ -51,21 +47,20 @@
             glibcLocales
           ];
           
+          env = {
+            LC_ALL = "en_US.UTF-8";
+            LANG = "en_US.UTF-8";
+            LC_CTYPE = "en_US.UTF-8";
+            BUNDLE_PATH = "vendor/bundle";
+            BUNDLE_BIN = "vendor/bin";
+            JEKYLL_ENV = "production";
+          };
+          
           buildPhase = ''
-            # Set up proper locale and encoding
-            export LC_ALL=en_US.UTF-8
-            export LANG=en_US.UTF-8
-            export LC_CTYPE=en_US.UTF-8
-            
-            # Set up local gem installation for build
-            export BUNDLE_PATH="vendor/bundle"
-            export BUNDLE_BIN="vendor/bin"
-            
             # Install gems
             bundle install --path vendor/bundle --binstubs vendor/bin
             
             # Build the site
-            export JEKYLL_ENV=production
             bundle exec jekyll build --destination $out
           '';
           

@@ -1,4 +1,5 @@
 ---
+hidden: true
 layout: chantier-youtube
 title: Redbone Remix, Alan Watts
 started: 2017-09-06

@@ -5,8 +5,8 @@ started: 2016-01-01 23:42
 ended:
 featured: true
 labels: [list, illustration]
-tech: [Index cards, Black Uniball]
-location: [Belleville]
+tech: [Index cards, Uniball micro]
+location: Belleville
 description:
 ---
 
@@ -69,7 +69,7 @@ description:
 <div class="data-content"></div>
 
 <script>
-const museums = {{ "site.data.assets.2016-museums" | jsonify }};
+const museums = {{ site.data.assets-2016.museums | jsonify }};
 let currentIndex = 0;
 let shuffledOrder = [];
 
