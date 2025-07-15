@@ -13,9 +13,9 @@ href:
     - ["ext", "<sup>4</sup>", "Leibniz Supercomputing Centre", "https://www.lrz.de"]
     - ["ext", "<sup>5</sup>", "GAIA-X", "https://www.gaia-x.eu/"]
     - ["ext", "&nbsp;", "", ""]
-    - ["int", "Slides:", "PDF", "assets/2023/OC3/slides.pdf"]
-    - ["int", "Schedule:", "PDF", "assets/2023/OC3/schedule.pdf"]
-    - ["int", "Related project:", "DigiMed Secure Cloud", "_chantiers/2020/digimed-secure-cloud.md"]
+    - ["int", "<b>Slides:</b>", "PDF", "assets/2023/OC3/slides.pdf"]
+    - ["int", "<b>Schedule:</b>", "PDF", "assets/2023/OC3/schedule.pdf"]
+    - ["int", "<b>Related project:</b>", "DigiMed Secure Cloud", "_chantiers/2020/digimed-secure-cloud.md"]
 description: |
     Since 2018, the Bavarian ministry of health has invested 24.5 million euros in the DigiMed Bayern project<sup>1</sup> with the ambition to create the lighthouse that will guide Germany towards the medicine of the future. By developing a legal framework and a secure environment powered by confidential computing technologies, over one hundred researchers, clinicians, lawyers, and tinkerers from academia and industry across 14 institutions have found a sovereign computing environment to collaborate on sensitive multi-omic medical data. With the common goal to advance research on heart disease, they already published more than 50 scientific publications and developed large-scale studies like Vroni<sup>2</sup> and smart wearable technologies like HerzFit<sup>3</sup>.
     <br><br>

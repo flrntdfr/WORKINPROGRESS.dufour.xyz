@@ -4,7 +4,7 @@ featured: true
 title: DigiMed Secure Cloud
 started: 2020-09-01 09:00
 #ended: 2027-11-30 17:00
-location: Leibniz Supercomputing Centre
+location: [Leibniz Supercomputing Centre]
 labels: [research]
 tech: [OpenStack, Quobyte, AMD-SEV/SNP, Nvidia H200]
 href:

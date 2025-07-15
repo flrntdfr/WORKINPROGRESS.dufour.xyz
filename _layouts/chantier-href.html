@@ -210,8 +210,11 @@ data {
 document.addEventListener('DOMContentLoaded', function() {
   var uuidElement = document.getElementById('uuid-display');
   if (uuidElement) {
-    var uuid = crypto.randomUUID();
-    uuidElement.textContent = 'Ray ID: ' + uuid.slice(0, -1) + '4';
+    function updateRayId() {
+      var uuid = crypto.randomUUID();
+      uuidElement.textContent = 'Ray ID: ' + uuid.slice(0, -1) + '4';
+    }
+    updateRayId();
   }
 });
 </script>

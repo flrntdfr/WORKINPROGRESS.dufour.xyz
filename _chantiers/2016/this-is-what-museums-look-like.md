@@ -6,7 +6,7 @@ ended:
 featured: true
 labels: [list, illustration]
 tech: [Index cards, Black Uniball]
-location: Belleville
+location: [Belleville]
 description:
 ---
 
@@ -69,7 +69,7 @@ description:
 <div class="data-content"></div>
 
 <script>
-const museums = {{ site.data.assets-2016.museums | jsonify }};
+const museums = {{ "site.data.assets.2016-museums" | jsonify }};
 let currentIndex = 0;
 let shuffledOrder = [];
 

@@ -6,7 +6,7 @@ started: 2020-07-28 12:49:28
 ended: 
 labels: [list]
 description: |
-    Changelog of the website.
+    Changelog of the CMS.
 ---
 
 ## v{{ "now" | date: "%Y.%m" }}-rc
