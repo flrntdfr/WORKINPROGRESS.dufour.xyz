@@ -4,7 +4,7 @@ title: Cairo
 labels: illustration
 started: 2018-07-01
 ended: 2018-11-02
-location: [Strasbourg]
+location: [Paris]
 labels: [illustration]
 ---
 
@@ -12,30 +12,30 @@ labels: [illustration]
     <strong>Montsouris</strong><br>
     <img src="{% link /assets/2018/Cairo/Montsouris.svg %}" alt="Montsouris" />
 </div>
-<div>
-    <strong>un couché de soleil sur la mer</strong><br>
-    <img src="/assets/2018/cairo/fouesnant.svg" alt="Couché de soleil sur la mer" />
-</div>
+  <div>
+      <strong>Talamanca</strong><br>
+      <img src="{% link /assets/2018/Cairo/Talamanca.svg %}" alt="Talamanca" />
+  </div>
 <div>
     <strong>Roscoff</strong><br>
-    <img src="/assets/2018/cairo/Roscoff.svg" alt="Roscoff" />
-</div>
-<div>
-    <strong>Lancieu</strong><br>
-    <div id="arcs-canvas" style="display: flex; justify-content: center;"></div>
+    <img src="{% link /assets/2018/Cairo/Roscoff.svg %}" alt="Roscoff" />
 </div>
 <div>
     <strong>Orangerie</strong><br>
+    <div id="orangerie-canvas" style="display: flex; justify-content: center;"></div>
+</div>
+<div>
+    <strong>Lancieu</strong><br>
     <div id="lancieu-canvas" style="display: flex; justify-content: center;"></div>
 </div>
 <div>
     <strong>Mazagran</strong><br>
-    <div id="la-pluie-tombe-canvas" style="display: flex; justify-content: center;"></div>
+    <div id="mazagran-canvas" style="display: flex; justify-content: center;"></div>
 </div>
 
 <!-- ------- -->
 
-<script src="/assets/lib/p5.v1.4.2.min.js"></script>
+<script src="{% link /assets/lib/p5.v1.4.2.min.js %}"></script>
 <script>
 function addClickToggle(p5Instance) {
     setTimeout(() => {
@@ -168,7 +168,7 @@ const mazagranSketch = (p) => {
     };
 };
 
-const mazagranInstance = new p5(mazagranSketch, 'la-pluie-tombe-canvas');
+const mazagranInstance = new p5(mazagranSketch, 'mazagran-canvas');
 addClickToggle(mazagranInstance);
 
 const arcsSketch = (p) => {
@@ -218,7 +218,7 @@ const arcsSketch = (p) => {
     };
 };
 
-const arcsInstance = new p5(arcsSketch, 'arcs-canvas');
+const arcsInstance = new p5(arcsSketch, 'orangerie-canvas');
 addClickToggle(arcsInstance);
 </script>
 
