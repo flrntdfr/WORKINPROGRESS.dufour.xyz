@@ -83,13 +83,24 @@ theme-color: "#000000"
         This incident will be reported.
     </div>
     <div class="native-alert-buttons">
-        <button class="native-button" onclick="window.location.href='/'">Report</button>
+        <button class="native-button" onclick="reportWithUUID()">Report</button>
     </div>
 </div>
 
 <script>
 /* Store the current URL */
 const currentUrl = window.location.href;
+
+function reportWithUUID() {
+    const contentElement = document.querySelector('.native-alert-content');
+    const originalContent = contentElement.textContent;
+    const uuid = crypto.randomUUID();
+    contentElement.textContent = "Ray ID: " + uuid;
+    setTimeout(() => {
+        window.location.href = '/';
+    }, 20);
+    contentElement.style.fontSize = "0.5em";
+}
 
 /* Add initial history entries */
 for (let i = 0; i < 10; i++) {

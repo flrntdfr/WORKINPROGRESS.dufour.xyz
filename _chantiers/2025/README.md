@@ -5,7 +5,6 @@ started: 2025-09-01 14:46
 ended: 2025-09-01 14:46
 author: Florent Dufour
 location: Munich
-hidden: true # Useless outside of _chantiers
 labels: [memo]
 permalink: "/README"
 ---

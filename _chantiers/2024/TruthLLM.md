@@ -3,7 +3,7 @@ layout: chantier
 title: TruthLLM
 started: 2024-08-04 00:00
 ended: 2024-10-02 00:00
-labels: [LLM, web]
+labels: [LLM, web, vibe]
 tech: [GPT2]
 description: |
     ThruthLLM is a "Large" Language Model that will answer any question truthfully in less than 1000 tokens.
@@ -18,6 +18,7 @@ description: |
         "Can you count to infinity?",
         "What is the color of a mirror?",
         "What is the weight of light?",
+        "How to render html code in html?",
         "Does the future influence the past?",
         "Can you prove you exist?",
         "What is the meaning of meaning?",
@@ -362,7 +363,7 @@ description: |
                 try {
                     console.log('🎯 Calling generator with parameters:', {
                         max_new_tokens: 1000,
-                        temperature: 0.7,
+                        temperature: 0.65,
                         top_p: 0.9,
                         do_sample: true,
                         repetition_penalty: 1.1,
@@ -376,7 +377,7 @@ description: |
                     });
                     const resultStream = await generator(fullInput, { 
                         max_new_tokens: 1000,
-                        temperature: 0.7,
+                        temperature: 0.65,
                         top_p: 0.9,
                         do_sample: true,
                         repetition_penalty: 1.1,

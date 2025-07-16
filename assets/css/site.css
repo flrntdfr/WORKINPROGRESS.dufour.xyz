@@ -34,7 +34,7 @@
 }
 
 body {
-  font-family: "Inter", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: Inter -apple-system, Helvetica, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica", "Arial", sans-serif;
   background-color: var(--background-color);
   color: var(--font-color);
   transition: background-color 0.3s ease, color 0.3s ease;

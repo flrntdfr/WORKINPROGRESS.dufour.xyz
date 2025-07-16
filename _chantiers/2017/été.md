@@ -3,7 +3,7 @@ layout: chantier
 title: Été 2017
 started: 2017-06-25
 ended: 2017-11-24
-location: Strasbourg
+location: [Strasbourg]
 labels: [photo]
 ---
 

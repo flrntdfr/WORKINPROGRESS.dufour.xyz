@@ -1,10 +1,18 @@
 ---
 hidden: true
 layout: chantier
-title: CMS backend
+title: CMS backend (All)
 started: 2025-06-27 17:46
 ended: 2025-06-27 17:46
 permalink: "/all"
+description: |
+    <pre>make install</pre>
+    <pre>make build</pre>
+    <pre>make serve</pre>
+    <pre>make update</pre>
+href:
+  - ["ext", "", "du4://WIP/CMS", "du4://WIP/CMS"]
+  - ["ext", "", "http://localhost:4000/all", "http://localhost:4000/all"]
 ---
 
 {%- comment -%} Calculate comprehensive statistics {%- endcomment -%}

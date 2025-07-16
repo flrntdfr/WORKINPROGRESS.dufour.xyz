@@ -1,10 +1,11 @@
 <div class="typewriter">
-    <a href="/" style="color: inherit;">←</a>&nbsp;&nbsp;<span id="typewriter-text"></span><span class="cursor">|</span>
+    <a href="/" style="color: inherit;">←</a>&nbsp;&nbsp;<span id="typewriter-text">403</span><span class="cursor">|</span>
 </div>
 
 <style>
 .cursor {
     animation: blink 1s infinite;
+    color: #222;
 }
 
 @keyframes blink {
@@ -18,7 +19,16 @@
 if (!window.typewriterInitialized) {
     window.typewriterInitialized = true;
     
-    let currentNumber = 404;
+    /* All HTTP response codes from smallest to largest, then back to 404 */
+    const httpCodes = [
+        100, 101, 102, 103,
+        200, 201, 202, 203, 204, 205, 206, 207, 208, 226,
+        300, 301, 302, 303, 304, 305, 307, 308,
+        400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418,
+        421, 422, 423, 424, 425, 426, 428, 429, 431, 451,
+        500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511
+    ];
+    let currentIndex = httpCodes.indexOf(404); /* Start at 404 */
     const typewriterElement = document.getElementById('typewriter-text');
     let isTyping = false;
     
@@ -71,11 +81,11 @@ if (!window.typewriterInitialized) {
         /* Clear current text */
         await clearText();
         
-        /* Type new number */
-        await typeText(currentNumber.toString());
+        /* Type new HTTP code */
+        await typeText(httpCodes[currentIndex].toString());
         
-        /* Increment for next time */
-        currentNumber++;
+        /* Move to next code, cycle back to start */
+        currentIndex = (currentIndex + 1) % httpCodes.length;
         
         isTyping = false;
     }
