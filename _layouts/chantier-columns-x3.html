@@ -11,4 +11,16 @@ layout: chantier
     max-width: 100% !important;
     height: auto !important;
 }
+
+@media (max-width: 2000px) {
+    div[style*="grid-template-columns"] {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    }
+}
+
+@media (max-width: 1600px) {
+    div[style*="grid-template-columns"] {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+}
 </style>

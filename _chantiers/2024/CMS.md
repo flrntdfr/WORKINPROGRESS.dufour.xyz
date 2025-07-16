@@ -94,10 +94,12 @@ This project is published (and hosted) [on GitHub](https://github.com/flrntdfr/W
 → Business: [biz@dufour.xyz](mail:biz@dufour.xyz)
 
 <div style="text-align: center;">
-  <picture>
-    <source srcset="{% link /assets/img/macmade-blk.gif %}" media="(prefers-color-scheme: dark)">
-    <img src="{% link /assets/img/macmade-wht.gif %}" alt="macmade">
-  </picture>
+  <a href="{% link _chantiers/2025/nix-config.md %}">
+    <picture>
+      <source srcset="{% link /assets/img/macmade-blk.gif %}" media="(prefers-color-scheme: dark)">
+      <img src="{% link /assets/img/macmade-wht.gif %}" alt="macmade">
+    </picture>
+  </a>
 </div>
 
 <br><br><br><br>

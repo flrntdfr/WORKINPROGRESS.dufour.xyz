@@ -78,16 +78,16 @@ labels:
             </td>
         </tr>
         {% endif %}
-        {% if page.tech %}
-        <tr>
-            <th>tech</th>
-            <td>{{ page.tech | join: ", "}}</td>
-        </tr>
-        {% endif %}
         {% if page.labels %}
         <tr>
             <th>label{% if page.labels.size > 1%}s{% endif %}</th>
             <td>{{ page.labels | join: ", "}}</td>
+        </tr>
+        {% endif %}
+        {% if page.tech %}
+        <tr>
+            <th>tech</th>
+            <td>{{ page.tech | join: ", "}}</td>
         </tr>
         {% endif %}
     </table>

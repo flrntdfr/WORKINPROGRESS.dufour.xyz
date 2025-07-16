@@ -4,6 +4,7 @@ title: I AM
 started: 2016-03-06 11:09
 ended: 2025-07-13 11:09
 labels: [list, game, vibe]
+tech: [Claude 4, Notes.app]
 description: |
 
 ---

@@ -100,6 +100,16 @@ img:hover {
   opacity: var(--image-opacity-hover);
 }
 
+/* Override hover effect for logo link */
+a:hover picture,
+a:hover picture img {
+  background: transparent !important;
+}
+
+a:has(picture):hover {
+  background: transparent !important;
+}
+
 .blink {
   animation: blink-animation 1s step-start 0s infinite;
 }

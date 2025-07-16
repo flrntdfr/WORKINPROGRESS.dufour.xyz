@@ -98,7 +98,7 @@ function reportWithUUID() {
     contentElement.textContent = "Ray ID: " + uuid;
     setTimeout(() => {
         window.location.href = '/';
-    }, 20);
+    }, 10);
     contentElement.style.fontSize = "0.5em";
 }
 

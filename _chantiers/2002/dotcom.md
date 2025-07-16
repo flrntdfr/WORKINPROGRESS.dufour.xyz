@@ -25,10 +25,10 @@ ended: 2002-12-31 00:00:00
 - [merci.com ➟](https://merci.com){:target="_blank" rel="noopener noreferrer"}
 - [météo.com ➟](https://météo.com){:target="_blank" rel="noopener noreferrer"}
 - [monde.com ➟](https://monde.com){:target="_blank" rel="noopener noreferrer"}
-- [relentless.com ➟](https://relentless.com){:target="_blank" rel="noopener noreferrer"} (2024)
-- [soleil.com ➟](https://soleil.com){:target="_blank" rel="noopener noreferrer"}
+- [relentless.com ➟](https://relentless.com){:target="_blank" rel="noopener noreferrer"} (1994)
+- [sun.com ➟](https://sun.com){:target="_blank" rel="noopener noreferrer"} (2010)
 - [today.com ➟](https://today.com){:target="_blank" rel="noopener noreferrer"}
 - [www.com ➟](https://www.com){:target="_blank" rel="noopener noreferrer"}
-- [x.com ➟](https://x.com){:target="_blank" rel="noopener noreferrer"} / [y.com ➟](https://y.com){:target="_blank" rel="noopener noreferrer"} / [z.com ➟](https://z.com){:target="_blank" rel="noopener noreferrer"}
+- [x.com ➟](https://x.com){:target="_blank" rel="noopener noreferrer"} (2023)
 - [123.com ➟](https://123.com){:target="_blank" rel="noopener noreferrer"}
 - [777.com ➟](https://777.com){:target="_blank" rel="noopener noreferrer"}
