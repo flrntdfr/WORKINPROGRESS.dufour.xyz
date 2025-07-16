@@ -1,0 +1,514 @@
+<style>
+/* macOS system styling */
+* {
+    box-sizing: border-box;
+}
+
+.time-machine-container {
+    margin: 40px 0;
+    background: #f5f5f7;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 40px 0;
+}
+
+.time-machine-window {
+    width: 480px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 
+        0 0 0 1px rgba(0,0,0,0.04),
+        0 8px 32px rgba(0,0,0,0.12),
+        0 2px 8px rgba(0,0,0,0.08);
+    overflow: hidden;
+    position: relative;
+}
+
+/* macOS title bar */
+.title-bar {
+    height: 28px;
+    background: linear-gradient(to bottom, 
+        rgba(255,255,255,0.95) 0%, 
+        rgba(246,246,246,0.95) 50%, 
+        rgba(237,237,237,0.95) 51%, 
+        rgba(224,224,224,0.95) 100%);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.traffic-lights {
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.traffic-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 0.5px solid rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.traffic-light::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.traffic-light:hover::after {
+    opacity: 1;
+}
+
+.close { 
+    background: linear-gradient(135deg, #ff6058 0%, #ff5147 100%);
+}
+.close:hover::after {
+    content: '×';
+    font-size: 8px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.6);
+}
+
+.minimize { 
+    background: linear-gradient(135deg, #ffbd2e 0%, #ffaa00 100%);
+}
+.minimize:hover::after {
+    content: '−';
+    font-size: 10px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.6);
+}
+
+.maximize { 
+    background: linear-gradient(135deg, #28ca42 0%, #1eb932 100%);
+}
+.maximize:hover::after {
+    content: '⤢';
+    font-size: 8px;
+    color: rgba(0,0,0,0.6);
+}
+
+/* Content area */
+.content {
+    padding: 20px;
+    background: white;
+}
+
+.backup-section {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e5e7;
+    position: relative;
+}
+
+.backup-section:last-child {
+    border-bottom: none;
+}
+
+.backup-section:hover .cancel-button {
+    opacity: 1;
+}
+
+/* Realistic macOS icons */
+.icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.time-machine-icon {
+    background: linear-gradient(135deg, 
+        #007aff 0%, 
+        #0056d6 50%, 
+        #003d99 100%);
+    position: relative;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.4);
+}
+
+.time-machine-icon::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: 1.5px solid rgba(255,255,255,0.95);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 25%, 
+        rgba(255,255,255,0.2) 0%, 
+        rgba(255,255,255,0.05) 60%, 
+        transparent 100%);
+}
+
+.time-machine-icon::after {
+    content: '•';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    color: rgba(255,255,255,0.95);
+    font-size: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    border: 2px solid transparent;
+    border-right: 2px solid rgba(255,255,255,0.9);
+    border-bottom: 2px solid rgba(255,255,255,0.9);
+    border-radius: 50%;
+    background: transparent;
+}
+
+.drive-icon {
+    background: linear-gradient(135deg, 
+        #5ac8fa 0%, 
+        #007aff 50%, 
+        #0056d6 100%);
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        0 1px 3px rgba(0,0,0,0.2);
+}
+
+.drive-icon::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    right: 4px;
+    bottom: 8px;
+    background: linear-gradient(to bottom, 
+        #f8f8f8 0%, 
+        #e8e8e8 50%, 
+        #d8d8d8 100%);
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,0.15);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.8);
+}
+
+.drive-icon::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    width: 10px;
+    height: 3px;
+    background: linear-gradient(to bottom, 
+        #333 0%, 
+        #111 100%);
+    transform: translateX(-50%);
+    border-radius: 1px;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.3);
+}
+
+/* Text content */
+.backup-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.backup-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin: 0 0 6px 0;
+    line-height: 1.2;
+}
+
+.backup-description {
+    font-size: 11px;
+    color: #86868b;
+    line-height: 1.45;
+    margin: 0 0 12px 0;
+}
+
+.storage-info {
+    font-size: 11px;
+    color: #86868b;
+    margin: 0 0 8px 0;
+    font-weight: 500;
+}
+
+/* Progress bar */
+.progress-container {
+    margin-top: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #e5e5e7;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.progress-fill {
+    height: 100%;
+    width: 35%;
+    background: linear-gradient(90deg, 
+        #007aff 0%, 
+        #5ac8fa 50%, 
+        #007aff 100%);
+    border-radius: 3px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 
+        0 1px 3px rgba(0,122,255,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, 
+        rgba(255,255,255,0.4) 0%, 
+        rgba(255,255,255,0.1) 100%);
+    border-radius: 3px 3px 0 0;
+}
+
+.progress-text {
+    font-size: 11px;
+    color: #86868b;
+    margin-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Cancel button */
+.cancel-button {
+    position: absolute;
+    top: 16px;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    border: 1px solid #d1d1d1;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #666;
+    font-weight: bold;
+}
+
+.cancel-button:hover {
+    background: #e0e0e0;
+    border-color: #bbb;
+}
+
+.cancel-button:active {
+    background: #d0d0d0;
+    transform: scale(0.95);
+}
+
+/* Sophisticated animations */
+@keyframes progressPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.progress-fill.pulsing {
+    animation: progressPulse 2s ease-in-out infinite;
+}
+
+/* Window interactions */
+.time-machine-window:hover {
+    box-shadow: 
+        0 0 0 1px rgba(0,0,0,0.06),
+        0 12px 40px rgba(0,0,0,0.15),
+        0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 520px) {
+    .time-machine-window {
+        width: calc(100vw - 40px);
+        margin: 0 20px;
+    }
+}
+</style>
+
+<div class="time-machine-container">
+    <div class="time-machine-window">
+        <div class="title-bar">
+            <div class="traffic-lights">
+                <div class="traffic-light close"></div>
+                <div class="traffic-light minimize"></div>
+                <div class="traffic-light maximize"></div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="backup-section">
+                <div class="icon time-machine-icon"></div>
+                <div class="backup-info">
+                    <h3 class="backup-title">Time Machine</h3>
+                    <p class="backup-description">Time Machine backs up your computer and keeps local snapshots and hourly backups for the past 24 hours, daily backups for the past month and weekly backups for all previous months. The oldest backups and any local snapshots are deleted as space is needed.</p>
+                </div>
+                <div class="cancel-button">×</div>
+            </div>
+            
+            <div class="backup-section">
+                <div class="icon drive-icon"></div>
+                <div class="backup-info">
+                    <h3 class="backup-title">External HDD</h3>
+                    <div class="storage-info">1.23 TB available, Encrypted</div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill pulsing" id="cleanup-progress-{{ include.id | default: 'default' }}"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="cleanup-status-{{ include.id | default: 'default' }}">Cleaning up...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cancel-button">×</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const uniqueId = '{{ include.id | default: "default" }}';
+    const progressBar = document.getElementById('cleanup-progress-' + uniqueId);
+    const statusText = document.getElementById('cleanup-status-' + uniqueId);
+    
+    if (!progressBar || !statusText) return;
+    
+    let progress = 20;
+    let direction = 1;
+    let animationSpeed = 0.8;
+    
+    const cleanupStates = [
+        { text: 'Cleaning up...', duration: 4000 },
+        { text: 'Organizing snapshots...', duration: 3500 },
+        { text: 'Freeing space...', duration: 3000 },
+        { text: 'Optimizing backup...', duration: 4500 },
+        { text: 'Finalizing cleanup...', duration: 2500 },
+        { text: 'Verifying backup integrity...', duration: 3800 }
+    ];
+    
+    let stateIndex = 0;
+    let stateTimer = 0;
+    
+    /* Natural progress animation - bouncing left to right */
+    function updateProgress() {
+        /* Vary animation speed for more realistic feel */
+        const variance = 0.3 + Math.random() * 0.4;
+        progress += direction * animationSpeed * variance;
+        
+        /* Dynamic bounds - the bar bounces between 0% and 65% (since bar is 35% wide) */
+        const maxProgress = 60 + Math.random() * 8;   /* Right edge */
+        const minProgress = 0 + Math.random() * 5;    /* Left edge */
+        
+        if (progress >= maxProgress) {
+            direction = -1;
+            animationSpeed = 0.8 + Math.random() * 0.4;
+        } else if (progress <= minProgress) {
+            direction = 1;
+            animationSpeed = 0.8 + Math.random() * 0.4;
+        }
+        
+        /* Move the bar left/right using transform translateX */
+        const clampedProgress = Math.max(0, Math.min(65, progress));
+        progressBar.style.transform = `translateX(${clampedProgress}%)`;
+    }
+    
+    /* Sophisticated state management */
+    function updateCleanupState() {
+        stateTimer += 100;
+        
+        if (stateTimer >= cleanupStates[stateIndex].duration) {
+            stateIndex = (stateIndex + 1) % cleanupStates.length;
+            stateTimer = 0;
+            
+            /* Smooth text transition */
+            statusText.style.opacity = '0.5';
+            setTimeout(() => {
+                statusText.textContent = cleanupStates[stateIndex].text;
+                statusText.style.opacity = '1';
+            }, 150);
+        }
+    }
+    
+    /* Traffic light interactions */
+    const container = progressBar.closest('.time-machine-container');
+    if (container) {
+        container.querySelectorAll('.traffic-light').forEach(light => {
+            light.addEventListener('click', function() {
+                if (this.classList.contains('close')) {
+                    const window = container.querySelector('.time-machine-window');
+                    window.style.transform = 'scale(0.9)';
+                    window.style.opacity = '0';
+                    setTimeout(() => {
+                        window.style.transform = 'scale(1)';
+                        window.style.opacity = '1';
+                    }, 200);
+                }
+            });
+        });
+        
+        /* Cancel button interactions */
+        container.querySelectorAll('.cancel-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const section = this.closest('.backup-section');
+                section.style.opacity = '0.5';
+                section.style.transform = 'translateX(10px)';
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateX(0)';
+                }, 300);
+            });
+        });
+    }
+    
+    /* Main animation loop */
+    const animationInterval = setInterval(() => {
+        updateProgress();
+        updateCleanupState();
+    }, 100);
+    
+    /* Initialize with proper styling */
+    progressBar.style.transform = `translateX(${progress}%)`;
+    statusText.style.transition = 'opacity 0.3s ease';
+    
+    /* Cleanup when needed */
+    window.addEventListener('beforeunload', () => {
+        clearInterval(animationInterval);
+    });
+})();
+</script> 

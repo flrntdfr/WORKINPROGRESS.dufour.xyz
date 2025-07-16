@@ -1,6 +1,6 @@
 ---
 layout: chantier-columns-x2
-title: Cairo
+title: Bd. Saint-Michel
 labels: illustration
 started: 2018-07-01
 ended: 2018-11-02
@@ -12,25 +12,25 @@ labels: [illustration]
     <strong>Montsouris</strong><br>
     <img src="{% link /assets/2018/Cairo/Montsouris.svg %}" alt="Montsouris" />
 </div>
-  <div>
-      <strong>Talamanca</strong><br>
-      <img src="{% link /assets/2018/Cairo/Talamanca.svg %}" alt="Talamanca" />
-  </div>
 <div>
-    <strong>Roscoff</strong><br>
-    <img src="{% link /assets/2018/Cairo/Roscoff.svg %}" alt="Roscoff" />
+    <strong>Périphérique</strong><br>
+    <div id="périphérique-canvas" style="display: flex; justify-content: center;"></div>
 </div>
 <div>
-    <strong>Orangerie</strong><br>
-    <div id="orangerie-canvas" style="display: flex; justify-content: center;"></div>
+    <strong>Cathédrale</strong><br>
+    <img src="{% link /assets/2018/Cairo/Roscoff.svg %}" alt="Cathédrale" />
 </div>
 <div>
-    <strong>Lancieu</strong><br>
-    <div id="lancieu-canvas" style="display: flex; justify-content: center;"></div>
+    <strong>Talamanca</strong><br>
+    <img src="{% link /assets/2018/Cairo/Talamanca.svg %}" alt="Talamanca" />
 </div>
 <div>
-    <strong>Mazagran</strong><br>
-    <div id="mazagran-canvas" style="display: flex; justify-content: center;"></div>
+    <strong>Dimanche</strong><br>
+    <div id="dimanche-canvas" style="display: flex; justify-content: center;"></div>
+</div>
+<div>
+    <strong>Lundi</strong><br>
+    <div id="lundi-canvas" style="display: flex; justify-content: center;"></div>
 </div>
 
 <!-- ------- -->
@@ -53,7 +53,7 @@ function addClickToggle(p5Instance) {
     }, 100);
 }
 
-const lancieuSketch = (p) => {
+const dimancheSketch = (p) => {
     let nLines;
     let lines = [];
 
@@ -108,10 +108,10 @@ const lancieuSketch = (p) => {
     };
 };
 
-const lancieuInstance = new p5(lancieuSketch, 'lancieu-canvas');
-addClickToggle(lancieuInstance);
+const dimancheInstance = new p5(dimancheSketch, 'dimanche-canvas');
+addClickToggle(dimancheInstance);
 
-const mazagranSketch = (p) => {
+const lundiSketch = (p) => {
     let nDrops;
     let drops = [];
 
@@ -168,8 +168,8 @@ const mazagranSketch = (p) => {
     };
 };
 
-const mazagranInstance = new p5(mazagranSketch, 'mazagran-canvas');
-addClickToggle(mazagranInstance);
+const lundiInstance = new p5(lundiSketch, 'lundi-canvas');
+addClickToggle(lundiInstance);
 
 const arcsSketch = (p) => {
     let angle = 0;
@@ -218,7 +218,7 @@ const arcsSketch = (p) => {
     };
 };
 
-const arcsInstance = new p5(arcsSketch, 'orangerie-canvas');
+const arcsInstance = new p5(arcsSketch, 'périphérique-canvas');
 addClickToggle(arcsInstance);
 </script>
 
