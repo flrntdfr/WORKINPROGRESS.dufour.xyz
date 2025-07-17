@@ -119,8 +119,6 @@
     </style>
 
     <div id="brick-breaker-container">
-        <a href="/">←</a>
-
         <div id="game-area">
             <div id="score">SCORE: <span id="score-value">0</span></div>
 
@@ -131,6 +129,7 @@
             <div id="game-over">
                 <div>BALL NOT FOUND</div>
                 <div>GAME OVER</div>
+                <div>TAP TO RESPAWN</div>
             </div>
         </div>
 
@@ -318,12 +317,11 @@ if (!window.brickBreakerInitialized) {
             isPlaying = false;
             isGameOver = true;
             hideMouseHint();
-            tapInstruction.textContent = 'TAP TO RESPAWN';
-            tapInstruction.style.display = 'block';
             gameOverElement.style.display = 'block';
             gameOverElement.innerHTML = `
                 <div>GAME OVER</div>
                 <div>BALL NOT FOUND</div>
+                <div>TAP TO RESPAWN</div>
             `;
         }
 
@@ -353,12 +351,11 @@ if (!window.brickBreakerInitialized) {
                 updateScore(0);
                 createBricks();
                 isGameOver = false;
-                tapInstruction.textContent = 'TAP TO START';
+                gameOverElement.innerHTML = `<div>TAP TO START</div>`;
             }
             resetBall();
             isPlaying = true;
             gameOverElement.style.display = 'none';
-            tapInstruction.style.display = 'none';
             update();
         }
     });
@@ -397,6 +394,5 @@ if (!window.brickBreakerInitialized) {
     /* Start message */
     gameOverElement.style.display = 'block';
     gameOverElement.innerHTML = `<div>TAP TO START</div>`;
-    tapInstruction.style.display = 'none';
 }
 </script> 
