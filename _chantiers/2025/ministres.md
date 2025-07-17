@@ -46,7 +46,7 @@ tech: [Notes.app, Stable diffusion]
 </div>
 <div class="minister-card">
     <p>Ministre des sciences et technologies du management et de la gestion</p><br>
-    <img src="{% link /assets/2025/ministres/A79FFB2A-8015-4EB1-B670-8A5D28ED2AD7.png %}" alt="Portrait du Ministre des Sciences et Technologies du Management et de la Gestion">
+    <img src="{% link /assets/2025/ministres/EED867C1-754A-4D40-A320-1ED081F46B5A.png %}" alt="Portrait du Ministre des Sciences et Technologies du Management et de la Gestion">
 </div>
 <div class="minister-card">
     <p>Ministre des États-Unis de France</p><br>
@@ -89,16 +89,32 @@ tech: [Notes.app, Stable diffusion]
     <img src="{% link /assets/2025/ministres/BBA76563-51AC-4FFF-BA92-243428EFCEC8.png %}" alt="Portrait du Ministre des Infrastructures et Filières Stratégiques">
 </div>
 <div class="minister-card">
+    <p>Ministre de la croissance et de l'aérodynamisme</p><br>
+    <img src="{% link /assets/2025/ministres/7642C8A0-7441-473F-A3E2-7C83354CDCA8.png %}" alt="Portrait du Ministre de la croissance et de l'aérodynamisme">
+</div>
+<div class="minister-card">
     <p>Ministre chargé du rayonnement de la France en outre-mer</p><br>
     <img src="{% link /assets/2025/ministres/FD387D48-44CD-41E9-8087-5B7D08C9F666.png %}" alt="Portrait du Ministre chargé du rayonnement de la France en outre-mer">
 </div>
-
 
 <script src="{% link /assets/lib/p5.v1.4.2.min.js %}"></script>
 <script>
         document.addEventListener('DOMContentLoaded', function() {
 
         const imageElements = document.querySelectorAll('.minister-card > img');
+        let imagesProcessing = imageElements.length;
+        
+        /* Show loading cursor */
+        document.body.classList.add('loading');
+        
+        function imageProcessed() {
+            imagesProcessing--;
+            if (imagesProcessing === 0) {
+                /* All images processed, remove loading cursor */
+                document.body.classList.remove('loading');
+            }
+        }
+
         imageElements.forEach(img => {
             const card = img.parentNode;
             const label = card.querySelector('p');
@@ -135,6 +151,8 @@ tech: [Notes.app, Stable diffusion]
                 if (label) {
                     label.style.visibility = 'visible';
                 }
+                /* Signal that this image is processed */
+                imageProcessed();
             };
         };
         new p5(sketch, container);
@@ -203,6 +221,19 @@ tech: [Notes.app, Stable diffusion]
         flex-direction: column;
         justify-content: flex-end;
         align-items: center;
+    }
+
+    .minister-card img {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    body.loading {
+        cursor: wait !important;
+    }
+
+    body.loading * {
+        cursor: wait !important;
     }
     
     div canvas {
