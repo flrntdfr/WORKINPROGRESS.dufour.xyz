@@ -99,6 +99,19 @@
         
         if (globalProgress < 99.9) {
             setTimeout(animate, Math.random() * 80 + 20);
+        } else {
+            /* Reset after completion */
+            setTimeout(() => {
+                fileIndex = 0;
+                fileProgress = 0;
+                globalProgress = 3.0;
+                loadSpeed = Math.random() * 8 + 3;
+                currentFileEl.textContent = files[0];
+                updateBar(fileProgressEl, fileProgress);
+                updateBar(globalProgressEl, globalProgress);
+                percentageEl.textContent = globalProgress.toFixed(1) + '%';
+                setTimeout(animate, 1000);
+            }, 2000);
         }
     }
     

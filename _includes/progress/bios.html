@@ -1,0 +1,387 @@
+<div style="text-align:center; margin-top:2rem;">
+    <div class="bios-terminal">
+        <div class="bios-header">
+            <div class="bios-title">Phoenix BIOS v1.0.15.1131</div>
+            <div class="bios-copyright">Copyright (C) 1985-2024 Phoenix Technologies Ltd.</div>
+        </div>
+        <div class="bios-content" id="bios-content">
+            <div class="bios-line">POST - Power On Self Test</div>
+            <div class="bios-line">Detecting RAM............... 16384 MB OK</div>
+        </div>
+        <div class="bios-footer">
+            <div class="bios-prompt" id="bios-prompt">Press DEL to enter SETUP</div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* BIOS Terminal Style */
+.bios-terminal {
+    display: inline-block;
+    width: 640px;
+    height: 400px;
+    background: #000;
+    border: 2px solid #333;
+    font-family: 'Courier New', 'Monaco', monospace;
+    font-size: 14px;
+    color: #0f0;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 0 20px rgba(0, 255, 0, 0.3),
+        inset 0 0 0 1px rgba(0, 255, 0, 0.1);
+}
+
+.bios-header {
+    padding: 8px 16px;
+    border-bottom: 1px solid #333;
+    background: rgba(0, 255, 0, 0.05);
+}
+
+.bios-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.bios-copyright {
+    font-size: 12px;
+    color: #0a0;
+}
+
+.bios-content {
+    height: 320px;
+    padding: 8px 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bios-line {
+    line-height: 18px;
+    margin: 2px 0;
+    white-space: nowrap;
+    animation: bios-flicker 0.1s ease-in-out;
+}
+
+
+
+.bios-line.critical {
+    color: #ff0;
+    animation: bios-critical 0.5s ease-in-out;
+}
+
+.bios-line.error {
+    color: #f00;
+    animation: bios-error 0.8s ease-in-out;
+}
+
+.bios-line.ok {
+    color: #0f0;
+}
+
+.bios-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 16px;
+    background: rgba(0, 255, 0, 0.05);
+    border-top: 1px solid #333;
+}
+
+.bios-prompt {
+    text-align: center;
+    animation: bios-blink 1.5s infinite;
+}
+
+/* Cursor effect */
+.bios-cursor::after {
+    content: '█';
+    animation: bios-cursor-blink 1s infinite;
+}
+
+/* Animations */
+@keyframes bios-flicker {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.9; }
+}
+
+@keyframes bios-critical {
+    0%, 100% { color: #ff0; }
+    50% { color: #fa0; }
+}
+
+@keyframes bios-error {
+    0%, 100% { color: #f00; }
+    25% { color: #f80; }
+    75% { color: #f40; }
+}
+
+@keyframes bios-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+@keyframes bios-cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Screen scan lines effect */
+.bios-terminal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 0, 0.03) 2px,
+        rgba(0, 255, 0, 0.03) 4px
+    );
+    pointer-events: none;
+    animation: bios-scanlines 0.1s linear infinite;
+}
+
+@keyframes bios-scanlines {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(4px); }
+}
+</style>
+
+<script>
+/* BIOS Terminal Animation */
+(function(){
+    const biosMessages = [
+        'POST - Power On Self Test',
+        'BIOS Version: Phoenix v1.0.15.1131',
+        'BIOS Date: 12/15/2024 - Build 2024.12.15',
+        'Processor Type: AMD64 Family 25 Model 33',
+        'CPU: Intel(R) Core(TM) i7-12700K @ 3.60GHz',
+        'CPU Features: MMX SSE SSE2 SSE3 SSSE3 SSE4.1 SSE4.2',
+        'L1 Cache: 512 KB, L2 Cache: 12 MB, L3 Cache: 25 MB',
+        'CPU Microcode: Revision 0x421',
+        'Initializing CPU............. OK',
+        'Detecting RAM...............',
+        'Memory Size: 16384 MB (16.0 GB)',
+        'Memory Type: DDR4-3200',
+        'Memory Speed: 3200 MHz',
+        'Memory Channels: Dual Channel',
+        'Testing memory blocks.......',
+        'Block 0: 0000-9FFF........... OK',
+        'Block 1: A000-BFFF........... OK', 
+        'Block 2: C000-DFFF........... OK',
+        'Block 3: E000-FFFF........... OK',
+        'Block 4: 10000-1FFFF......... OK',
+        'Block 5: 20000-2FFFF......... OK',
+        'Block 6: 30000-3FFFF......... OK',
+        'Block 7: 40000-EFFFF......... OK',
+        'Extended memory test........ OK',
+        'Memory configuration........ OK',
+        'Shadow RAM test............. OK',
+        'Cache memory test........... OK',
+        'Initializing chipset........',
+        'Northbridge: Intel Z690....  OK',
+        'Southbridge: Intel PCH...... OK',
+        'System timer................ OK',
+        'DMA controller.............. OK',
+        'Interrupt controller........ OK',
+        'Keyboard controller......... OK',
+        'Math coprocessor............ OK',
+        'Real time clock............. OK',
+        'CMOS battery................ OK',
+        'Checking system devices.....',
+        'Floppy disk controller..... Not Present',
+        'Primary IDE controller..... OK',
+        'Secondary IDE controller... OK',
+        'SATA controller............ OK',
+        'USB 2.0 controller......... OK',
+        'USB 3.0 controller......... OK',
+        'USB 3.1 controller......... OK',
+        'Network controller......... OK',
+        'Sound controller........... OK',
+        'Video controller........... OK',
+        'WiFi controller............ OK',
+        'Bluetooth controller....... OK',
+        'Detecting storage devices...',
+        'SATA Port 0: Samsung SSD 980 PRO 1TB',
+        'SATA Port 1: WD Black 2TB HDD',
+        'SATA Port 2: Not Present',
+        'SATA Port 3: Not Present',
+        'NVMe SSD 0: Samsung 980 PRO 1TB',
+        'NVMe SSD 1: Not Present',
+        'Primary Master: Samsung SSD 980 PRO 1TB',
+        'Primary Slave: Not Present',
+        'Secondary Master: WD Black 2TB HDD', 
+        'Secondary Slave: Not Present',
+        'Detecting USB devices.......',
+        'USB Port 1: Logitech Gaming Mouse',
+        'USB Port 2: Mechanical Keyboard',
+        'USB Port 3: USB 3.0 Hub',
+        'USB Port 4: External HDD 4TB',
+        'USB Port 5: Webcam HD Pro',
+        'USB Port 6: Not Present',
+        'USB Port 7: Not Present',
+        'USB Port 8: Not Present',
+        'Scanning PCI bus............',
+        'PCI Bus 0, Device 0: Host Bridge',
+        'PCI Bus 0, Device 1: PCI Bridge', 
+        'PCI Bus 0, Device 2: VGA Controller',
+        'PCI Bus 0, Device 3: Audio Device',
+        'PCI Bus 0, Device 4: Network Controller',
+        'PCI Bus 0, Device 5: SATA Controller',
+        'PCI Bus 0, Device 6: USB Controller',
+        'PCI Bus 0, Device 7: WiFi Controller',
+        'PCI Bus 1, Device 0: Graphics Card',
+        'PCI Bus 1, Device 1: Sound Card',
+        'PCI Bus 2, Device 0: Network Card',
+        'Initializing graphics.......',
+        'VGA: NVIDIA GeForce RTX 4080',
+        'Video RAM: 16384 MB',
+        'Video BIOS: v94.02.42.00.B4',
+        'Resolution: 1920x1080 @ 60Hz',
+        'Initializing audio..........',
+        'Audio: Realtek ALC1220',
+        'Audio channels: 7.1 Surround',
+        'Initializing network........',
+        'Ethernet: Intel I225-V 2.5Gb',
+        'MAC Address: 00:1B:21:8A:F3:C2',
+        'WiFi: Intel AX200 802.11ax',
+        'Bluetooth: v5.2',
+        'Setting up power management..',
+        'ACPI support............... Enabled',
+        'Power management........... Enabled',
+        'CPU power states........... Enabled',
+        'Fan control................ Enabled',
+        'Temperature monitoring..... Enabled',
+        'Configuring boot options....',
+        'Boot sequence priority:',
+        '  1st Boot Device: NVMe SSD',
+        '  2nd Boot Device: Hard Disk',
+        '  3rd Boot Device: CD-ROM',
+        '  4th Boot Device: Network',
+        'Secure Boot................ Enabled',
+        'Fast Boot.................. Enabled',
+        'Legacy Support............. Disabled',
+        'UEFI Boot.................. Enabled',
+        'Setting up BIOS features....',
+        'System BIOS shadowing...... Enabled',
+        'Video BIOS shadowing....... Enabled',
+        'C000,32K shadow............ Enabled',
+        'C400,32K shadow............ Enabled',
+        'C800,32K shadow............ Enabled',
+        'CC00,32K shadow............ Enabled',
+        'D000,32K shadow............ Enabled',
+        'D400,32K shadow............ Enabled',
+        'D800,32K shadow............ Enabled',
+        'DC00,32K shadow............ Enabled',
+        'Memory hole at 15MB-16MB... Disabled',
+        'Boot sector virus protection Enabled',
+        'CPU Level 1 cache.......... Enabled',
+        'CPU Level 2 cache.......... Enabled',
+        'CPU Level 3 cache.......... Enabled',
+        'Quick Power On Self Test... Enabled',
+        'Plug and Play OS........... Enabled',
+        'Plug and Play BIOS check... OK',
+        'DMI pool data.............. OK',
+        'Verifying DMI pool data.... OK',
+        'Checking CMOS settings..... OK',
+        'CMOS checksum.............. OK',
+        'Date and time.............. OK',
+        'Keyboard test.............. OK',
+        'Mouse detection............ OK',
+        'System configuration....... OK',
+        'Hardware monitoring........ OK',
+        'CPU temperature: 42°C...... OK',
+        'System temperature: 38°C... OK',
+        'Fan speed: 1200 RPM........ OK',
+        'Voltage monitoring......... OK',
+        '+3.3V: 3.312V.............. OK',
+        '+5V: 5.048V................ OK',
+        '+12V: 12.096V.............. OK',
+        'VCORE: 1.248V.............. OK',
+        'Loading operating system...',
+        'Reading boot sector........',
+        'Booting from NVMe SSD......',
+        'Loading kernel..............',
+        'Initializing OS............',
+        '================================',
+        'System ready - Boot successful',
+        '',
+        'POST - Power On Self Test',
+    ];
+    
+    const contentEl = document.getElementById('bios-content');
+    if (!contentEl) return;
+    
+    let messageIndex = 0;
+    let lineCount = 0;
+    const maxLines = 16; /* Maximum visible lines */
+    
+    function addBiosLine(message, className = '') {
+        const line = document.createElement('div');
+        line.className = `bios-line ${className}`.trim();
+        line.textContent = message;
+        
+        /* Add color coding for different message types */
+        if (message.includes('OK') || message.includes('Enabled')) {
+            line.classList.add('ok');
+        } else if (message.includes('Error') || message.includes('Failed')) {
+            line.classList.add('error');
+        } else if (message.includes('Warning') || message.includes('Critical')) {
+            line.classList.add('critical');
+        }
+        
+        contentEl.appendChild(line);
+        lineCount++;
+        
+        /* Remove old lines to prevent overflow */
+        if (lineCount > maxLines) {
+            const firstLine = contentEl.firstChild;
+            if (firstLine) {
+                contentEl.removeChild(firstLine);
+                lineCount--;
+            }
+        }
+        
+        /* Scroll to bottom */
+        contentEl.scrollTop = contentEl.scrollHeight;
+    }
+    
+    function getRandomDelay() {
+        const message = biosMessages[messageIndex];
+        if (message === '') {
+            return 800; /* Shorter pause for empty lines */
+        }
+        return Math.random() * 150 + 50; /* Much faster terminal speed */
+    }
+    
+    function step() {
+        if (messageIndex >= biosMessages.length) {
+            messageIndex = 0;
+            /* Clear screen before restart */
+            setTimeout(() => {
+                contentEl.innerHTML = '';
+                lineCount = 0;
+            }, 1500);
+            setTimeout(step, 2000);
+            return;
+        }
+        
+        const message = biosMessages[messageIndex];
+        if (message.trim() !== '') {
+            addBiosLine(message);
+        }
+        
+        messageIndex++;
+        setTimeout(step, getRandomDelay());
+    }
+    
+    /* Start the animation */
+    setTimeout(step, 500);
+})();
+</script>

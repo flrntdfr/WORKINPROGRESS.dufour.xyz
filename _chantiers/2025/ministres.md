@@ -13,24 +13,24 @@ tech: [Notes.app, Stable diffusion]
     <img src="{% link /assets/2025/ministres/00C560DD-FA1A-4F68-AEB4-E21BB6C36E96.png %}" alt="Portrait du Ministre de la Réhabilitation des Zones à Faible Émissions">
 </div>
 <div class="minister-card">
-    <p>Ministre de l'auto-entrepreneuriat et de la relance économique</p><br>
-    <img src="{% link /assets/2025/ministres/B0DEDF39-0A94-4DFA-9BDA-0571993513CF.png %}" alt="Portrait du Ministre de l'Auto-Entrepreneuriat et de la Relance Économique">
+    <p>Ministre de la renucléarisation et des affaires étrangères</p><br>
+    <img src="{% link /assets/2025/ministres/A7043791-F878-4168-BC7D-7F451511B6F8.png %}" alt="Portrait du Ministre de la Renucléarisation et des Affaires Étrangères">
 </div>
 <div class="minister-card">
-    <p>Ministre de l'électrique et du numérique</p><br>
-    <img src="{% link /assets/2025/ministres/BDF1989B-78B3-4AEB-AF3D-968FC781A6C9.png %}" alt="Portrait du Ministre de l'Électrique et du Numérique">
+    <p>Ministre de l'intelligence artificielle et de l'énergie</p><br>
+    <img src="{% link /assets/2025/ministres/BDF1989B-78B3-4AEB-AF3D-968FC781A6C9.png %}" alt="Portrait du Ministre de l'Intelligence Artificielle et de l'Énergie">
+</div>
+<div class="minister-card">
+    <p>Ministre de l'offre et de la demande</p><br>
+    <img src="{% link /assets/2025/ministres/655AD9A5-B91D-41C7-BF84-675020C50E70.png %}" alt="Portrait du Ministre de l'Offre et de la Demande">
 </div>
 <div class="minister-card">
     <p>Ministre de l'intermittence énergétique</p><br>
     <img src="{% link /assets/2025/ministres/38728E39-8AC3-46AF-AFFD-666A87E90650.png %}" alt="Portrait du Ministre de l'Intermittence Énergétique">
 </div>
 <div class="minister-card">
-    <p>Ministre des sciences et technologies du management et de la gestion</p><br>
-    <img src="{% link /assets/2025/ministres/B075AD9E-619C-4697-8CA1-3A4DB846EBAF.png %}" alt="Portrait du Ministre des Sciences et Technologies du Management et de la Gestion">
-</div>
-<div class="minister-card">
-    <p>Ministre de l'offre et de la demande</p><br>
-    <img src="{% link /assets/2025/ministres/F163CE0C-B3BB-40CD-B3F1-D6A04674B487.png %}" alt="Portrait du Ministre de l'Offre et de la Demande">
+    <p>Ministre de l'auto-entrepreneuriat et de la relance économique</p><br>
+    <img src="{% link /assets/2025/ministres/B0DEDF39-0A94-4DFA-9BDA-0571993513CF.png %}" alt="Portrait du Ministre de l'Auto-Entrepreneuriat et de la Relance Économique">
 </div>
 <div class="minister-card">
     <p>Ministre de la sieste et des retraites</p><br>
@@ -45,32 +45,32 @@ tech: [Notes.app, Stable diffusion]
     <img src="{% link /assets/2025/ministres/892DBEA7-95B0-4E3E-AC78-90A74DEF0C40.png %}" alt="Portrait du Ministre de la France et des Français à l'Étranger">
 </div>
 <div class="minister-card">
-    <p>Ministre des compétences européennes et de la dénationalisation</p><br>
-    <img src="{% link /assets/2025/ministres/090255E4-E03C-4759-80AB-5C6547D53382.png %}" alt="Portrait du Ministre des Compétences Européennes et de la Dénationalisation">
-</div>
-<div class="minister-card">
-    <p>Ministre de la renucléarisation et des affaires étrangères</p><br>
-    <img src="{% link /assets/2025/ministres/A7043791-F878-4168-BC7D-7F451511B6F8.png %}" alt="Portrait du Ministre de la Renucléarisation et des Affaires Étrangères">
+    <p>Ministre des sciences et technologies du management et de la gestion</p><br>
+    <img src="{% link /assets/2025/ministres/A79FFB2A-8015-4EB1-B670-8A5D28ED2AD7.png %}" alt="Portrait du Ministre des Sciences et Technologies du Management et de la Gestion">
 </div>
 <div class="minister-card">
     <p>Ministre des États-Unis de France</p><br>
     <img src="{% link /assets/2025/ministres/7106BB01-3B85-4F02-A481-3AE65B903B4A.png %}" alt="Portrait du Ministre des États Unis de France">
 </div>
 <div class="minister-card">
-    <p>Ministre de la grève et du développement durable</p><br>
-    <img src="{% link /assets/2025/ministres/B0F3782B-A235-4401-B5F8-A072D51AF5C7.png %}" alt="Portrait du Ministre de la Grève et du Développement Durable">
-</div>
-<div class="minister-card">
     <p>Ministre de la lutte contre le complotisme et la corruption</p><br>
     <img src="{% link /assets/2025/ministres/1E949CD0-43F4-4521-93CB-AE2113048D67.png %}" alt="Portrait du Ministre de la lutte contre le complotisme et la corruption">
 </div>
-<div class="minister-card"  >
-    <p>Ministre des initiatives parapubliques</p><br>
-    <img src="{% link /assets/2025/ministres/6FED2034-5FF1-4AA2-9374-9373481BCBA5.png %}" alt="Portrait du Ministre des Initiatives Parapubliques">
+<div class="minister-card">
+    <p>Ministre des compétences européennes chargé de la mondialisation</p><br>
+    <img src="{% link /assets/2025/ministres/F2B84C9C-E3CB-4045-A836-CA4E64668305.png %}" alt="Portrait du Ministre des Compétences Européennes chargé de la Mondialisation">
 </div>
 <div class="minister-card">
     <p>Ministre du lien social</p><br>
     <img src="{% link /assets/2025/ministres/0769E278-5272-4ED9-AC0A-A740A7A6F882.png %}" alt="Portrait du Ministre du lien social">
+</div>
+<div class="minister-card"  >
+    <p>Ministre des initiatives parapubliques</p><br>
+    <img src="{% link /assets/2025/ministres/BA47C74E-7916-4CB6-B297-2150B77111C7.png %}" alt="Portrait du Ministre des Initiatives Parapubliques">
+</div>
+<div class="minister-card">
+    <p>Ministre de la grève et du développement durable</p><br>
+    <img src="{% link /assets/2025/ministres/B0F3782B-A235-4401-B5F8-A072D51AF5C7.png %}" alt="Portrait du Ministre de la Grève et du Développement Durable">
 </div>
 <div class="minister-card">
     <p>Ministre de l'efficacité religieuse</p><br>
@@ -85,12 +85,12 @@ tech: [Notes.app, Stable diffusion]
     <img src="{% link /assets/2025/ministres/9B498F83-5B38-4E58-85BC-22BBBF80A069.png %}" alt="Portrait du Ministre de la recherche et du développement">
 </div>
 <div class="minister-card">
-    <p>Ministre de la police</p><br>
-    <img src="{% link /assets/2025/ministres/BBA76563-51AC-4FFF-BA92-243428EFCEC8.png %}" alt="Portrait du Ministre De La Police">
+    <p>Ministre des infrastructures et filières stratégiques</p><br>
+    <img src="{% link /assets/2025/ministres/BBA76563-51AC-4FFF-BA92-243428EFCEC8.png %}" alt="Portrait du Ministre des Infrastructures et Filières Stratégiques">
 </div>
 <div class="minister-card">
-    <p>Ministre chargé au rayonnement de la France en outre-mer</p><br>
-    <img src="{% link /assets/2025/ministres/FD387D48-44CD-41E9-8087-5B7D08C9F666.png %}" alt="Portrait du Ministre chargé au rayonnement de la France en outre-mer">
+    <p>Ministre chargé du rayonnement de la France en outre-mer</p><br>
+    <img src="{% link /assets/2025/ministres/FD387D48-44CD-41E9-8087-5B7D08C9F666.png %}" alt="Portrait du Ministre chargé du rayonnement de la France en outre-mer">
 </div>
 
 
@@ -188,17 +188,17 @@ tech: [Notes.app, Stable diffusion]
 <style>
     data{
         font-family: Times New Roman;
-        max-width: 100%;
+        max-width: 2000px;
     }
 
     p {
         margin-bottom: 0;
-        margin-top: 4em;
         text-align: center;
         text-wrap: balance;
     }
 
     .minister-card {
+        margin-bottom: 4em;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
