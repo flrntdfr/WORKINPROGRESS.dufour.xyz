@@ -1,0 +1,122 @@
+<div style="text-align:center; margin-top:2rem;">
+    <div class="metro-window">
+        <div class="metro-titlebar">
+            <div class="metro-title">Loading...</div>
+            <div class="metro-controls">
+                <div class="metro-minimize">−</div>
+                <div class="metro-maximize">□</div>
+                <div class="metro-close">×</div>
+            </div>
+        </div>
+        <div class="metro-content">
+            <span class="loading-spinner"></span>
+            <div class="metro-status">Please wait</div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Windows 8/Metro style window */
+.metro-window {
+    display: inline-block;
+    width: 320px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.metro-titlebar {
+    height: 32px;
+    background: #0078d4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    color: white;
+}
+
+.metro-title {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.metro-controls {
+    display: flex;
+    gap: 0;
+}
+
+.metro-minimize, .metro-maximize, .metro-close {
+    width: 46px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 300;
+    transition: background-color 0.15s ease;
+    margin: 0 -12px 0 0;
+}
+
+.metro-minimize:hover, .metro-maximize:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.metro-close:hover {
+    background: #e81123;
+}
+
+.metro-content {
+    padding: 40px 20px;
+    background: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.metro-status {
+    font-size: 14px;
+    color: #666666;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+
+/* Windows 8 style loading spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 3px solid #e5e5e5;
+    border-top: 3px solid #0078d4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Windows 8 accent color variants */
+.metro-window.accent-green .metro-titlebar {
+    background: #00a86b;
+}
+
+.metro-window.accent-green .loading-spinner {
+    border-top-color: #00a86b;
+}
+
+.metro-window.accent-purple .metro-titlebar {
+    background: #8764b8;
+}
+
+.metro-window.accent-purple .loading-spinner {
+    border-top-color: #8764b8;
+}
+</style>

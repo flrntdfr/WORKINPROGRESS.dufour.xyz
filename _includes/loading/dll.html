@@ -1,0 +1,112 @@
+<div style="text-align:center; margin-top:2rem;">
+    <div class="ascii-terminal">
+        <div class="ascii-content">
+            <div class="loading-text">Loading: <span id="current-file">kernel32.dll</span></div>
+            <div class="progress-line">
+                FILE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="file-progress">███████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
+            </div>
+            <div class="progress-line">
+                PROGRESS: <span id="global-progress">█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span> <span id="percentage">3.0%</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.ascii-terminal {
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.ascii-content {
+    text-align: left;
+}
+
+.progress-line {
+    margin: 4px 0;
+}
+</style>
+
+<script>
+(function() {
+    const files = [
+        'kernel32.dll', 'user32.dll', 'ntdll.dll', 'gdi32.dll', 'advapi32.dll',
+        'shell32.dll', 'ole32.dll', 'oleaut32.dll', 'wininet.dll', 'comctl32.dll',
+        'comdlg32.dll', 'msvcrt.dll', 'ws2_32.dll', 'crypt32.dll', 'winspool.drv',
+        'version.dll', 'winmm.dll', 'imm32.dll', 'msimg32.dll', 'uxtheme.dll',
+        'dwmapi.dll', 'opengl32.dll', 'glu32.dll', 'd3d9.dll', 'dxgi.dll',
+        'xinput1_3.dll', 'msacm32.dll', 'msvfw32.dll', 'avifil32.dll', 'mapi32.dll',
+        'netapi32.dll', 'secur32.dll', 'userenv.dll', 'psapi.dll', 'iphlpapi.dll',
+        'setupapi.dll', 'cfgmgr32.dll', 'powrprof.dll', 'wintrust.dll', 'imagehlp.dll',
+        'riched20.dll', 'riched32.dll', 'mlang.dll', 'shlwapi.dll', 'urlmon.dll',
+        'mshtml.dll', 'jscript.dll', 'vbscript.dll', 'scrrun.dll', 'msxml3.dll',
+        'msxml6.dll', 'wmp.dll', 'wmvcore.dll', 'quartz.dll', 'devenum.dll',
+        'msdmo.dll', 'qcap.dll', 'qdvd.dll', 'amstream.dll', 'mciqtz32.dll',
+        'msrle32.dll', 'tsbyuv.dll', 'iyuv_32.dll', 'msvidc32.dll', 'ir41_32.dll',
+        'dinput.dll', 'dinput8.dll', 'dsound.dll', 'ddraw.dll', 'd3d11.dll',
+        'd3d12.dll', 'd3dcompiler_47.dll', 'dxva2.dll', 'mf.dll', 'mfplat.dll',
+        'mfreadwrite.dll', 'evr.dll', 'wmadmod.dll', 'wmvdecod.dll', 'mp3dmod.dll',
+        'resutils.dll', 'clusapi.dll', 'hnetcfg.dll', 'rasapi32.dll', 'rasdlg.dll',
+        'tapi32.dll', 'wtsapi32.dll', 'sensapi.dll', 'winhttp.dll', 'webio.dll',
+        'schannel.dll', 'sspi.dll', 'msasn1.dll', 'rsaenh.dll', 'dssenh.dll',
+        'bcrypt.dll', 'ncrypt.dll', 'cryptsp.dll', 'cryptdll.dll', 'wldap32.dll',
+        'dnsapi.dll', 'dhcpcsvc.dll', 'winnsi.dll', 'nsi.dll', 'mswsock.dll',
+        'wship6.dll', 'tcpip.sys', 'afd.sys', 'netbt.sys', 'rdbss.sys',
+        'mrxsmb.sys', 'srv.sys', 'npfs.sys', 'msfs.sys', 'fastfat.sys',
+        'ntfs.sys', 'refs.sys', 'volmgr.sys', 'volsnap.sys', 'mountmgr.sys',
+        'partmgr.sys', 'disk.sys', 'classpnp.sys', 'storport.sys', 'ataport.sys',
+        'pci.sys', 'acpi.sys', 'hal.dll', 'bootvid.dll', 'kdcom.dll'
+    ];
+    const fileProgressEl = document.getElementById('file-progress');
+    const globalProgressEl = document.getElementById('global-progress');
+    const currentFileEl = document.getElementById('current-file');
+    const percentageEl = document.getElementById('percentage');
+    
+    if (!fileProgressEl || !globalProgressEl) return;
+    
+    let fileIndex = 0;
+    let fileProgress = 0;
+    let globalProgress = 3.0;
+    let loadSpeed = Math.random() * 8 + 3; /* Random speed between 3-11 */
+    
+    function updateBar(element, progress) {
+        const total = 50;
+        const filled = Math.floor((progress / 100) * total);
+        const empty = total - filled;
+        element.textContent = '█'.repeat(filled) + '░'.repeat(empty);
+    }
+    
+    function animate() {
+        fileProgress += loadSpeed;
+        
+        if (fileProgress >= 100) {
+            fileProgress = 100;
+            updateBar(fileProgressEl, fileProgress);
+            
+            setTimeout(() => {
+                fileIndex = (fileIndex + 1) % files.length;
+                currentFileEl.textContent = files[fileIndex];
+                fileProgress = 0;
+                loadSpeed = Math.random() * 8 + 3; /* New random speed for next file */
+                globalProgress = Math.min(99.9, globalProgress + Math.random() * 4.5 + 1.5);
+                updateBar(globalProgressEl, globalProgress);
+                percentageEl.textContent = globalProgress.toFixed(1) + '%';
+            }, Math.random() * 200 + 50);
+        }
+        
+        updateBar(fileProgressEl, fileProgress);
+        
+        if (globalProgress < 99.9) {
+            setTimeout(animate, Math.random() * 80 + 20);
+        }
+    }
+    
+    /* Initialize */
+    updateBar(fileProgressEl, fileProgress);
+    updateBar(globalProgressEl, globalProgress);
+    
+    /* Start animation */
+    setTimeout(animate, 1000);
+})();
+</script>

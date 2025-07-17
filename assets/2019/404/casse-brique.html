@@ -1,0 +1,402 @@
+<div id="brick-breaker-wrapper">
+    <style>
+    /* Reset container styles */
+    #error-content {
+        all: unset !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+    }
+
+    #brick-breaker-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background: #fff;
+        color: #000;
+        z-index: 9999;
+    }
+
+    #brick-breaker-container a {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        text-decoration: none;
+        color: #000;
+        z-index: 100;
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+
+    #brick-breaker-container a:hover {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    #game-area {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 500px;
+        border: 1px solid #000;
+        cursor: crosshair; /* Show crosshair over the game area */
+    }
+
+    #score {
+        font-family: Inter, sans-serif;
+        position: absolute;
+        top: -30px;
+        left: 0;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #000;
+    }
+
+    #ball {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #000;
+        border-radius: 50%;
+    }
+
+    #paddle {
+        position: absolute;
+        bottom: 20px;
+        width: 80px;
+        height: 10px;
+        background: #000;
+    }
+
+    #game-over {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #000;
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+
+    .brick {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+    }
+
+    .controls-info {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        opacity: 0.7;
+        color: #000;
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+
+    /* Default font */
+    html, body {
+        font-family: Inter, sans-serif;
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+    </style>
+
+    <div id="brick-breaker-container">
+        <a href="/">←</a>
+
+        <div id="game-area">
+            <div id="score">SCORE: <span id="score-value">0</span></div>
+
+            <div id="bricks-container"></div>
+            <div id="ball"></div>
+            <div id="paddle"></div>
+
+            <div id="game-over">
+                <div>BALL NOT FOUND</div>
+                <div>GAME OVER</div>
+            </div>
+        </div>
+
+        <div class="controls-info">
+            <div id="mouse-hint" style="display:none;">Use your mouse</div>
+            <div id="tap-instruction" style="display:none;">TAP TO RESPAWN</div>
+        </div>
+    </div>
+</div>
+
+<script>
+/* Force parent container to full screen */
+(function() {
+    const errorContent = document.getElementById('error-content');
+    if (errorContent && errorContent.parentElement) {
+        errorContent.parentElement.style.all = 'unset';
+        errorContent.parentElement.style.position = 'fixed';
+        errorContent.parentElement.style.top = '0';
+        errorContent.parentElement.style.left = '0';
+        errorContent.parentElement.style.width = '100vw';
+        errorContent.parentElement.style.height = '100vh';
+        errorContent.parentElement.style.margin = '0';
+        errorContent.parentElement.style.padding = '0';
+    }
+})();
+
+/* Only initialize if not already done */
+if (!window.brickBreakerInitialized) {
+    window.brickBreakerInitialized = true;
+
+    const gameArea = document.getElementById('game-area');
+    const ball = document.getElementById('ball');
+    const paddle = document.getElementById('paddle');
+    const bricksContainer = document.getElementById('bricks-container');
+    const scoreElement = document.getElementById('score-value');
+    const mouseHint = document.getElementById('mouse-hint');
+    const tapInstruction = document.getElementById('tap-instruction');
+    function showMouseHint() { mouseHint.style.display = 'block'; }
+    function hideMouseHint() { mouseHint.style.display = 'none'; }
+    const gameOverElement = document.getElementById('game-over');
+
+    const gameWidth = 600;
+    const gameHeight = 500;
+    const paddleWidth = 80;
+    const paddleHeight = 10;
+    const ballSize = 10;
+
+    let paddleX = gameWidth / 2 - paddleWidth / 2;
+    let ballX = gameWidth / 2;
+    let ballY = gameHeight - 60;
+    let ballDX = 3;
+    let ballDY = -3;
+    let score = 0;
+    let isPlaying = false;
+    let isGameOver = false;
+    let isAutopilot = false;
+    let bricks = [];
+
+    function updateScore(newScore) {
+        score = newScore;
+        scoreElement.textContent = score;
+    }
+
+    /* Create bricks */
+    function createBricks() {
+        bricksContainer.innerHTML = '';
+        bricks = [];
+        const brickWidth = 20;
+        const brickHeight = 20;
+        const padding = 2;
+
+        const pattern = [
+            'x  x  xxxx  x  x',
+            'x  x  x  x  x  x',
+            'xxxx  x  x  xxxx',
+            '   x  x  x     x',
+            '   x  xxxx     x'
+        ];
+
+        const patternWidth = pattern[0].length;
+        const totalPatternWidth = patternWidth * (brickWidth + padding);
+        const startX = (gameWidth - totalPatternWidth) / 2;
+        const startY = 50;
+
+        pattern.forEach((row, r) => {
+            row.split('').forEach((char, c) => {
+                if (char === 'x') {
+                    const brick = document.createElement('div');
+                    brick.className = 'brick';
+                    const x = startX + c * (brickWidth + padding);
+                    const y = startY + r * (brickHeight + padding);
+                    brick.style.left = x + 'px';
+                    brick.style.top = y + 'px';
+
+                    bricksContainer.appendChild(brick);
+
+                    bricks.push({
+                        element: brick,
+                        x: x,
+                        y: y,
+                        width: brickWidth,
+                        height: brickHeight,
+                        alive: true
+                    });
+                }
+            });
+        });
+    }
+
+    /* Collision detection */
+    function checkCollision(ballX, ballY, objX, objY, objWidth, objHeight) {
+        return ballX < objX + objWidth &&
+               ballX + ballSize > objX &&
+               ballY < objY + objHeight &&
+               ballY + ballSize > objY;
+    }
+
+    /* Update game */
+    function update() {
+        if (!isPlaying) return;
+
+        /* Paddle movement */
+        if (isAutopilot) {
+            paddleX = Math.max(0, Math.min(gameWidth - paddleWidth, ballX - paddleWidth / 2));
+        } else {
+            if (keys['ArrowLeft']) {
+                paddleX = Math.max(0, paddleX - 8);
+            }
+            if (keys['ArrowRight']) {
+                paddleX = Math.min(gameWidth - paddleWidth, paddleX + 8);
+            }
+        }
+
+        /* Move ball */
+        ballX += ballDX;
+        ballY += ballDY;
+
+        /* Wall collisions */
+        if (ballX <= 0 || ballX >= gameWidth - ballSize) {
+            ballDX = -ballDX;
+        }
+        if (ballY <= 0) {
+            ballDY = -ballDY;
+        }
+
+        /* Paddle collision with angle control */
+        if (checkCollision(ballX, ballY, paddleX, gameHeight - 40, paddleWidth, paddleHeight)) {
+            /* Compute hit position (-1 left, 0 center, 1 right) */
+            const hitPos = ((ballX + ballSize / 2) - (paddleX + paddleWidth / 2)) / (paddleWidth / 2);
+            /* Maximum bounce angle (in radians) – 60° gives good control */
+            const maxAngle = Math.PI / 3;
+            const bounceAngle = hitPos * maxAngle;
+
+            /* Preserve the current speed magnitude */
+            const speed = Math.sqrt(ballDX * ballDX + ballDY * ballDY) || 5;
+
+            /* New velocity components */
+            ballDX = speed * Math.sin(bounceAngle);
+            ballDY = -Math.abs(speed * Math.cos(bounceAngle));
+        }
+
+        /* Brick collisions */
+        let collided = false;
+        bricks.forEach(brick => {
+            if (brick.alive && checkCollision(ballX, ballY, brick.x, brick.y, brick.width, brick.height)) {
+                brick.alive = false;
+                brick.element.remove();
+                updateScore(score + 1);
+                collided = true;
+            }
+        });
+
+        if (collided) {
+            ballDY = -ballDY;
+
+            /* Check if all bricks destroyed */
+            if (bricks.every(b => !b.alive)) {
+                /* All bricks destroyed: do not reset bricks */
+                /* createBricks(); */
+            }
+        }
+
+        /* Ball out of bounds */
+        if (ballY > gameHeight) {
+            isPlaying = false;
+            isGameOver = true;
+            hideMouseHint();
+            tapInstruction.textContent = 'TAP TO RESPAWN';
+            tapInstruction.style.display = 'block';
+            gameOverElement.style.display = 'block';
+            gameOverElement.innerHTML = `
+                <div>GAME OVER</div>
+                <div>BALL NOT FOUND</div>
+            `;
+        }
+
+        /* Update positions */
+        ball.style.left = ballX + 'px';
+        ball.style.top = ballY + 'px';
+        paddle.style.left = paddleX + 'px';
+
+        requestAnimationFrame(update);
+    }
+
+    /* Input handling */
+    let keys = {};
+
+    document.addEventListener('keydown', (e) => {
+        keys[e.key] = true;
+    });
+
+    document.addEventListener('keyup', (e) => {
+        keys[e.key] = false;
+    });
+
+    /* Tap / click to start or respawn */
+    gameArea.addEventListener('pointerdown', () => {
+        if (!isPlaying) {
+            if (isGameOver) {
+                updateScore(0);
+                createBricks();
+                isGameOver = false;
+                tapInstruction.textContent = 'TAP TO START';
+            }
+            resetBall();
+            isPlaying = true;
+            gameOverElement.style.display = 'none';
+            tapInstruction.style.display = 'none';
+            update();
+        }
+    });
+
+    /* Mouse control */
+    gameArea.addEventListener('mousemove', (e) => {
+        if (isAutopilot) return;
+        const rect = gameArea.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        paddleX = Math.max(0, Math.min(gameWidth - paddleWidth, mouseX - paddleWidth / 2));
+    });
+
+    gameArea.addEventListener('pointerleave', () => {
+        if (isPlaying) {
+            isAutopilot = true;
+            showMouseHint();
+        }
+    });
+
+    gameArea.addEventListener('pointerenter', () => {
+        isAutopilot = false;
+        hideMouseHint();
+    });
+
+    /* Reset ball position */
+    function resetBall() {
+        ballX = paddleX + paddleWidth / 2;
+        ballY = gameHeight - 60;
+        ballDX = (Math.random() - 0.5) * 6;
+        ballDY = -3;
+    }
+
+    /* Initialize game */
+    createBricks();
+
+    /* Start message */
+    gameOverElement.style.display = 'block';
+    gameOverElement.innerHTML = `<div>TAP TO START</div>`;
+    tapInstruction.style.display = 'none';
+}
+</script> 

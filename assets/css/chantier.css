@@ -31,18 +31,31 @@ data table {
     width: 100%;
     margin: 1em 0;
     table-layout: auto;
+    border-collapse: collapse;
 }
 
 data table th {
-    padding: 8px;
+    padding: 2em 2em;
     white-space: nowrap;
     vertical-align: top;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
 }
 
 data table td {
-    padding: 0.4em;
+    padding: 2em 2em;
     word-wrap: break-word;
     vertical-align: top;
+    border-bottom: 1px solid var(--border-color);
+}
+
+data table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+data table td > div {
+    margin-top: 0 !important;
+    text-align: left !important;
 }
 
 metadata table {

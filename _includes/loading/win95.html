@@ -1,0 +1,64 @@
+<div style="text-align:center;margin-top:2rem;">
+  <div class="win95-shell">
+    <div class="win95-logo">Microsoft&nbsp;Windows<sup>®</sup>&nbsp;95</div>
+
+    <div class="win95-progress">
+      <div class="win95-bar" id="win95-bar-{{ include.id | default: 'default' }}"></div>
+    </div>
+
+    <div class="win95-status"
+         id="win95-status-{{ include.id | default: 'default' }}">Loading…</div>
+  </div>
+</div>
+
+<style>
+/* ─── Windows 95 look ‐ shell ──────────────────────────────────────────────── */
+.win95-shell{
+  display:inline-block;
+  padding:32px 48px;
+  background:#C0C0C0;
+  border:2px solid #000;
+  box-shadow:inset -2px -2px #808080,inset 2px 2px #FFF;
+  font-family:"MS Sans Serif",Tahoma,sans-serif;
+}
+.win95-logo{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:24px;
+}
+/* ─── progress bar ─────────────────────────────────────────────────────────── */
+.win95-progress{
+  width:320px;height:12px;
+  background:#FFF;
+  border:2px solid #000;
+  box-shadow:inset -1px -1px #808080,inset 1px 1px #FFF;
+  overflow:hidden;
+}
+.win95-bar{width:0;height:100%;background:#000080;transition:width 0.06s linear;}
+.win95-status{margin-top:12px;font-size:12px;text-align:center;}
+</style>
+
+<script>
+/* Windows 95 progress bar animation */
+(function(){
+  const id    = '{{ include.id | default: "default" }}';
+  const bar   = document.getElementById('win95-bar-'+id);
+  const label = document.getElementById('win95-status-'+id);
+  if(!bar){return;}
+
+  let p = 0;
+  
+  function step(){
+    p += 1; /* Increment 1% per tick for smoother motion */
+    if(p>100){
+      p = 0; /* Reset once full */
+    }
+    bar.style.width = p + '%';
+    if(label){label.textContent = 'Loading ' + p + '%';}
+  }
+  
+  /* initialise & loop */
+  step();
+  setInterval(step,60);
+})();
+</script>

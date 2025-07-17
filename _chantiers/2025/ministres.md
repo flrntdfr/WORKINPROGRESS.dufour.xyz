@@ -53,6 +53,14 @@ tech: [Notes.app, Stable diffusion]
     <img src="{% link /assets/2025/ministres/A7043791-F878-4168-BC7D-7F451511B6F8.png %}" alt="Portrait du Ministre de la Renucléarisation et des Affaires Étrangères">
 </div>
 <div class="minister-card">
+    <p>Ministre des États-Unis de France</p><br>
+    <img src="{% link /assets/2025/ministres/7106BB01-3B85-4F02-A481-3AE65B903B4A.png %}" alt="Portrait du Ministre des États Unis de France">
+</div>
+<div class="minister-card">
+    <p>Ministre de la grève et du développement durable</p><br>
+    <img src="{% link /assets/2025/ministres/B0F3782B-A235-4401-B5F8-A072D51AF5C7.png %}" alt="Portrait du Ministre de la Grève et du Développement Durable">
+</div>
+<div class="minister-card">
     <p>Ministre de la lutte contre le complotisme et la corruption</p><br>
     <img src="{% link /assets/2025/ministres/1E949CD0-43F4-4521-93CB-AE2113048D67.png %}" alt="Portrait du Ministre de la lutte contre le complotisme et la corruption">
 </div>
@@ -61,20 +69,8 @@ tech: [Notes.app, Stable diffusion]
     <img src="{% link /assets/2025/ministres/6FED2034-5FF1-4AA2-9374-9373481BCBA5.png %}" alt="Portrait du Ministre des Initiatives Parapubliques">
 </div>
 <div class="minister-card">
-    <p>Ministre de la grève et du développement durable</p><br>
-    <img src="{% link /assets/2025/ministres/B0F3782B-A235-4401-B5F8-A072D51AF5C7.png %}" alt="Portrait du Ministre de la Grève et du Développement Durable">
-</div>
-<div class="minister-card">
-    <p>Ministre des États-Unis de France</p><br>
-    <img src="{% link /assets/2025/ministres/7106BB01-3B85-4F02-A481-3AE65B903B4A.png %}" alt="Portrait du Ministre des États Unis de France">
-</div>
-<div class="minister-card">
     <p>Ministre du lien social</p><br>
     <img src="{% link /assets/2025/ministres/0769E278-5272-4ED9-AC0A-A740A7A6F882.png %}" alt="Portrait du Ministre du lien social">
-</div>
-<div class="minister-card">
-    <p>Ministre chargé au rayonnement de la France en outre-mer</p><br>
-    <img src="{% link /assets/2025/ministres/FD387D48-44CD-41E9-8087-5B7D08C9F666.png %}" alt="Portrait du Ministre chargé au rayonnement de la France en outre-mer">
 </div>
 <div class="minister-card">
     <p>Ministre de l'efficacité religieuse</p><br>
@@ -92,15 +88,26 @@ tech: [Notes.app, Stable diffusion]
     <p>Ministre de la police</p><br>
     <img src="{% link /assets/2025/ministres/BBA76563-51AC-4FFF-BA92-243428EFCEC8.png %}" alt="Portrait du Ministre De La Police">
 </div>
+<div class="minister-card">
+    <p>Ministre chargé au rayonnement de la France en outre-mer</p><br>
+    <img src="{% link /assets/2025/ministres/FD387D48-44CD-41E9-8087-5B7D08C9F666.png %}" alt="Portrait du Ministre chargé au rayonnement de la France en outre-mer">
+</div>
 
 
 <script src="{% link /assets/lib/p5.v1.4.2.min.js %}"></script>
 <script>
         document.addEventListener('DOMContentLoaded', function() {
-        const imageElements = document.querySelectorAll('div > img');
+
+        const imageElements = document.querySelectorAll('.minister-card > img');
         imageElements.forEach(img => {
-        const imgSrc = img.src;
-        const container = document.createElement('div');
+            const card = img.parentNode;
+            const label = card.querySelector('p');
+            if (label) {
+                label.style.visibility = 'hidden';
+            }
+
+            const imgSrc = img.src;
+            const container = document.createElement('div');
         
         container.style.display = 'block';
         if (img.parentNode) {
@@ -125,6 +132,9 @@ tech: [Notes.app, Stable diffusion]
                 const ditheredImage = floydSteinbergDithering(scaledImage, p);
                 p.image(ditheredImage, 0, 0);
                 p.noLoop();
+                if (label) {
+                    label.style.visibility = 'visible';
+                }
             };
         };
         new p5(sketch, container);
@@ -184,6 +194,8 @@ tech: [Notes.app, Stable diffusion]
     p {
         margin-bottom: 0;
         margin-top: 4em;
+        text-align: center;
+        text-wrap: balance;
     }
 
     .minister-card {

@@ -1,0 +1,688 @@
+<div style="text-align:center; margin-top:2rem;">
+    <div class="future-window">
+        <div class="future-titlebar">
+            <div class="traffic-lights">
+                <div class="traffic-light close"></div>
+                <div class="traffic-light minimize"></div>
+                <div class="traffic-light maximize"></div>
+            </div>
+            <div class="future-title">System Loading</div>
+        </div>
+        <div class="future-content">
+            <div class="holo-display">
+                <div class="scan-overlay"></div>
+                <div class="system-header">
+                    <div class="system-icon">
+                        <div class="system-grid"></div>
+                    </div>
+                    <h2 class="system-title">Initializing System</h2>
+                    <p class="system-subtitle">Establishing secure connection to remote servers</p>
+                </div>
+                
+                <div class="status-grid">
+                                         <div class="status-item">
+                         <div class="status-indicator active"></div>
+                         <span class="status-label">Core Systems</span>
+                     </div>
+                     <div class="status-item">
+                         <div class="status-indicator active"></div>
+                         <span class="status-label">Network Bridge</span>
+                     </div>
+                     <div class="status-item">
+                         <div class="status-indicator loading"></div>
+                         <span class="status-label">Data Sync</span>
+                     </div>
+                     <div class="status-item">
+                         <div class="status-indicator pending"></div>
+                         <span class="status-label">Security Layer</span>
+                     </div>
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <span class="progress-label">System Integration</span>
+                        <span class="progress-percentage" id="future-percentage">0%</span>
+                    </div>
+                    <div class="future-progress-container">
+                        <div class="future-progress-track">
+                            <div class="future-progress-fill" id="future-progress"></div>
+                        </div>
+                    </div>
+                                         <div class="progress-details">
+                         <span id="current-phase">Initializing core systems...</span>
+                     </div>
+                </div>
+                
+                <div class="biometric-section">
+                    <div class="biometric-ring">
+                        <div class="ring-segments">
+                            <div class="segment" style="--delay: 0s"></div>
+                            <div class="segment" style="--delay: 0.1s"></div>
+                            <div class="segment" style="--delay: 0.2s"></div>
+                            <div class="segment" style="--delay: 0.3s"></div>
+                            <div class="segment" style="--delay: 0.4s"></div>
+                            <div class="segment" style="--delay: 0.5s"></div>
+                        </div>
+                        <div class="biometric-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M12 1v6m0 10v6m11-7h-6m-10 0H1" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                            </svg>
+                        </div>
+                    </div>
+                                         <p class="biometric-status">Security authentication in progress</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Apple-inspired Light Theme Loading Window */
+.future-window {
+    display: inline-block;
+    width: 420px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 0.5px solid rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.future-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(0, 122, 255, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(88, 86, 214, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.future-titlebar {
+    height: 40px;
+    background: rgba(248, 248, 248, 0.95);
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 2;
+}
+
+.traffic-lights {
+    position: absolute;
+    left: 16px;
+    display: flex;
+    gap: 8px;
+}
+
+.traffic-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.traffic-light::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    font-size: 8px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.traffic-light.close {
+    background: linear-gradient(135deg, #ff6058 0%, #ff453a 100%);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 1px 2px rgba(255, 96, 88, 0.3);
+}
+
+.traffic-light.close:hover::after {
+    content: '×';
+    opacity: 1;
+}
+
+.traffic-light.minimize {
+    background: linear-gradient(135deg, #ffbd2e 0%, #ff9500 100%);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 1px 2px rgba(255, 189, 46, 0.3);
+}
+
+.traffic-light.minimize:hover::after {
+    content: '−';
+    opacity: 1;
+}
+
+.traffic-light.maximize {
+    background: linear-gradient(135deg, #28ca42 0%, #30d158 100%);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 1px 2px rgba(40, 202, 66, 0.3);
+}
+
+.traffic-light.maximize:hover::after {
+    content: '⤢';
+    opacity: 1;
+}
+
+.traffic-light:hover {
+    transform: scale(1.1);
+}
+
+.future-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    letter-spacing: -0.2px;
+    font-feature-settings: "kern";
+}
+
+.future-content {
+    padding: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.holo-display {
+    position: relative;
+    background: rgba(248, 249, 250, 0.8);
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    overflow: hidden;
+}
+
+.scan-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 122, 255, 0.03) 50%,
+        transparent 100%
+    );
+    animation: apple-scan 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+ .system-header {
+     text-align: center;
+     margin-bottom: 32px;
+ }
+ 
+ .system-icon {
+     width: 48px;
+     height: 48px;
+     margin: 0 auto 16px;
+     position: relative;
+     border: 1px solid rgba(0, 122, 255, 0.3);
+     border-radius: 12px;
+     background: rgba(0, 122, 255, 0.05);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ 
+ .system-grid {
+     width: 24px;
+     height: 24px;
+     background-image: 
+         linear-gradient(rgba(0, 122, 255, 0.4) 1px, transparent 1px),
+         linear-gradient(90deg, rgba(0, 122, 255, 0.4) 1px, transparent 1px);
+     background-size: 6px 6px;
+     border-radius: 2px;
+     animation: system-pulse 2s ease-in-out infinite;
+ }
+ 
+ .system-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+    margin: 0 0 4px 0;
+    letter-spacing: -0.4px;
+    font-feature-settings: "kern";
+}
+
+.system-subtitle {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: -0.1px;
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+}
+
+.status-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.status-indicator.active {
+    background: #30d158;
+    box-shadow: 0 0 6px rgba(48, 209, 88, 0.4);
+}
+
+.status-indicator.loading {
+    background: #ff9f00;
+    box-shadow: 0 0 6px rgba(255, 159, 0, 0.4);
+    animation: loading-pulse 1.5s ease-in-out infinite;
+}
+
+.status-indicator.pending {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.status-label {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 500;
+    letter-spacing: -0.1px;
+}
+
+.progress-section {
+    margin-bottom: 32px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.progress-label {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+    letter-spacing: -0.1px;
+}
+
+.progress-percentage {
+    font-size: 13px;
+    color: rgba(0, 122, 255, 0.9);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.future-progress-container {
+    margin-bottom: 8px;
+}
+
+.future-progress-track {
+    height: 6px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.future-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #007aff;
+    border-radius: 3px;
+    position: relative;
+    box-shadow: 0 0 8px rgba(0, 122, 255, 0.3);
+}
+
+.progress-details {
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 400;
+    letter-spacing: -0.05px;
+    opacity: 0;
+    transform: translateY(4px);
+    animation: fade-in 0.8s ease-out 0.5s forwards;
+}
+
+.biometric-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.biometric-ring {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+    position: relative;
+    border-radius: 50%;
+    background: rgba(0, 122, 255, 0.05);
+    border: 1px solid rgba(0, 122, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ring-segments {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.segment {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: segment-rotate 3s linear infinite;
+    animation-delay: var(--delay);
+    /* The segment div is now a transparent rotating container */
+    background: none;
+}
+
+.segment::before {
+    content: '';
+    position: absolute;
+    /* Position the visible dash at the top of the container */
+    top: 0px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 6px;
+    background: rgba(0, 122, 255, 0.8);
+    border-radius: 1px;
+    /* Animate the opacity of the dash */
+    animation: segment-opacity 3s ease-in-out infinite;
+    animation-delay: var(--delay);
+}
+
+.biometric-icon {
+    color: rgba(0, 122, 255, 0.7);
+    z-index: 1;
+    animation: icon-pulse 2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.biometric-status {
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: -0.05px;
+}
+
+/* Apple-style Animations */
+@keyframes apple-scan {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+@keyframes system-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+@keyframes loading-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.9); }
+}
+
+@keyframes segment-rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+@keyframes segment-opacity {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes icon-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects */
+.future-window:hover {
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.2),
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.biometric-ring:hover {
+    border-color: rgba(0, 122, 255, 0.4);
+    background: rgba(0, 122, 255, 0.08);
+    transform: scale(1.05);
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+</style>
+
+<script>
+(function() {
+    const progressFill = document.getElementById('future-progress');
+    const progressText = document.getElementById('future-percentage');
+    const currentPhaseText = document.getElementById('current-phase');
+    
+    if (!progressFill || !progressText || !currentPhaseText) return;
+    
+    let progress = 0;
+    let isCompleted = false;
+    let animationFrame;
+    
+         const phases = [
+         { name: "Initializing core systems...", duration: 6000, speed: 1.8 },
+         { name: "Establishing network connections...", duration: 5000, speed: 2.2 },
+         { name: "Synchronizing data streams...", duration: 4500, speed: 2.8 },
+         { name: "Calibrating security protocols...", duration: 3500, speed: 3.5 },
+         { name: "Finalizing system integration...", duration: 3000, speed: 4.2 }
+     ];
+    
+    let currentPhase = 0;
+    let startTime = Date.now();
+    
+    function updateProgress() {
+        if (isCompleted) {
+                         /* Reset after completion with Apple-style timing */
+             setTimeout(() => {
+                 progress = 0;
+                 currentPhase = 0;
+                 isCompleted = false;
+                 startTime = Date.now();
+                 progressFill.style.width = '0%';
+                 progressText.textContent = '0%';
+                 currentPhaseText.textContent = phases[0].name;
+                 
+                 /* Reset status indicators to original state */
+                 const statusIndicators = document.querySelectorAll('.status-indicator');
+                 if (statusIndicators.length >= 4) {
+                     statusIndicators[0].className = 'status-indicator active';
+                     statusIndicators[1].className = 'status-indicator active';
+                     statusIndicators[2].className = 'status-indicator loading';
+                     statusIndicators[3].className = 'status-indicator pending';
+                 }
+                 
+                 updateProgress();
+             }, 2500);
+            return;
+        }
+        
+        const phase = phases[currentPhase];
+        const elapsed = Date.now() - startTime;
+        
+        /* Calculate progress directly without complex easing */
+        const phaseProgressRaw = Math.min(100, (elapsed / phase.duration) * 100);
+        
+        /* Calculate overall progress */
+        const phaseWeight = 100 / phases.length;
+        const baseProgress = currentPhase * phaseWeight;
+        const currentPhaseProgress = (phaseProgressRaw / 100) * phaseWeight;
+        progress = baseProgress + currentPhaseProgress;
+        
+        /* Update display with smooth animations */
+        progressFill.style.width = progress + '%';
+        progressText.textContent = Math.round(Math.max(0, progress)) + '%';
+        
+        /* Phase transition with Apple-style timing */
+        if (phaseProgressRaw >= 100) {
+            currentPhase++;
+            startTime = Date.now();
+            
+                         if (currentPhase >= phases.length) {
+                 progress = 100;
+                 progressFill.style.width = '100%';
+                 progressText.textContent = '100%';
+                 currentPhaseText.textContent = "System ready";
+                 isCompleted = true;
+                 
+                 /* Turn all status indicators green when complete */
+                 const statusIndicators = document.querySelectorAll('.status-indicator');
+                 statusIndicators.forEach(indicator => {
+                     indicator.className = 'status-indicator active';
+                 });
+                 
+                 /* Completion effect */
+                 progressFill.style.boxShadow = '0 0 16px rgba(0, 122, 255, 0.6)';
+                 setTimeout(() => {
+                     if (progressFill) {
+                         progressFill.style.boxShadow = '0 0 8px rgba(0, 122, 255, 0.3)';
+                     }
+                 }, 800);
+                 return;
+             } else {
+                /* Smooth phase text transition */
+                currentPhaseText.style.opacity = '0.3';
+                setTimeout(() => {
+                    currentPhaseText.textContent = phases[currentPhase].name;
+                    currentPhaseText.style.opacity = '1';
+                }, 150);
+            }
+        }
+        
+        /* Use requestAnimationFrame for smooth 60fps updates */
+        animationFrame = requestAnimationFrame(updateProgress);
+    }
+    
+    /* Apple-style easing function */
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+    
+    /* Add refined interactions */
+    const window = document.querySelector('.future-window');
+    if (window) {
+        /* Traffic light interactions */
+        window.querySelectorAll('.traffic-light').forEach(btn => {
+            btn.addEventListener('click', function() {
+                /* Apple-style button press animation */
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                }, 100);
+                
+                if (this.classList.contains('close')) {
+                    /* Elegant close animation */
+                    window.style.transform = 'scale(0.98)';
+                    window.style.opacity = '0.8';
+                    setTimeout(() => {
+                        window.style.transform = 'scale(1)';
+                        window.style.opacity = '1';
+                    }, 250);
+                }
+            });
+        });
+        
+        /* Biometric ring interaction */
+        const biometricRing = window.querySelector('.biometric-ring');
+        if (biometricRing) {
+            biometricRing.addEventListener('click', function() {
+                /* Apple-style scale animation */
+                this.style.transform = 'scale(0.95)';
+                this.style.borderColor = 'rgba(0, 122, 255, 0.6)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                        this.style.borderColor = 'rgba(0, 122, 255, 0.2)';
+                    }, 150);
+                }, 100);
+            });
+        }
+    }
+    
+    /* Initialize with Apple-style progressive enhancement */
+    currentPhaseText.textContent = phases[0].name;
+    
+    /* Start the progress animation with slight delay */
+    setTimeout(() => {
+        /* Reset start time right before beginning */
+        startTime = Date.now();
+        animationFrame = requestAnimationFrame(updateProgress);
+    }, 800);
+    
+    /* Cleanup */
+    window.addEventListener('beforeunload', () => {
+        if (animationFrame) {
+            cancelAnimationFrame(animationFrame);
+        }
+    });
+})();
+</script>
+
