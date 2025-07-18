@@ -1,7 +1,6 @@
 <div id="brick-breaker-wrapper">
     <style>
-    /* Reset container styles */
-    #error-content {
+    #variation-casse-brique[style*="display: block"] #error-content {
         all: unset !important;
         position: fixed !important;
         top: 0 !important;
@@ -13,7 +12,7 @@
         background: #fff !important;
     }
 
-    #brick-breaker-container {
+    #variation-casse-brique[style*="display: block"] #brick-breaker-container {
         position: fixed;
         top: 0;
         left: 0;
@@ -25,7 +24,7 @@
         z-index: 9999;
     }
 
-    #brick-breaker-container a {
+    #variation-casse-brique[style*="display: block"] #brick-breaker-container a {
         position: absolute;
         top: 20px;
         left: 20px;
@@ -36,12 +35,12 @@
         font-weight: 400;
     }
 
-    #brick-breaker-container a:hover {
+    #variation-casse-brique[style*="display: block"] #brick-breaker-container a:hover {
         color: #000;
         text-decoration: underline;
     }
 
-    #game-area {
+    #variation-casse-brique[style*="display: block"] #game-area {
         position: absolute;
         left: 50%;
         top: 50%;
@@ -52,8 +51,8 @@
         cursor: crosshair; /* Show crosshair over the game area */
     }
 
-    #score {
-        font-family: Inter, sans-serif;
+    #variation-casse-brique[style*="display: block"] #score {
+        font-family: var(--font-family-main);
         position: absolute;
         top: -30px;
         left: 0;
@@ -62,7 +61,7 @@
         color: #000;
     }
 
-    #ball {
+    #variation-casse-brique[style*="display: block"] #ball {
         position: absolute;
         width: 10px;
         height: 10px;
@@ -70,7 +69,7 @@
         border-radius: 50%;
     }
 
-    #paddle {
+    #variation-casse-brique[style*="display: block"] #paddle {
         position: absolute;
         bottom: 20px;
         width: 80px;
@@ -78,7 +77,7 @@
         background: #000;
     }
 
-    #game-over {
+    #variation-casse-brique[style*="display: block"] #game-over {
         display: none;
         position: absolute;
         top: 50%;
@@ -90,7 +89,7 @@
         font-weight: 400;
     }
 
-    .brick {
+    #variation-casse-brique[style*="display: block"] .brick {
         position: absolute;
         width: 20px;
         height: 20px;
@@ -98,7 +97,7 @@
         box-sizing: border-box;
     }
 
-    .controls-info {
+    #variation-casse-brique[style*="display: block"] .controls-info {
         position: absolute;
         bottom: 20px;
         left: 50%;
@@ -110,9 +109,9 @@
         font-weight: 400;
     }
 
-    /* Default font */
-    html, body {
-        font-family: Inter, sans-serif;
+    /* Default font for this variation only */
+    #variation-casse-brique[style*="display: block"] {
+        font-family: var(--font-family-main);
         font-size: 1.2rem;
         font-weight: 400;
     }
@@ -188,6 +187,13 @@ if (!window.brickBreakerInitialized) {
     let isAutopilot = false;
     let bricks = [];
 
+    let ballSpeedMultiplier = 1.0;
+    let targetBallSpeedMultiplier = 1.0;
+    const speedTransitionFactor = 0.1;
+    let boostStartTime = null;
+    const BOOST_DURATION_BEFORE_INFINITE_INCREASE = 5000; /* 5 seconds */
+    const INFINITE_SPEED_INCREASE_RATE = 0.005;
+
     function updateScore(newScore) {
         score = newScore;
         scoreElement.textContent = score;
@@ -197,45 +203,64 @@ if (!window.brickBreakerInitialized) {
     function createBricks() {
         bricksContainer.innerHTML = '';
         bricks = [];
+
         const brickWidth = 20;
         const brickHeight = 20;
-        const padding = 2;
+        const brickPadding = 4;
+        const digitPadding = brickWidth;
 
-        const pattern = [
-            'x  x  xxxx  x  x',
-            'x  x  x  x  x  x',
-            'xxxx  x  x  xxxx',
-            '   x  x  x     x',
-            '   x  xxxx     x'
+        const digit4 = [
+            [1, 0, 1],
+            [1, 0, 1],
+            [1, 1, 1],
+            [0, 0, 1],
+            [0, 0, 1]
         ];
 
-        const patternWidth = pattern[0].length;
-        const totalPatternWidth = patternWidth * (brickWidth + padding);
-        const startX = (gameWidth - totalPatternWidth) / 2;
-        const startY = 50;
+        const digit0 = [
+            [1, 1, 1],
+            [1, 0, 1],
+            [1, 0, 1],
+            [1, 0, 1],
+            [1, 1, 1]
+        ];
 
-        pattern.forEach((row, r) => {
-            row.split('').forEach((char, c) => {
-                if (char === 'x') {
-                    const brick = document.createElement('div');
-                    brick.className = 'brick';
-                    const x = startX + c * (brickWidth + padding);
-                    const y = startY + r * (brickHeight + padding);
-                    brick.style.left = x + 'px';
-                    brick.style.top = y + 'px';
+        const message = [digit4, digit0, digit4];
+        const digitGridHeight = digit4.length;
+        const digitGridWidth = digit4[0].length;
 
-                    bricksContainer.appendChild(brick);
+        const messageWidth = (message.length * digitGridWidth * (brickWidth + brickPadding)) + ((message.length - 1) * digitPadding);
+        const startX = (gameWidth - messageWidth) / 2;
+        const startY = 80;
 
-                    bricks.push({
-                        element: brick,
-                        x: x,
-                        y: y,
-                        width: brickWidth,
-                        height: brickHeight,
-                        alive: true
-                    });
+        let currentX = startX;
+
+        message.forEach(digit => {
+            for (let r = 0; r < digitGridHeight; r++) {
+                for (let c = 0; c < digitGridWidth; c++) {
+                    if (digit[r][c] === 1) {
+                        const brick = document.createElement('div');
+                        brick.className = 'brick';
+
+                        const x = currentX + c * (brickWidth + brickPadding);
+                        const y = startY + r * (brickHeight + brickPadding);
+
+                        brick.style.left = x + 'px';
+                        brick.style.top = y + 'px';
+
+                        bricksContainer.appendChild(brick);
+                        bricks.push({
+                            element: brick,
+                            x,
+                            y,
+                            width: brickWidth,
+                            height: brickHeight,
+                            alive: true
+                        });
+                    }
                 }
-            });
+            }
+            currentX += (digitGridWidth * (brickWidth + brickPadding)) + digitPadding;
         });
     }
 
@@ -251,6 +276,18 @@ if (!window.brickBreakerInitialized) {
     function update() {
         if (!isPlaying) return;
 
+        /* After 10s, slowly increase speed to infinity */
+        if (boostStartTime && (Date.now() - boostStartTime > BOOST_DURATION_BEFORE_INFINITE_INCREASE)) {
+            targetBallSpeedMultiplier += INFINITE_SPEED_INCREASE_RATE;
+        }
+
+        /* Smooth speed transition */
+        if (Math.abs(targetBallSpeedMultiplier - ballSpeedMultiplier) > 0.01) {
+            ballSpeedMultiplier += (targetBallSpeedMultiplier - ballSpeedMultiplier) * speedTransitionFactor;
+        } else {
+            ballSpeedMultiplier = targetBallSpeedMultiplier;
+        }
+
         /* Paddle movement */
         if (isAutopilot) {
             paddleX = Math.max(0, Math.min(gameWidth - paddleWidth, ballX - paddleWidth / 2));
@@ -264,8 +301,8 @@ if (!window.brickBreakerInitialized) {
         }
 
         /* Move ball */
-        ballX += ballDX;
-        ballY += ballDY;
+        ballX += ballDX * ballSpeedMultiplier;
+        ballY += ballDY * ballSpeedMultiplier;
 
         /* Wall collisions */
         if (ballX <= 0 || ballX >= gameWidth - ballSize) {
@@ -307,8 +344,8 @@ if (!window.brickBreakerInitialized) {
 
             /* Check if all bricks destroyed */
             if (bricks.every(b => !b.alive)) {
-                /* All bricks destroyed: do not reset bricks */
-                /* createBricks(); */
+                /* All bricks destroyed: redirect to home */
+                window.location.href = '/';
             }
         }
 
@@ -344,8 +381,8 @@ if (!window.brickBreakerInitialized) {
         keys[e.key] = false;
     });
 
-    /* Tap / click to start or respawn */
-    gameArea.addEventListener('pointerdown', () => {
+    /* Tap / click to start or respawn, and speed boost */
+    gameArea.addEventListener('pointerdown', (e) => {
         if (!isPlaying) {
             if (isGameOver) {
                 updateScore(0);
@@ -357,6 +394,20 @@ if (!window.brickBreakerInitialized) {
             isPlaying = true;
             gameOverElement.style.display = 'none';
             update();
+        }
+
+        if (e.button === 0) {
+            targetBallSpeedMultiplier = 2.0;
+            if (!boostStartTime) {
+                boostStartTime = Date.now();
+            }
+        }
+    });
+
+    document.addEventListener('pointerup', (e) => {
+        if (e.button === 0) {
+            targetBallSpeedMultiplier = 1.0;
+            boostStartTime = null;
         }
     });
 
@@ -372,6 +423,8 @@ if (!window.brickBreakerInitialized) {
         if (isPlaying) {
             isAutopilot = true;
             showMouseHint();
+            targetBallSpeedMultiplier = 1.0; /* Reset boost on leave */
+            boostStartTime = null;
         }
     });
 

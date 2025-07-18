@@ -1,6 +1,12 @@
 @import url("../fonts/Inter-4.1/inter.css");
+@import url("../fonts/CommitMono-1.143/commit-mono.css");
 
 :root {
+  /* Font families */
+  --font-family-main: Inter, -apple-system, Helvetica, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica", "Arial", sans-serif;
+  --font-family-variable: "InterVariable", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-family-monospace: "CommitMono", "SF Mono", Monaco, Menlo, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  /* Colors */
   --background-color: #ffffff;
   --secondary-background: #f8f9fa;
   --font-color: #1a1a1a;
@@ -15,26 +21,10 @@
   --link-hover-color: #1a1a1a;
   --image-opacity: 1;
   --image-opacity-hover: 1;
-
-  /* Minimalistic Dark Theme */
-  --background-color-dark: #333;
-  --secondary-background-dark: #444;
-  --font-color-dark: white;
-  --font-color-muted-dark: lightgrey;
-  --accent-color-dark: lightgrey;
-  --accent-color-hover-dark: white;
-  --border-color-dark: #555;
-  --selection-background-dark: #555;
-  --selection-color-dark: white;
-  --link-color-dark: white;
-  --link-hover-background-dark: #555;
-  --link-hover-color-dark: white;
-  --image-opacity-dark: 0.9;
-  --image-opacity-hover-dark: 1;
 }
 
 body {
-  font-family: Inter -apple-system, Helvetica, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica", "Arial", sans-serif;
+  font-family: var(--font-family-main);
   background-color: var(--background-color);
   color: var(--font-color);
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -42,9 +32,139 @@ body {
 
 @supports (font-variation-settings: normal) {
   body {
-    font-family: "InterVariable", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: var(--font-family-variable);
     font-optical-sizing: auto;
   }
+}
+
+code,
+kbd,
+samp,
+pre,
+tt,
+.monospace,
+.code {
+  font-family: var(--font-family-monospace);
+  font-feature-settings: "liga" 0; /* Disable ligatures for better code readability */
+  font-size: 0.9em;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-variant-ligatures: none;
+}
+
+.highlight {
+  background: var(--secondary-background);
+  margin: 1em 0;
+  overflow-x: auto;
+}
+
+.highlight pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  overflow: visible;
+}
+
+.highlight code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+/* Rouge syntax highlighting tokens */
+.highlight .c { color: #6c757d; font-style: italic; } /* Comment */
+.highlight .err { color: #dc3545; } /* Error */
+.highlight .k { color: #0d47a1; } /* Keyword */
+.highlight .l { color: #2e7d32; } /* Literal */
+.highlight .n { color: #1a1a1a; } /* Name */
+.highlight .o { color: #e65100; } /* Operator */
+.highlight .p { color: #1a1a1a; } /* Punctuation */
+.highlight .cm { color: #6c757d; font-style: italic; } /* Comment.Multiline */
+.highlight .cp { color: #6c757d; } /* Comment.Preproc */
+.highlight .c1 { color: #6c757d; font-style: italic; } /* Comment.Single */
+.highlight .cs { color: #6c757d; font-style: italic; } /* Comment.Special */
+.highlight .gd { color: #dc3545; } /* Generic.Deleted */
+.highlight .ge { font-style: italic; } /* Generic.Emph */
+.highlight .gr { color: #dc3545; } /* Generic.Error */
+.highlight .gh { color: #1a1a1a; } /* Generic.Heading */
+.highlight .gi { color: #28a745; } /* Generic.Inserted */
+.highlight .go { color: #6c757d; } /* Generic.Output */
+.highlight .gp { color: #6c757d; } /* Generic.Prompt */
+.highlight .gs { } /* Generic.Strong */
+.highlight .gu { color: #6c757d; } /* Generic.Subheading */
+.highlight .gt { color: #dc3545; } /* Generic.Traceback */
+.highlight .kc { color: #0d47a1; } /* Keyword.Constant */
+.highlight .kd { color: #0d47a1; } /* Keyword.Declaration */
+.highlight .kn { color: #0d47a1; } /* Keyword.Namespace */
+.highlight .kp { color: #0d47a1; } /* Keyword.Pseudo */
+.highlight .kr { color: #0d47a1; } /* Keyword.Reserved */
+.highlight .kt { color: #6f42c1; } /* Keyword.Type */
+.highlight .ld { color: #2e7d32; } /* Literal.Date */
+.highlight .m { color: #d63384; } /* Literal.Number */
+.highlight .s { color: #2e7d32; } /* Literal.String */
+.highlight .na { color: #e65100; } /* Name.Attribute */
+.highlight .nb { color: #6f42c1; } /* Name.Builtin */
+.highlight .nc { color: #6f42c1; } /* Name.Class */
+.highlight .no { color: #d63384; } /* Name.Constant */
+.highlight .nd { color: #6f42c1; } /* Name.Decorator */
+.highlight .ni { color: #d63384; } /* Name.Entity */
+.highlight .ne { color: #dc3545; } /* Name.Exception */
+.highlight .nf { color: #0d47a1; } /* Name.Function */
+.highlight .nl { color: #d63384; } /* Name.Label */
+.highlight .nn { color: #6f42c1; } /* Name.Namespace */
+.highlight .nx { color: #1a1a1a; } /* Name.Other */
+.highlight .py { color: #d63384; } /* Name.Property */
+.highlight .nt { color: #0d47a1; } /* Name.Tag */
+.highlight .nv { color: #d63384; } /* Name.Variable */
+.highlight .ow { color: #0d47a1; } /* Operator.Word */
+.highlight .w { color: #f8f9fa; } /* Text.Whitespace */
+.highlight .mf { color: #d63384; } /* Literal.Number.Float */
+.highlight .mh { color: #d63384; } /* Literal.Number.Hex */
+.highlight .mi { color: #d63384; } /* Literal.Number.Integer */
+.highlight .mo { color: #d63384; } /* Literal.Number.Oct */
+.highlight .sb { color: #2e7d32; } /* Literal.String.Backtick */
+.highlight .sc { color: #2e7d32; } /* Literal.String.Char */
+.highlight .sd { color: #2e7d32; } /* Literal.String.Doc */
+.highlight .s2 { color: #2e7d32; } /* Literal.String.Double */
+.highlight .se { color: #e65100; } /* Literal.String.Escape */
+.highlight .sh { color: #2e7d32; } /* Literal.String.Heredoc */
+.highlight .si { color: #e65100; } /* Literal.String.Interpol */
+.highlight .sx { color: #2e7d32; } /* Literal.String.Other */
+.highlight .sr { color: #2e7d32; } /* Literal.String.Regex */
+.highlight .s1 { color: #2e7d32; } /* Literal.String.Single */
+.highlight .ss { color: #d63384; } /* Literal.String.Symbol */
+.highlight .bp { color: #6f42c1; } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #d63384; } /* Name.Variable.Class */
+.highlight .vg { color: #d63384; } /* Name.Variable.Global */
+.highlight .vi { color: #d63384; } /* Name.Variable.Instance */
+.highlight .il { color: #d63384; } /* Literal.Number.Integer.Long */
+
+/* Language-specific wrapper styling */
+.highlighter-rouge {
+  margin: 1em 0;
+}
+
+.highlighter-rouge .highlight {
+  margin: 0;
+}
+
+/* Inline code styling */
+code {
+  background: var(--secondary-background);
+  font-size: 0.9em;
+}
+
+/* Don't style code inside pre blocks (already styled by .highlight) */
+pre code {
+  background: transparent;
+  padding: 0;
 }
 
 ::selection {
@@ -120,38 +240,6 @@ a:has(picture):hover {
   }
 }
 
-
-/*
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: var(--background-color-dark);
-    --secondary-background: var(--secondary-background-dark);
-    --font-color: var(--font-color-dark);
-    --font-color-muted: var(--font-color-muted-dark);
-    --accent-color: var(--accent-color-dark);
-    --accent-color-hover: var(--accent-color-hover-dark);
-    --border-color: var(--border-color-dark);
-    --selection-background: var(--selection-background-dark);
-    --selection-color: var(--selection-color-dark);
-    --link-color: var(--link-color-dark);
-    --link-hover-background: var(--link-hover-background-dark);
-    --link-hover-color: var(--link-hover-color-dark);
-    --image-opacity: var(--image-opacity-dark);
-    --image-opacity-hover: var(--image-opacity-hover-dark);
-  }
-
-  body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-}
-*/
-
-/* ===============================
-   Reusable loading spinner
-   -------------------------------
-   Usage: <span class="loading-spinner"></span>
-   =============================== */
 .loading-spinner {
   display: inline-block;
   width: 24px;

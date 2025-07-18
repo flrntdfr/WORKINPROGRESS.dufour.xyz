@@ -60,7 +60,7 @@ data {
   border-radius: 6px;
   padding: 12px 16px;
   margin: 0 0 20px 0;
-  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-family: var(--font-family-monospace);
   font-size: 0.85em;
   color: #495057;
   word-break: break-all;
@@ -171,7 +171,7 @@ data {
   color: #adb5bd;
   margin-top: 0;
   padding-top: 10px;
-  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-family: var(--font-family-monospace);
   letter-spacing: 0.5px;
 }
 </style>
@@ -197,7 +197,7 @@ data {
           <p><strong>Popup blocked:</strong> Your browser prevented the automatic redirect.</p>
           <a href="{{ url }}" target="_blank" rel="noopener noreferrer">Open Manually</a>
         </div>
-        <div class="uuid-display" id="uuid-display"></div>
+        {% include ray-id.html %}
       </div>
       {% break %}
     {% endif %}
@@ -205,16 +205,3 @@ data {
 {% else %}
   {{ content }}
 {% endif %}
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var uuidElement = document.getElementById('uuid-display');
-  if (uuidElement) {
-    function updateRayId() {
-      var uuid = crypto.randomUUID();
-      uuidElement.textContent = 'Ray ID: ' + uuid.slice(0, -1) + '4';
-    }
-    updateRayId();
-  }
-});
-</script>

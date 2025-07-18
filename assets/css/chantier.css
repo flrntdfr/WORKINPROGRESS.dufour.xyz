@@ -35,18 +35,17 @@ data table {
 }
 
 data table th {
-    padding: 2em 2em;
     white-space: nowrap;
     vertical-align: top;
     text-align: left;
-    border-bottom: 1px solid var(--border-color);
+    padding-left: 2em;
 }
 
 data table td {
-    padding: 2em 2em;
+    padding-top: 0.5em;
+    padding-left: 2em;
     word-wrap: break-word;
     vertical-align: top;
-    border-bottom: 1px solid var(--border-color);
 }
 
 data table tbody tr:last-child td {

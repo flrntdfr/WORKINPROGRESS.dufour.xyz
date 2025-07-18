@@ -37,12 +37,12 @@ tech: [Notes.app, Stable diffusion]
     <img src="{% link /assets/2025/ministres/1B4DEC2C-5220-459D-A003-BCE50C16F1D1.png %}" alt="Portrait du Ministre de la Sieste et des Retraites">
 </div>
 <div class="minister-card">
-    <p>Ministre de la pluie et du beau temps</p><br>
-    <img src="{% link /assets/2025/ministres/B9C4F161-BB03-4F44-8C0F-6B98DCB1C68C.png %}" alt="Portrait du Ministre de la Pluie et du Beau Temps">
+    <p>Ministre de la jeunesse, de la pluie, et du beau temps</p><br>
+    <img src="{% link /assets/2025/ministres/B9C4F161-BB03-4F44-8C0F-6B98DCB1C68C.png %}" alt="Portrait du Ministre de la Jeunesse, de la Pluie, et du Beau Temps">
 </div>
 <div class="minister-card">
-    <p>Ministre de la France et des Français à l'étranger</p><br>
-    <img src="{% link /assets/2025/ministres/892DBEA7-95B0-4E3E-AC78-90A74DEF0C40.png %}" alt="Portrait du Ministre de la France et des Français à l'Étranger">
+    <p>Ministre de l'immigration et des Français à l'étranger</p><br>
+    <img src="{% link /assets/2025/ministres/892DBEA7-95B0-4E3E-AC78-90A74DEF0C40.png %}" alt="Portrait du Ministre de l'immigration et des Français à l'étranger">
 </div>
 <div class="minister-card">
     <p>Ministre des sciences et technologies du management et de la gestion</p><br>
@@ -73,6 +73,10 @@ tech: [Notes.app, Stable diffusion]
     <img src="{% link /assets/2025/ministres/B0F3782B-A235-4401-B5F8-A072D51AF5C7.png %}" alt="Portrait du Ministre de la Grève et du Développement Durable">
 </div>
 <div class="minister-card">
+    <p>Ministre de la croissance qui décoiffe</p><br>
+    <img src="{% link /assets/2025/ministres/7642C8A0-7441-473F-A3E2-7C83354CDCA8.png %}" alt="Portrait du Ministre de la croissance qui décoiffe">
+</div>
+<div class="minister-card">
     <p>Ministre de l'efficacité religieuse</p><br>
     <img src="{% link /assets/2025/ministres/81323ADF-71F1-4885-8FFD-23B7F28B1BBC.png %}" alt="Portrait du Ministre de l'efficacité religieuse">
 </div>
@@ -85,18 +89,17 @@ tech: [Notes.app, Stable diffusion]
     <img src="{% link /assets/2025/ministres/9B498F83-5B38-4E58-85BC-22BBBF80A069.png %}" alt="Portrait du Ministre de la recherche et du développement">
 </div>
 <div class="minister-card">
-    <p>Ministre des infrastructures et filières stratégiques</p><br>
-    <img src="{% link /assets/2025/ministres/BBA76563-51AC-4FFF-BA92-243428EFCEC8.png %}" alt="Portrait du Ministre des Infrastructures et Filières Stratégiques">
+    <p>Ministre du plan A</p><br>
+    <img src="{% link /assets/2025/ministres/F163CE0C-B3BB-40CD-B3F1-D6A04674B487.png %}" alt="Portrait du Ministre du Plan A">
 </div>
 <div class="minister-card">
-    <p>Ministre de la croissance et de l'aérodynamisme</p><br>
-    <img src="{% link /assets/2025/ministres/7642C8A0-7441-473F-A3E2-7C83354CDCA8.png %}" alt="Portrait du Ministre de la croissance et de l'aérodynamisme">
+    <p>Ministre du plan B</p><br>
+    <img src="{% link /assets/2025/ministres/BBA76563-51AC-4FFF-BA92-243428EFCEC8.png %}" alt="Portrait du Ministre du Plan B">
 </div>
 <div class="minister-card">
     <p>Ministre chargé du rayonnement de la France en outre-mer</p><br>
     <img src="{% link /assets/2025/ministres/FD387D48-44CD-41E9-8087-5B7D08C9F666.png %}" alt="Portrait du Ministre chargé du rayonnement de la France en outre-mer">
 </div>
-
 <script src="{% link /assets/lib/p5.v1.4.2.min.js %}"></script>
 <script>
         document.addEventListener('DOMContentLoaded', function() {

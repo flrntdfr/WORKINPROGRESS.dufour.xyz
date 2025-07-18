@@ -289,7 +289,7 @@ description: |
     right: 15px;
     font-size: 1rem;
     padding: 5px 10px;
-    font-family: 'Inter', Helvetica, sans-serif;
+    font-family: var(--font-family-main);
     color: #888;
   }
 

@@ -3,7 +3,7 @@ layout: chantier
 title: Les fins du monde ratées
 started: 2009-11-29 00:00
 ended: 2009-12-31 00:00
-location: Belleville
+location: [Belleville]
 featured: false
 labels: [list, vibe]
 tech: [Microsoft Excel, Claude 4]

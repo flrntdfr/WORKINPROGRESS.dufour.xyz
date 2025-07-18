@@ -438,17 +438,6 @@ description: |
             }
 
     main();
-
-    function generateRayID() {
-        var uuidElement = document.getElementById('uuid-display');
-        if (uuidElement) {
-            var uuid = crypto.randomUUID();
-            uuidElement.textContent = 'Ray ID: ' + uuid.slice(0, -1) + '4';
-        }
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-        generateRayID();
-    });
 </script>
 
 
@@ -460,7 +449,7 @@ description: |
         <button id="ask-button" disabled>Ask&nbsp;→</button>
     </div>
     <pre id="llm-output"></pre>
-    <div class="uuid-display" id="uuid-display"></div>
+    {% include ray-id.html %}
 </div>
 
 <style>
@@ -525,12 +514,6 @@ description: |
     background-color: #f5f5f5;
     color: #ccc;
     cursor: not-allowed;
-}
-
-.uuid-display {
-    font-size: 0.5em;
-    color: #888;
-    letter-spacing: 0.5px;
 }
 
 /* Cursor feedback during generation */

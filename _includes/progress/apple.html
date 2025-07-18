@@ -537,27 +537,7 @@
     
     function updateProgress() {
         if (isCompleted) {
-                         /* Reset after completion with Apple-style timing */
-             setTimeout(() => {
-                 progress = 0;
-                 currentPhase = 0;
-                 isCompleted = false;
-                 startTime = Date.now();
-                 progressFill.style.width = '0%';
-                 progressText.textContent = '0%';
-                 currentPhaseText.textContent = phases[0].name;
-                 
-                 /* Reset status indicators to original state */
-                 const statusIndicators = document.querySelectorAll('.status-indicator');
-                 if (statusIndicators.length >= 4) {
-                     statusIndicators[0].className = 'status-indicator active';
-                     statusIndicators[1].className = 'status-indicator active';
-                     statusIndicators[2].className = 'status-indicator loading';
-                     statusIndicators[3].className = 'status-indicator pending';
-                 }
-                 
-                 updateProgress();
-             }, 2500);
+            /* Stay completed - no reset */
             return;
         }
         

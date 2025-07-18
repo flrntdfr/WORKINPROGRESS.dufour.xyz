@@ -1,0 +1,36 @@
+<div class="uuid-display ray-id" id="ray-id">Ray ID: generating...</div>
+
+<script>
+/* Ray ID Generator - Reusable Include */
+function generateRayID(elementId = 'ray-id') {
+    var uuidElement = document.getElementById(elementId);
+    if (uuidElement) {
+        var uuid = crypto.randomUUID();
+        uuidElement.textContent = 'Ray ID: ' + uuid.slice(0, -1) + '4';
+    }
+}
+
+function updateRayId(elementId = 'ray-id') {
+    generateRayID(elementId);
+}
+
+/* Auto-initialize on DOMContentLoaded */
+document.addEventListener('DOMContentLoaded', function() {
+    /* Try common element IDs */
+    if (document.getElementById('ray-id')) {
+        generateRayID('ray-id');
+    } else if (document.getElementById('uuid-display')) {
+        generateRayID('uuid-display');
+    }
+});
+</script>
+
+<style>
+.uuid-display, .ray-id {
+    font-size: 0.5em;
+    color: #adb5bd;
+    margin-top: 0;
+    font-family: var(--font-family-monospace);
+    letter-spacing: 0.5px;
+}
+</style> 

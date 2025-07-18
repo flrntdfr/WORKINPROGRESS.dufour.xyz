@@ -1,0 +1,86 @@
+
+<style>
+/* Scoped styles for hello variation only - only when displayed */
+#variation-hello[style*="display: block"] {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+#variation-hello[style*="display: block"] .name-tag {
+    background: #fff;
+    /* border: 2px solid #000; */
+    border-bottom: 20px solid #e74c3c;
+    border-radius: 8px;
+    width: 400px; /* Set a fixed base width to make it larger */
+    max-width: 95%; /* Ensure it scales down on smaller screens */
+    margin: 0; /* Remove margin since we're using flexbox for centering */
+    font-family: Futura, Helvetica, Arial, sans-serif;
+    overflow: hidden; /* Keeps the corners rounded */
+}
+
+#variation-hello[style*="display: block"] .red-section {
+    background: #e74c3c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#variation-hello[style*="display: block"] .hello-text {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+    text-transform: capitalize;
+}
+
+#variation-hello[style*="display: block"] .my-name-is {
+    font-size: 16px;
+    margin: 5px 0 0;
+    text-transform: lowercase;
+}
+
+#variation-hello[style*="display: block"] .white-section {
+    background: #fff;
+    padding: 16px 20px;
+    text-align: center;
+}
+
+#variation-hello[style*="display: block"] .name-text {
+    font-family: 'Marker Felt', cursive;
+    font-size: 80px;
+    font-weight: normal;
+    color: #000;
+    line-height: 1;
+    margin: 0;
+}
+
+#variation-hello[style*="display: block"] .tag-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block;
+}
+
+#variation-hello[style*="display: block"] .tag-link:hover,
+#variation-hello[style*="display: block"] .tag-link:active,
+#variation-hello[style*="display: block"] .tag-link:focus,
+#variation-hello[style*="display: block"] .tag-link:visited {
+    background: transparent !important;
+    text-decoration: none !important;
+    color: inherit !important;
+}
+</style>
+
+<a href="/" class="tag-link">
+    <div class="name-tag">
+        <div class="red-section">
+            <h1 class="hello-text">Hello</h1>
+            <p class="my-name-is">my name is</p>
+        </div>
+        <div class="white-section">
+            <h2 class="name-text">404</h2>
+        </div>
+    </div>
+</a>
