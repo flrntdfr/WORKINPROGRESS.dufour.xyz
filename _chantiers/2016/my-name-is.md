@@ -1,12 +1,9 @@
 ---
 layout: chantier
-title: I AM
+title: My name is
 started: 2016-03-06 11:09
-ended: 2025-07-13 11:09
-labels: [list, game, vibe]
-tech: [Notes.app, Claude 4]
-description: |
-
+ended: 2016-07-13 11:09
+labels: [list, game]
 ---
 
 <style>
@@ -239,18 +236,19 @@ const lists = {
       "young",
       "middle-aged",
       "old",
+      "a scientist",
+      "an artist",
     ],
     listB: [
       "I know about AlphaGo's move 37.",
       "I have seen the passage of time.",
-      "I am like an angry postcard.",
+      "I write angry postcards.",
       "I believe Bavaria should be as God intended.",
       "I am experiencing a shift in attitude.",
       "I reached the 12th step.",
-      "I believe in the death of God.",
+      "I believe God is dead.",
       "I am skill in action.",
       "I am ignorance talking.",
-      "I listened to Dopey's episode 142.",
       "I am convergence in action.",
       "I am what happens when strangers meet.",
       "I am the flag of a dead country.",
@@ -264,7 +262,8 @@ const lists = {
       "I am the emotion that fills the blanks.",
       "I am the face of immense suffering.",
       "I am the end before the beginning.",
-      "I am the same issue seen from two different sides.",
+      "I can see the same issue from two different sides.",
+      "I practice thinking against myself.", 
       "I am unable to love.",
       "I am the trend in the other direction.",
       "I lack emotions.",
@@ -278,7 +277,7 @@ const lists = {
       "I contain all the love one heart can hold.",
       "I am like a dog with a bone.",
       "I urge endings.",
-      "I resemble the vacuum of space.",
+      "I feel the vacuum of space.",
       "I am experiencing the vanishing sense of purpose.",
       "I inhabit the Goldilocks zone.",
       "my life does the opposite of improving.",
@@ -328,7 +327,7 @@ const lists = {
       "I am ignorant and blissful.",
       "I am wise.",
       "I believe in art.",
-      "I can paint the hideous picture of happiness.",
+      "I have seen the hideous picture of happiness.",
       "I am the chocolate chip in your cookie.", 
       "I live in the reality I created for myself.",
       "I like closed concepts.",
@@ -354,6 +353,10 @@ const lists = {
       "I think this invisible thought.",
       "I have never been so sad.",
       "I am not afraid of the dark.",
+      "I understand humanity at a different level.",
+      "I know how much does a cow cost.",
+      "I have good intentions.",
+      "I am tired.",
     ]
   },
   fr: {
@@ -429,8 +432,6 @@ const lists = {
       "sobre",
       "clean",
       "un·e immigré·e",
-      "natif·ve",
-      "indigène",
       "noir·e",
       "blanc·he",
       "latino",
@@ -456,6 +457,8 @@ const lists = {
       "un·e adolescent·e",
       "vieux·eille",
       "un·e immigrant·e",
+      "un·e scientifique",
+      "un·e artiste",
     ],
     listB: [
       "on m'a donné le bon dieu sans confession.",
@@ -493,7 +496,7 @@ const lists = {
       "je suis le muscle de l'amour.",
       "je suis aussi dangereux·se que l'adversaire.",
       "j'ai traversé des tunnels de violence.",
-      "je suis l'incarnation de la perfection.",
+      "je suis la perfection incarnée.",
       "j'exprime ma singularité.",
       "je défie la croyance en les contraires.",
       "je vis les choses de la vie.",
@@ -639,7 +642,7 @@ const lists = {
       "je suis comme la liberté asthmatique.",
       "j'ai un suçon imaginaire.",
       "je sais ce que je veux construire.",
-      "je suis l'horizon des événements.",
+      "je me trouve à l'horizon des événements.",
       "je suis la meilleure vérité.",
       "je partage l'hallucination collective.",
       "je me sens comme une piste de danse.",
@@ -659,6 +662,7 @@ const lists = {
       "je suis un départ d'avalanche.",
       "je colle les timbres de travers.",
       "je sais ce qu'est un F4U.",
+      "je peux aller plus vite que la musique.",
     ]
   }
 };
@@ -706,6 +710,9 @@ function switchLanguage(lang) {
   
   document.getElementById('list-a-item').value = currentListA;
   document.getElementById('list-b-item').value = currentListB;
+  
+  /* Focus the name input after language switch */
+  document.getElementById('name-input').focus();
 }
 
 function generateNewCombination() {
@@ -761,6 +768,9 @@ document.addEventListener('DOMContentLoaded', function() {
       /* Could add name-specific logic here */
     }
   });
+  
+  /* Focus the name input on page load */
+  nameInput.focus();
   
   /* Keyboard shortcuts */
   document.addEventListener('keydown', function(event) {

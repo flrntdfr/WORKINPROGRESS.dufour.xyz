@@ -3,7 +3,7 @@ layout: chantier
 title: Truth or Truth
 started: 2022-05-15 23:48
 ended: 2025-01-19 19:45
-labels: [game, list]
+labels: [list, game]
 description: |
   Truth or Truth is a deck of cards that can be played on a first date.
 ---
@@ -29,7 +29,7 @@ description: |
       "Are you happy?",
       "What's your definition of the word: courage?",
       "What's the first thing you'd do with freewill?",
-      "Are there topics you choose to avoid with your parents?",
+      "Are there topics you avoid with your parents?",
       "How do you explain that you think certain things?",
       "Are many people good looking?",
       "What are the most important facts everyone should know?",

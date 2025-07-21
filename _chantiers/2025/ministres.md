@@ -100,6 +100,13 @@ tech: [Notes.app, Stable diffusion]
     <p>Ministre chargé du rayonnement de la France en outre-mer</p><br>
     <img src="{% link /assets/2025/ministres/FD387D48-44CD-41E9-8087-5B7D08C9F666.png %}" alt="Portrait du Ministre chargé du rayonnement de la France en outre-mer">
 </div>
+
+{% comment %}
+0A02AE8F-F49D-4F00-AEB6-3E6602FC3A7A.png
+
+Ministre de la Solitude Numérique
+{% endcomment %}
+
 <script src="{% link /assets/lib/p5.v1.4.2.min.js %}"></script>
 <script>
         document.addEventListener('DOMContentLoaded', function() {

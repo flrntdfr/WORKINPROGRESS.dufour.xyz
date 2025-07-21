@@ -7,14 +7,14 @@ labels: [illustration]
 label: [illustration]
 ---
 
-![Pixel Sorted]({% link /assets/2018/pixel-sorted/1.png %})
+![Pixel Sorted]({% link /assets/2018/hiver/1.png %})
 
-![Pixel Sorted]({% link /assets/2018/pixel-sorted/2.png %})
+![Pixel Sorted]({% link /assets/2018/hiver/2.png %})
 
-![Pixel Sorted]({% link /assets/2018/pixel-sorted/3.png %})
+![Pixel Sorted]({% link /assets/2018/hiver/3.png %})
 
-![Pixel Sorted]({% link /assets/2018/pixel-sorted/4.png %})
+![Pixel Sorted]({% link /assets/2018/hiver/4.png %})
 
-![Pixel Sorted]({% link /assets/2018/pixel-sorted/5.png %})
+![Pixel Sorted]({% link /assets/2018/hiver/5.png %})
 
-![Pixel Sorted]({% link /assets/2018/pixel-sorted/6.png %})
+![Pixel Sorted]({% link /assets/2018/hiver/6.png %})

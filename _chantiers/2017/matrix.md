@@ -1,11 +1,11 @@
 ---
 layout: chantier-standalone
-started: 2017-04-31 02:15
-ended: 2017-04-31 02:15
+started: 2017-05-01 04:15
+ended: 2017-05-01 04:15
 title: matrix
 labels: [web]
 description: |
-  The problem with insomnia is that you can spend a night coding something useless.
+  The problem with insomnia is that you can loose a night coding something useless.
 ---
 
 <style>
@@ -27,7 +27,7 @@ description: |
   color: #00ff00;
   padding: 20px;
   border: 1px solid #00ff00;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-family-monospace);
   font-size: 14px;
   line-height: 1.4;
   z-index: 10;
@@ -68,6 +68,7 @@ description: |
 .metadata-overlay a:hover {
   color: #80ff80;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  background-color: rgba(0, 0, 0, 1);
 }
 
 .metadata-overlay a:visited {
@@ -79,7 +80,7 @@ description: |
 
 <div class="metadata-overlay">
   <h1><a href="/">←</a> {{ page.title }}</h1>
-  <div class="date">{{ page.started | date: "%B %d, %Y" }}</div>
+  <div class="date">{{ page.started | date: "%B %d, %Y %H:%M" }}</div>
   <div class="description">{{ page.description | markdownify | strip_html }}</div>
 </div>
 
@@ -95,10 +96,8 @@ function addClickToggle(p5Instance) {
             p5Instance.canvas.addEventListener('click', function() {
                 if (p5Instance.isLooping()) {
                     p5Instance.noLoop();
-                    console.log('Matrix paused');
                 } else {
                     p5Instance.loop();
-                    console.log('Matrix resumed');
                 }
             });
         }
@@ -206,97 +205,3 @@ const matrixSketch = function(p) {
 const matrixInstance = new p5(matrixSketch, 'p5Canvas-container');
 addClickToggle(matrixInstance);
 </script>
-
-
-<!--
-<script type="module">
-/* April 30th
- * Reference: https://youtu.be/S1TQCi9axzg?si=cei-eOtD9tUIQY1N
- */
-
-var symbolSize = 26;
-var streams = [];
-
-function setup() {
-  createCanvas(400, 400);
-  background(0);
-
-  var x = 0;
-  var y = 0;
-
-  for (var i = 0; i <= width / symbolSize; i++) {
-    stream = new Stream();
-    stream.generateSymbols(x, random(-1000, 0));
-    streams.push(stream);
-    x += symbolSize;
-  }
-
-  stream = new Stream();
-  stream.generateSymbols();
-  textSize(symbolSize);
-}
-
-function draw() {
-  background(0, 100);
-  streams.forEach(function (stream) {
-    stream.render();
-  });
-}
-
-function Symbol(x, y, speed, first) {
-  this.x = x;
-  this.y = y;
-  this.speed = speed;
-  this.value;
-  this.switchInterval = round(random(2, 20));
-  this.first = first;
-
-  this.setToRandomSymbol = function() {
-    if (frameCount % this.switchInterval == 0) {
-      this.value = String.fromCharCode(
-        0x30A0 + round(random(0, 96))
-      );
-    }
-  };
-
-  this.rain = function() {
-    this.y = (this.y >= height) ? 0 : this.y += this.speed;
-  };
-}
-
-function Stream() {
-  this.symbols = [];
-  this.totalSymbols = round(random(5, 15));
-  this.speed = random(5, 10);
-
-
-  this.generateSymbols = function (x, y) {
-    var first = round(random(0, 1)) == 1;
-    this.x = x;
-    this.y = y;
-    for (var i = 0; i <= this.totalSymbols; i++) {
-      symbol = new Symbol(x, y, this.speed, first);
-      symbol.setToRandomSymbol();
-      this.symbols.push(symbol);
-      y -= symbolSize;
-      first = false;
-    }
-  };
-
-  this.render = function () {
-    this.symbols.forEach(function (symbol) {
-      if (symbol.first == true) {
-        fill(180, 255, 180);
-      }
-      else {
-        fill(0, 200, 70);
-      }
-      text(symbol.value, symbol.x, symbol.y);
-      symbol.rain();
-      symbol.setToRandomSymbol();
-
-    });
-  };
-}
-</script>
--->

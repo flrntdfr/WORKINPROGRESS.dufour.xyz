@@ -20,6 +20,5 @@ href:
 ---
 
 <div style="height: 90vh; margin: 20px 0;">
-{% include iframe.html content="/assets/2024/cv.pdf" %}
+{% include iframe.html content="/assets/2024/curriculum-vitae/cv.pdf" %}
 </div>
-

@@ -12,13 +12,19 @@ layout: chantier
     height: auto !important;
 }
 
-@media (max-width: 2000px) {
+@media (min-width: 1700px) {
+    div[style*="grid-template-columns"] {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) !important;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 1000px) {
     div[style*="grid-template-columns"] {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
     }
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1000px) {
     div[style*="grid-template-columns"] {
         grid-template-columns: minmax(0, 1fr) !important;
     }

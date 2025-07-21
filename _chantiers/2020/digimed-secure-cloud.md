@@ -6,7 +6,7 @@ started: 2020-09-01 09:00
 #ended: 2027-11-30 17:00
 location: [Leibniz Supercomputing Centre]
 labels: [research]
-tech: [OpenStack, Quobyte, AMD-SEV/SNP, Nvidia H200]
+tech: [OpenStack, AMD-SEV/SNP, Nvidia H200, Quobyte]
 href:
   - ["ext", "<b>Consortium website:</b>", "digimed-bayern.de", "https://www.digimed-bayern.de/en.html"]
   - ["ext", "<b>Cloud documentation:</b>", "pages.gitlab.lrz.de", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]

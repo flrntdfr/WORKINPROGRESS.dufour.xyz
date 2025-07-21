@@ -2,53 +2,6 @@
     src="{{ include.content }}" 
     width="100%" 
     frameborder="0" 
-    style="border: none; display: block; margin: 0 auto;"
-    id="auto-resize-iframe-{{ include.content | slugify }}"
-    onload="resizeIframe(this)">
+    style="border: none; display: block; margin: 0 auto; width: 100%; height: 90vh;"
+    id="auto-resize-iframe-{{ include.content | slugify }}">
 </iframe>
-
-<script>
-function resizeIframe(iframe) {
-    try {
-        /* Wait for content to fully load */
-        setTimeout(function() {
-            if (iframe.contentWindow.document.body) {
-                /* Get the full height of the content */
-                const contentHeight = Math.max(
-                    iframe.contentWindow.document.body.scrollHeight,
-                    iframe.contentWindow.document.body.offsetHeight,
-                    iframe.contentWindow.document.documentElement.clientHeight,
-                    iframe.contentWindow.document.documentElement.scrollHeight,
-                    iframe.contentWindow.document.documentElement.offsetHeight
-                );
-                
-                /* Set iframe height to match content */
-                iframe.style.height = contentHeight + 'px';
-                
-                /* Optional: Add some padding */
-                iframe.style.height = (contentHeight + 20) + 'px';
-            }
-        }, 100);
-        
-        /* Also listen for window resize in case content changes */
-        iframe.contentWindow.addEventListener('resize', function() {
-            resizeIframe(iframe);
-        });
-        
-    } catch (e) {
-        /* Fallback for cross-origin issues */
-        console.log('Auto-resize failed, using fallback height');
-        iframe.style.height = '600px';
-    }
-}
-
-/* Alternative method using postMessage for better cross-origin support */
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.type === 'resize') {
-        const iframe = document.getElementById('auto-resize-iframe-{{ include.content | slugify }}');
-        if (iframe) {
-            iframe.style.height = event.data.height + 'px';
-        }
-    }
-});
-</script>

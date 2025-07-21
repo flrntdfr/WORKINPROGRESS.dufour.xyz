@@ -3,7 +3,7 @@ layout: chantier
 title: TruthLLM
 started: 2024-08-04 00:00
 ended: 2024-10-02 00:00
-labels: [LLM, web, vibe]
+labels: [LLM, web]
 tech: [GPT2]
 description: |
     ThruthLLM is a "Large" Language Model that will answer any question truthfully in less than 1000 tokens.
@@ -34,7 +34,7 @@ description: |
         "Why do socks vanish only one at a time?",
         "What happens if you microwave nothing?",
         "Are shadows jealous of their objects?",
-        "Do mirrors secretly watch us back?",
+        "Can other people also see me in the mirror?",
         "Do vampires prefer certain blood types?",
         "Can a sandwich ever truly be happy?",
         "Who invented blinking and why can’t we stop it?",

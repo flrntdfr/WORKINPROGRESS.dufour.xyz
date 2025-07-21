@@ -25,7 +25,7 @@ ended: 2002-12-31 00:00:00
 - [merci.com ➟](https://merci.com){:target="_blank" rel="noopener noreferrer"}
 - [météo.com ➟](https://météo.com){:target="_blank" rel="noopener noreferrer"}
 - [monde.com ➟](https://monde.com){:target="_blank" rel="noopener noreferrer"}
-- [relentless.com ➟](https://relentless.com){:target="_blank" rel="noopener noreferrer"} (1994)
+- [relentless.com ➟](https://relentless.com){:target="_blank" rel="noopener noreferrer"} (2024)
 - [sun.com ➟](https://sun.com){:target="_blank" rel="noopener noreferrer"} (2010)
 - [today.com ➟](https://today.com){:target="_blank" rel="noopener noreferrer"}
 - [www.com ➟](https://www.com){:target="_blank" rel="noopener noreferrer"}
