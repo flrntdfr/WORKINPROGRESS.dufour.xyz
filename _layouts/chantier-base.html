@@ -24,7 +24,6 @@ labels:
 {% assign days_diff = seconds_diff | divided_by: 86400 | plus: 1 %}
 
 <metadata>
-    <div class="metadata-content">
     <h1><a href="/" onclick="back(event)">←</a> {{ page.title }}</h1>
     <table>
         <tr>
@@ -104,8 +103,6 @@ labels:
     {% endif %}
     {% endfor %}
     </div>
-
-</div>
 </metadata>
 
 <data>

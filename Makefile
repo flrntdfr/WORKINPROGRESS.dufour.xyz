@@ -3,8 +3,8 @@
 
 .PHONY: img install build serve clean nuke help
 
-JEKYLL_PORT    := 4000
-JEKYLL_FLAGS   := --trace --livereload
+SERVER_PORT    := 4000
+SERVER_FLAGS   := --trace --livereload
 
 install:
 	bundle config set --local path '.direnv/bundle'
@@ -15,8 +15,10 @@ update:
 build: ## Build the website locally
 	bundle exec jekyll $@ --verbose
 	nix build
-serve: ## Build and serve the website locally
-	bundle exec jekyll $@ $(JEKYLL_FLAGS)
+serve-prod: ## Build and serve the website
+	bundle exec jekyll serve $(SERVER_FLAGS)
+serve-dev:
+	bundle exec jekyll serve $(SERVER_FLAGS) --unpublished --future
 clean: ## Clean caches
 	bundle exec jekyll $@
 nuke: clean ## Nuke caches and temp files 

@@ -1,4 +1,5 @@
 ---
+published: false
 layout: chantier
 title: Mixtape funérailles
 started: 2011-09-04

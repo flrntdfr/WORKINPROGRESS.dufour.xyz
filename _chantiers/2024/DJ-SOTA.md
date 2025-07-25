@@ -1,4 +1,5 @@
 ---
+hidden: true
 layout: chantier
 title: DJ SOTA
 started: 2024-08-25

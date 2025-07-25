@@ -23,11 +23,24 @@
   --image-opacity-hover: 1;
 }
 
+html {
+  height: 100%;
+  /* Enable safe area support */
+  viewport-fit: cover;
+}
+
 body {
   font-family: var(--font-family-main);
   background-color: var(--background-color);
   color: var(--font-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  /* Prevent scrolling on mobile */
+  overflow-x: hidden;
+  /* Safe area support for modern browsers */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 @supports (font-variation-settings: normal) {

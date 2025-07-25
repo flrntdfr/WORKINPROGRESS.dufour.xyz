@@ -1,4 +1,5 @@
 ---
+hidden: true
 layout: chantier-memo
 title: README
 started: 2025-09-01 14:46
