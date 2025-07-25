@@ -3,16 +3,17 @@ layout: chantier
 title: TruthLLM
 started: 2024-08-04 00:00
 ended: 2024-10-02 00:00
-labels: [LLM, web]
+labels: [list, LLM, web]
 tech: [GPT2]
-description: |
-    ThruthLLM is a "Large" Language Model that will answer any question truthfully in less than 1000 tokens.
+description: TruthLLM is a “Large” Language Model that will truthfully answer any question in less than 1000 tokens.
 ---
 
 <script type="module">
     import { pipeline, env } from '{% link /assets/lib/transformers.v3.6.0.min.js %}';
 
     const questions = [
+        "What is the meaning of life?",
+        "How much is 1 + 1?",
         "Why are we here?",
         "Why is the sky blue?",
         "Can you count to infinity?",
@@ -255,7 +256,7 @@ description: |
         
         /* Check if output is too short or nonsensical */
         if (cleanOutput.length < 3 || cleanOutput.trim() === '') {
-            cleanOutput = "Ask again.";
+            cleanOutput = "Ask another question.";
         } else {
             /* Ensure output ends with proper punctuation */
             cleanOutput = cleanOutput.replace(/[.!?]*$/, '');

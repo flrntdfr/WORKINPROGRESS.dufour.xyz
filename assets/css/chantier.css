@@ -19,6 +19,12 @@ metadata {
     flex: 0 0 450px;
 }
 
+.metadata-content {
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 data {
     padding: 20px;
     box-sizing: border-box;
@@ -108,9 +114,11 @@ img {
 
     .metadata-content {
         border-right: none;
-        width: 450px;
-        min-width: 450px;
-        max-width: 450px;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     
     data {

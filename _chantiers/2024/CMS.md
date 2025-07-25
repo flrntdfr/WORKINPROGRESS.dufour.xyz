@@ -40,7 +40,7 @@ description: |
                   {% if chantier.ended %}
                   <tr>
                   <td><b>{{ label_year }}</b></td>
-                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a>{% if chantier.featured %}	✭ {% endif %}<span style="color: darkgrey; font-weight: 350;"> {{ chantier.labels | join: ", " }}</span></td>
+                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a>{% if chantier.featured %}	✭ {% endif %}<span style="color: darkgrey; font-weight: 350;"> {{ chantier.labels | first }}</span></td>
                   </tr>
                   {% endif %}
               {% endif %}
@@ -76,7 +76,7 @@ description: |
                   {% if chantier.started %}
                   <tr>
                   <td><b>{{ label_year }}</b></td>
-                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.featured %}	✭ {% endif %} <span style="color: darkgrey; font-weight: 350;"> {{ chantier.labels | join: ", " }}</span></td>
+                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.featured %}	✭ {% endif %} <span style="color: darkgrey; font-weight: 350;"> {{ chantier.labels | first }}</span></td>
                   </tr>
                   {% endif %}
               {% endunless %}

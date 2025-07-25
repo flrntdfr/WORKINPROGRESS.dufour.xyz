@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: Truth or Truth
-started: 2022-05-15 23:48
+started: 2022-05-16 22:58
 ended: 2025-01-19 19:45
 labels: [list, game]
 description: |
@@ -31,7 +31,7 @@ description: |
       "What's the first thing you'd do with freewill?",
       "Are there topics you avoid with your parents?",
       "How do you explain that you think certain things?",
-      "Are many people good looking?",
+      "Do you think your friends are good looking?",
       "What are the most important facts everyone should know?",
       "What do you think other people are so sure about?",
       "What do you think is the best invention of all time?",
@@ -42,9 +42,9 @@ description: |
       "What did you last notice about yourself?",
       "You become benevolent world dictator, what's your first move?",
       "What do you like about yourself?",
-      "How do you honestly feel\nabout climate change?",
-      "What's the first album you bought?",
-      "We put you in a room with 9 people.\nWhat have you done more than any of them?",
+      "How do you honestly feel about climate change?",
+      "Do you look like the music you listen to?",
+      "We put you in a room with 9 people. What have you done more than any of them?",
       "Do you believe in art?",
       "Who's your role model?",
       "How do you sometimes disappoint yourself?",
@@ -61,7 +61,7 @@ description: |
       "What misconception do people have about you?",
       "What are you addicted to?",
       "Are you superficial?",
-      "Is fashion real?",
+      "Do you think fashion is real?",
       "What do you want to build?",
       "How would you feel if you met yourself?",
       "How do you like your life so far?",
@@ -281,6 +281,10 @@ description: |
     z-index: 2;
     position: relative;
     white-space: pre-line;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-wrap: balance;
   }
 
   .card-index {

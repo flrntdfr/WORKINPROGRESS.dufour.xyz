@@ -55,7 +55,7 @@ description: tl;dr are one-line summaries of text conversations that happened be
 		"There's no reason to feed the wrong wolf.",
 		"It is always up to the most conscious person to let go first.",
 		"It all comes from within.",
-		"You are the hammers and the piano.",
+		"You are the piano and the hammers.",
 		"You drink a lot of water in your life.",
 		"No one dies before their time.",
 		"No one is in control of the narrative.",

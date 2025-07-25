@@ -4,7 +4,7 @@ title: "Ministres"
 started: 2024-07-17 11:08
 ended: 2025-07-16 22:10
 labels: [list, illustration]
-tech: [Notes.app, Stable diffusion]
+tech: [Stable diffusion]
 ---
 
 
@@ -57,8 +57,8 @@ tech: [Notes.app, Stable diffusion]
     <img src="{% link /assets/2025/ministres/1E949CD0-43F4-4521-93CB-AE2113048D67.png %}" alt="Portrait du Ministre de la lutte contre le complotisme et la corruption">
 </div>
 <div class="minister-card">
-    <p>Ministre des compétences européennes chargé de la mondialisation</p><br>
-    <img src="{% link /assets/2025/ministres/F2B84C9C-E3CB-4045-A836-CA4E64668305.png %}" alt="Portrait du Ministre des Compétences Européennes chargé de la Mondialisation">
+    <p>Ministre de la mondialisation</p><br>
+    <img src="{% link /assets/2025/ministres/F2B84C9C-E3CB-4045-A836-CA4E64668305.png %}" alt="Portrait du Ministre de la Mondialisation">
 </div>
 <div class="minister-card">
     <p>Ministre du lien social</p><br>
