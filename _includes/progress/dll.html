@@ -6,7 +6,7 @@
                 FILE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="file-progress">███████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
             </div>
             <div class="progress-line">
-                PROGRESS: <span id="global-progress">█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span> <span id="percentage">3.0%</span>
+                PROGRESS: <span id="global-progress">█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
     const fileProgressEl = document.getElementById('file-progress');
     const globalProgressEl = document.getElementById('global-progress');
     const currentFileEl = document.getElementById('current-file');
-    const percentageEl = document.getElementById('percentage');
+
     
     if (!fileProgressEl || !globalProgressEl) return;
     
@@ -91,7 +91,6 @@
                 loadSpeed = Math.random() * 8 + 3; /* New random speed for next file */
                 globalProgress = Math.min(99.9, globalProgress + Math.random() * 4.5 + 1.5);
                 updateBar(globalProgressEl, globalProgress);
-                percentageEl.textContent = globalProgress.toFixed(1) + '%';
             }, Math.random() * 200 + 50);
         }
         
@@ -109,7 +108,6 @@
                 currentFileEl.textContent = files[0];
                 updateBar(fileProgressEl, fileProgress);
                 updateBar(globalProgressEl, globalProgress);
-                percentageEl.textContent = globalProgress.toFixed(1) + '%';
                 setTimeout(animate, 1000);
             }, 2000);
         }

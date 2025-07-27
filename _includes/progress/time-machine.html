@@ -16,20 +16,32 @@
     width: 480px;
     margin: 0 auto;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 
+        0 8px 32px rgba(0,0,0,0.12),
+        0 4px 16px rgba(0,0,0,0.08),
+        0 2px 8px rgba(0,0,0,0.06),
+        inset 0 1px 0 rgba(255,255,255,0.9);
     overflow: hidden;
     position: relative;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 /* macOS title bar */
 .title-bar {
     height: 28px;
-    background: #f0f0f0;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    background: linear-gradient(to bottom,
+        #f8f8f8 0%,
+        #f0f0f0 50%,
+        #e8e8e8 100%);
+    border-bottom: 1px solid rgba(0,0,0,0.12);
     display: flex;
     align-items: center;
     padding: 0 12px;
+    position: relative;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 .traffic-lights {
@@ -94,15 +106,27 @@
 /* Content area */
 .content {
     padding: 20px;
-    background: white;
+    background: linear-gradient(to bottom,
+        #ffffff 0%,
+        #fefefe 50%,
+        #fafafa 100%);
+    position: relative;
 }
 
 .backup-section {
     display: flex;
     align-items: flex-start;
     padding: 16px 0;
-    border-bottom: 1px solid #e5e5e7;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
     position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.backup-section:hover {
+    background: rgba(0,0,0,0.02);
+    border-radius: 8px;
+    margin: 0 -8px;
+    padding: 16px 8px;
 }
 
 .backup-section:last-child {
@@ -122,6 +146,9 @@
     position: relative;
     border-radius: 7px;
     overflow: hidden;
+    box-shadow: 
+        0 2px 8px rgba(0,0,0,0.15),
+        0 1px 3px rgba(0,0,0,0.1);
 }
 
 .time-machine-icon {
@@ -225,26 +252,40 @@
 /* Progress bar */
 .progress-container {
     margin-top: 8px;
+    padding: 4px 0;
 }
 
 .progress-bar {
     width: 100%;
     height: 6px;
-    background: #e5e5e7;
+    background: linear-gradient(to bottom,
+        #f0f0f0 0%,
+        #e8e8e8 50%,
+        #e0e0e0 100%);
+    border: 1px solid rgba(0,0,0,0.08);
     border-radius: 3px;
     overflow: hidden;
     position: relative;
+    box-shadow: 
+        inset 0 1px 2px rgba(0,0,0,0.1),
+        0 1px 0 rgba(255,255,255,0.8);
 }
 
 .progress-fill {
     height: 100%;
     width: 35%;
-    background-color: #007aff;
-    border-radius: 3px;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: linear-gradient(to bottom,
+        #007aff 0%,
+        #0066cc 50%,
+        #0052a3 100%);
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: absolute;
     top: 0;
     left: 0;
+    box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        0 1px 2px rgba(0,0,0,0.1);
 }
 
 .progress-text {
@@ -264,8 +305,11 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #f0f0f0;
-    border: 1px solid #d1d1d1;
+    background: linear-gradient(to bottom,
+        #f8f8f8 0%,
+        #f0f0f0 50%,
+        #e8e8e8 100%);
+    border: 1px solid rgba(0,0,0,0.15);
     cursor: pointer;
     opacity: 0;
     transition: all 0.2s ease;
@@ -275,20 +319,42 @@
     font-size: 10px;
     color: #666;
     font-weight: bold;
+    box-shadow: 
+        0 1px 3px rgba(0,0,0,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 .cancel-button:hover {
-    background: #e0e0e0;
+    background: linear-gradient(to bottom,
+        #f0f0f0 0%,
+        #e8e8e8 50%,
+        #e0e0e0 100%);
+    box-shadow: 
+        0 2px 6px rgba(0,0,0,0.15),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    transform: translateY(-1px);
 }
 
 .cancel-button:active {
-    background: #d0d0d0;
-    transform: scale(0.95);
+    background: linear-gradient(to bottom,
+        #e8e8e8 0%,
+        #e0e0e0 50%,
+        #d8d8d8 100%);
+    transform: scale(0.95) translateY(0px);
+    box-shadow: 
+        0 1px 2px rgba(0,0,0,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.7);
 }
 
 /* Window interactions */
 .time-machine-window:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    box-shadow: 
+        0 12px 40px rgba(0,0,0,0.15),
+        0 6px 20px rgba(0,0,0,0.1),
+        0 3px 10px rgba(0,0,0,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    transform: translateY(-2px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Responsive adjustments */
@@ -344,28 +410,109 @@
 (function() {
     const uniqueId = '{{ include.id | default: "default" }}';
     const progressBar = document.getElementById('cleanup-progress-' + uniqueId);
+    const statusText = document.getElementById('cleanup-status-' + uniqueId);
     
-    if (!progressBar) return;
+    if (!progressBar || !statusText) return;
     
-    let progress = 20;
-    let direction = 1;
+    let progress = 0;
+    let isCompleted = false;
+    const totalDuration = 25000; /* 25 seconds total */
+    const updateInterval = 150; /* Update every 150ms */
     
-    /* Natural progress animation - bouncing left to right */
+    const phases = [
+        { name: "Preparing backup...", duration: 3000, speed: 1.2 },
+        { name: "Scanning for changes...", duration: 4000, speed: 1.8 },
+        { name: "Copying files...", duration: 12000, speed: 2.5 },
+        { name: "Cleaning up...", duration: 4000, speed: 3.2 },
+        { name: "Verifying backup...", duration: 2000, speed: 4.0 }
+    ];
+    
+    let currentPhase = 0;
+    let phaseStartTime = Date.now();
+    
     function updateProgress() {
-        progress += direction * 0.8;
-        
-        if (progress >= 65 || progress <= 0) {
-            direction *= -1;
+        if (isCompleted) {
+            /* Reset after completion */
+            setTimeout(() => {
+                progress = 0;
+                currentPhase = 0;
+                phaseStartTime = Date.now();
+                isCompleted = false;
+                progressBar.style.width = '0%';
+                statusText.textContent = phases[0].name;
+                statusText.style.opacity = '1';
+                setTimeout(updateProgress, 100);
+            }, 3000);
+            return;
         }
         
-        /* Move the bar left/right using transform translateX */
-        progressBar.style.transform = `translateX(${progress}%)`;
+        const phase = phases[currentPhase];
+        const phaseElapsed = Date.now() - phaseStartTime;
+        const phaseProgress = Math.min(100, (phaseElapsed / phase.duration) * 100);
+        
+        /* Calculate overall progress */
+        const phaseWeight = 100 / phases.length;
+        const baseProgress = currentPhase * phaseWeight;
+        const currentPhaseContribution = (phaseProgress / 100) * phaseWeight;
+        progress = baseProgress + currentPhaseContribution;
+        
+        /* Update progress bar with smooth easing */
+        const easedProgress = easeOutCubic(progress / 100) * 100;
+        progressBar.style.width = Math.min(100, easedProgress) + '%';
+        
+        /* Phase transition */
+        if (phaseProgress >= 100) {
+            currentPhase++;
+            phaseStartTime = Date.now();
+            
+            if (currentPhase >= phases.length) {
+                progress = 100;
+                progressBar.style.width = '100%';
+                statusText.textContent = "Backup completed";
+                isCompleted = true;
+                /* Don't return here - let the next updateProgress call handle the restart */
+            } else {
+                /* Smooth status text transition */
+                statusText.style.opacity = '0.6';
+                setTimeout(() => {
+                    statusText.textContent = phases[currentPhase].name;
+                    statusText.style.opacity = '1';
+                }, 200);
+            }
+        }
+        
+        setTimeout(updateProgress, updateInterval);
     }
     
-    /* Main animation loop */
-    setInterval(updateProgress, 100);
+    /* Smooth easing function for realistic progress */
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
     
-    /* Initialize with proper styling */
-    progressBar.style.transform = `translateX(${progress}%)`;
+    /* Initialize */
+    progressBar.style.width = '0%';
+    progressBar.style.transform = 'none'; /* Remove the translateX animation */
+    statusText.textContent = phases[0].name;
+    statusText.style.transition = 'opacity 0.3s ease';
+    
+    /* Start the animation */
+    setTimeout(updateProgress, 1000);
+    
+    /* Ensure restart works by setting up a periodic check */
+    setInterval(() => {
+        if (isCompleted && progress >= 100) {
+            /* Force restart if stuck */
+            setTimeout(() => {
+                progress = 0;
+                currentPhase = 0;
+                phaseStartTime = Date.now();
+                isCompleted = false;
+                progressBar.style.width = '0%';
+                statusText.textContent = phases[0].name;
+                statusText.style.opacity = '1';
+                updateProgress();
+            }, 3000);
+        }
+    }, 5000);
 })();
 </script> 
