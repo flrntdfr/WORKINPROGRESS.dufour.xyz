@@ -6,7 +6,7 @@ ended: 2025-07-17 11:08
 labels: [list, vibe]
 tech: [Claude 4]
 description: |
-    This is a vibe coding experiment with animations evoque progress.
+    This is a vibe coding experiment with animations that evoke progress.
 ---
 
 <div class="progress-showcase">
@@ -18,13 +18,13 @@ description: |
 
   <section class="progress-item">
     <h2>Dynamic Link Library Loading</h2>
-    <p class="subtitle">Design a DOS-style DLL loading animation with .dll names appearing one by one, showing "Loading..." messages and progress indicators in a classic-style interface.</p>
+    <p class="subtitle">Recreate a classic 2 loading-bars DOS DLL animation with .dll names appearing one by one, showing "Loading..." for the first bar and overall progress for the second. Generate .dll names and load them randomly.</p>
     <div class="preview">{% include progress/dll.html %}</div>
   </section>
 
   <section class="progress-item">
     <h2>Windows 95 Progress Bar</h2>
-    <p class="subtitle">Recreate the classic Windows 95 progress bar with blue gradient fill, animated movement, and authentic retro styling including the characteristic rounded corners and shadow effects</p>
+    <p class="subtitle">Recreate the authentic Windows 95 loading interface with the classic gray shell window, Microsoft Windows 95 logo, navy blue progress bar with smooth 1% increments, and authentic MS Sans Serif typography.</p>
     <div class="preview">{% include progress/win95.html %}</div>
   </section>
 
@@ -36,20 +36,26 @@ description: |
 
   <section class="progress-item">
     <h2>Windows 8 Wait State</h2>
-    <p class="subtitle">Create a Windows 8 loading window with blue titlebar, flat design controls, rotating spinner animation, and the signature Segoe UI typography characteristic of the Metro design language</p>
+    <p class="subtitle">Recreate a Windows 8 loading window with blue titlebar, flat design controls, rotating spinner animation, and the signature Segoe UI typography characteristic of the Metro design language.</p>
     <div class="preview">{% include progress/win8.html %}</div>
   </section>
 
   <section class="progress-item">
     <h2>Time Machine Interface</h2>
-    <p class="subtitle">Reproduce the macOS Time Machine setting interface according to the screenshot.</p>
+    <p class="subtitle">Recreate the macOS Time Machine setting interface according to the screenshot. Make the animation work.</p>
     <div class="preview">{% include progress/time-machine.html id="main" %}</div>
   </section>
 
   <section class="progress-item">
     <h2>Claude 4</h2>
-    <p class="subtitle">Draw Claude 4</p>
+    <p class="subtitle">Draw Claude 4.</p>
     <div class="preview">{% include progress/claude.html %}</div>
+  </section>
+
+  <section class="progress-item">
+    <h2>Spinner</h2>
+    <p class="subtitle">Make as many classic spinners as you can: macOS, classic windows, common web spinners etc. Be creative!</p>
+    <div class="preview">{% include progress/spinners.html %}</div>
   </section>
 </div>
 
