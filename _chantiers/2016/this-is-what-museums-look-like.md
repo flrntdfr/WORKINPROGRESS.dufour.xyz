@@ -11,13 +11,11 @@ description:
 ---
 
 <style>
-.data-content {
+data {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     min-height: 400px;
-    height: 100vh;
-    margin: 20px 0;
 }
 
 .header-controls {
@@ -67,7 +65,7 @@ description:
     </div>
 </div>
 
-<div class="data-content"></div>
+
 
 <script>
 const museums = {{ site.data.assets-2016.museums | jsonify }};
@@ -96,11 +94,11 @@ function preloadImages() {
 function showMuseum(index) {
     if (!museums || museums.length === 0) return;
     const museum = museums[shuffledOrder[index]];
-    const dataContent = document.querySelector('.data-content');
+    const dataElement = document.querySelector('data');
     const museumText = document.getElementById('museumText');
 
-    if (dataContent && museum.image) {
-        dataContent.style.backgroundImage = `url(/assets/2016/museums/${museum.image})`;
+    if (dataElement && museum.image) {
+        dataElement.style.backgroundImage = `url(/assets/2016/museums/${museum.image})`;
     }
     if (museumText) {
         museumText.textContent = museum.description;

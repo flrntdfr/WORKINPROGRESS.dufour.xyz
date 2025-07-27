@@ -29,9 +29,7 @@ data {
     flex: 1;
 }
 
-.data-content {
-    /* Minimal styling - mainly for JavaScript compatibility */
-}
+
 
 /* Simple table styling */
 data table {
