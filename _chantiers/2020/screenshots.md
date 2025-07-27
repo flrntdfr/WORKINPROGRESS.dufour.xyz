@@ -92,6 +92,7 @@ data {
 
 <div class="screenshots-grid" markdown="1">
 
+{% comment %} 2018 → 2020 {% endcomment %}
 ![IMG_0040.JPEG]({% link /assets/2024/screenshots/IMG_0040.JPEG %})
 ![IMG_0067.PNG]({% link /assets/2024/screenshots/IMG_0067.PNG %})
 ![IMG_0079.PNG]({% link /assets/2024/screenshots/IMG_0079.PNG %})
@@ -105,18 +106,21 @@ data {
 ![IMG_5450.PNG]({% link /assets/2024/screenshots/IMG_5450.PNG %})
 ![IMG_5455.JPG]({% link /assets/2024/screenshots/IMG_5455.JPG %})
 
+{% comment %} 2020 {% endcomment %}
 [![Do Not Disturb]({% link /assets/2024/screenshots/do-not-disturb.jpg %})]({% link _chantiers/2020/fake-screenshots.md %})
 [![Instagram]({% link /assets/2024/screenshots/instagram.jpg %})]({% link _chantiers/2020/fake-screenshots.md %})
 [![Lock Screen]({% link /assets/2024/screenshots/lock-screen.jpg %})]({% link _chantiers/2020/fake-screenshots.md %})
 [![Lock]({% link /assets/2024/screenshots/lock.jpg %})]({% link _chantiers/2020/fake-screenshots.md %})
 [![Pôle Emploi]({% link /assets/2024/screenshots/pole-emploi.png %})]({% link _chantiers/2020/fake-screenshots.md %})
 
+{% comment %} 2021 {% endcomment %}
 ![IMG_0372.PNG]({% link /assets/2024/screenshots/IMG_0372.PNG %})
 ![IMG_0582.PNG]({% link /assets/2024/screenshots/IMG_0582.PNG %})
 ![IMG_0691.PNG]({% link /assets/2024/screenshots/IMG_0691.PNG %})
 ![IMG_0507-1.PNG]({% link /assets/2024/screenshots/IMG_0507-1.PNG %})
 ![IMG_0692.PNG]({% link /assets/2024/screenshots/IMG_0692.PNG %})
 
+{% comment %} 2022 {% endcomment %}
 ![IMG_3454.PNG]({% link /assets/2024/screenshots/IMG_3454.PNG %})
 ![IMG_3428.jpg]({% link /assets/2024/screenshots/IMG_3428.jpg %})
 ![IMG_3552.PNG]({% link /assets/2024/screenshots/IMG_3552.PNG %})
@@ -131,10 +135,9 @@ data {
 ![IMG_5104.PNG]({% link /assets/2024/screenshots/IMG_5104.PNG %})
 ![IMG_5389.PNG]({% link /assets/2024/screenshots/IMG_5389.PNG %})
 ![IMG_5762.PNG]({% link /assets/2024/screenshots/IMG_5762.PNG %})
-[![IMG_6173.PNG]({% link /assets/2024/screenshots/IMG_6173.PNG %})]({% link _chantiers/2010/EC*.md %})
-[![IMG_6175.PNG]({% link /assets/2024/screenshots/IMG_6175.PNG %})]({% link _chantiers/2010/EC*.md %})
-[![IMG_6179.PNG]({% link /assets/2024/screenshots/IMG_6179.PNG %})]({% link _chantiers/2010/EC*.md %})
+[![Apple Music Replay 2022.png]({% link /assets/2024/screenshots/AppleMusicReplay2022.png %})]({% link _chantiers/2010/EC*.md %})
 
+{% comment %} 2023 {% endcomment %}
 ![IMG_6562.PNG]({% link /assets/2024/screenshots/IMG_6562.PNG %})
 ![IMG_6612.png]({% link /assets/2024/screenshots/IMG_6612.png %})
 ![IMG_6934.PNG]({% link /assets/2024/screenshots/IMG_6934.PNG %})
@@ -147,10 +150,12 @@ data {
 ![IMG_8258.PNG]({% link /assets/2024/screenshots/IMG_8258.PNG %})
 ![IMG_8835.PNG]({% link /assets/2024/screenshots/IMG_8835.PNG %})
 ![IMG_8903.PNG]({% link /assets/2024/screenshots/IMG_8903.PNG %})
-[![IMG_9278.JPG]({% link /assets/2024/screenshots/IMG_9278.JPG %})]({% link _chantiers/2010/EC*.md %})
 ![IMG_9331.PNG]({% link /assets/2024/screenshots/IMG_9331.PNG %})
 ![IMG_9463.PNG]({% link /assets/2024/screenshots/IMG_9463.PNG %})
+[![Apple Music Replay 2023.png]({% link /assets/2024/screenshots/AppleMusicReplay2023.png %})]({% link _chantiers/2010/EC*.md %})
+[![Apple Music Replay Top Albums 2023.png]({% link /assets/2024/screenshots/AppleMusicReplayTopAlbums2023.png %})]({% link _chantiers/2010/EC*.md %})
 
+{% comment %} 2024 {% endcomment %}
 ![IMG_0134.PNG]({% link /assets/2024/screenshots/IMG_0134.PNG %})
 ![IMG_0373.PNG]({% link /assets/2024/screenshots/IMG_0373.PNG %})
 ![IMG_0541.PNG]({% link /assets/2024/screenshots/IMG_0541.PNG %})
@@ -160,5 +165,9 @@ data {
 ![IMG_9548.PNG]({% link /assets/2024/screenshots/IMG_9548.PNG %})
 ![IMG_9783.PNG]({% link /assets/2024/screenshots/IMG_9783.PNG %})
 ![IMG_9843.PNG]({% link /assets/2024/screenshots/IMG_9843.PNG %})
+[![Apple Music Replay 2024.png]({% link /assets/2024/screenshots/AppleMusicReplay2024.png %})]({% link _chantiers/2010/EC*.md %})
+[![Apple Music Replay Top Albums 2024.png]({% link /assets/2024/screenshots/AppleMusicReplayTopAlbums2024.png %})]({% link _chantiers/2010/EC*.md %})
+<a href="https://www.instagram.com/jezzuspizzaria/" target="_blank" rel="noopener noreferrer"><img alt="IMG_1560.jpg" src="{% link /assets/2024/screenshots/IMG_1560.jpg %}"></a>
+![IMG_2431.PNG]({% link /assets/2024/screenshots/IMG_2431.PNG %})
 
 </div>

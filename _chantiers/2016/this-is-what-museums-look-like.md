@@ -1,12 +1,12 @@
 ---
+featured: true
 layout: chantier-blank
 title: this is what museums look like
 started: 2016-01-01 23:42
 ended:
-featured: true
+location: [Belleville]
 labels: [list, illustration]
 tech: [Index cards, Uniball micro]
-location: Belleville
 description:
 ---
 
@@ -16,6 +16,7 @@ description:
     background-position: center;
     background-size: cover;
     min-height: 400px;
+    height: 100vh;
     margin: 20px 0;
 }
 

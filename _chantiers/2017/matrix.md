@@ -6,7 +6,7 @@ title: matrix
 labels: [memo, web]
 theme-color: "#60ff60"
 description: |
-  The problem with insomnia is that you can loose a night coding something useless.
+  The problem with insomnia is that you can spend a night coding something useless.
 ---
 
 <style>
