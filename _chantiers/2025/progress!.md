@@ -1,12 +1,12 @@
 ---
 layout: chantier
-title: Progress...
+title: Progress!
 started: 2025-06-16 04:50
 ended: 2025-07-17 11:08
 labels: [list, vibe]
 tech: [Claude 4]
 description: |
-    This is a vibe coding experiment with animations that evoke progress.
+    This is a vibe coding experiment with animations that evoke progress!
 ---
 
 <div class="progress-showcase">
