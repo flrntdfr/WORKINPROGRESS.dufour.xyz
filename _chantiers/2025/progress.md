@@ -12,13 +12,13 @@ description: |
 <div class="progress-showcase">
   <section class="progress-item">
     <h2>BIOS Boot Sequence</h2>
-    <p class="subtitle">Create a retro BIOS boot sequence animation with scrolling text showing system initialization, memory checks, and hardware detection in green monospace font on black background.</p>
+    <p class="subtitle">Create a retro BIOS boot sequence animation with scrolling text showing system initialization, memory checks, and hardware detection in green monospace font on black background. As an easter egg, place Secure Nested Paging as part of the sequence.</p>
     <div class="preview">{% include progress/bios.html %}</div>
   </section>
 
   <section class="progress-item">
     <h2>Dynamic Link Library Loading</h2>
-    <p class="subtitle">Recreate a classic 2 loading-bars DOS DLL animation with .dll names appearing one by one, showing "Loading..." for the first bar and overall progress for the second. Generate .dll names and load them randomly.</p>
+    <p class="subtitle">Recreate a classic 2 loading-bars DOS DLL animation with .dll names appearing one by one, showing "Loading..." for the first bar and overall progress for the second. Generate .dll names and load them randomly. Some of them should take longer than others to load.</p>
     <div class="preview">{% include progress/dll.html %}</div>
   </section>
 

@@ -6,6 +6,7 @@
   --font-family-main: Inter, -apple-system, Helvetica, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica", "Arial", sans-serif;
   --font-family-variable: "InterVariable", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   --font-family-monospace: "CommitMono", "SF Mono", Monaco, Menlo, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  --font-family-serif: "Times New Roman", "Georgia", "Charter", "Iowan Old Style", "Sitka Text", "Book Antiqua", serif;
   /* Colors */
   --background-color: #ffffff;
   --secondary-background: #f8f9fa;
@@ -222,6 +223,13 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
   border-color: var(--accent-color);
   outline-color: var(--accent-color);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 2em 0;
 }
 
 img {

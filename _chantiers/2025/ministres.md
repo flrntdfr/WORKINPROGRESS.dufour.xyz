@@ -57,8 +57,8 @@ tech: [Stable diffusion]
     <img src="{% link /assets/2025/ministres/1E949CD0-43F4-4521-93CB-AE2113048D67.png %}" alt="Portrait du Ministre de la lutte contre le complotisme et la corruption">
 </div>
 <div class="minister-card">
-    <p>Ministre de la mondialisation</p><br>
-    <img src="{% link /assets/2025/ministres/F2B84C9C-E3CB-4045-A836-CA4E64668305.png %}" alt="Portrait du Ministre de la Mondialisation">
+    <p>Ministre de la mondialisation et du destin</p><br>
+    <img src="{% link /assets/2025/ministres/F2B84C9C-E3CB-4045-A836-CA4E64668305.png %}" alt="Portrait du Ministre de la Mondialisation et du Destin">
 </div>
 <div class="minister-card">
     <p>Ministre du lien social</p><br>

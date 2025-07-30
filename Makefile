@@ -1,7 +1,7 @@
 # Makefile
 # 2021 - 2025
 
-.PHONY: img install build serve clean nuke help
+.PHONY: img install build serve clean nuke help wasm
 
 SERVER_PORT    := 4000
 SERVER_FLAGS   := --trace --livereload
@@ -19,6 +19,8 @@ serve-prod: ## Build and serve the website
 	bundle exec jekyll serve $(SERVER_FLAGS)
 serve-dev:
 	bundle exec jekyll serve $(SERVER_FLAGS) --unpublished --future
+wasm: ## Build WebAssembly modules TODO
+	cd assets/2024/human-title-case && make wasm
 clean: ## Clean caches
 	bundle exec jekyll $@
 nuke: clean ## Nuke caches and temp files 

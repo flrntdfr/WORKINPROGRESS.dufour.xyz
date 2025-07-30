@@ -177,8 +177,8 @@ if (!window.brickBreakerInitialized) {
     const ballSize = 10;
 
     let paddleX = gameWidth / 2 - paddleWidth / 2;
-    let ballX = gameWidth / 2;
-    let ballY = gameHeight - 60;
+    let ballX = paddleX + paddleWidth / 2; /* Center ball on paddle initially */
+    let ballY = gameHeight - 20 - paddleHeight - ballSize; /* Position ball on top of paddle */
     let ballDX = 3;
     let ballDY = -3;
     let score = 0;
@@ -417,6 +417,17 @@ if (!window.brickBreakerInitialized) {
         const rect = gameArea.getBoundingClientRect();
         const mouseX = e.clientX - rect.left;
         paddleX = Math.max(0, Math.min(gameWidth - paddleWidth, mouseX - paddleWidth / 2));
+        
+        /* Update paddle position immediately */
+        paddle.style.left = paddleX + 'px';
+        
+        /* Keep ball on paddle when not playing */
+        if (!isPlaying) {
+            ballX = paddleX + paddleWidth / 2;
+            ballY = gameHeight - 20 - paddleHeight - ballSize;
+            ball.style.left = ballX + 'px';
+            ball.style.top = ballY + 'px';
+        }
     });
 
     gameArea.addEventListener('pointerleave', () => {
@@ -436,13 +447,18 @@ if (!window.brickBreakerInitialized) {
     /* Reset ball position */
     function resetBall() {
         ballX = paddleX + paddleWidth / 2;
-        ballY = gameHeight - 60;
+        ballY = gameHeight - 20 - paddleHeight - ballSize; /* Position ball on top of paddle */
         ballDX = (Math.random() - 0.5) * 6;
         ballDY = -3;
     }
 
     /* Initialize game */
     createBricks();
+
+    /* Set initial positions */
+    ball.style.left = ballX + 'px';
+    ball.style.top = ballY + 'px';
+    paddle.style.left = paddleX + 'px';
 
     /* Start message */
     gameOverElement.style.display = 'block';

@@ -5,7 +5,7 @@ title: README
 started: 2025-09-01 14:46
 ended: 2025-09-01 14:46
 author: Florent Dufour
-location: Munich
+location: [Brest]
 labels: [memo]
 permalink: "/README"
 ---

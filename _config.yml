@@ -46,7 +46,8 @@ exclude:
   - result/
   - .idea
   - .DS_Store
-  - resources/
+  - .gitignore.d
+  - em_cache
 
 include:
   - _headers

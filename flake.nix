@@ -17,6 +17,7 @@
             bundler
             git
             gnumake
+            emscripten
           ];
           
           env = {

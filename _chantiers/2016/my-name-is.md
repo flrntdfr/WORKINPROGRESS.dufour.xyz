@@ -83,6 +83,7 @@ labels: [list, game]
 .button-group {
     display: flex;
     gap: 1em;
+    justify-content: center;
 }
 
 .action-button {
@@ -101,23 +102,23 @@ labels: [list, game]
 
 <div id="iam-container">
     <div class="language-tabs">
-        <div class="language-tab active" onclick="switchLanguage('en')">ENGLISH</div>
-        <div class="language-tab" onclick="switchLanguage('fr')">FRANÇAIS</div>
+        <div class="language-tab active" onclick="switchLanguage('en')">English</div>
+        <div class="language-tab" onclick="switchLanguage('fr')">Français</div>
     </div>
     <div class="iam-interface">
         <div class="name-input-container">
-            <span id="name-label">MY NAME IS:</span>
+            <span id="name-label">My name is:</span>
             <input type="text" id="name-input" placeholder="anonymous" maxlength="50">
         </div>
         
         <div class="statement-display" id="statement-display">
-            <span id="statement-prefix">I AM</span> <input type="text" id="list-a-item" readonly> <span id="statement-connector">AND</span> <input type="text" id="list-b-item" readonly>
+            <span id="statement-prefix">I am</span> <input type="text" id="list-a-item" readonly> <span id="statement-connector">and</span> <input type="text" id="list-b-item" readonly>
         </div>
         
         <div class="button-group">
-            <button class="action-button" id="yes-button">YES</button>
-            <button class="action-button" id="no-button">NO</button>
-            <button class="action-button" id="skip-button">SKIP</button>
+            <button class="action-button" id="yes-button">Yes</button>
+            <button class="action-button" id="no-button">No</button>
+            <button class="action-button" id="skip-button">Skip</button>
         </div>
     </div>
     
@@ -310,7 +311,7 @@ const lists = {
       "I maintain an unremarkable regularity in life.",
       "I live in an ugly place.",
       "I can cause clean destruction.",
-      "I need tofill a massive gap.",
+      "I need to fill a massive gap.",
       "I weave the fabric of society.",
       "I squeeze the juice and the lemon.",
       "I explore the realm of possibilities.",
@@ -640,21 +641,21 @@ function switchLanguage(lang) {
   
   /* Update text labels based on language */
   if (currentLanguage === 'fr') {
-    document.getElementById('name-label').textContent = 'JE M\'APPELLE:';
-    document.getElementById('statement-prefix').textContent = 'JE SUIS:';
-    document.getElementById('statement-connector').textContent = 'ET';
-    document.getElementById('yes-button').textContent = 'OUI';
-    document.getElementById('no-button').textContent = 'NON';
-    document.getElementById('skip-button').textContent = 'PASSER';
-    document.getElementById('name-input').placeholder = 'personne';
+    document.getElementById('name-label').textContent = 'Je m\'appelle:';
+    document.getElementById('statement-prefix').textContent = 'Je suis:';
+    document.getElementById('statement-connector').textContent = 'et';
+    document.getElementById('yes-button').textContent = 'Oui';
+    document.getElementById('no-button').textContent = 'Non';
+    document.getElementById('skip-button').textContent = 'Passer';
+    document.getElementById('name-input').placeholder = 'Personne';
   } else {
-    document.getElementById('name-label').textContent = 'MY NAME IS:';
-    document.getElementById('statement-prefix').textContent = 'I AM:';
-    document.getElementById('statement-connector').textContent = 'AND';
-    document.getElementById('yes-button').textContent = 'YES';
-    document.getElementById('no-button').textContent = 'NO';
-    document.getElementById('skip-button').textContent = 'SKIP';
-    document.getElementById('name-input').placeholder = 'anonymous';
+    document.getElementById('name-label').textContent = 'My name is:';
+    document.getElementById('statement-prefix').textContent = 'I am:';
+    document.getElementById('statement-connector').textContent = 'and';
+    document.getElementById('yes-button').textContent = 'Yes';
+    document.getElementById('no-button').textContent = 'No';
+    document.getElementById('skip-button').textContent = 'Skip';
+    document.getElementById('name-input').placeholder = 'Anonymous';
   }
   
   /* Generate new combination in selected language without updating Ray ID */
