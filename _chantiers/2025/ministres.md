@@ -57,8 +57,8 @@ tech: [Stable diffusion]
     <img src="{% link /assets/2025/ministres/1E949CD0-43F4-4521-93CB-AE2113048D67.png %}" alt="Portrait du Ministre de la lutte contre le complotisme et la corruption">
 </div>
 <div class="minister-card">
-    <p>Ministre de la mondialisation et du destin</p><br>
-    <img src="{% link /assets/2025/ministres/F2B84C9C-E3CB-4045-A836-CA4E64668305.png %}" alt="Portrait du Ministre de la Mondialisation et du Destin">
+    <p>Ministre de la mondialisation et de l'ordre économique</p><br>
+    <img src="{% link /assets/2025/ministres/F2B84C9C-E3CB-4045-A836-CA4E64668305.png %}" alt="Portrait du Ministre de la Mondialisation et de l'Ordre Économique">
 </div>
 <div class="minister-card">
     <p>Ministre du lien social</p><br>
@@ -89,16 +89,16 @@ tech: [Stable diffusion]
     <img src="{% link /assets/2025/ministres/9B498F83-5B38-4E58-85BC-22BBBF80A069.png %}" alt="Portrait du Ministre de la recherche et du développement">
 </div>
 <div class="minister-card">
+    <p>Ministre chargé du rayonnement de la France en outre-mer</p><br>
+    <img src="{% link /assets/2025/ministres/FD387D48-44CD-41E9-8087-5B7D08C9F666.png %}" alt="Portrait du Ministre chargé du rayonnement de la France en outre-mer">
+</div>
+<div class="minister-card">
     <p>Ministre du plan A</p><br>
     <img src="{% link /assets/2025/ministres/F163CE0C-B3BB-40CD-B3F1-D6A04674B487.png %}" alt="Portrait du Ministre du Plan A">
 </div>
 <div class="minister-card">
     <p>Ministre du plan B</p><br>
     <img src="{% link /assets/2025/ministres/BBA76563-51AC-4FFF-BA92-243428EFCEC8.png %}" alt="Portrait du Ministre du Plan B">
-</div>
-<div class="minister-card">
-    <p>Ministre chargé du rayonnement de la France en outre-mer</p><br>
-    <img src="{% link /assets/2025/ministres/FD387D48-44CD-41E9-8087-5B7D08C9F666.png %}" alt="Portrait du Ministre chargé du rayonnement de la France en outre-mer">
 </div>
 
 {% comment %}
