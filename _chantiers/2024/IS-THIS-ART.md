@@ -7,7 +7,6 @@ location: [Munich]
 labels: [street art]
 tech: stickers
 description: |
-    <h2>Introduction</h2>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet dignissim eros in feugiat. Cras at fringilla mauris, sit amet venenatis mi. Duis consectetur, justo ut pellentesque ultrices, neque nunc faucibus mauris, eget iaculis dolor ipsum ac tellus. Suspendisse eget pharetra orci. Mauris vel vehicula urna. Cras congue elit in tortor mattis ornare. Nulla tincidunt, metus non sagittis varius, nisl lorem dapibus lorem, vel molestie turpis odio eu lacus. Nunc sagittis, dolor at laoreet pulvinar, elit dolor lobortis lorem, ut volutpat leo metus non neque.
     <h2>The problem</h2>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet dignissim eros in feugiat. Cras at fringilla mauris, sit amet venenatis mi. Duis consectetur, justo ut pellentesque ultrices, neque nunc faucibus mauris, eget iaculis dolor ipsum ac tellus. Suspendisse eget pharetra orci. Mauris vel vehicula urna. Cras congue elit in tortor mattis ornare. Nulla tincidunt, metus non sagittis varius, nisl lorem dapibus lorem, vel molestie turpis odio eu lacus. Nunc sagittis, dolor at laoreet pulvinar, elit dolor lobortis lorem, ut volutpat leo metus non neque.
@@ -29,7 +28,14 @@ description: |
     '/assets/2024/ISTHISART/2.jpg',
     '/assets/2024/ISTHISART/3.jpg',
     '/assets/2024/ISTHISART/4.jpg',
-    '/assets/2024/ISTHISART/5.jpg',
     '/assets/2024/ISTHISART/6.jpg',
-    '/assets/2024/ISTHISART/7.jpg'
+    '/assets/2024/ISTHISART/7.jpg',
+    '/assets/2024/ISTHISART/IMG_3677.HEIC',
+    '/assets/2024/ISTHISART/IMG_3686.HEIC',
+    '/assets/2024/ISTHISART/IMG_3688.HEIC',
+    '/assets/2024/ISTHISART/IMG_3689.HEIC',
+    '/assets/2024/ISTHISART/IMG_3690.HEIC',
+    '/assets/2024/ISTHISART/IMG_3691.HEIC',
+    '/assets/2024/ISTHISART/IMG_3693.HEIC',
+    '/assets/2024/ISTHISART/IMG_3694.HEIC'
 " %}
