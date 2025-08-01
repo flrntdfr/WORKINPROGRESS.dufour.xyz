@@ -233,14 +233,14 @@ function preloadAdjacentImages() {
 
 function nextMuseum() {
     if (!museums || museums.length === 0) return;
-    const nextIndex = (currentIndex + 1) % museums.length;
+    const nextIndex = Math.min(museums.length - 1, currentIndex + 1);
     showMuseum(nextIndex);
     preloadAdjacentImages();
 }
 
 function previousMuseum() {
     if (!museums || museums.length === 0) return;
-    const prevIndex = (currentIndex - 1 + museums.length) % museums.length;
+    const prevIndex = Math.max(0, currentIndex - 1);
     showMuseum(prevIndex);
     preloadAdjacentImages();
 }
