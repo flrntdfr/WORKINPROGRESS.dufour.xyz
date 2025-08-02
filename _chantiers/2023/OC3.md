@@ -2,10 +2,10 @@
 hidden: true
 layout: chantier
 title: Open Confidential Computing Conference 2023
-started: 2023-03-15
+created:  2023-03-15
 ended: 2023-03-15
 location: Online
-labels: [research]
+result: [research]
 href:
     - ["ext", "<sup>1</sup>", "DigiMed Bayern", "https://www.digimed-bayern.de/en/"]
     - ["ext", "<sup>2</sup>", "VRONI study", "https://doi.org/10.1093/eurpub/ckac007"]

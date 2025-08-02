@@ -1,8 +1,8 @@
 ---
 layout: chantier
 title: Curriculum Vitae
-started: 2014-06-28
-labels: [research]
+created:  2014-06-28
+result: [research]
 ended: 
 description: |
     - first job interview

@@ -1,11 +1,11 @@
 ---
 layout: chantier
-featured: true
+highlighted: true
 title: DigiMed Secure Cloud
-started: 2020-09-01 09:00
+created:  2020-09-01 09:00
 #ended: 2027-11-30 17:00
 location: [Leibniz Supercomputing Centre]
-labels: [research]
+result: [research]
 tech: [OpenStack, AMD-SEV/SNP, Nvidia H200, Quobyte]
 href:
   - ["ext", "<b>Consortium website:</b>", "digimed-bayern.de", "https://www.digimed-bayern.de/en.html"]

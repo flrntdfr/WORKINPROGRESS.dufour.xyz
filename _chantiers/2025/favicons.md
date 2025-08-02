@@ -2,8 +2,8 @@
 layout: chantier
 hidden: true
 title: "Favicons"
-started: 2025-03-12 20:15:30
-labels: [list]
+created:  2025-03-12 20:15:30
+result: [list]
 related:
   label: website
   url: _chantiers/2024/the-website.md

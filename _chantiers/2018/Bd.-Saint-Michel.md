@@ -1,11 +1,11 @@
 ---
 layout: chantier-columns-x2
 title: Bd. Saint-Michel
-labels: illustration
-started: 2018-07-01
+result: illustration
+created:  2018-07-01
 ended: 2018-11-02
 location: [Paris]
-labels: [illustration]
+result: [illustrations]
 ---
 
 <div>

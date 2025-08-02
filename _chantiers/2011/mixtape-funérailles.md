@@ -2,10 +2,10 @@
 published: false
 layout: chantier
 title: Mixtape funérailles
-started: 2011-09-04
+created:  2011-09-04
 ended:
 location: Belleville
-labels: [mixtape]
+result: [mixtape]
 description: Forward the playlist to the DJ.
 ---
 

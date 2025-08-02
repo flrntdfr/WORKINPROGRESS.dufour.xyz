@@ -1,8 +1,8 @@
 ---
 layout: chantier
 title: Books I didn't read
-labels: [list, illustration]
-started: 2018-11-24 11:04
+result: [list, illustration]
+created:  2018-11-24 11:04
 ended: 2019-09-22 22:26
 location: Strasbourg
 description: |

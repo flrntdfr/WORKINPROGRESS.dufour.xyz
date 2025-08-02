@@ -2,9 +2,9 @@
 hidden: true
 layout: chantier
 title: CHANGELOG
-started: 2020-07-28 12:49:28
+created:  2020-07-28 12:49:28
 ended: 
-labels: [list]
+result: [list]
 description: |
     Changelog of the CMS.
 ---

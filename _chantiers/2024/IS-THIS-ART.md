@@ -1,10 +1,10 @@
 ---
 layout: chantier # chantier-random-image
 title: IS THIS ART?
-started: 2024-02-14 13:30
+created:  2024-02-14 13:30
 ended: 2024-12-31 00:00
 location: [Munich]
-labels: [street art]
+result: [street art]
 tech: stickers
 description: |
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet dignissim eros in feugiat. Cras at fringilla mauris, sit amet venenatis mi. Duis consectetur, justo ut pellentesque ultrices, neque nunc faucibus mauris, eget iaculis dolor ipsum ac tellus. Suspendisse eget pharetra orci. Mauris vel vehicula urna. Cras congue elit in tortor mattis ornare. Nulla tincidunt, metus non sagittis varius, nisl lorem dapibus lorem, vel molestie turpis odio eu lacus. Nunc sagittis, dolor at laoreet pulvinar, elit dolor lobortis lorem, ut volutpat leo metus non neque.

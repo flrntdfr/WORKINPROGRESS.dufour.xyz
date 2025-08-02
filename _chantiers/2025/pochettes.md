@@ -1,8 +1,8 @@
 ---
 layout: chantier
 title: J'aime les pochettes
-labels: [list]
-started: 2013-06-18
+result: [mixtape]
+created:  2013-06-18
 ended: 2025-04-11 15:20
 description: |
     Release of Watching movies with the sound of in 2013 and the 2 covers, ... vs. explicit

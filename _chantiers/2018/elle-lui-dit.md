@@ -1,9 +1,9 @@
 ---
 layout: chantier-gallery
 title: Elle lui dit
-started: 2018-02-05 12:29
+created:  2018-02-05 12:29
 ended: 2018-08-06 14:45
-labels: [photo]
+result: [photo]
 tech: [iPhone SE, VSCO]
 description: |
     <i>Elle lui dit qu'avec lui c'est différent, special, intemporel.</i>

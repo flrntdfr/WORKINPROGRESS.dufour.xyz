@@ -2,22 +2,22 @@
 hidden: true
 layout: chantier-standalone
 title: CMS
-started: 2024-08-04 00:00
-labels: [web]
+created:  2024-08-04 00:00
+result: [web]
 tech: [html, css, js, Jekyll]
 permalink: "/"
 description: |
     This is a multi-media repository of projects I am working on. For more information, read the <a href="/README">README</a>.
 ---
 
-<h1 style="word-wrap: break-word;">🏗️ WORKINPROGRESS.dufour.xyz 🚧</h1>
+<h1 class="main-title">🏗️ WORKINPROGRESS.dufour.xyz 🚧</h1>
 
 {{ page.description }}
 
-<div style="display: flex; gap: 2rem; flex-wrap: wrap-reverse;">
-  <div style="flex: 1; margin-left: 3%; max-width: 600px;">
+<div class="projects-portfolio">
+  <div class="projects-column">
     <h2>Closed projects</h2>
-    <div style="flex: 1;">
+    <div class="projects-table">
       <table>
         <thead>
         </thead>
@@ -40,7 +40,7 @@ description: |
                   {% if chantier.ended %}
                   <tr>
                   <td><b>{{ label_year }}</b></td>
-                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a>{% if chantier.featured %}	✭ {% endif %}<span style="color: darkgrey; font-weight: 350;"> {{ chantier.labels | first }}</span></td>
+                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a>{% if chantier.highlighted %}	✭ {% endif %}<span class="result-tag"> {{ chantier.result | first }}</span></td>
                   </tr>
                   {% endif %}
               {% endif %}
@@ -51,9 +51,9 @@ description: |
     </div>
   </div>
 
-  <div style="flex: 1; margin-left: 3%; max-width: 600px;">
+  <div class="projects-column">
     <h2>Open projects</h2>
-    <div style="flex: 1;">
+    <div class="projects-table">
       <table>
         <thead>
         </thead>
@@ -61,22 +61,22 @@ description: |
           {% assign last_year = 0 %}
           {% assign current_year = 0 %}
           {% assign label_year = 0 %}
-          {% assign chantiers = site.chantiers | sort: 'started' %}
+          {% assign chantiers = site.chantiers | sort: 'created' %}
           {% for chantier in chantiers reversed %}
               {% unless chantier.ended %}
               {% unless chantier.hidden %}
-              {% assign current_year = chantier.started | date: "%Y" %}
+              {% assign current_year = chantier.created | date: "%Y" %}
 
               {% if current_year != last_year %}
                   {% assign label_year = current_year %}
-                  {% assign last_year = chantier.started | date: "%Y" %}
+                  {% assign last_year = chantier.created | date: "%Y" %}
               {% else %}
                   {% assign label_year = "" %}
               {% endif %}
-                  {% if chantier.started %}
+                  {% if chantier.created %}
                   <tr>
                   <td><b>{{ label_year }}</b></td>
-                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.featured %}	✭ {% endif %} <span style="color: darkgrey; font-weight: 350;"> {{ chantier.labels | first }}</span></td>
+                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.highlighted %}	✭ {% endif %} <span class="result-tag"> {{ chantier.result | first }}</span></td>
                   </tr>
                   {% endif %}
               {% endunless %}
@@ -88,12 +88,12 @@ description: |
   </div>
 </div>
 
-This project is published (and hosted) [on GitHub](https://github.com/flrntdfr/WORKINPROGRESS.dufour.xyz) and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+{% include license.html %}
 
 → Info: [info@dufour.xyz](mailto:info@dufour.xyz) \
 → Business: [biz@dufour.xyz](mail:biz@dufour.xyz)
 
-<div style="text-align: center;">
+<div class="macmade-container">
   <a href="{% link _chantiers/2025/nix-config.md %}">
     <picture>
       <source srcset="{% link /assets/img/macmade-blk.gif %}" media="(prefers-color-scheme: dark)">
@@ -109,6 +109,38 @@ This project is published (and hosted) [on GitHub](https://github.com/flrntdfr/W
 </div>
 
 <style>
+.main-title {
+    word-wrap: break-word;
+}
+
+.projects-portfolio {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap-reverse;
+}
+
+.projects-column {
+    flex: 1;
+    margin-left: 3%;
+    min-width: 280px;
+    max-width: 600px;
+}
+
+.projects-table {
+    flex: 1;
+}
+
+.macmade-container {
+    text-align: center;
+}
+
+/* Result tags */
+.result-tag {
+    color: darkgrey;
+    font-weight: 350;
+}
+
+/* Table styles */
 tr {
     height: 2em;
 }
@@ -118,20 +150,22 @@ td {
     vertical-align: top;
 }
     
+/* Link styles */
 a:link {
-  color: black;
+    color: black;
 }
 
 a:visited {
-  color: darkgrey;
+    color: darkgrey;
 }
 
+/* Banner animation */
 @keyframes banner-slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 </style>

@@ -1,9 +1,9 @@
 ---
 layout: chantier
 title: Gradients
-started: 2021-06-25 14:00
+created:  2021-06-25 14:00
 ended: 2021-12-12
-labels: [web]
+result: [web]
 description: >-
     Alternative names for gradients at https://uigradients.com
 location: Belleville

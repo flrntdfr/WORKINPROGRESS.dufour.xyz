@@ -1,10 +1,10 @@
 ---
 layout: chantier
 title: Monuments
-started: 2013-08-14 14:09
+created:  2013-08-14 14:09
 ended: 
 location: [Belleville]
-labels: [mixtape]
+result: [mixtape]
 description: Each artist in this mixtape is featured only once.
 ---
 

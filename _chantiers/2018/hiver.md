@@ -1,9 +1,9 @@
 ---
 layout: chantier-columns-x3
 title: Hiver 2017
-started: 2017-11-02
+created:  2017-11-02
 ended: 2018-04-20
-labels: [illustration]
+result: [illustration]
 label: [illustration]
 ---
 

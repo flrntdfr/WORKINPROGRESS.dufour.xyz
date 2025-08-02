@@ -3,10 +3,10 @@ layout: chantier-memo
 title: Loksins Erum Við Engin
 subtitle: Or, Finally We Are No One
 author: Florent Dufour
-started: 2021-08-19
+created:  2021-08-19
 ended: 2021-08-19
 location: N 63° 40' 59.14" W 22° 32' 23.45"
-labels: [memo]
+result: [memo]
 ---
 
 <style>

@@ -1,0 +1,11 @@
+<script>
+/* Chantiers data for random page selection */
+window.chantiersData = [
+  {% for chantier in site.chantiers %}
+    {
+      url: "{{ chantier.url }}",
+      title: "{{ chantier.title | escape }}"
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
+</script> 

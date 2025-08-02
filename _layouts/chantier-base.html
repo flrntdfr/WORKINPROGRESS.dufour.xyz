@@ -5,46 +5,46 @@ css:
 
 hidden: true
 title: title
-started:
+created:
 ended:
 modified:
-featured:
+highlighted:
 location:
 permalink:
 href: 
     - ["int/ext", "citation", "label", "target"]
 tech:
-labels:
+result:
 ---
 
 {% comment %} CALCULATE PROJECT DURATION {% endcomment %}
-{% assign ended_sec = page.started  | date: '%s' %}
-{% assign started_sec  = page.ended | date: '%s' %}
-{% assign seconds_diff = started_sec | minus: ended_sec %}
+{% assign ended_sec = page.created  | date: '%s' %}
+{% assign created_sec  = page.ended | date: '%s' %}
+{% assign seconds_diff = created_sec | minus: ended_sec %}
 {% assign days_diff = seconds_diff | divided_by: 86400 | plus: 1 %}
 
 <metadata>
     <h1><a href="/" onclick="back(event)">←</a> {{ page.title }}</h1>
     <table>
         <tr>
-        {% if page.featured %}
+        {% if page.highlighted %}
         <tr>
-            <th>featured</th>
+            <th>highlight</th>
             <td>✭</td>
         </tr>
         {% endif %}
-        {% if page.ended == page.started %}
+        {% if page.ended == page.created %}
         {% unless page.ended == nil %}
         <tr>
             <th>created</th>
-            <td><span title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span>
+            <td><span title="{{ page.created | date: "%d.%m.%Y %H:%M"}}">{{ page.created | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>
         {% endunless %}
         {% else %}
         <tr>
-            <th>{% assign now = 'now' | date: '%s' %}{% assign started_sec = page.started | date: '%s' %}{% if started_sec > now %}waiting{% else %}started{% endif %}</th>
-            <td><span title="{{ page.started | date: "%d.%m.%Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span>
+            <th>{% assign now = 'now' | date: '%s' %}{% assign created_sec = page.created | date: '%s' %}{% if created_sec > now %}waiting{% else %}created{% endif %}</th>
+            <td><span title="{{ page.created | date: "%d.%m.%Y %H:%M"}}">{{ page.created | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>
             {% if page.ended %}
@@ -58,13 +58,19 @@ labels:
                 </td>
             </tr>
             {% endif %}
-        {% endif %}
-        {% if page.touched %}
-        <tr>
-            <th>touched</th>
-            <td><span title="{{ page.touched | date: "%d.%m.%Y %H:%M"}}">{{ page.touched | date: "%d.%m.%Y" }}</span>
-        </tr>
-        {% endif %}
+            {% endif %}
+            {% if page.touched %}
+            <tr>
+                <th>touched</th>
+                <td><span title="{{ page.touched | date: "%d.%m.%Y %H:%M"}}">{{ page.touched | date: "%d.%m.%Y" }}</span>
+                </tr>
+            {% endif %}
+            {% if page.result %}
+            <tr>
+                <th>result</th>
+                <td>{{ page.result | join: ", "}}</td>
+            </tr>
+            {% endif %}
         {% if page.location %}
         <tr>
             <th>location{% if page.location.size > 1 %}s{% endif %}</th>
@@ -77,12 +83,6 @@ labels:
             </td>
         </tr>
         {% endif %}
-        {% if page.labels %}
-        <tr>
-            <th>label{% if page.labels.size > 1%}s{% endif %}</th>
-            <td>{{ page.labels | join: ", "}}</td>
-        </tr>
-        {% endif %}
         {% if page.tech %}
         <tr>
             <th>tech</th>
@@ -91,7 +91,7 @@ labels:
         {% endif %}
     </table>
     {% if page.description %}
-        {{ page.description }}
+        <p>{{ page.description }}</p>
     {% endif %}
         <div class="href">
     {% for href in page.href %}

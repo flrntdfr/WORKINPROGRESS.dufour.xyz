@@ -79,6 +79,12 @@
     {% if page.lib %}
     <script type="text/javascript" src="/assets/lib/{{ page.lib }}"></script>
     {% endif %}
+    
+    <!-- Custom Context Menu -->
+    {% include chantiers-index.html %}
+    <script type="text/javascript" src="{% link /assets/js/search.js %}"></script>
+    <script type="text/javascript" src="{% link /assets/js/context-menu.js %}"></script>
+    
     <script type="application/ld+json">
     {% include schema.json %}
     </script>

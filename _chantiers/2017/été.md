@@ -1,10 +1,10 @@
 ---
 layout: chantier
 title: Été 2017
-started: 2017-06-25
+created:  2017-06-25
 ended: 2017-11-24
 location: [Strasbourg]
-labels: [photo]
+result: [photo]
 ---
 
 <style>

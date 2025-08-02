@@ -1,11 +1,11 @@
 ---
 layout: chantier
 title: tl;dr
-started: 2015-06-06 13:59
+created:  2015-06-06 13:59
 ended: 2021-12-12 23:58
-labels: [list]
+result: [list]
 lib: typed.v2.1.0.min.js
-description: tl;dr are one-line summaries of text conversations that happened between mid-2015 → 2021.
+description: tl;dr are one-line summaries of text conversations that happened between mid-2015 → end-2021.
 ---
 
 <div id="typed-container"></div>
@@ -35,7 +35,7 @@ description: tl;dr are one-line summaries of text conversations that happened be
 		"La jeunesse n'a pas d'âge.",
 		"Ce qui compte c'est que ça aurait pu être vrai.",
 		"À chaque fois c'est indélébile.",
-		"Everything is everything.",
+		"Sur ces belles paroles…",
 		"Porter son attention c'est faire exister.",
 		"Show don't tell.",
 		"Don't assume you can't fuck up.",

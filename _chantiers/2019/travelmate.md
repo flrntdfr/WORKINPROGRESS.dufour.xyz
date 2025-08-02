@@ -1,9 +1,9 @@
 ---
 layout: chantier-youtube-playlist
 title: Travelmate Videoproject
-started: 2018-01-01
+created:  2018-01-01
 ended: 2019-03-20
-labels: [clip]
+result: [clip]
 youtube_playlist_id: PLNXhezV4jSPH_YPbawOvxA4igJh4Qi4oZ
 description: |
     Contribution to the Travelmate Project<sup>1</sup>.

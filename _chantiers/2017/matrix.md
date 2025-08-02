@@ -1,9 +1,9 @@
 ---
 layout: chantier-standalone
-started: 2017-05-01 04:15
+created:  2017-05-01 04:15
 ended: 2017-05-01 04:15
 title: matrix
-labels: [memo, web]
+result: [memo, web]
 theme-color: "#60ff60"
 description: |
   The problem with insomnia is that you can spend a night coding something useless.
@@ -81,7 +81,7 @@ description: |
 
 <div class="metadata-overlay">
   <h1><a href="/">←</a> {{ page.title }}</h1>
-  <div class="date">{{ page.started | date: "%B %d, %Y %H:%M" }}</div>
+  <div class="date">{{ page.created | date: "%B %d, %Y %H:%M" }}</div>
   <div class="description">{{ page.description | markdownify | strip_html }}</div>
 </div>
 

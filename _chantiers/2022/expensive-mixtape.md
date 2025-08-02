@@ -2,9 +2,9 @@
 layout: chantier
 title: Expensive Mixtape
 author: Florent Dufour
-started: 2022-05-21
+created:  2022-05-21
 location: Munich High-End Audio
-labels: [mixtape]
+result: [mixtape]
 description: |
     This is a mixtape of songs I would like to listen to (loud) on a (very) good sound system.
 ---

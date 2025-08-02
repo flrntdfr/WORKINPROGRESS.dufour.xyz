@@ -1,13 +1,13 @@
 ---
-featured: true
 layout: chantier-blank
+highlighted: true
 title: this is what museums look like
-started: 2016-01-01 23:42
+created:  2016-01-01 23:42
 ended:
 location: [Belleville]
-labels: [list, illustration]
+result: [list, illustration]
 tech: [Index cards, Uniball micro]
-description:
+description: This project is inpired by <a href="https://pippinbarr.com">Pippin Barr ➟</a> and his series <a href="https://pippinbarr.com/2015/05/20/this-is-what-museums-look-like/">This is what museums look like ➟</a>.
 ---
 
 <style>
@@ -294,8 +294,8 @@ function randomMuseum() {
     if (!museums || museums.length === 0) return;
     
     /* Pick a random index with distance between 20 and 50 from current index */
-    const minStepDistance = 20;
-    const maxStepDistance = 50;
+    const minStepDistance = 10;
+    const maxStepDistance = 40;
     const totalImages = museums.length;
     
     /* Calculate the range for random selection with minimum 20 and maximum 50 steps */

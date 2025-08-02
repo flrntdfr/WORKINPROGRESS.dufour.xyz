@@ -2,11 +2,11 @@
 hidden: true
 layout: chantier
 title: test
-started: 2030-08-05 19:07
+created:  2030-08-05 19:07
 ended: 2030-08-05 19:07
 modified: 2024-08-04 19:07
-featured: true
-labels: [test, test]
+highlighted: true
+result: [test, test]
 tech: [tech1, tech2, tech3]
 permalink: /test
 href:
@@ -147,7 +147,7 @@ date: 2024-01-15 10:30:00 +0000
 categories: [jekyll, web-development]
 tags: [syntax-highlighting, rouge, markdown]
 author: developer
-featured: true
+highlighted: true
 excerpt: "Learn how to use Jekyll's built-in syntax highlighting"
 ---
 ```

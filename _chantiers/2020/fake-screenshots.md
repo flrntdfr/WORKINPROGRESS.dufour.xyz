@@ -2,9 +2,9 @@
 hidden: true
 layout: chantier-gallery
 title: Fake screenshots
-started: 2019-01-01 00:00
+created:  2019-01-01 00:00
 ended: 2020-01-01 00:00
-labels: [illustration]
+result: [illustration]
 tech: [Pixelmator]
 ---
 

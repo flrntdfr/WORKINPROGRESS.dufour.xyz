@@ -1,8 +1,8 @@
 ---
 layout: chantier
 title: Famous last words
-started: 2025-03-06 09:13
-labels: [list]
+created:  2025-03-06 09:13
+result: [list]
 ---
 
 - He died trying

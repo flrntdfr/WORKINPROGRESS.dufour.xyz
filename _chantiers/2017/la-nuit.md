@@ -1,11 +1,11 @@
 ---
 layout: chantier-youtube
 title: LA NUIT
-started: 2017-06-01 13:00
+created:  2017-06-01 13:00
 ended: 2017-07-01 03:00
-labels: [shortfilm]
+result: [shortfilm]
 tech: [Final Cut Pro X, Color Finale]
-location: Freiburg im Breisgau
+location: [Freiburg im Breisgau]
 youtube_id: VTiOGRI1tf4
 description: |
     LA NUIT est notre premier court métrage.

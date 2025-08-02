@@ -2,11 +2,11 @@
 hidden: true
 layout: chantier-href
 title: ryefieldsociety.com
-started: 2021-08-09 23:49:53
+created:  2021-08-09 23:49:53
 ended: 2022-08-08 01:00
-featured: false
+highlighted: false
 location: München
-labels: [web]
+result: [web]
 ---
 
 https://RyefieldSociety.com

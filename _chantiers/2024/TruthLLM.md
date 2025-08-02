@@ -1,9 +1,9 @@
 ---
 layout: chantier
 title: TruthLLM
-started: 2024-08-04 00:00
+created:  2024-08-04 00:00
 ended: 2024-10-02 00:00
-labels: [web, LLM]
+result: [web, LLM]
 tech: [GPT2]
 description: TruthLLM is a “Large” Language Model that will truthfully answer any question in less than 1000 tokens.
 ---

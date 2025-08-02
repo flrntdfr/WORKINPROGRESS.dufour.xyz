@@ -2,7 +2,7 @@
 hidden: true
 layout: chantier
 title: CMS backend (All)
-started: 2025-06-27 17:46
+created:  2025-06-27 17:46
 ended: 2025-06-27 17:46
 permalink: "/all"
 description: |
@@ -32,23 +32,23 @@ href:
 {%- comment -%} Process all chantiers {%- endcomment -%}
 {%- for chantier in site.chantiers -%}
   {%- assign ended_value = chantier.ended -%}
-  {%- assign started_value = chantier.started -%}
+  {%- assign created_value = chantier.created -%}
 
   {%- if ended_value and ended_value != "" and ended_value != nil -%}
-    {%- if started_value and started_value != "" and started_value != nil -%}
+    {%- if created_value and created_value != "" and created_value != nil -%}
       {%- assign closed_chantiers = closed_chantiers | plus: 1 -%}
-      {%- assign started_sec = chantier.started | date: '%s' -%}
+      {%- assign created_sec = chantier.created | date: '%s' -%}
       {%- assign ended_sec = chantier.ended | date: '%s' -%}
-      {%- assign duration_sec = ended_sec | minus: started_sec -%}
+      {%- assign duration_sec = ended_sec | minus: created_sec -%}
       {%- assign duration_days = duration_sec | divided_by: 86400 | plus: 1 -%}
       {%- assign total_duration_days = total_duration_days | plus: duration_days -%}
     {%- endif -%}
   {%- else -%}
     {%- assign open_chantiers = open_chantiers | plus: 1 -%}
-    {%- if started_value and started_value != "" and started_value != nil -%}
-      {%- assign started_sec = chantier.started | date: '%s' -%}
+    {%- if created_value and created_value != "" and created_value != nil -%}
+      {%- assign created_sec = chantier.created | date: '%s' -%}
       {%- assign now_sec = "now" | date: '%s' -%}
-      {%- assign running_duration_sec = now_sec | minus: started_sec -%}
+      {%- assign running_duration_sec = now_sec | minus: created_sec -%}
       {%- assign running_duration_days = running_duration_sec | divided_by: 86400 -%}
       {%- if running_duration_days > longest_running_days -%}
         {%- assign longest_running_days = running_duration_days -%}
@@ -57,8 +57,8 @@ href:
     {%- endif -%}
   {%- endif -%}
 
-  {%- if started_value and started_value != "" and started_value != nil -%}
-    {%- assign year = chantier.started | date: "%Y" -%}
+  {%- if created_value and created_value != "" and created_value != nil -%}
+    {%- assign year = chantier.created | date: "%Y" -%}
     {%- unless years contains year -%}
       {%- assign years = years | push: year -%}
     {%- endunless -%}
@@ -108,40 +108,42 @@ Average projects per year: {{ total_chantiers | divided_by: sorted_years.size | 
 
 **All projects**
 
-{% comment %} Collect all unique labels from chantiers {% endcomment %}
-{%- assign all_labels = "" | split: "" -%}
+{% comment %} Collect all unique results from chantiers {% endcomment %}
+{%- assign all_results = "" | split: "" -%}
 {%- for chantier in site.chantiers -%}
-  {%- for label in chantier.labels -%}
-    {%- unless all_labels contains label -%}
-      {%- assign all_labels = all_labels | push: label -%}
-    {%- endunless -%}
-  {%- endfor -%}
+  {%- if chantier.result and chantier.result.size > 0 -%}
+    {%- for result_item in chantier.result -%}
+      {%- unless all_results contains result_item -%}
+        {%- assign all_results = all_results | push: result_item -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endif -%}
 {%- endfor -%}
 
-{% comment %} Manual alphabetical sorting of labels {% endcomment %}
-{%- assign sorted_labels = all_labels | sort_natural -%}
+{% comment %} Manual alphabetical sorting of results {% endcomment %}
+{%- assign sorted_results = all_results | sort_natural -%}
 
-{% comment %} Display chantiers grouped by label {% endcomment %}
-{%- for label in sorted_labels -%}
-  {%- assign chantiers_for_label = "" | split: "" -%}
+{% comment %} Display chantiers grouped by result {% endcomment %}
+{%- for result_item in sorted_results -%}
+  {%- assign chantiers_for_result = "" | split: "" -%}
   {%- for chantier in site.chantiers -%}
-    {%- if chantier.labels contains label -%}
-      {%- assign chantiers_for_label = chantiers_for_label | push: chantier -%}
+    {%- if chantier.result and chantier.result contains result_item -%}
+      {%- assign chantiers_for_result = chantiers_for_result | push: chantier -%}
     {%- endif -%}
   {%- endfor -%}
   
   <details>
-    <summary>{{ label }} <span style="color: darkgrey;">({{ chantiers_for_label.size }})</span></summary>
+    <summary>{{ result_item }} <span style="color: darkgrey;">({{ chantiers_for_result.size }})</span></summary>
     <ul>
-      {%- assign sorted_chantiers = chantiers_for_label | sort: 'title' -%}
+      {%- assign sorted_chantiers = chantiers_for_result | sort: 'title' -%}
       {%- for chantier in sorted_chantiers -%}
         <li>
           <a href="{{ chantier.url }}">{{ chantier.title }}</a>
-          {%- if chantier.featured %} ✭{%- endif -%}
-          {%- if chantier.ended -%}
+          {%- if chantier.highlighted %} ✭{%- endif -%}
+          {%- if chantier.ended %}
             <span style="color: darkgrey;">({{ chantier.ended | date: "%Y" }})</span>
-          {%- else -%}
-            <span style="color: darkgrey;">({{ chantier.started | date: "%Y" }})</span>
+          {%- else %}
+            <span style="color: darkgrey;">({{ chantier.created | date: "%Y" }})</span>
           {%- endif -%}
         </li>
       {%- endfor -%}
@@ -165,11 +167,11 @@ Average projects per year: {{ total_chantiers | divided_by: sorted_years.size | 
       {%- for chantier in sorted_hidden_chantiers -%}
         <li>
           <a href="{{ chantier.url }}">{{ chantier.title }}</a>
-          {%- if chantier.featured %} ✭{%- endif -%}
-          {%- if chantier.ended -%}
+          {%- if chantier.highlighted %} ✭{%- endif -%}
+          {%- if chantier.ended %}
             <span style="color: darkgrey;">({{ chantier.ended | date: "%Y" }})</span>
-          {%- else -%}
-            <span style="color: darkgrey;">({{ chantier.started | date: "%Y" }})</span>
+          {%- else %}
+            <span style="color: darkgrey;">({{ chantier.created | date: "%Y" }})</span>
           {%- endif -%}
         </li>
       {%- endfor -%}
@@ -179,10 +181,8 @@ Average projects per year: {{ total_chantiers | divided_by: sorted_years.size | 
 
 <br>
 
----
 
-_Last touched: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}_
-
-
-
----
+<!-- FIXME -->
+```
+Build 189 ({{ site.time | date: "%Y-%m-%d %H:%M:%S" }}) 
+```

@@ -1,9 +1,9 @@
 ---
 layout: chantier-youtube
 title: Sententia by Seuls Nos Soupirs
-started: 2016-06-11
+created:  2016-06-11
 ended: 2016-07-11
-labels: [clip]
+result: [clip]
 location: Berlin
 tech: [Final Cut Pro X]
 youtube_id: JbqOXQBRsIM

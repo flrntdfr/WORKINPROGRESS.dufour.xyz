@@ -1,9 +1,9 @@
 ---
 layout: chantier
 title: Truth or Truth
-started: 2022-05-16 22:58
+created:  2022-05-16 22:58
 ended: 2025-01-19 19:45
-labels: [list, game]
+result: [list, game]
 description: |
   Truth or Truth is a deck of cards that can be played on a first date.
 ---
@@ -115,14 +115,14 @@ description: |
     function showPreviousQuestion() {
       if (!questions || questions.length === 0) return;
       
-      currentIndex = (currentIndex - 1 + questions.length) % questions.length;
+      currentIndex = Math.max(0, currentIndex - 1);
       animateAndDisplay('translateX(-20px)');
     }
     
     function showNextQuestion() {
       if (!questions || questions.length === 0) return;
       
-      currentIndex = (currentIndex + 1) % questions.length;
+      currentIndex = Math.min(questions.length - 1, currentIndex + 1);
       animateAndDisplay('translateX(20px)');
     }
     
@@ -154,6 +154,22 @@ description: |
     document.getElementById('random-button').addEventListener('click', function() {
       showRandomQuestion();
     });
+    
+    /* Add keyboard support */
+    document.addEventListener('keydown', function(event) {
+      switch(event.key) {
+        case 'ArrowLeft':
+          showPreviousQuestion();
+          break;
+        case 'ArrowRight':
+          showNextQuestion();
+          break;
+        case ' ':
+          event.preventDefault();
+          showRandomQuestion();
+          break;
+      }
+    });
   });
 </script> 
 
@@ -169,9 +185,9 @@ description: |
   
   <div class="question-selector">
     <div class="button-group">
-      <button class="nav-button" id="prev-button">← Previous&nbsp;truth</button>
+      <button class="nav-button" id="prev-button">←&nbsp;Previous&nbsp;truth</button>
       <button class="nav-button" id="random-button">Random&nbsp;truth</button>
-      <button class="nav-button" id="next-button">Next&nbsp;truth →</button>
+      <button class="nav-button" id="next-button">Next&nbsp;truth&nbsp;→</button>
     </div>
   </div>
 </div>

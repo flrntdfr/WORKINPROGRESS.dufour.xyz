@@ -1,9 +1,9 @@
 ---
 layout: chantier
 title: My name is
-started: 2016-03-06 11:09
+created:  2016-03-06 11:09
 ended: 2016-07-13 11:09
-labels: [list, game]
+result: [list, game]
 ---
 
 <style>
