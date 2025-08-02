@@ -17,6 +17,7 @@ class CustomContextMenu {
     document.addEventListener('contextmenu', this.handleContextMenu.bind(this));
     document.addEventListener('click', this.hideMenu.bind(this));
     document.addEventListener('keydown', this.handleKeydown.bind(this));
+    document.addEventListener('scroll', this.hideMenu.bind(this));
   }
 
   handleContextMenu(event) {
@@ -89,8 +90,8 @@ class CustomContextMenu {
         { text: '𓂀 Search', action: () => this.activateSearch() },
         { separator: true },
         { text: '↑ Home', action: () => window.location.href = '/' },
-        { text: '→ Next', action: () => this.navigateToNextChantier() },
         { text: '← Previous', action: () => this.navigateToPreviousChantier() },
+        { text: '→ Next', action: () => this.navigateToNextChantier() },
         { text: '↔ Random', action: () => this.openRandomPage() },
         { separator: true },
         { text: '↻ Reload', action: () => window.location.reload(true) },
@@ -204,7 +205,11 @@ class CustomContextMenu {
 
   copyToClipboard(text) {
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(text);
+      navigator.clipboard.writeText(text).then(() => {
+        if (window.showNotification) {
+          window.showNotification('Link copied to clipboard');
+        }
+      });
     } else {
       /* Fallback for older browsers */
       const textArea = document.createElement('textarea');
@@ -213,6 +218,9 @@ class CustomContextMenu {
       textArea.select();
       document.execCommand('copy');
       document.body.removeChild(textArea);
+      if (window.showNotification) {
+        window.showNotification('Link copied to clipboard');
+      }
     }
   }
 }

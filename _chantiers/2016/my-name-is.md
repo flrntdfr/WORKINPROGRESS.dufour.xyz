@@ -332,6 +332,25 @@ const lists = {
       "I have good intentions.",
       "I am tired.",
       "I can hold two opposite opinions at the same time.",
+      "and I think capitalism works",
+      "and I am ready when you are",
+      "and I want my part.",
+      "and I have disposable income ",
+      "and I never make the same mistake twice",
+      "and my love life is like a one way street ",
+      "and I don't want to upset God",
+      "and I have disposable income ",
+      "and my power is also my weakness",
+      "and I will be remembered for hat I achieved",
+      "and I am successful ",
+      "and my ideas speak for themselves ",
+      "and I feel cortisol pulsing when I wake up",
+      "and I seize opportunities for growth",
+      "and I want to talk about it",
+      "and I am out of the loop",
+      "and my life is multi faceted",
+      "and my life is a stochastic process ",
+      "and people understand me better than they like me"
     ]
   },
   fr: {
@@ -617,7 +636,8 @@ const lists = {
       "je suis un départ d'avalanche.",
       "je colle les timbres de travers.",
       "je sais ce qu'est un F4U.",
-      "je peux aller plus vite que la musique.",
+      "et je peux aller plus vite que la musique.",
+      "et j'ai reçu plus de coups que de caresses
     ]
   }
 };

@@ -302,6 +302,7 @@ a:has(picture):hover {
 }
 
 .custom-context-menu-item {
+  font-size: 0.9em;
   padding: 4px 6px;
   cursor: pointer;
   transition: background-color 0.2s ease;
