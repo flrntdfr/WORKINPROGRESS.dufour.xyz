@@ -76,6 +76,7 @@ description: |
       "How good are you at dealing with yourself?",
       "When's the last time you've done something for the first time?",
       "Are you living up to your potential?",
+      "What do you regret most?",
       "Do people often tell you that you will succeed?"
     ];
     

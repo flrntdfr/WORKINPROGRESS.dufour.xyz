@@ -2,11 +2,25 @@
 layout: chantier
 ---
 
-<div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; width: 100%;">
+<div class="responsive-grid">
     {{ content }}
 </div>
 
 <style>
+.responsive-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+/* Collapse to single column on smaller screens */
+@media (max-width: 768px) {
+    .responsive-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 data canvas {
     max-width: 100% !important;
     height: auto !important;

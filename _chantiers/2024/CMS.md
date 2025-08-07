@@ -10,7 +10,7 @@ description: |
     This is a multi-media repository of projects I am working on. For more information, read the <a href="/README">README</a>.
 ---
 
-<h1 class="main-title">🏗️ WORKINPROGRESS.dufour.xyz 🚧</h1>
+<h1 class="main-title" style="word-break: normal; overflow-wrap: break-word;">🏗️ WORKINPROGRESS.dufour.xyz 🚧</h1>
 
 {{ page.description }}
 
@@ -90,8 +90,8 @@ description: |
 
 {% include license.html %}
 
-→ Info: [info@dufour.xyz](mailto:info@dufour.xyz) \
-→ Business: [biz@dufour.xyz](mail:biz@dufour.xyz)
+→ **Question**: [help@dufour.xyz](mailto:help@dufour.xyz) \
+→ **Business**: [biz@dufour.xyz](mailto:biz@dufour.xyz)
 
 <div class="macmade-container">
   <a href="{% link _chantiers/2025/nix-config.md %}">

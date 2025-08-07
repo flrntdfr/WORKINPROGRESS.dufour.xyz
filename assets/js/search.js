@@ -91,7 +91,7 @@ class ChantierSearch {
         border: 1px solid black;
       `;
 
-                 /* Create hint container */
+        /* Create hint container */
          this.hintContainer = document.createElement('div');
          this.hintContainer.id = 'searchHint';
          this.hintContainer.style.cssText = `
@@ -99,7 +99,7 @@ class ChantierSearch {
            text-align: center;
            font-size: 0.7em;
            display: none;
-           padding: 10px 0 0 0;
+           padding: 12px 0 0 0;
          `;
 
         /* Assemble search interface */
@@ -135,7 +135,7 @@ class ChantierSearch {
     handleModifierKeys(event) {
         /* Show hint when Cmd/Ctrl or Alt is pressed */
         if (event.metaKey || event.ctrlKey) {
-            this.showHint('⌘ Open in new tab');
+            this.showHint('⌘ Open in background');
         } else if (event.altKey) {
             this.showHint('⌥ Copy link to clipboard');
         } else {

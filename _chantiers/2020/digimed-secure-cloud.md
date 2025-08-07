@@ -8,8 +8,8 @@ location: [Leibniz Supercomputing Centre]
 result: [research]
 tech: [OpenStack, AMD-SEV/SNP, Nvidia H200, Quobyte]
 href:
-  - ["ext", "<b>Consortium website:</b>", "digimed-bayern.de", "https://www.digimed-bayern.de/en.html"]
-  - ["ext", "<b>Cloud documentation:</b>", "pages.gitlab.lrz.de", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]
+  - ["ext", "<b>Consortium website:</b>", "digimed-bayern.de ➟", "https://www.digimed-bayern.de/en.html"]
+  - ["ext", "<b>Cloud documentation:</b>", "pages.gitlab.lrz.de ➟", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]
 description: |
     The DigiMed secure Cloud is one artifcat of the 27Mio€ project by Bavaria. Confidential. Beginning nothing
     Now IaaS 

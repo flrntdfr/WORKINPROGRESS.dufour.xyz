@@ -7,7 +7,7 @@ ended:
 location: [Belleville]
 result: [list, illustration]
 tech: [Index cards, Uniball micro]
-description: This project is inpired by <a href="https://pippinbarr.com">Pippin Barr ➟</a> and his series <a href="https://pippinbarr.com/2015/05/20/this-is-what-museums-look-like/">This is what museums look like ➟</a>.
+description: This project is inpired by <a href="https://pippinbarr.com" target="_blank" rel="noopener noreferrer">Pippin Barr ➟</a> and his series <a href="https://web.archive.org/web/20190804192943/https://www.pippinbarr.com/2015/12/28/this-is-what-museums-look-like/" target="_blank" rel="noopener noreferrer">this is what museums look like ➟</a>.
 ---
 
 <style>
@@ -15,8 +15,6 @@ data {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    min-height: 400px;
-    transition: opacity 0.2s ease-in;
     position: relative;
 }
 
@@ -269,17 +267,17 @@ function animateToIndex(targetIndex) {
     const totalSteps = Math.min(forwardDistance, backwardDistance);
     
     let currentStepIndex = currentIndex;
-    const stepDelay = 50; /* Milliseconds between each step */
     let stepCount = 0;
     
-    /* Animated transition - show every image on the way */
+    /* Animated transition using requestAnimationFrame for fastest possible speed */
     function animateTransition() {
         if (stepCount < totalSteps) {
             /* Move one step in the chosen direction */
             currentStepIndex = (currentStepIndex + stepDirection + totalImages) % totalImages;
             showMuseum(currentStepIndex);
             stepCount++;
-            setTimeout(animateTransition, stepDelay);
+            /* Use requestAnimationFrame for the fastest possible animation speed */
+            requestAnimationFrame(animateTransition);
         } else {
             /* Reached the target */
             preloadAdjacentImages();
@@ -287,27 +285,14 @@ function animateToIndex(targetIndex) {
     }
     
     /* Start the animation */
-    animateTransition();
+    requestAnimationFrame(animateTransition);
 }
 
 function randomMuseum() {
     if (!museums || museums.length === 0) return;
     
-    /* Pick a random index with distance between 20 and 50 from current index */
-    const minStepDistance = 10;
-    const maxStepDistance = 40;
-    const totalImages = museums.length;
-    
-    /* Calculate the range for random selection with minimum 20 and maximum 50 steps */
-    const minDistance = Math.max(0, currentIndex - maxStepDistance);
-    const maxDistance = Math.min(totalImages - 1, currentIndex + maxStepDistance);
-    
-    /* Ensure minimum distance of 20 steps from current index */
-    const adjustedMinDistance = Math.max(minDistance, currentIndex - minStepDistance);
-    const adjustedMaxDistance = Math.min(maxDistance, currentIndex + maxStepDistance);
-    
-    /* Pick a random index within the adjusted range */
-    const randomIndex = adjustedMinDistance + Math.floor(Math.random() * (adjustedMaxDistance - adjustedMinDistance + 1));
+    /* Pick a random index from all available museums */
+    const randomIndex = Math.floor(Math.random() * museums.length);
     
     /* Use the shared animation function */
     animateToIndex(randomIndex);

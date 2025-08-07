@@ -8,6 +8,13 @@ theme-color: "#000000"
 ---
 
 <style>
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
 .native-alert {
     position: fixed;
     top: 50%;
@@ -64,6 +71,7 @@ theme-color: "#000000"
 }
 
 .overlay {
+    cursor: not-allowed;
     position: fixed;
     top: 0;
     left: 0;

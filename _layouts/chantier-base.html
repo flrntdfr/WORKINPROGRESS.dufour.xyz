@@ -37,21 +37,21 @@ result:
         {% unless page.ended == nil %}
         <tr>
             <th>created</th>
-            <td><span title="{{ page.created | date: "%d.%m.%Y %H:%M"}}">{{ page.created | date: "%d.%m.%Y" }}</span>
+            <td><span title="{{ page.created | date: "%a. %b %d, %Y %H:%M"}}">{{ page.created | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>
         {% endunless %}
         {% else %}
         <tr>
             <th>{% assign now = 'now' | date: '%s' %}{% assign created_sec = page.created | date: '%s' %}{% if created_sec > now %}waiting{% else %}created{% endif %}</th>
-            <td><span title="{{ page.created | date: "%d.%m.%Y %H:%M"}}">{{ page.created | date: "%d.%m.%Y" }}</span>
+            <td><span title="{{ page.created | date: "%a. %b %d, %Y %H:%M"}}">{{ page.created | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>
             {% if page.ended %}
             <tr>
                 <th>ended</th>
                 <td>
-                    <span onclick="toggleDaysDiff(this)" style="cursor: default" title="{{ page.ended }}">
+                    <span onclick="toggleDaysDiff(this)" style="cursor: default" title="{{ page.ended | date: "%a. %b %d, %Y %H:%M" }}">
                         {{ page.ended | date: "%d.%m.%Y" }}
                         <span class="days-diff" style="display: none">({{ days_diff }})</span>
                     </span>
@@ -62,7 +62,7 @@ result:
             {% if page.touched %}
             <tr>
                 <th>touched</th>
-                <td><span title="{{ page.touched | date: "%d.%m.%Y %H:%M"}}">{{ page.touched | date: "%d.%m.%Y" }}</span>
+                <td><span title="{{ page.touched | date: "%a. %b %d, %Y %H:%M"}}">{{ page.touched | date: "%d.%m.%Y" }}</span>
                 </tr>
             {% endif %}
             {% if page.result %}

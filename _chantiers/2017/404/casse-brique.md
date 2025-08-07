@@ -1,160 +1,142 @@
-<div id="brick-breaker-wrapper">
-    <style>
-    #variation-casse-brique[style*="display: block"] #error-content {
-        all: unset !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: #fff !important;
-    }
+---
+hidden: true
+theme-color: "#000"
+layout: blank
+title: "404 (variation 1)"
+permalink: "/404/1"
+description: Ball not found.
+---
 
-    #variation-casse-brique[style*="display: block"] #brick-breaker-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        background: #fff;
-        color: #000;
-        z-index: 9999;
-    }
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #fff;
+    color: #000;
+    font-family: var(--font-family-main);
+    font-size: 1.2rem;
+    font-weight: 400;
+}
 
-    #variation-casse-brique[style*="display: block"] #brick-breaker-container a {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        text-decoration: none;
-        color: #000;
-        z-index: 100;
-        font-size: 1.2rem;
-        font-weight: 400;
-    }
+#brick-breaker-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #fff;
+    color: #000;
+    z-index: 9999;
+}
 
-    #variation-casse-brique[style*="display: block"] #brick-breaker-container a:hover {
-        color: #000;
-        text-decoration: underline;
-    }
+#brick-breaker-container a {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: #000;
+    z-index: 100;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
 
-    #variation-casse-brique[style*="display: block"] #game-area {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 600px;
-        height: 500px;
-        border: 1px solid #000;
-        cursor: crosshair; /* Show crosshair over the game area */
-    }
+#brick-breaker-container a:hover {
+    color: #000;
+    text-decoration: underline;
+}
 
-    #variation-casse-brique[style*="display: block"] #score {
-        font-family: var(--font-family-main);
-        position: absolute;
-        top: -30px;
-        left: 0;
-        font-size: 1.2rem;
-        font-weight: 400;
-        color: #000;
-    }
+#game-area {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 500px;
+    border: 1px solid #000;
+    cursor: crosshair;
+}
 
-    #variation-casse-brique[style*="display: block"] #ball {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background: #000;
-        border-radius: 50%;
-    }
+#score {
+    font-family: var(--font-family-main);
+    position: absolute;
+    top: -30px;
+    left: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #000;
+}
 
-    #variation-casse-brique[style*="display: block"] #paddle {
-        position: absolute;
-        bottom: 20px;
-        width: 80px;
-        height: 10px;
-        background: #000;
-    }
+#ball {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+}
 
-    #variation-casse-brique[style*="display: block"] #game-over {
-        display: none;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: #000;
-        font-size: 1.2rem;
-        font-weight: 400;
-    }
+#paddle {
+    position: absolute;
+    bottom: 20px;
+    width: 80px;
+    height: 10px;
+    background: #000;
+}
 
-    #variation-casse-brique[style*="display: block"] .brick {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        border: 1px solid #000;
-        box-sizing: border-box;
-    }
+#game-over {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
 
-    #variation-casse-brique[style*="display: block"] .controls-info {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        opacity: 0.7;
-        color: #000;
-        font-size: 1.2rem;
-        font-weight: 400;
-    }
+.brick {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
 
-    /* Default font for this variation only */
-    #variation-casse-brique[style*="display: block"] {
-        font-family: var(--font-family-main);
-        font-size: 1.2rem;
-        font-weight: 400;
-    }
-    </style>
+.controls-info {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    opacity: 0.7;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+</style>
 
-    <div id="brick-breaker-container">
-        <div id="game-area">
-            <div id="score">SCORE: <span id="score-value">0</span></div>
-
-            <div id="bricks-container"></div>
-            <div id="ball"></div>
-            <div id="paddle"></div>
-
-            <div id="game-over">
-                <div>BALL NOT FOUND</div>
-                <div>GAME OVER</div>
-                <div>TAP TO RESPAWN</div>
-            </div>
+<div id="brick-breaker-container">
+    <div id="game-area">
+        <div id="score">SCORE: <span id="score-value">0</span></div>
+        <div id="bricks-container"></div>
+        <div id="ball"></div>
+        <div id="paddle"></div>
+        <div id="game-over">
+            <div>BALL NOT FOUND</div>
+            <div>GAME OVER</div>
+            <div>TAP TO RESPAWN</div>
         </div>
-
-        <div class="controls-info">
-            <div id="mouse-hint" style="display:none;">Use your mouse</div>
-            <div id="tap-instruction" style="display:none;">TAP TO RESPAWN</div>
-        </div>
+    </div>
+    <div class="controls-info">
+        <div id="mouse-hint" style="display:none;">AUTOPLAY</div>
+        <div id="tap-instruction" style="display:none;">TAP TO RESPAWN</div>
     </div>
 </div>
 
 <script>
-/* Force parent container to full screen */
-(function() {
-    const errorContent = document.getElementById('error-content');
-    if (errorContent && errorContent.parentElement) {
-        errorContent.parentElement.style.all = 'unset';
-        errorContent.parentElement.style.position = 'fixed';
-        errorContent.parentElement.style.top = '0';
-        errorContent.parentElement.style.left = '0';
-        errorContent.parentElement.style.width = '100vw';
-        errorContent.parentElement.style.height = '100vh';
-        errorContent.parentElement.style.margin = '0';
-        errorContent.parentElement.style.padding = '0';
-    }
-})();
-
 /* Only initialize if not already done */
 if (!window.brickBreakerInitialized) {
     window.brickBreakerInitialized = true;
@@ -177,8 +159,8 @@ if (!window.brickBreakerInitialized) {
     const ballSize = 10;
 
     let paddleX = gameWidth / 2 - paddleWidth / 2;
-    let ballX = paddleX + paddleWidth / 2; /* Center ball on paddle initially */
-    let ballY = gameHeight - 20 - paddleHeight - ballSize; /* Position ball on top of paddle */
+    let ballX = paddleX + paddleWidth / 2;
+    let ballY = gameHeight - 20 - paddleHeight - ballSize;
     let ballDX = 3;
     let ballDY = -3;
     let score = 0;
@@ -191,7 +173,7 @@ if (!window.brickBreakerInitialized) {
     let targetBallSpeedMultiplier = 1.0;
     const speedTransitionFactor = 0.1;
     let boostStartTime = null;
-    const BOOST_DURATION_BEFORE_INFINITE_INCREASE = 5000; /* 5 seconds */
+    const BOOST_DURATION_BEFORE_INFINITE_INCREASE = 5000;
     const INFINITE_SPEED_INCREASE_RATE = 0.005;
 
     function updateScore(newScore) {
@@ -434,7 +416,7 @@ if (!window.brickBreakerInitialized) {
         if (isPlaying) {
             isAutopilot = true;
             showMouseHint();
-            targetBallSpeedMultiplier = 1.0; /* Reset boost on leave */
+            targetBallSpeedMultiplier = 1.0;
             boostStartTime = null;
         }
     });
@@ -447,7 +429,7 @@ if (!window.brickBreakerInitialized) {
     /* Reset ball position */
     function resetBall() {
         ballX = paddleX + paddleWidth / 2;
-        ballY = gameHeight - 20 - paddleHeight - ballSize; /* Position ball on top of paddle */
+        ballY = gameHeight - 20 - paddleHeight - ballSize;
         ballDX = (Math.random() - 0.5) * 6;
         ballDY = -3;
     }

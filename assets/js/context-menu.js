@@ -87,14 +87,14 @@ class CustomContextMenu {
   addMenuItems(target) {
     /* Default menu items */
     const defaultItems = [
-        { text: '𓂀 Search', action: () => this.activateSearch() },
+        { text: '⋯ Search', action: () => this.activateSearch() },
         { separator: true },
         { text: '↑ Home', action: () => window.location.href = '/' },
         { text: '← Previous', action: () => this.navigateToPreviousChantier() },
         { text: '→ Next', action: () => this.navigateToNextChantier() },
         { text: '↔ Random', action: () => this.openRandomPage() },
         { separator: true },
-        { text: '↻ Reload', action: () => window.location.reload(true) },
+        { text: '↻ Restart', action: () => this.restartWithBlink() },
     ];
 
     /* Add target-specific items */
@@ -151,9 +151,21 @@ class CustomContextMenu {
       return;
     }
 
-    /* Get a random chantier */
-    const randomIndex = Math.floor(Math.random() * window.chantiersData.length);
-    const randomChantier = window.chantiersData[randomIndex];
+    /* Get current URL to exclude it from random selection */
+    const currentUrl = window.location.pathname;
+    
+    /* Filter out the current page from available options */
+    const availableChantiers = window.chantiersData.filter(chantier => chantier.url !== currentUrl);
+    
+    /* If no other pages available, stay on current page */
+    if (availableChantiers.length === 0) {
+      console.warn('No other pages available for random selection');
+      return;
+    }
+
+    /* Get a random chantier from available options */
+    const randomIndex = Math.floor(Math.random() * availableChantiers.length);
+    const randomChantier = availableChantiers[randomIndex];
 
     /* Navigate to the random page */
     window.location.href = randomChantier.url;
@@ -222,6 +234,59 @@ class CustomContextMenu {
         window.showNotification('Link copied to clipboard');
       }
     }
+  }
+
+  restartWithBlink() {
+    /* 1. List all DOM elements */
+    const allElements = document.querySelectorAll('*');
+    
+    /* 2. Make a list with half of them (randomly) */
+    const shuffledElements = Array.from(allElements).sort(() => Math.random() - 0.5);
+    const halfSize = Math.ceil(shuffledElements.length / 2);
+    const firstHalf = shuffledElements.slice(0, halfSize);
+    
+    /* 3. Make another list with the other half */
+    const secondHalf = shuffledElements.slice(halfSize);
+    
+    /* Function to make a group blink all at once */
+    const blinkGroup = (elements, onComplete) => {
+      /* Store original display values */
+      const originalDisplays = elements.map(element => element.style.display);
+      
+      /* First blink - all elements at once */
+      elements.forEach(element => element.style.display = 'none');
+      
+      setTimeout(() => {
+        /* Restore display */
+        elements.forEach((element, index) => {
+          element.style.display = originalDisplays[index] || '';
+        });
+        
+        setTimeout(() => {
+          /* Second blink - all elements at once */
+          elements.forEach(element => element.style.display = 'none');
+          
+          setTimeout(() => {
+            /* Restore display and call completion */
+            elements.forEach((element, index) => {
+              element.style.display = originalDisplays[index] || '';
+            });
+            onComplete();
+          }, 100);
+        }, 100);
+      }, 100);
+    };
+    
+    /* 4. Make the first list blink */
+    blinkGroup(firstHalf, () => {
+      /* 5. Make the other list blink */
+      setTimeout(() => {
+        blinkGroup(secondHalf, () => {
+          /* 6. Reload the page */
+          window.location.reload(true);
+        });
+      }, 100);
+    });
   }
 }
 

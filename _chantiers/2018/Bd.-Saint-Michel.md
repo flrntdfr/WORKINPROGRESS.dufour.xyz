@@ -10,19 +10,19 @@ result: [illustrations]
 
 <div>
     <strong>Montsouris</strong><br>
-    <img src="{% link /assets/2018/Cairo/Montsouris.svg %}" alt="Montsouris" />
+    <img src="{% link /assets/2018/bd-saint-michel/Montsouris.svg %}" alt="Montsouris" />
 </div>
 <div>
     <strong>Périphérique</strong><br>
     <div id="périphérique-canvas" style="display: flex; justify-content: center;"></div>
 </div>
 <div>
-    <strong>Cathédrale</strong><br>
-    <img src="{% link /assets/2018/Cairo/Roscoff.svg %}" alt="Cathédrale" />
+    <strong>Notre-Dame</strong><br>
+    <img src="{% link /assets/2018/bd-saint-michel/Roscoff.svg %}" alt="Cathédrale" />
 </div>
 <div>
     <strong>Talamanca</strong><br>
-    <img src="{% link /assets/2018/Cairo/Talamanca.svg %}" alt="Talamanca" />
+    <img src="{% link /assets/2018/bd-saint-michel/Talamanca.svg %}" alt="Talamanca" />
 </div>
 <div>
     <strong>Dimanche</strong><br>
@@ -226,28 +226,28 @@ addClickToggle(arcsInstance);
 
 <div>
     <strong>un scarabé</strong><br>
-    <img src="/assets/2018/cairo/La Villette.svg" alt="La Villette" />
+    <img src="/assets/2018/bd-saint-michel/La Villette.svg" alt="La Villette" />
 </div>
 
 **La Mort**<br>
-![La Mort](/assets/2018/cairo/La Mort.svg)
+![La Mort](/assets/2018/bd-saint-michel/La Mort.svg)
 
 **Pravčická-brána**<br>
-![Pravčická-brána](/assets/2018/cairo/Pravčická-brána.svg)
+![Pravčická-brána](/assets/2018/bd-saint-michel/Pravčická-brána.svg)
 
 **Roscoff**<br>
 <div style="display: flex; gap: 20px; align-items: flex-start; width: 100%;">
     <div style="flex: 1;">
-        <img src="/assets/2018/cairo/Roscoff.svg" alt="Roscoff" style="width: 100%; height: auto;">
+        <img src="/assets/2018/bd-saint-michel/Roscoff.svg" alt="Roscoff" style="width: 100%; height: auto;">
     </div>
     <div style="flex: 1;">
-        <img src="/assets/2018/cairo/Shell.svg" alt="Shell" style="width: 100%; height: auto;">
+        <img src="/assets/2018/bd-saint-michel/Shell.svg" alt="Shell" style="width: 100%; height: auto;">
     </div>
 </div>
 
 <div>
     <strong>une télévision éteinte</strong><br>
-    <img src="/assets/2018/cairo/TV.svg" alt="TV" />
+    <img src="/assets/2018/bd-saint-michel/TV.svg" alt="TV" />
 </div>
 
 <div>
