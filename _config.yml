@@ -49,12 +49,3 @@ exclude:
   - .gitignore.d
   - em_cache
 
-include:
-  - _headers
-  - _redirects
-  - assets/lib/
-  - assets/models/
-
-# Markdown Processing
-# ... existing code ...
-

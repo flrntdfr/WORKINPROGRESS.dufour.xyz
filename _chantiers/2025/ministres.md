@@ -3,7 +3,7 @@ layout: chantier-columns-x3
 title: "Ministres"
 started:  2024-07-17 11:08
 ended: 2025-07-16 22:10
-result: [list, illustrations]
+result: [list, illustration]
 tech: [Stable diffusion]
 ---
 

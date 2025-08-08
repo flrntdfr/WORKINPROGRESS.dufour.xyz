@@ -5,6 +5,8 @@ layout: blank
 title: "404 (variation 1)"
 permalink: "/404/1"
 description: Ball not found.
+result: [game, vibe]
+tech: [Claude 4, GPT-5]
 ---
 
 <style>
@@ -53,8 +55,12 @@ html, body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
-    height: 500px;
+    /* Responsive game area: rectangular on small screens */
+    width: min(94vw, 900px);
+    height: min(84vh, 700px);
+    /* Ensure a reasonable minimum size */
+    min-width: 300px;
+    min-height: 340px;
     border: 1px solid #000;
     cursor: crosshair;
 }
@@ -152,15 +158,16 @@ if (!window.brickBreakerInitialized) {
     function hideMouseHint() { mouseHint.style.display = 'none'; }
     const gameOverElement = document.getElementById('game-over');
 
-    const gameWidth = 600;
-    const gameHeight = 500;
+    /* Game area size derived from element to be responsive */
+    let gameWidth = 0;
+    let gameHeight = 0;
     const paddleWidth = 80;
     const paddleHeight = 10;
     const ballSize = 10;
 
-    let paddleX = gameWidth / 2 - paddleWidth / 2;
-    let ballX = paddleX + paddleWidth / 2;
-    let ballY = gameHeight - 20 - paddleHeight - ballSize;
+    let paddleX = 0;
+    let ballX = 0;
+    let ballY = 0;
     let ballDX = 3;
     let ballDY = -3;
     let score = 0;
@@ -168,6 +175,8 @@ if (!window.brickBreakerInitialized) {
     let isGameOver = false;
     let isAutopilot = false;
     let bricks = [];
+    let bricksAnchorX = 0;
+    let bricksMessageWidth = 0;
 
     let ballSpeedMultiplier = 1.0;
     let targetBallSpeedMultiplier = 1.0;
@@ -179,6 +188,20 @@ if (!window.brickBreakerInitialized) {
     function updateScore(newScore) {
         score = newScore;
         scoreElement.textContent = score;
+    }
+
+    /* Update cached game area size from DOM */
+    function updateGameSize() {
+        const rect = gameArea.getBoundingClientRect();
+        gameWidth = Math.max(0, Math.floor(rect.width));
+        gameHeight = Math.max(0, Math.floor(rect.height));
+    }
+
+    /* Center paddle and place ball on paddle (used on init and when resizing idle) */
+    function centerPaddleAndBall() {
+        paddleX = Math.max(0, Math.min(gameWidth - paddleWidth, Math.floor(gameWidth / 2 - paddleWidth / 2)));
+        ballX = paddleX + paddleWidth / 2;
+        ballY = gameHeight - 20 - paddleHeight - ballSize;
     }
 
     /* Create bricks */
@@ -213,6 +236,8 @@ if (!window.brickBreakerInitialized) {
 
         const messageWidth = (message.length * digitGridWidth * (brickWidth + brickPadding)) + ((message.length - 1) * digitPadding);
         const startX = (gameWidth - messageWidth) / 2;
+        bricksMessageWidth = messageWidth;
+        bricksAnchorX = startX;
         const startY = 80;
 
         let currentX = startX;
@@ -244,6 +269,20 @@ if (!window.brickBreakerInitialized) {
             }
             currentX += (digitGridWidth * (brickWidth + brickPadding)) + digitPadding;
         });
+    }
+
+    /* Shift remaining bricks horizontally to keep them centered after resize */
+    function recenterBricks() {
+        if (!bricks.length || !bricksMessageWidth) return;
+        const newStartX = (gameWidth - bricksMessageWidth) / 2;
+        const deltaX = newStartX - bricksAnchorX;
+        if (Math.abs(deltaX) < 0.5) return;
+        bricks.forEach(brick => {
+            if (!brick.alive) return;
+            brick.x += deltaX;
+            brick.element.style.left = brick.x + 'px';
+        });
+        bricksAnchorX = newStartX;
     }
 
     /* Collision detection */
@@ -412,6 +451,24 @@ if (!window.brickBreakerInitialized) {
         }
     });
 
+    /* Adjust to window resizes by updating game area size */
+    window.addEventListener('resize', () => {
+        updateGameSize();
+        /* Keep bricks centered regardless of play state */
+        recenterBricks();
+        if (!isPlaying) {
+            /* Re-center layout when idle */
+            centerPaddleAndBall();
+            ball.style.left = ballX + 'px';
+            ball.style.top = ballY + 'px';
+            paddle.style.left = paddleX + 'px';
+        } else {
+            /* Keep entities within bounds during play */
+            paddleX = Math.max(0, Math.min(gameWidth - paddleWidth, paddleX));
+            ballX = Math.max(0, Math.min(gameWidth - ballSize, ballX));
+        }
+    });
+
     gameArea.addEventListener('pointerleave', () => {
         if (isPlaying) {
             isAutopilot = true;
@@ -435,7 +492,9 @@ if (!window.brickBreakerInitialized) {
     }
 
     /* Initialize game */
+    updateGameSize();
     createBricks();
+    centerPaddleAndBall();
 
     /* Set initial positions */
     ball.style.left = ballX + 'px';

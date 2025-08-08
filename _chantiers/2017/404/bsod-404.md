@@ -11,21 +11,19 @@ description: A fatal exception 404 has occurred.
 <div class="bsod">
   <div class="bsod-title">WORK IN PROGRESS</div>
   <div class="bsod-content">
-    <pre>
-A fatal exception 404 has occurred at 0028:C0011E36 in VXD VMM(01) + 00010E36.
-The current application will be terminated.
-
-*  Press any key to terminate the current application and return to the home page.
-*  Press CTRL+ALT+DEL to restart your computer. You will lose all unsaved data.
-
-If you continue to experience problems, disable or remove any newly installed hardware or software. 
-Contact your system administrator. This incident has not been logged.
-
-Technical information:
-*** 404_NOT_FOUND *** PAGE_NOT_FOUND
->>> Exception 0E at 0028:C0011E36
->>> VXD VMM(01) + 00010E36
-    </pre>
+A fatal exception 404 has occurred at 0028:C0011E36 in VXD VMM(01) + 00010E36.<br>
+The current application will be terminated.<br>
+<br>
+*  Press any key to terminate the current application and return to the home page.<br>
+*  Press CTRL+ALT+DEL to restart your computer. You will lose all unsaved data.<br>
+<br>
+If you continue to experience problems, disable or remove any newly installed hardware or software.<br>
+Contact your system administrator. This incident has not been logged.<br>
+<br>
+Technical information:<br>
+*** 404_NOT_FOUND *** PAGE_NOT_FOUND<br>
+>>> Exception 0E at 0028:C0011E36<br>
+>>> VXD VMM(01) + 00010E36<br>
   </div>
 </div>
 
@@ -63,7 +61,6 @@ html, body {
 }
 
 .bsod-content {
-  white-space: pre;
   font-family: var(--font-family-monospace);
   line-height: 1.4;
   text-align: left;

@@ -5,7 +5,7 @@ started:  2025-05-24 22:20
 ended: 2025-06-04 23:10
 location: [Stockholm]
 tech: Stable diffusion
-result: [list, illustrations]
+result: [list, illustration]
 ---
 
 ![LIFE AND TOOLS]({% link assets/2025/cadres-blancs/1.jpg %})

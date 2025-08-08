@@ -68,7 +68,7 @@ body {
 }
 
 .name-text {
-    font-family: 'Marker Felt', cursive;
+    font-family: 'Marker Felt', 'Segoe Print', 'Segoe Script', 'Comic Sans MS', 'Comic Sans', cursive;
     font-size: 80px;
     font-weight: normal;
     color: #000;
