@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: Curriculum Vitae
-created:  2014-06-28
+started:  2014-06-28
 result: [research]
 ended: 
 description: |

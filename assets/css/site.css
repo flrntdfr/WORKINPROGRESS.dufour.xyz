@@ -6,7 +6,7 @@
   --font-family-main: Inter, -apple-system, Helvetica, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica", "Arial", sans-serif;
   --font-family-variable: "InterVariable", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   --font-family-monospace: "CommitMono", "SF Mono", Monaco, Menlo, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
-  --font-family-serif: "Times New Roman", "Georgia", "Charter", "Iowan Old Style", "Sitka Text", "Book Antiqua", serif;
+  --font-family-serif: "Garamond", "Times New Roman", "Georgia", "Charter", "Iowan Old Style", "Sitka Text", "Book Antiqua", serif;
   /* Colors */
   --background-color: #ffffff;
   --secondary-background: #f8f9fa;
@@ -57,6 +57,21 @@ h1 {
 
 h2 {
 
+}
+
+
+blockquote {
+  font-family: var(--font-family-serif);
+  font-style: italic;
+}
+
+blockquote p:first-child::before {
+  content: "☞ ";
+  font-style: normal;
+}
+
+blockquote::before {
+  content: "";
 }
 
 
@@ -322,4 +337,80 @@ a:has(picture):hover {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+
+/* Search UI Styles */
+#searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: none;
+  backdrop-filter: blur(1px) brightness(1.25);
+}
+
+#spotlightSearch {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--accent-color);
+  border: 1px solid black;
+  padding: 16px;
+  width: clamp(300px, 90vw, 600px);
+  max-height: 80vh;
+  z-index: 10000;
+  display: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#spotlightSearchInput {
+  width: 100%;
+  padding: clamp(10px, 2vw, 14px);
+  border: solid 1px black;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+#searchResults {
+  max-height: clamp(200px, 40vh, 400px);
+  overflow-y: auto;
+  margin-top: clamp(12px, 2vw, 16px);
+  display: none;
+  background-color: white;
+  border: 1px solid black;
+}
+
+#searchHint {
+  color: var(--font-color-muted, #6c757d);
+  text-align: center;
+  font-size: 0.7em;
+  display: none;
+  padding: 12px 0 0 0;
+}
+
+.search-result-item {
+  padding: clamp(6px, 1.5vw, 10px) clamp(8px, 2vw, 12px);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: var(--font-color, #1a1a1a);
+  text-decoration: none;
+  display: block;
+}
+
+.search-result-item.selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.search-message {
+  text-align: center;
+  color: var(--font-color-muted, #6c757d);
+  padding: 20px;
+}
+
+.search-highlight {
+  text-decoration: underline;
 }

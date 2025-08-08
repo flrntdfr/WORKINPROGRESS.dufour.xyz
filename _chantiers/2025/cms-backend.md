@@ -2,7 +2,7 @@
 hidden: true
 layout: chantier
 title: CMS backend (All)
-created:  2025-06-27 17:46
+started:  2025-06-27 17:46
 ended: 2025-06-27 17:46
 permalink: "/all"
 description: |
@@ -32,12 +32,12 @@ href:
 {%- comment -%} Process all chantiers {%- endcomment -%}
 {%- for chantier in site.chantiers -%}
   {%- assign ended_value = chantier.ended -%}
-  {%- assign created_value = chantier.created -%}
+  {%- assign created_value = chantier.started -%}
 
   {%- if ended_value and ended_value != "" and ended_value != nil -%}
     {%- if created_value and created_value != "" and created_value != nil -%}
       {%- assign closed_chantiers = closed_chantiers | plus: 1 -%}
-      {%- assign created_sec = chantier.created | date: '%s' -%}
+      {%- assign created_sec = chantier.started | date: '%s' -%}
       {%- assign ended_sec = chantier.ended | date: '%s' -%}
       {%- assign duration_sec = ended_sec | minus: created_sec -%}
       {%- assign duration_days = duration_sec | divided_by: 86400 | plus: 1 -%}
@@ -46,7 +46,7 @@ href:
   {%- else -%}
     {%- assign open_chantiers = open_chantiers | plus: 1 -%}
     {%- if created_value and created_value != "" and created_value != nil -%}
-      {%- assign created_sec = chantier.created | date: '%s' -%}
+      {%- assign created_sec = chantier.started | date: '%s' -%}
       {%- assign now_sec = "now" | date: '%s' -%}
       {%- assign running_duration_sec = now_sec | minus: created_sec -%}
       {%- assign running_duration_days = running_duration_sec | divided_by: 86400 -%}
@@ -58,7 +58,7 @@ href:
   {%- endif -%}
 
   {%- if created_value and created_value != "" and created_value != nil -%}
-    {%- assign year = chantier.created | date: "%Y" -%}
+    {%- assign year = chantier.started | date: "%Y" -%}
     {%- unless years contains year -%}
       {%- assign years = years | push: year -%}
     {%- endunless -%}
@@ -143,7 +143,7 @@ Average projects per year: {{ total_chantiers | divided_by: sorted_years.size | 
           {%- if chantier.ended %}
             <span style="color: darkgrey;">({{ chantier.ended | date: "%Y" }})</span>
           {%- else %}
-            <span style="color: darkgrey;">({{ chantier.created | date: "%Y" }})</span>
+            <span style="color: darkgrey;">({{ chantier.started | date: "%Y" }})</span>
           {%- endif -%}
         </li>
       {%- endfor -%}
@@ -171,7 +171,7 @@ Average projects per year: {{ total_chantiers | divided_by: sorted_years.size | 
           {%- if chantier.ended %}
             <span style="color: darkgrey;">({{ chantier.ended | date: "%Y" }})</span>
           {%- else %}
-            <span style="color: darkgrey;">({{ chantier.created | date: "%Y" }})</span>
+            <span style="color: darkgrey;">({{ chantier.started | date: "%Y" }})</span>
           {%- endif -%}
         </li>
       {%- endfor -%}

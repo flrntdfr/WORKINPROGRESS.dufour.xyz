@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: Poly(arginine)
-created:  2017-07-01 09:00
+started:  2017-07-01 09:00
 ended:  2017-08-31 17:00
 result: [research]
 location: [Institut national de la santé et de la recherche médicale (INSERM)]

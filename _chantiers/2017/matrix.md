@@ -1,6 +1,6 @@
 ---
 layout: chantier-standalone
-created:  2017-05-01 04:15
+started:  2017-05-01 04:15
 ended: 2017-05-01 04:15
 title: matrix
 result: [memo, web]
@@ -75,13 +75,17 @@ description: |
 .metadata-overlay a:visited {
   color: #00ff00;
 }
+
+::selection {
+  background: #00ff00;
+}
 </style>
 
 <div id="p5Canvas-container"></div>
 
 <div class="metadata-overlay">
   <h1><a href="/">←</a> {{ page.title }}</h1>
-  <div class="date">{{ page.created | date: "%B %d, %Y %H:%M" }}</div>
+  <div class="date">{{ page.started | date: "%B %d, %Y %H:%M" }}</div>
   <div class="description">{{ page.description | markdownify | strip_html }}</div>
 </div>
 

@@ -2,7 +2,7 @@
 hidden: true
 layout: chantier
 title: test
-created:  1970-01-01 00:00
+started:  1970-01-01 00:00
 ended: 1970-01-01 00:00
 modified: 1970-01-01 00:00
 highlighted: true
@@ -30,7 +30,7 @@ description: |
 
 This is body, in _italic_, and **bold**.
 
-> ☞ <span style="font-family: Garamond">_This is a quote_</span>
+> This is a quote
 
 <h1 style="font-family: Garamond">This is serif</h1>
 

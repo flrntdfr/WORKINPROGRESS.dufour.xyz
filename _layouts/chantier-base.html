@@ -5,7 +5,7 @@ css:
 
 hidden: true
 title: title
-created:
+started:
 ended:
 modified:
 highlighted:
@@ -18,9 +18,9 @@ result:
 ---
 
 {% comment %} CALCULATE PROJECT DURATION {% endcomment %}
-{% assign ended_sec = page.created  | date: '%s' %}
-{% assign created_sec  = page.ended | date: '%s' %}
-{% assign seconds_diff = created_sec | minus: ended_sec %}
+{% assign ended_sec = page.started  | date: '%s' %}
+{% assign started_sec  = page.ended | date: '%s' %}
+{% assign seconds_diff = started_sec | minus: ended_sec %}
 {% assign days_diff = seconds_diff | divided_by: 86400 | plus: 1 %}
 
 <metadata>
@@ -33,18 +33,18 @@ result:
             <td>✭</td>
         </tr>
         {% endif %}
-        {% if page.ended == page.created %}
+        {% if page.ended == page.started %}
         {% unless page.ended == nil %}
         <tr>
             <th>created</th>
-            <td><span title="{{ page.created | date: "%a. %b %d, %Y %H:%M"}}">{{ page.created | date: "%d.%m.%Y" }}</span>
+            <td><span title="{{ page.started | date: "%a. %b %d, %Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>
         {% endunless %}
         {% else %}
         <tr>
-            <th>{% assign now = 'now' | date: '%s' %}{% assign created_sec = page.created | date: '%s' %}{% if created_sec > now %}waiting{% else %}created{% endif %}</th>
-            <td><span title="{{ page.created | date: "%a. %b %d, %Y %H:%M"}}">{{ page.created | date: "%d.%m.%Y" }}</span>
+            <th>{% assign now = 'now' | date: '%s' %}{% assign started_sec = page.started | date: '%s' %}{% if started_sec > now %}waiting{% else %}started{% endif %}</th>
+            <td><span title="{{ page.started | date: "%a. %b %d, %Y %H:%M"}}">{{ page.started | date: "%d.%m.%Y" }}</span>
             </td>
         </tr>
             {% if page.ended %}

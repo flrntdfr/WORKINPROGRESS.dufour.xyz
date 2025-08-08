@@ -36,71 +36,24 @@ class ChantierSearch {
         /* Create overlay */
         this.overlay = document.createElement('div');
         this.overlay.id = 'searchOverlay';
-        this.overlay.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.3);
-        z-index: 9999;
-        display: none;
-        backdrop-filter: blur(1px) brightness(1.25);
-      `;
 
         /* Create search container */
         this.searchContainer = document.createElement('div');
         this.searchContainer.id = 'spotlightSearch';
-        this.searchContainer.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: var(--accent-color);
-        border: 1px solid black;
-        padding: 16px;
-        width: clamp(300px, 90vw, 600px);
-        max-height: 80vh;
-        z-index: 10000;
-        display: none;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      `;
 
         /* Create search input */
         this.searchInput = document.createElement('input');
         this.searchInput.id = 'spotlightSearchInput';
         this.searchInput.type = 'text';
         this.searchInput.placeholder = 'Start typing…';
-        this.searchInput.style.cssText = `
-        width: 100%;
-        padding: clamp(10px, 2vw, 14px);
-        border: solid 1px black;
-        box-sizing: border-box;
-        font-size: 1em;
-      `;
 
         /* Create results container */
         this.resultsContainer = document.createElement('div');
         this.resultsContainer.id = 'searchResults';
-        this.resultsContainer.style.cssText = `
-        max-height: clamp(200px, 40vh, 400px);
-        overflow-y: auto;
-        margin-top: clamp(12px, 2vw, 16px);
-        display: none;
-        background-color: white;
-        border: 1px solid black;
-      `;
 
         /* Create hint container */
-         this.hintContainer = document.createElement('div');
-         this.hintContainer.id = 'searchHint';
-         this.hintContainer.style.cssText = `
-           color: var(--font-color-muted, #6c757d);
-           text-align: center;
-           font-size: 0.7em;
-           display: none;
-           padding: 12px 0 0 0;
-         `;
+        this.hintContainer = document.createElement('div');
+        this.hintContainer.id = 'searchHint';
 
         /* Assemble search interface */
         this.searchContainer.appendChild(this.searchInput);
@@ -287,7 +240,7 @@ class ChantierSearch {
             return isNaN(date.getFullYear()) ? null : date.getFullYear();
         };
 
-        const createdYear = getYearFromDate(chantier.created);
+        const createdYear = getYearFromDate(chantier.started);
         const endedYear = getYearFromDate(chantier.ended);
 
         /* Return ended year if it exists and is different from created year */
@@ -305,24 +258,16 @@ class ChantierSearch {
         matches.forEach((chantier, index) => {
             const underlinedTitle = chantier.title.replace(
                 new RegExp(searchTerm, 'gi'),
-                match => `<span style="text-decoration: underline;">${match}</span>`
+                match => `<span class="search-highlight">${match}</span>`
             );
 
             const year = this.getDisplayYear(chantier);
             const yearDisplay = year ? ` (${year})` : '';
 
             const isSelected = index === this.selectedIndex;
+            const selectedClass = isSelected ? ' selected' : '';
             resultsHTML += `
-        <div class="search-result-item" style="
-          padding: clamp(6px, 1.5vw, 10px) clamp(8px, 2vw, 12px);
-          cursor: pointer;
-          transition: background-color 0.2s ease;
-          color: var(--font-color, #1a1a1a);
-          text-decoration: none;
-          display: block;
-
-          ${isSelected ? 'background-color: rgba(0, 0, 0, 0.1);' : ''}
-        " data-url="${chantier.url}" data-index="${index}">
+        <div class="search-result-item${selectedClass}" data-url="${chantier.url}" data-index="${index}">
           ${underlinedTitle}${yearDisplay}
         </div>
       `;
@@ -378,7 +323,7 @@ class ChantierSearch {
 
     showNoResultsMessage(searchTerm) {
         this.resultsContainer.innerHTML = `
-        <div style="text-align: center; color: var(--font-color-muted, #6c757d); padding: 20px;">
+        <div class="search-message">
           Nothing matching: "${searchTerm}"
         </div>
       `;
@@ -387,7 +332,7 @@ class ChantierSearch {
 
     showNoDataMessage() {
         this.resultsContainer.innerHTML = `
-        <div style="text-align: center; color: var(--font-color-muted, #6c757d); padding: 20px;">
+        <div class="search-message">
           No match.
         </div>
       `;
@@ -432,9 +377,9 @@ class ChantierSearch {
         const resultItems = this.resultsContainer.querySelectorAll('.search-result-item');
         resultItems.forEach((item, index) => {
             if (index === this.selectedIndex) {
-                item.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+                item.classList.add('selected');
             } else {
-                item.style.backgroundColor = 'transparent';
+                item.classList.remove('selected');
             }
         });
     }

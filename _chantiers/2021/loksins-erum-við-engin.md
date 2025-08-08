@@ -3,9 +3,9 @@ layout: chantier-memo
 title: Loksins Erum Við Engin
 subtitle: Or, Finally We Are No One
 author: Florent Dufour
-created:  2021-08-19
+started: 2021-08-19
 ended: 2021-08-19
-location: N 63° 40' 59.14" W 22° 32' 23.45"
+location: [N 63° 40' 59.14" W 22° 32' 23.45"]
 result: [memo]
 ---
 
@@ -19,7 +19,7 @@ img {
 
 The kids loved it more than anything. They never missed a chance to ask me to play the record. Múm became our companion in nap. I loved<!--more--> to see their breath and mind finally getting some rest after hours of running and jumping around. Nap time was as much a precious and mindful moment for me as it was for them. I know they got it.
 
-Still, Múm is not composing kids lullabies. Instead, they are the Icelandic band that embodies what the island is all about in delicate, fragile, and organic tunes. Since the late 90’s, they released 6 full length albums and played live on several occasions. “Loksins erum við engin” or “finally we are no one” in English most certainly stands at the pinnacle of their creativity and remains one of their most polished work. I remember getting the record for those I love. I hope it sill brings peace to their home today.
+Still, Múm is not composing kids lullabies. Instead, they are the Icelandic band that embodies what the island is all about in delicate, fragile, and organic tunes. Since the late 90’s, they released 6 full length albums and played live on several occasions. “Loksins erum við engin” or “finally we are no one” in English most certainly stands at the pinnacle of their creativity and remains one of their most polished work. I remember getting the record for people I love. I hope it still brings peace to their home today.
 
 ![Album cover of the Icelandic version of "finally we are no one"]({% link /assets/2021/loksins/mum-thumb.jpg %})
 {: .figure}

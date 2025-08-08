@@ -2,7 +2,7 @@
 hidden: true
 layout: chantier-standalone
 title: CMS
-created:  2024-08-04 00:00
+started:  2024-08-04 00:00
 result: [web]
 tech: [html, css, js, Jekyll]
 permalink: "/"
@@ -65,15 +65,15 @@ description: |
           {% for chantier in chantiers reversed %}
               {% unless chantier.ended %}
               {% unless chantier.hidden %}
-              {% assign current_year = chantier.created | date: "%Y" %}
+              {% assign current_year = chantier.started | date: "%Y" %}
 
               {% if current_year != last_year %}
                   {% assign label_year = current_year %}
-                  {% assign last_year = chantier.created | date: "%Y" %}
+                  {% assign last_year = chantier.started | date: "%Y" %}
               {% else %}
                   {% assign label_year = "" %}
               {% endif %}
-                  {% if chantier.created %}
+                  {% if chantier.started %}
                   <tr>
                   <td><b>{{ label_year }}</b></td>
                   <td><a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.highlighted %}	✭ {% endif %} <span class="result-tag"> {{ chantier.result | first }}</span></td>
@@ -102,7 +102,7 @@ description: |
   </a>
 </div>
 
-<br><br><br><br>
+<br><br><br>
 
 <div class="banner">
   {% include banner.html %}

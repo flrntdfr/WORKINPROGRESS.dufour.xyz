@@ -1,17 +1,17 @@
 ---
 layout: chantier
 title: My name is…
-created:  2016-03-06 11:09
+started:  2016-03-06 11:09
 ended: 2016-07-13 11:09
 result: [list, game]
-description: You are playing “My name is…”<br>You know who you are.
+description: You are playing “My name is…”.<br>You know who you are.
 ---
 
 <div id="iam-container">
     <div class="iam-interface">
         <div class="name-input-container">
             <span id="name-label">My name is:</span>
-            <input type="text" id="name-input" placeholder="anonymous" maxlength="50">
+            <input type="text" id="name-input" placeholder="anonymous" maxlength="50" autofocus>
         </div>
         <div class="statement-display" id="statement-display">
             <span id="statement-prefix">I am</span> <input type="text" id="list-a-item" readonly> <span id="statement-connector">and</span> <input type="text" id="list-b-item" readonly>
@@ -27,8 +27,10 @@ description: You are playing “My name is…”<br>You know who you are.
 <script>
 const lists = {
   listA: [
+    "disorganized",
     "a perfectionist",
     "pragmatic",
+    "lazy",
 
     "an Aries",
     "a Taurus",
@@ -102,6 +104,7 @@ const lists = {
 
     "rich",
     "poor",
+    "successful",
     "working class",
     "middle class",
     "upper class",
@@ -163,7 +166,7 @@ const lists = {
     "I am like a dog with a bone.",
     "I tend to urge endings.",
     "I feel the vacuum of space.",
-    "I am experiencing the vanishing sense of purpose.",
+    "I am experiencing a vanishing sense of purpose.",
     "I inhabit the Goldilocks zone.",
     "my life does the opposite of improving.",
     "I always take a step back before the step forward.",
@@ -175,7 +178,7 @@ const lists = {
     "I carry someone else's problems.",
     "I am the force of change.",
     "I define   the edge of what's most important.",
-    "I would rather be an object than a person.",
+    "sometimes I would rather be an object than a person.",
     "I am a work in progress.",
     "I am the inevitable.",
     "I use love as a currency.",
@@ -188,16 +191,15 @@ const lists = {
     "I always choose the best course of action.",
     "I offer annihilation as an answer.",
     "I am the absence of knowing.",
-    "I contemplate suicide.",
     "I endure the long run.",
     "I hear voices.",
     "I laugh like god.",
     "I see the grand scheme of things.",
     "I fight a lonely fight.",
     "I continue the ongoing process.",
-    "I see bigger pictures.",
+    "I see the bigger picture.",
     "I balance trouble and happiness.", 
-    "I reached several turning points.",
+    "I reached several points of no return.",
     "I live a long and happy life.",
     "I contribute to the collective insanity.",
     "I am alive.",
@@ -259,7 +261,7 @@ const lists = {
     "I am out of the loop.",
     "my life is multi faceted.",
     "my life is a stochastic process.",
-    "people understand me better than they like me.",
+    "people like me better than they understand me.",
     "I have done more drugs than I can count.",
     "I know how it feels to win.",
     "I know how it feels to wake up in the morning.",
@@ -274,7 +276,6 @@ const lists = {
     "I wish things would be different.",
     "I feel empty.",
     "I don't have a favorite color.",
-    "I wear white sneakers.",
     "sex is definitely overrated.",
     "I think people are generally well meaning.",
     "I do not support the leader of my country.",
@@ -294,6 +295,24 @@ const lists = {
     "I will be alive tomorrow.",
     "I sleep alone.",
     "I don't know what is the meaning of life.",
+    "I am aware of how I come accross.",
+    "I need deadlines to achieve my goals.",
+    "anger is my main drive.",
+    "I am growth minded.",
+    "I am not a hero.",
+    "I usually don't get what I want.",
+    "I don't know who I am.",
+    "I don't watch as much TV as my parents.",
+    "I like people who like me.",
+    "I am satisfied with my genes",
+    "I solve my problems instead of finding excuses.",
+    "I stay away from people who victimize themselves.",
+    "I am not a victim of my ideas.",
+    "I need to be surrounded by people who have goals too.",
+    "I am not in 'a traffic jam'. I am also 'the traffic jam'.",
+    "I serve people around me.",
+    "I flood people with love.",
+    "I am proof that working hard pays-off.",
   ]
 };
 

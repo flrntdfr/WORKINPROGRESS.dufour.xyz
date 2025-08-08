@@ -3,7 +3,7 @@ hidden: true
 layout: chantier
 title: OpenInfra Forum 2025
 subtitle: Celebrating OpenStack 15th Anniversary
-created:  2025-05-22
+started:  2025-05-22
 ended: 2025-05-22
 location: Skandia-Teatern, Stockholm
 result: [research]

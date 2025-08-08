@@ -2,7 +2,7 @@
 published: false
 layout: chantier
 title: Mixtape funérailles
-created:  2011-09-04
+started:  2011-09-04
 ended:
 location: Belleville
 result: [mixtape]

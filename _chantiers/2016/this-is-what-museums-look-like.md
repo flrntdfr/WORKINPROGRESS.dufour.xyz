@@ -2,13 +2,21 @@
 layout: chantier-blank
 highlighted: true
 title: this is what museums look like
-created:  2016-01-01 23:42
+started:  2016-01-01 23:42
 ended:
 location: [Belleville]
 result: [list, illustration]
-tech: [Index cards, Uniball micro]
 description: This project is inpired by <a href="https://pippinbarr.com" target="_blank" rel="noopener noreferrer">Pippin Barr ➟</a> and his series <a href="https://web.archive.org/web/20190804192943/https://www.pippinbarr.com/2015/12/28/this-is-what-museums-look-like/" target="_blank" rel="noopener noreferrer">this is what museums look like ➟</a>.
 ---
+
+<div class="header-controls">
+    <p id="museumText" class="info"></p>
+    <div class="controls">
+        <button onclick="nextMuseum()">→ Next</button>
+        <button onclick="randomMuseum()">↔ Random</button>
+        <button onclick="previousMuseum()">← Previous</button>
+    </div>
+</div>
 
 <style>
 data {
@@ -80,15 +88,6 @@ data {
     z-index: -2;
 }
 </style>
-
-<div class="header-controls">
-    <p id="museumText" class="info"></p>
-    <div class="controls">
-        <button onclick="nextMuseum()">→ Next</button>
-        <button onclick="randomMuseum()">↔ Random</button>
-        <button onclick="previousMuseum()">← Previous</button>
-    </div>
-</div>
 
 <script>
 const museums = {% include museums/museums.db.json %};

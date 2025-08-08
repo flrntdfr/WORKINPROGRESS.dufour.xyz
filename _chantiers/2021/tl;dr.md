@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: tl;dr
-created:  2015-06-06 13:59
+started:  2015-06-06 13:59
 ended: 2021-12-12 23:58
 result: [list]
 lib: typed.v2.1.0.min.js
@@ -27,6 +27,7 @@ description: tl;dr are one-line summaries of text conversations that happened be
 <script>
 	const strings = [
 		"Le temps fait toujours son travail.",
+		"There is always a \"but\".",
 		"Both can be a teaching.",
 		"C'est plus facile de remarquer ce qui va pas en premier.",
 		"On ne peut commencer que de là où on est.",

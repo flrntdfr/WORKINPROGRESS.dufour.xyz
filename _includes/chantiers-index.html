@@ -5,7 +5,7 @@ window.chantiersData = [
     {
       url: "{{ chantier.url }}",
       title: "{{ chantier.title }}",
-      created: "{{ chantier.created }}",
+      started: "{{ chantier.started }}",
       ended: "{{ chantier.ended }}"
     }{% unless forloop.last %},{% endunless %}
   {% endfor %}

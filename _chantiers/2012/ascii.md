@@ -2,7 +2,7 @@
 published: false
 layout: chantier
 title: ASCII
-created:  2010-09-12 21:32
+started:  2010-09-12 21:32
 ended: 2012-10-10 21:00
 result: [list]
 tech: ¯\_(ツ)_/¯
