@@ -65,24 +65,24 @@ result:
                 <td><span title="{{ page.touched | date: "%a. %b %d, %Y %H:%M"}}">{{ page.touched | date: "%d.%m.%Y" }}</span>
                 </tr>
             {% endif %}
+            {% if page.location %}
+            <tr>
+                <th>location{% if page.location.size > 1 %}s{% endif %}</th>
+                <td>
+                    {% if page.location.size > 1 %}
+                        {{ page.location | join: ", " }}
+                    {% else %}
+                        {{ page.location }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endif %}
             {% if page.result %}
             <tr>
                 <th>result</th>
                 <td>{{ page.result | join: ", "}}</td>
             </tr>
             {% endif %}
-        {% if page.location %}
-        <tr>
-            <th>location{% if page.location.size > 1 %}s{% endif %}</th>
-            <td>
-                {% if page.location.size > 1 %}
-                    {{ page.location | join: ", " }}
-                {% else %}
-                    {{ page.location }}
-                {% endif %}
-            </td>
-        </tr>
-        {% endif %}
         {% if page.tech %}
         <tr>
             <th>tech</th>

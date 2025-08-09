@@ -94,12 +94,16 @@ description: |
 → **Business**: [biz@dufour.xyz](mailto:biz@dufour.xyz)
 
 <div class="macmade-container">
+  {% comment %}
   <a href="{% link _chantiers/2025/nix-config.md %}">
+  {% endcomment %}
     <picture>
       <source srcset="{% link /assets/img/macmade-blk.gif %}" media="(prefers-color-scheme: dark)">
       <img src="{% link /assets/img/macmade-wht.gif %}" alt="macmade">
     </picture>
+  {% comment %}
   </a>
+  {% endcomment %}
 </div>
 
 <br><br><br>

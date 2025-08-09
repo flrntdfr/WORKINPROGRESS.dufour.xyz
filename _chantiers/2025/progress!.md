@@ -97,28 +97,4 @@ description: |
     align-items: center;
     justify-content: flex-start;
   }
-
-  /* Responsive adjustments */
-  @media screen and (max-width: 768px) {
-    .progress-item {
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
-    }
-    
-    .progress-item h2 {
-      font-size: 1.125rem;
-    }
-  }
-
-  @media screen and (max-width: 450px) {
-    .progress-showcase {
-      margin: 1rem -20px;
-      padding: 0 20px;
-    }
-    
-    .progress-item {
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-    }
-  }
 </style>
