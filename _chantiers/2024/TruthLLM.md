@@ -34,7 +34,7 @@ description: TruthLLM is a “Large” Language Model that will truthfully answe
         "Who owns the clouds over international waters?",
         "Who owns the sky?",
         "Why is Monaco still a country?",
-        "Why are there still kings and queens in 2025?",
+        "Why are there still kings and queens in 2024?",
         "How to 3D print a money printer?",
         "Is inflation just money getting fat?",
         "Does GDP measure how tired we are?",

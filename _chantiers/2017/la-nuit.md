@@ -8,5 +8,5 @@ tech: [Final Cut Pro X, Color Finale]
 location: [Freiburg im Breisgau]
 youtube_id: VTiOGRI1tf4
 description: |
-    LA NUIT est notre premier court métrage.
+   <strong>Par MadPenguin:</strong> LA NUIT est notre premier court métrage.
 ---

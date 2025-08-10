@@ -29,8 +29,6 @@ data {
     flex: 1;
 }
 
-
-
 /* Simple table styling */
 data table {
     width: 100%;
@@ -132,11 +130,10 @@ img {
         width: auto;
         min-width: 0;
         max-width: 100%;
-        flex: 0 1 auto;
+        flex: 0 0 auto;
     }
     
     data {
-        display: flex;
         width: auto;
         min-width: 0;
         max-width: 100%;

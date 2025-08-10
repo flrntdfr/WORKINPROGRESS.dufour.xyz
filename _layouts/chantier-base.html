@@ -10,6 +10,7 @@ ended:
 modified:
 highlighted:
 location:
+feat:
 permalink:
 href: 
     - ["int/ext", "citation", "label", "target"]
@@ -81,6 +82,12 @@ result:
             <tr>
                 <th>result</th>
                 <td>{{ page.result | join: ", "}}</td>
+            </tr>
+            {% endif %}            
+            {% if page.feat %}
+            <tr>
+                <th>feat</th>
+                <td>{{ page.feat | join: ", "}}</td>
             </tr>
             {% endif %}
         {% if page.tech %}

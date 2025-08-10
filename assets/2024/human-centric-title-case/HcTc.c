@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <strings.h>
 
 /* Export macros for WebAssembly */
 #define WASM_EXPORT(name) __attribute__((export_name(#name)))
@@ -40,35 +41,22 @@ static const char* const functional_words[] = {
 };
 static const int num_functional_words = sizeof(functional_words) / sizeof(char*);
 
-/*
- * List of French functional words to be lowercased.
- */
-static const char* const functional_words_fr[] = {
-    /* Articles */
-    "des", "l'", "la", "le", "les", "un", "une",
-    /* Prepositions */
-    "à", "après", "au", "aux", "avant", "avec", "chez", "contre", "dans", 
-    "de", "depuis", "derrière", "dès", "devant", "du", "en", "entre", "hors", 
-    "malgré", "par", "pendant", "pour", "sans", "selon", "sous", "sur", "vers",
-    /* Conjunctions */
-    "car", "donc", "et", "mais", "ni", "or", "ou", "que", "qu'", "si",
-    /* Pronouns */
-    "ce", "ces", "cet", "cette", "elle", "elles", "il", "ils", "je", 
-    "leur", "leurs", "ma", "mes", "mon", "nous", "nos", "notre", "on", "se", 
-    "sa", "ses", "son", "ta", "tes", "ton", "tu", "vous", "vos", "votre"
-};
-static const int num_functional_words_fr = sizeof(functional_words_fr) / sizeof(char*);
+/* French support removed: only English functional words are processed. */
 
 /*
- * List of particles that should be capitalized when part of a phrasal verb.
- * These words are typically lowercased as prepositions but are essential
- * to the meaning of a verb in a phrasal context (e.g., "Log In").
+ * Known phrasal verb bigrams to drive capitalization of particles (RFC 3.2.4)
  */
-static const char* const phrasal_verb_particles[] = {
-    "around", "away", "back", "by", "down", "forth", "in", "off", "on", 
-    "out", "over", "through", "up"
+typedef struct { const char* verb; const char* particle; } phrasal_bigram_t;
+static const phrasal_bigram_t known_phrasal_bigrams[] = {
+    {"log", "in"}, {"log", "out"}, {"log", "on"},
+    {"sign", "in"}, {"sign", "out"}, {"sign", "up"},
+    {"turn", "on"}, {"turn", "off"},
+    {"tune", "in"}, {"drop", "out"},
+    {"back", "up"}, {"set", "up"},
+    {"shut", "down"}, {"power", "up"},
+    {"scale", "up"}, {"scale", "down"}
 };
-static const int num_phrasal_verb_particles = sizeof(phrasal_verb_particles) / sizeof(char*);
+static const int num_known_phrasal_bigrams = sizeof(known_phrasal_bigrams) / sizeof(phrasal_bigram_t);
 
 /*
  * List of proper nouns to preserve their specific capitalization.
@@ -87,13 +75,22 @@ static const char* const proper_nouns[] = {
     "Python", "React", "Redis", "REST", "RFC", "Rust", "S3", "SQLite", "SSH", 
     "Slack", "Svelte", "Tailwind", "TCP", "Terraform", "TypeScript", "UDP", 
     "URL", "USB", "Vercel", "Vue.js", "WebAssembly", "WASM", "Windows", 
-    "YouTube", "Zoom"
+    "YouTube", "Zoom",
+    /* Technical terms/examples to preserve exact casing */
+    "getElementById", "git"
 };
 static const int num_proper_nouns = sizeof(proper_nouns) / sizeof(char*);
 
 /* Helper to check if a character is a delimiter for words */
 static bool is_word_delimiter(char c) {
-    return c == ' ' || c == '\t' || c == '\n' || c == '-';
+    return c == ' ' || c == '\t' || c == '\n';
+}
+
+/* Case-insensitive equality against a C string literal */
+static bool equals_ci(const char* word, size_t len, const char* literal) {
+    size_t lit_len = strlen(literal);
+    if (len != lit_len) return false;
+    return strncasecmp(word, literal, len) == 0;
 }
 
 /* 
@@ -112,14 +109,6 @@ static bool is_functional_word(const char* word, size_t len) {
         }
     }
 
-    for (int i = 0; i < num_functional_words_fr; i++) {
-        size_t func_len = strlen(functional_words_fr[i]);
-        if (len == func_len) {
-            if (strncasecmp(word, functional_words_fr[i], len) == 0) {
-                return true;
-            }
-        }
-    }
 
     return false;
 }
@@ -138,19 +127,6 @@ static const char* get_proper_noun_casing(const char* word, size_t len) {
         }
     }
     return NULL;
-}
-
-/*
- * Checks if a word is a particle that should be capitalized in a phrasal verb.
- */
-static bool is_phrasal_particle(const char* word, size_t len) {
-    if (len == 0) return false;
-    for (int i = 0; i < num_phrasal_verb_particles; i++) {
-        if (strncasecmp(word, phrasal_verb_particles[i], len) == 0 && strlen(phrasal_verb_particles[i]) == len) {
-            return true;
-        }
-    }
-    return false;
 }
 
 /* Check if a word is all uppercase (and longer than 1 char), likely an acronym */
@@ -183,13 +159,13 @@ static void lowercase_word_part(char* dest, const char* src, size_t len) {
 
 /*
  * Processes a single word according to the HcTc specification.
- * This function follows the detection logic from RFC 001, Section 4.2:
+ * This function follows the detection logic from RFC 001, Sections 3.3 and 4.1:
  * 1. Check against the proper noun dictionary.
  * 2. Check if the word is an acronym.
- * 3. Check against the functional words list.
+ * 3. Check against the functional words list and first/last or forced rule.
  * 4. Apply default capitalization.
  */
-static void process_word(char* dest_word, const char* src_word, size_t len, bool is_first_or_last) {
+static void process_word(char* dest_word, const char* src_word, size_t len, bool force_capitalize) {
     /* 1. Proper Noun Check */
     const char* proper_casing = get_proper_noun_casing(src_word, len);
     if (proper_casing) {
@@ -226,12 +202,12 @@ static void process_word(char* dest_word, const char* src_word, size_t len, bool
             size_t proper_len = strlen(proper_part_casing);
             memcpy(d, proper_part_casing, proper_len);
             d += proper_len;
-        } else if (is_first_or_last || !is_functional_word(p, part_len) || is_phrasal_particle(p, part_len)) {
-            /* This is a meaningful word, so capitalize it. */
+        } else if (force_capitalize || !is_functional_word(p, part_len)) {
+            /* Capitalize meaningful parts or when forced (first/last, phrasal) */
             capitalize_word_part(d, p, part_len);
             d += part_len;
         } else {
-            /* This is a functional word, so lowercase it. */
+            /* Lowercase functional parts */
             lowercase_word_part(d, p, part_len);
             d += part_len;
         }
@@ -241,6 +217,18 @@ static void process_word(char* dest_word, const char* src_word, size_t len, bool
         }
         p = part_end + 1;
     }
+}
+
+/* Determine if previous and current word form a known phrasal bigram */
+static bool is_known_phrasal_pair(const char* prev_word, size_t prev_len, const char* curr_word, size_t curr_len) {
+    if (prev_len == 0 || curr_len == 0) return false;
+    for (int i = 0; i < num_known_phrasal_bigrams; i++) {
+        if (equals_ci(prev_word, prev_len, known_phrasal_bigrams[i].verb) &&
+            equals_ci(curr_word, curr_len, known_phrasal_bigrams[i].particle)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 /* Global dynamic buffer for output */
@@ -282,12 +270,17 @@ char* humanTitleCase(const char* text) {
     char* out_p = output_buffer;
     bool is_first_word_on_line = true;
 
+    const char* prev_word_start = NULL;
+    size_t prev_word_len = 0;
+
     while (*p) {
         /* Copy delimiters and check for newlines to reset capitalization */
         const char* delimiter_start = p;
         while (*p && is_word_delimiter(*p)) {
             if (*p == '\n') {
                 is_first_word_on_line = true;
+                prev_word_start = NULL;
+                prev_word_len = 0; /* do not form bigrams across lines */
             }
             p++;
         }
@@ -305,8 +298,15 @@ char* humanTitleCase(const char* text) {
         size_t word_len = word_end - word_start;
 
         bool is_last_word = (word_start == last_word_start);
-        process_word(out_p, word_start, word_len, is_first_word_on_line || is_last_word);
+        bool force_capitalize = is_first_word_on_line || is_last_word ||
+                                is_known_phrasal_pair(prev_word_start, prev_word_len, word_start, word_len);
+
+        process_word(out_p, word_start, word_len, force_capitalize);
         is_first_word_on_line = false; /* Subsequent words on same line are not "first" */
+
+        /* Update previous word context for potential phrasal bigrams */
+        prev_word_start = word_start;
+        prev_word_len = word_len;
 
         out_p += word_len;
         p = word_end;

@@ -7,5 +7,5 @@ location: [Belfort]
 result: [shortfilm]
 youtube_id: 9M4W0oZhYMw
 description: |
-    <strong>Par Mad Penguin Studio:</strong> Découvrez l'histoire invraisemblable d'un vélo ordinaire.
+    <strong>Par MadPenguin:</strong> Découvrez l'histoire invraisemblable d'un vélo ordinaire.
 ---

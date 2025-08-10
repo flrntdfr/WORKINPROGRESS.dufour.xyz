@@ -107,11 +107,9 @@ data {
 ![IMG_5455.JPG]({% link /assets/2024/screenshots/IMG_5455.JPG %})
 
 {% comment %} 2020 {% endcomment %}
-[![Do Not Disturb]({% link /assets/2024/screenshots/do-not-disturb.jpg %})]({% link _chantiers/2020/fake-screenshots.md %})
-[![Instagram]({% link /assets/2024/screenshots/instagram.jpg %})]({% link _chantiers/2020/fake-screenshots.md %})
-[![Lock Screen]({% link /assets/2024/screenshots/lock-screen.jpg %})]({% link _chantiers/2020/fake-screenshots.md %})
-[![Lock]({% link /assets/2024/screenshots/lock.jpg %})]({% link _chantiers/2020/fake-screenshots.md %})
-[![Pôle Emploi]({% link /assets/2024/screenshots/pole-emploi.png %})]({% link _chantiers/2020/fake-screenshots.md %})
+![Instagram]({% link /assets/2024/screenshots/instagram.jpg %})
+![Lock Screen]({% link /assets/2024/screenshots/lock-screen.jpg %})
+![Pôle Emploi]({% link /assets/2024/screenshots/pole-emploi.png %})
 
 {% comment %} 2021 {% endcomment %}
 ![IMG_0372.PNG]({% link /assets/2024/screenshots/IMG_0372.PNG %})
@@ -150,7 +148,6 @@ data {
 ![IMG_8258.PNG]({% link /assets/2024/screenshots/IMG_8258.PNG %})
 ![IMG_8835.PNG]({% link /assets/2024/screenshots/IMG_8835.PNG %})
 ![IMG_8903.PNG]({% link /assets/2024/screenshots/IMG_8903.PNG %})
-![IMG_9331.PNG]({% link /assets/2024/screenshots/IMG_9331.PNG %})
 ![IMG_9463.PNG]({% link /assets/2024/screenshots/IMG_9463.PNG %})
 [![Apple Music Replay 2023.png]({% link /assets/2024/screenshots/AppleMusicReplay2023.png %})]({% link _chantiers/2010/EC*.md %})
 [![Apple Music Replay Top Albums 2023.png]({% link /assets/2024/screenshots/AppleMusicReplayTopAlbums2023.png %})]({% link _chantiers/2010/EC*.md %})

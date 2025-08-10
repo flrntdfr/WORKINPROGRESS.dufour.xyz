@@ -41,6 +41,7 @@ html, body {
 
 .bsod {
   background: #0000AA;
+  font-size: 0.8em;
   color: #FFFFFF;
   font-family: var(--font-family-monospace);
   cursor: not-allowed;

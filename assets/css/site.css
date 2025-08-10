@@ -60,7 +60,7 @@ h2 {
 }
 
 
-blockquote {
+/* blockquote {
   font-family: var(--font-family-serif);
   font-style: italic;
 }
@@ -72,7 +72,7 @@ blockquote p:first-child::before {
 
 blockquote::before {
   content: "";
-}
+} */
 
 
 code,

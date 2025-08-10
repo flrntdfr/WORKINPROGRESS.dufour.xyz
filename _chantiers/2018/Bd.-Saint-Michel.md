@@ -2,10 +2,11 @@
 layout: chantier-columns-x2
 title: Bd. Saint-Michel
 result: illustration
-started:  2018-07-01
+started: 2017-11-05
 ended: 2018-11-02
 location: [Paris]
-result: [illustrations]
+result: [illustration]
+lib: p5.v1.4.2.min.js
 ---
 
 <div>
@@ -18,7 +19,7 @@ result: [illustrations]
 </div>
 <div>
     <strong>Notre-Dame</strong><br>
-    <img src="{% link /assets/2018/bd-saint-michel/Roscoff.svg %}" alt="Cathédrale" />
+    <img src="{% link /assets/2018/bd-saint-michel/notre-dame.svg %}" alt="Notre-Dame" />
 </div>
 <div>
     <strong>Talamanca</strong><br>
@@ -33,9 +34,6 @@ result: [illustrations]
     <div id="lundi-canvas" style="display: flex; justify-content: center;"></div>
 </div>
 
-<!-- ------- -->
-
-<script src="{% link /assets/lib/p5.v1.4.2.min.js %}"></script>
 <script>
 function addClickToggle(p5Instance) {
     setTimeout(() => {
@@ -222,85 +220,9 @@ const arcsInstance = new p5(arcsSketch, 'périphérique-canvas');
 addClickToggle(arcsInstance);
 </script>
 
-{% comment %}
-
-<div>
-    <strong>un scarabé</strong><br>
-    <img src="/assets/2018/bd-saint-michel/La Villette.svg" alt="La Villette" />
-</div>
-
-**La Mort**<br>
-![La Mort](/assets/2018/bd-saint-michel/La Mort.svg)
-
-**Pravčická-brána**<br>
-![Pravčická-brána](/assets/2018/bd-saint-michel/Pravčická-brána.svg)
-
-**Roscoff**<br>
-<div style="display: flex; gap: 20px; align-items: flex-start; width: 100%;">
-    <div style="flex: 1;">
-        <img src="/assets/2018/bd-saint-michel/Roscoff.svg" alt="Roscoff" style="width: 100%; height: auto;">
-    </div>
-    <div style="flex: 1;">
-        <img src="/assets/2018/bd-saint-michel/Shell.svg" alt="Shell" style="width: 100%; height: auto;">
-    </div>
-</div>
-
-<div>
-    <strong>une télévision éteinte</strong><br>
-    <img src="/assets/2018/bd-saint-michel/TV.svg" alt="TV" />
-</div>
-
-<div>
-    <strong>cardioïde</strong><br>
-    <div id="cardioid-canvas" style="display: flex; justify-content: center;"></div>
-</div>
-
-const cardioidSketch = (p) => {
-    let totalPoints;
-    let radius;
-    let factor;
-    let circleRadius;
-
-    function getVector(index) {
-        let angle = p.map(index % totalPoints, 0, totalPoints, -p.PI, p.PI);
-        let v = p.createVector(p.cos(angle), p.sin(angle));
-        v.mult(radius);
-        return v;
-    }
-
-    p.setup = function() {
-        const size = p._userNode.parentElement.clientWidth || 500;
-        p.createCanvas(size, size);
-        totalPoints = p.floor(p.map(size, 200, 500, 150, 250, true));
-        radius = p.min(p.width, p.height) / 2 - 10;
-        factor = 2;
-        circleRadius = p.width * 0.12;
-    };
-
-    p.draw = function() {
-        p.background(255);
-        p.push();
-        p.translate(p.width / 2, p.height / 2);
-        p.noStroke();
-        p.fill(0, 0, 0);
-        p.ellipse(0, 0, circleRadius, circleRadius);
-        p.noFill();
-        p.stroke(0, 50);
-        p.strokeWeight(p.map(p.width, 200, 500, 1.5, 3, true));
-        for (let i = 0; i < totalPoints; i++) {
-            let previousPoint = getVector(i);
-            let currentPoint = getVector(i * factor);
-            p.line(previousPoint.x, previousPoint.y, currentPoint.x, currentPoint.y);
-        }
-        p.pop();
-        factor += 0.01;
-        if (p.frameCount >= 3600) {
-            p.noLoop();
-            p.print("Sketch has stopped.");
-        }
-    };
-};
-
-new p5(cardioidSketch, 'cardioid-canvas');
-
-{% endcomment %}
+<style>
+data canvas {
+    max-width: 100%;
+    height: auto;
+}
+</style>
