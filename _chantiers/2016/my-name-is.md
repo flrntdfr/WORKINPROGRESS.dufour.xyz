@@ -27,106 +27,65 @@ description: You are playing “My name is…”.<br>You know who you are.
 <script>
 const lists = {
   listA: [
-    "disorganized",
-    "a perfectionist",
-    "pragmatic",
-    "lazy",
+    ["normal", "disorganized", "a perfectionist", "pragmatic", "lazy"],
 
-    "an Aries",
-    "a Taurus",
-    "a Gemini",
-    "a Cancer",
-    "a Leo",
-    "a Virgo",
-    "a Libra",
-    "a Scorpio",
-    "a Sagittarius",
-    "a Capricorn",
-    "an Aquarius",
-    "a Pisces",
-
-    "lesbian",
-    "gay",
-    "bisexual",
-    "transgender",
-    "queer",
-    "intersex",
-    "asexual",
-    "pansexual",
-    "demisexual",
-    "sapiosexual",
-    "aromantic",
-    "graysexual",
-    "polysexual",
-    "omnisexual",
-    "non-binary",
-    "genderqueer",
-    "agender",
-    "bigender",
-    "pangender",
-    "genderfluid",
-
-    "vegetarian",
-    "vegan",
-    "pescatarian",
-    "flexitarian",
-    "carnivore",
-    "omnivore",
-    "fruitarian",
-    "gluten intolerant",
-    "lactose intolerant",
-
-    "happy",
-    "sad",
-    "depressed",
-    "burnt-out",
-
-    "in recovery",
-    "alcoholic",
-    "addicted",
-    "sober",
-    "clean",
-
-    "black",
-    "white",
-    "Latino",
-    "Hispanic",
-    "Asian",
-    "Arab",
-    "biracial",
-
-    "Jewish",
-    "Muslim",
-    "a Christian",
-    "Buddhist",
-    "Hindu",
-    "atheist",
-
-    "rich",
-    "poor",
-    "successful",
-    "working class",
-    "middle class",
-    "upper class",
-    "an immigrant",
+    ["an Aries", "a Taurus", "a Gemini", "a Cancer", "a Leo", "a Virgo", "a Libra", "a Scorpio", "a Sagittarius", "a Capricorn", "an Aquarius", "a Pisces"],
     
-    "climate-conscious",
-
-    "a man",
-    "a woman",
-    "a kid",
-    "a teenager",
+    ["lesbian", "gay", "bisexual", "transgender", "queer", "intersex", "asexual", "pansexual", "demisexual", "sapiosexual", "aromantic", "graysexual", "polysexual", "omnisexual", "non-binary", "genderqueer", "agender", "bigender", "pangender", "genderfluid"],
     
-    "young",
-    "middle-aged",
-    "old",
+    ["vegetarian", "vegan", "pescatarian", "flexitarian", "carnivore", "omnivore", "fruitarian", "gluten intolerant", "lactose intolerant"],
     
-    "a scientist",
-    "an artist",
+    ["happy", "sad", "depressed", "burnt-out"],
+    
+    ["in recovery", "alcoholic", "addicted", "sober", "clean"],
+    
+    ["black", "white", "Latino", "Hispanic", "Asian", "Arab", "biracial"],
+    
+    ["Jewish", "Muslim", "a Christian", "Buddhist", "Hindu", "atheist"],
+    
+    ["rich", "poor", "successful", "working class", "middle class", "upper class", "an immigrant"],
+    
+    ["climate-conscious"],
+    
+    ["a man", "a woman", "a kid", "a teenager"],
+    
+    ["young", "middle-aged", "old"],
+    
+    ["a scientist", "an artist", "a writer", "a programmer", "a designer", "a developer", "a consultant", "a manager", "unemployed", "a student", "a teacher", "a doctor", "a nurse", "a lawyer", "a police officer"],
+    
+    ["an introvert", "an extrovert", "an ambivert"],
+    
+    ["patient", "impatient"],
 
-    "an introvert",
-    "an extrovert",
-    "an ambivert",
+    ["vegetarian", "vegan", "pescatarian", "flexitarian", "carnivore", "omnivore", "fruitarian", "gluten intolerant", "lactose intolerant"],
+
+    ["happy", "sad", "depressed", "burnt-out"],
+
+    ["in recovery", "alcoholic", "addicted", "sober", "clean"],
+
+    ["black", "white", "Latino", "Hispanic", "Asian", "Arab", "biracial"],
+
+    ["Jewish", "Muslim", "a Christian", "Buddhist", "Hindu", "atheist"],
+
+    ["rich", "poor", "successful", "working class", "middle class", "upper class", "an immigrant"],
+    
+    ["climate-conscious", "climate-denier"],
+
+    ["a man", "a woman", "a kid", "a teenager"],
+    
+    ["young", "middle-aged", "old"],
+    
+    ["a scientist", "an artist", "a writer", "a programmer", "a designer", "a developer", "a consultant", "a manager", "unemployed", "a student", "a teacher", "a doctor", "a nurse", "a lawyer", "a police officer"],
+    
+    ["an introvert", "an extrovert", "an ambivert"],
+    
+    ["patient", "impatient"],
+    
+    ["a manager", "unemployed", "a student", "a teacher", "a doctor", "a nurse", "a lawyer", "a police officer", ""],
+
+    ["an introvert", "an extrovert", "an ambivert"],
+
+    ["patient", "impatient"],
   ],
   listB: [
     "I know about AlphaGo's move 37.",
@@ -207,7 +166,6 @@ const lists = {
     "I am the opposite and the lack thereof.",
     "I find silences deafening.",
     "I am the cherry on top.",
-    "I am prepared for the unlikely event of an emergency landing.",
     "I won't witness the ending of time.",
     "I am ignorant and blissful.",
     "I am wise.",
@@ -313,66 +271,249 @@ const lists = {
     "I serve people around me.",
     "I flood people with love.",
     "I am proof that working hard pays-off.",
+    "I would prefer reincarnating as a human again.",
+    "I want people to be interested in the things I make.",
+    "I don't usually need to change my mind.",
+    "I can't imagine being dead.",
+    "I don't care.",
+    "I leave people better than I find them.",
   ]
 };
 
-let currentListA = "";
-let currentListB = "";
+/* --- Final Round Config --- */
+const FINAL_AFFIRMATION = "I don't know who I am.";
+let isFinalAffirmationMode = false;
 
-function getRandomItem(array) {
-  return array[Math.floor(Math.random() * array.length)];
+/* --- Game State --- */
+let currentSublistIndex = -1;
+let currentLabel = "";
+let currentAffirmationIndex = -1;
+
+/* --- Utilities --- */
+function getRandomIndex(length) {
+  return Math.floor(Math.random() * length);
 }
 
-function generateNewCombination() {
-  currentListA = getRandomItem(lists.listA);
-  currentListB = getRandomItem(lists.listB);
-  
-  document.getElementById('list-a-item').value = currentListA;
-  document.getElementById('list-b-item').value = currentListB;
+function getNonEmptySublistIndices() {
+  const indices = [];
+  for (let i = 0; i < lists.listA.length; i += 1) {
+    const sub = lists.listA[i];
+    if (Array.isArray(sub) && sub.length > 0) {
+      indices.push(i);
+    }
+  }
+  return indices;
+}
+
+function logListLengths() {
+  const totalLabels = getTotalLabelsInListA();
+  console.log(`Label categories: ${lists.listA.length} (${totalLabels}), affirmations: ${lists.listB.length}`);
+}
+
+function getTotalLabelsInListA() {
+  let total = 0;
+  for (let i = 0; i < lists.listA.length; i += 1) {
+    const sub = lists.listA[i];
+    if (Array.isArray(sub)) {
+      total += sub.length;
+    }
+  }
+  return total;
+}
+
+function updateDisplay() {
+  document.getElementById('list-a-item').value = currentLabel;
+  if (currentAffirmationIndex >= 0 && currentAffirmationIndex < lists.listB.length) {
+    document.getElementById('list-b-item').value = lists.listB[currentAffirmationIndex];
+  } else {
+    document.getElementById('list-b-item').value = "";
+  }
+}
+
+function pickRandomSublist() {
+  const choices = getNonEmptySublistIndices();
+  if (choices.length === 0) {
+    return -1;
+  }
+  return choices[getRandomIndex(choices.length)];
+}
+
+function pickRandomSublistDifferent(excludeIndex) {
+  const choices = getNonEmptySublistIndices();
+  if (choices.length === 0) { return -1; }
+  if (choices.length === 1) { return choices[0]; }
+  let idx = choices[getRandomIndex(choices.length)];
+  let safety = 0;
+  while (idx === excludeIndex && safety < 10) {
+    idx = choices[getRandomIndex(choices.length)];
+    safety += 1;
+  }
+  return idx;
+}
+
+function pickRandomLabelFromCurrentSublist(excludeLabel) {
+  const sublist = lists.listA[currentSublistIndex];
+  if (!Array.isArray(sublist) || sublist.length === 0) {
+    currentLabel = "";
+    return;
+  }
+  if (sublist.length === 1) {
+    currentLabel = sublist[0];
+    return;
+  }
+  let idx = getRandomIndex(sublist.length);
+  if (typeof excludeLabel === 'string' && sublist.length > 1) {
+    /* Ensure a different label is picked when requested */
+    let safety = 0;
+    while (sublist[idx] === excludeLabel && safety < 10) {
+      idx = getRandomIndex(sublist.length);
+      safety += 1;
+    }
+  }
+  currentLabel = sublist[idx];
+}
+
+function pickRandomAffirmation(excludeIndex) {
+  if (lists.listB.length === 0) {
+    currentAffirmationIndex = -1;
+    return;
+  }
+  if (lists.listB.length === 1) {
+    currentAffirmationIndex = 0;
+    return;
+  }
+  let idx = getRandomIndex(lists.listB.length);
+  if (typeof excludeIndex === 'number' && excludeIndex >= 0) {
+    /* Try to avoid repeating the exact same affirmation consecutively */
+    let safety = 0;
+    while (idx === excludeIndex && safety < 10) {
+      idx = getRandomIndex(lists.listB.length);
+      safety += 1;
+    }
+  }
+  currentAffirmationIndex = idx;
 }
 
 function animateButton(button) {
   button.style.transform = 'scale(0.95)';
-  setTimeout(() => {
+  setTimeout(function() {
     button.style.transform = '';
   }, 100);
 }
 
+function showFinalAffirmation() {
+  if (isFinalAffirmationMode) { return; }
+  isFinalAffirmationMode = true;
+  lists.listB.push(FINAL_AFFIRMATION);
+  currentAffirmationIndex = lists.listB.length - 1;
+}
+
+function endGame() {
+  const yesBtn = document.getElementById('yes-button');
+  const noBtn = document.getElementById('no-button');
+  yesBtn.disabled = true;
+  noBtn.disabled = true;
+  document.getElementById('list-b-item').value = "";
+  document.getElementById('statement-connector').textContent = "and";
+  /* Optionally reflect completion state in the affirmation field */
+  document.getElementById('list-b-item').placeholder = "No more affirmations";
+}
+
+function winGame() {
+  const interfaceDiv = document.querySelector('.iam-interface');
+  if (!interfaceDiv) { return; }
+  interfaceDiv.classList.add('end-screen');
+  interfaceDiv.innerHTML = '<div class="end-message">You win.</div>';
+}
+
+function loseGame() {
+  const interfaceDiv = document.querySelector('.iam-interface');
+  if (!interfaceDiv) { return; }
+  interfaceDiv.classList.add('end-screen');
+  interfaceDiv.innerHTML = '<div class="end-message">Game over.</div>';
+}
+
+/* --- Core Actions --- */
+function initializeGame() {
+  isFinalAffirmationMode = false;
+  currentSublistIndex = pickRandomSublist();
+  if (currentSublistIndex === -1) {
+    endGame();
+    return;
+  }
+  pickRandomLabelFromCurrentSublist();
+  pickRandomAffirmation();
+  updateDisplay();
+  logListLengths();
+}
+
 function handleYes() {
-  console.log(`Action: YES for combination: "${currentListA}" AND "${currentListB}"`);
-  /* Only update list B when YES is pressed */
-  currentListB = getRandomItem(lists.listB);
-  document.getElementById('list-b-item').value = currentListB;
+  if (isFinalAffirmationMode) {
+    animateButton(document.getElementById('yes-button'));
+    loseGame();
+    return;
+  }
+  console.log(`Action: YES for combination: "${currentLabel}" AND "${lists.listB[currentAffirmationIndex]}"`);
+  /* YES: lock the label by removing all other labels from the current sublist */
+  if (currentSublistIndex >= 0) {
+    lists.listA[currentSublistIndex] = [currentLabel];
+  }
+  /* Remove the current affirmation from listB */
+  if (currentAffirmationIndex >= 0) {
+    lists.listB.splice(currentAffirmationIndex, 1);
+  }
+  /* If no more affirmations remain, trigger final round */
+  if (lists.listB.length === 0) {
+    showFinalAffirmation();
+    updateDisplay();
+    animateButton(document.getElementById('yes-button'));
+    logListLengths();
+    return;
+  }
+  /* Pick a new affirmation; label remains the same */
+  pickRandomAffirmation();
+  updateDisplay();
   animateButton(document.getElementById('yes-button'));
+  logListLengths();
 }
 
 function handleNo() {
-  console.log(`Action: NO for combination: "${currentListA}" AND "${currentListB}"`);
-  generateNewCombination();
+  if (isFinalAffirmationMode) {
+    animateButton(document.getElementById('no-button'));
+    winGame();
+    return;
+  }
+  console.log(`Action: NO for combination: "${currentLabel}" AND "${lists.listB[currentAffirmationIndex]}"`);
+  /* Always switch to a different random sublist, then pick a random label */
+  const nextSublistIndex = pickRandomSublistDifferent(currentSublistIndex);
+  if (nextSublistIndex !== -1) {
+    currentSublistIndex = nextSublistIndex;
+  }
+  pickRandomLabelFromCurrentSublist();
+  /* Also pick a new affirmation */
+  pickRandomAffirmation(currentAffirmationIndex);
+  updateDisplay();
   animateButton(document.getElementById('no-button'));
+  logListLengths();
 }
 
 /* Initialize on page load */
 document.addEventListener('DOMContentLoaded', function() {
-  generateNewCombination();
-  
+  initializeGame();
   /* Add individual button event listeners */
   document.getElementById('yes-button').addEventListener('click', handleYes);
   document.getElementById('no-button').addEventListener('click', handleNo);
-  
   /* Focus the name input on page load */
-  nameInput.focus();
-  
+  const nameInput = document.getElementById('name-input');
+  if (nameInput) { nameInput.focus(); }
   /* Keyboard shortcuts */
   document.addEventListener('keydown', function(event) {
-    switch(event.key.toLowerCase()) {
-      case 'y':
-        handleYes();
-        break;
-      case 'n':
-        handleNo();
-        break;
-    }
+    const yesBtn = document.getElementById('yes-button');
+    const noBtn = document.getElementById('no-button');
+    if (yesBtn.disabled || noBtn.disabled) { return; }
+    const key = (event.key || "").toLowerCase();
+    if (key === 'y') { handleYes(); }
+    if (key === 'n') { handleNo(); }
   });
 });
 </script> 
@@ -445,5 +586,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .action-button:hover {
     background-color: #f5f5f5;
+}
+
+/* End screen centering */
+.iam-interface.end-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+}
+
+.end-message {
+    text-align: center;
 }
 </style>
