@@ -11,16 +11,9 @@ href:
   - ["ext", "<b>Consortium website:</b>", "digimed-bayern.de ➟", "https://www.digimed-bayern.de/en.html"]
   - ["ext", "<b>Cloud documentation:</b>", "pages.gitlab.lrz.de ➟", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]
 description: |
-    The DigiMed secure Cloud is one artifcat of the 27Mio€ project by Bavaria. Confidential. Beginning nothing
-    Now IaaS 
-    Open source 
-    Business plan 
-    All required Benchmarks. And. Kpi 
-    Complaince gap is. Don e
-    Successful grant (+ accepted/rejected DFG)
-    2 lignes, si rejetée, alors barrée 
-    Pour l'instant pending
-    DigiMed 1 24.5Mio prior to me, further funding accorded in 2024 for the work package 
+    The goal of the DigiMed Bayern Project is to advance the digital transformation of Bavaria’s health system. With a focus on the secondary use of cardiovascular research data from university hospitals and research institutes, it integrates sensitive clinical, imaging, and multi-omic data to enable better, data-driven medicine. This approach supports more accurate prediction of disease risks, more targeted prevention, and improved diagnosis and treatment — starting with cardiovascular diseases but designed to be transferable to other conditions.
+    <br><br>
+    Under Work Package 6, which focuses on the storage and compute infrastructure, I contributed to the design and deployment of a secure, privacy-compliant cloud platform for integrating, sharing, and analyzing large-scale biomedical data. This included developing an architecture that replaces existing data silos, implements FAIR data principles, and supports AI-driven analytics. The infrastructure is built for scalability, interoperability, and long-term sustainability, providing a foundation for collaborative research and clinical translation.
 ---
 
 <style>
@@ -32,41 +25,38 @@ h1 + h2 {
     margin-top: 0;
 }
 
-/* Increase spacing between list items */
-ul li, ol li {
-    margin-bottom: 0.5em;  /* Adds space between list items */
+ul li,
+ol li {
+    margin-bottom: 0.5em;
 }
 
-/* Remove extra space after the last item in lists */
-ul li:last-child, ol li:last-child {
+ul li:last-child,
+ol li:last-child {
     margin-bottom: 0;
 }
-
-
 </style>
 
 # Milestones
 
 | Mile | Stone |
 |-:|:-|
-| **07.2025** | DigiMed secure cloud becomes one of the 6 nodes of the GHGA |
-| **03.2025** | (pending) DFG (pending) (hope not gets crossed) |
-| **03.2025** | Onboarding of the GRZ/GHGA |
-| **12.2024** | DigiMed 2.0 we apply for more money and get granted §Mio and WP 6 continues. |
-| **11.2024** | BayLfD |
-| **11.2024** | TRE becomes its own team and becomes the trustworthy AI branch of BDAI with biomedical usecases |
-| **01.2022** | First user training |
-| **11.2020** | First petabyte of storage is online |
-| **10.2018** | (prior) DigiMed  — prior — 24Mio€ [Press release]() |
+| **09.2025** | The DigiMed future user group is created. |
+| **07.2025** | The DigiMed Secure Cloud becomes one of the 6 nodes of the German Human Genome-Phenome Archive. |
+| **03.2025** | Onboarding of the German Human Genome-Phenome Archive and Genome Computing Centre. |
+| **12.2024** | The DigiMed Bayern Project is extended for another 3 years and 2.7Mio€ are granted by the Bavarian Ministry of Health and Care. |
+| **11.2024** | The DigiMed team of the Leibniz Supercomputing Centre becomes its own group and becomes the trustworthy branch of the Big Data and AI group. |
+| **09.2024** | Inspection of the infrastructure by the data protection officer — Bayerische Landesbeauftragte für den Datenschutz. |
+| **12.2023** | The DigiMed Secure Cloud is announced to the public. |
+| **03.2022** | The first secure data transfer from the German Heart Centre Munich to the DigiMed Secure Cloud takes place. |
+| **01.2022** | The first CPU nodes with confidential computing are online. |
+| **11.2021** | The first petabyte of storage is online. |
+| **(10.2018)** | (Kickstart of the DigiMed Bayern Project, 24Mio€ are granted by the Bavarian Ministry of Health and Care) |
 
 # Contributions
 
 ## Papers
-1. Utopia Academic TRE
-1. _HPC Paper naweiluo_
-1. _HerzFit Paper_
-1.  **Comparative Overview of Medical Research Data Platforms: Interoperability, Privacy, and Federated Learning in Translational Biomedical Research**
-1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, and D. Kranzlmüller, **"Towards Confidential Computing: A Secure Cloud Architecture for Big Data Analytics and AI,"** in IEEE International Conference on Cloud Computing (IEEE CLOUD), (Chicago, Illinois, USAI), 2023.
+1.  **Comparative Overview of Medical Research Data Platforms: Interoperability, Privacy, and Federated Learning in Translational Biomedical Research** (in review), 2025.
+1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, and D. Kranzlmüller, **"Towards Confidential Computing: A Secure Cloud Architecture for Big Data Analytics and AI,"** in IEEE International Conference on Cloud Computing (IEEE CLOUD), (Chicago, Illinois, USA), 2023.
 
 ## Talks
 - 2025: F. Dufour, Jan Peschke, **"How to build 
@@ -76,10 +66,10 @@ a confidential cloud"? — A platform for next generation medical research**, Op
 
 ## Posters
 1. F. Dufour, N. Zhou, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **"Towards Confidential Computing: A Cloud Architecture for Big Data Analytics and AI in Biomedical Research (poster),",** in ISC, Hamburg, Germany, May 2023. 
-1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **" DigiMed Cloud: A Highly-Secure Cloud for Big Data Analytics and AI in Biomedical Research (poster),",** in Hipeac, Munich, Germany, Jan 2024. 
+1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **" DigiMed Cloud: A Highly-Secure Cloud for Big Data Analytics and AI in Biomedical Research (poster)",** in Hipeac, Munich, Germany, Jan 2024. 
 
 ## Supervision and co-supervision
-- Vinzent Bode, **"Title",** Ludwig-Maximilians-Universität Munich. (2025)
+- Vinzent Bode, **"tbd.",** Ludwig-Maximilians-Universität Munich. (2025)
 - Julia Moosmayr, **"Implementierung von ausgewählten C5-Kriterien für Cloud-Dienste im Gesundheitswesen unter Berücksichtigung von NIS2 und ISO 27001: Eine Fallstudie der DigiMed Secure Cloud"** (2025)
 - Yassine Sfar, **"DigiMed Trusted Research Environment: Strategic Market Positioning for Healthcare Sovereignty, Privacy, and Utility of Medical Data"**, Technical University of Munich (2025).
 - Valentin Pfeil, **"Confidential Computing Via Hardware Trusted Execution Environments by an Openstack HPC Capable Cloud"**, University of the Bundeswehr Munich (2024).

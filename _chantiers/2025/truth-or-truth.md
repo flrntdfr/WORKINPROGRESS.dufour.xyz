@@ -31,7 +31,7 @@ description: |
       "What's the first thing you'd do with free will?",
       "Are there topics you avoid with your parents?",
       "How do you explain that you think certain things?",
-      "Would you say your friends are good looking?",
+      "Do you find your friends good looking?",
       "What are the most important facts everyone should know?",
       "What do you think other people are so sure about?",
       "What do you think is the best invention of all time?",

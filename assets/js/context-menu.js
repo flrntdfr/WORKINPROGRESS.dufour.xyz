@@ -94,7 +94,7 @@ class CustomContextMenu {
         { text: '→ Next', action: () => this.navigateToNextChantier() },
         { text: '↔ Random', action: () => this.openRandomPage() },
         { separator: true },
-        { text: '↻ Restart', action: () => this.restartWithBlink() },
+        { text: '↻ Restart', action: () => this.restart() },
     ];
 
     /* Add target-specific items */
@@ -236,57 +236,31 @@ class CustomContextMenu {
     }
   }
 
-  restartWithBlink() {
-    /* 1. List all DOM elements */
-    const allElements = document.querySelectorAll('*');
-    
-    /* 2. Make a list with half of them (randomly) */
-    const shuffledElements = Array.from(allElements).sort(() => Math.random() - 0.5);
-    const halfSize = Math.ceil(shuffledElements.length / 2);
-    const firstHalf = shuffledElements.slice(0, halfSize);
-    
-    /* 3. Make another list with the other half */
-    const secondHalf = shuffledElements.slice(halfSize);
-    
-    /* Function to make a group blink all at once */
-    const blinkGroup = (elements, onComplete) => {
-      /* Store original display values */
-      const originalDisplays = elements.map(element => element.style.display);
-      
-      /* First blink - all elements at once */
-      elements.forEach(element => element.style.display = 'none');
-      
-      setTimeout(() => {
-        /* Restore display */
-        elements.forEach((element, index) => {
-          element.style.display = originalDisplays[index] || '';
-        });
-        
-        setTimeout(() => {
-          /* Second blink - all elements at once */
-          elements.forEach(element => element.style.display = 'none');
-          
-          setTimeout(() => {
-            /* Restore display and call completion */
-            elements.forEach((element, index) => {
-              element.style.display = originalDisplays[index] || '';
-            });
-            onComplete();
-          }, 100);
-        }, 100);
-      }, 100);
-    };
-    
-    /* 4. Make the first list blink */
-    blinkGroup(firstHalf, () => {
-      /* 5. Make the other list blink */
-      setTimeout(() => {
-        blinkGroup(secondHalf, () => {
-          /* 6. Reload the page */
-          window.location.reload(true);
-        });
-      }, 100);
-    });
+  restart() {
+    /* Create overlay with accent color */
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--accent-color, #007acc);
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.1s ease-in-out;
+    `;
+    document.body.appendChild(overlay);
+
+    /* Fade in overlay */
+    setTimeout(() => {
+      overlay.style.opacity = '1';
+    }, 10);
+
+    /* Reload after 1 second */
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 1000);
   }
 }
 

@@ -272,7 +272,7 @@ const lists = {
     "I am a good listener.",
     "I can make people rich.",
     "I wish I would never grow up.",
-    "I wish I would never die.",
+    "I wish I would never have to die.",
     "I wish things would be different.",
     "I feel empty.",
     "I don't have a favorite color.",

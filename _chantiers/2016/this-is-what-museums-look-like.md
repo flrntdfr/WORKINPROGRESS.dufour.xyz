@@ -246,44 +246,28 @@ function animateToIndex(targetIndex) {
     if (!museums || museums.length === 0) return;
     
     const totalImages = museums.length;
+    const clampedTarget = Math.max(0, Math.min(totalImages - 1, targetIndex));
     
-    /* Calculate the shortest path to the target index */
-    let forwardDistance = targetIndex - currentIndex;
-    let backwardDistance = currentIndex - targetIndex;
-    
-    /* Handle boundary crossing for shortest path calculation */
-    if (forwardDistance < 0) {
-        /* Going forward would cross the end boundary */
-        forwardDistance = (totalImages - currentIndex) + targetIndex;
-    }
-    if (backwardDistance < 0) {
-        /* Going backward would cross the start boundary */
-        backwardDistance = currentIndex + (totalImages - targetIndex);
+    /* If already at target, just make sure neighbors are preloaded */
+    if (clampedTarget === currentIndex) {
+        preloadAdjacentImages();
+        return;
     }
     
-    /* Choose the shortest direction */
-    const stepDirection = forwardDistance <= backwardDistance ? 1 : -1;
-    const totalSteps = Math.min(forwardDistance, backwardDistance);
-    
+    /* Simple direction: right if target is larger, left if smaller */
+    const stepDirection = clampedTarget > currentIndex ? 1 : -1;
     let currentStepIndex = currentIndex;
-    let stepCount = 0;
     
-    /* Animated transition using requestAnimationFrame for fastest possible speed */
     function animateTransition() {
-        if (stepCount < totalSteps) {
-            /* Move one step in the chosen direction */
-            currentStepIndex = (currentStepIndex + stepDirection + totalImages) % totalImages;
+        if (currentStepIndex !== clampedTarget) {
+            currentStepIndex += stepDirection;
             showMuseum(currentStepIndex);
-            stepCount++;
-            /* Use requestAnimationFrame for the fastest possible animation speed */
             requestAnimationFrame(animateTransition);
         } else {
-            /* Reached the target */
             preloadAdjacentImages();
         }
     }
     
-    /* Start the animation */
     requestAnimationFrame(animateTransition);
 }
 

@@ -11,14 +11,17 @@ href:
   - ["ext", "<sup>1</sup>", "Autor, David, et al. “New frontiers: The origins and content of new work, 1940–2018.” <i>The Quarterly Journal of Economics</i> 139.3 (2024): 1399-1465.", "https://academic.oup.com/qje/article-abstract/139/3/1399/7630187?redirectedFrom=fulltext&login=false"]
 ---
 
-
-<div class="minister-card">
-    <div class="titre">Ministre chargé à la réhabilitation des zones à faible émissions</div>
-    <img src="{% link /assets/2025/ministres/00C560DD-FA1A-4F68-AEB4-E21BB6C36E96.png %}" alt="Portrait du Ministre de la Réhabilitation des Zones à Faible Émissions">
-</div>
 <div class="minister-card">
     <div class="titre">Ministre de la renucléarisation et des affaires étrangères</div>
     <img src="{% link /assets/2025/ministres/A7043791-F878-4168-BC7D-7F451511B6F8.png %}" alt="Portrait du Ministre de la Renucléarisation et des Affaires Étrangères">
+</div>
+<div class="minister-card">
+    <div class="titre">Ministre de l'auto-entrepreneuriat et de la relance économique</div>
+    <img src="{% link /assets/2025/ministres/B0DEDF39-0A94-4DFA-9BDA-0571993513CF.png %}" alt="Portrait du Ministre de l'Auto-Entrepreneuriat et de la Relance Économique">
+</div>
+<div class="minister-card">
+    <div class="titre">Ministre chargé de la réhabilitation des zones à faible émissions</div>
+    <img src="{% link /assets/2025/ministres/00C560DD-FA1A-4F68-AEB4-E21BB6C36E96.png %}" alt="Portrait du Ministre chargé de la Réhabilitation des Zones à Faible Émissions">
 </div>
 <div class="minister-card">
     <div class="titre">Ministre de la dette et de l’excavation responsable</div>
@@ -27,10 +30,6 @@ href:
 <div class="minister-card">
     <div class="titre">Ministre de l'intermittence énergétique</div>
     <img src="{% link /assets/2025/ministres/38728E39-8AC3-46AF-AFFD-666A87E90650.png %}" alt="Portrait du Ministre de l'Intermittence Énergétique">
-</div>
-<div class="minister-card">
-    <div class="titre">Ministre de l'auto-entrepreneuriat et de la relance économique</div>
-    <img src="{% link /assets/2025/ministres/B0DEDF39-0A94-4DFA-9BDA-0571993513CF.png %}" alt="Portrait du Ministre de l'Auto-Entrepreneuriat et de la Relance Économique">
 </div>
 <div class="minister-card">
     <div class="titre">Ministre de la sieste et des retraites</div>
