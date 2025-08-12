@@ -100,15 +100,25 @@ result:
     {% if page.description %}
         <p>{{ page.description }}</p>
     {% endif %}
+    {% if page.href %}
         <div class="href">
-    {% for href in page.href %}
-    {% if href[0] == "int" %}
-        <p>{{ href[1] }} <a href="{% link {{ href[3] }} %}">{{ href[2]}}</a></p>
-    {% else if href[0] == "ext" %}
-        <p>{{ href[1] }} <a href="{{ href[3]}}" target="_blank" rel="noopener noreferrer">{{ href[2] }}</a></p>
-    {% else %}
+    
+    <table>
+        {% for href in page.href %}
+        {% if href[0] == "int" %}
+        <tr>
+            <th>{{ href[1] }}</th>
+            <td><a href="{% link {{ href[3] }} %}">{{ href[2]}}</a></td>
+        </tr>
+        {% else if href[0] == "ext" %}
+        <tr>
+            <th>{{ href[1] }}</th>
+            <td><a href="{{ href[3]}}" target="_blank" rel="noopener noreferrer">{{ href[2] }}</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
     {% endif %}
-    {% endfor %}
     </div>
 </metadata>
 

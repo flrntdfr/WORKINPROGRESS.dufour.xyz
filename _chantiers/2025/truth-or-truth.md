@@ -8,6 +8,25 @@ description: |
   Truth or Truth is a deck of cards that can be played on a first date.
 ---
 
+<div class="card-deck-container no-select">
+  <div class="card-stack">
+    <div class="card card-top">
+      <span class="card-index" id="current-card-index"></span>
+      <p class="card-content" id="current-card-content"></p>
+    </div>
+    <div class="card card-middle"></div>
+    <div class="card card-bottom"></div>
+  </div>
+  
+  <div class="question-selector">
+    <div class="button-group">
+      <button class="nav-button" id="prev-button">←&nbsp;Previous&nbsp;truth</button>
+      <button class="nav-button" id="random-button">Random&nbsp;truth</button>
+      <button class="nav-button" id="next-button">Next&nbsp;truth&nbsp;→</button>
+    </div>
+  </div>
+</div>
+
 <script type="module">
   document.addEventListener('DOMContentLoaded', function() {
     const questions = [
@@ -46,7 +65,6 @@ description: |
       "Do you love the music you listen to?",
       "We put you in a room with 9 people. What have you done more than any of them?",
       "Do you believe in art?",
-      "Who's your role model?",
       "How do you sometimes disappoint yourself?",
       "What have you learned later than everyone?",
       "What's your drive?",
@@ -77,15 +95,16 @@ description: |
       "When's the last time you've done something for the first time?",
       "Are you living up to your potential?",
       "What do you regret most?",
-      "Do people often tell you that you will succeed?"
+      "Do people often tell you that you will succeed?",
+      "What fictional character is most like you?"
     ];
     
     let currentIndex = 0;
     
     function crook() {
-      const rotation = (Math.random() * 6) - 3; /* Random rotation between -3 and 3 degrees */
-      const translateX = (Math.random() * 10) - 5; /* Random X translation between -5px and 5px */
-      const translateY = (Math.random() * 6) - 3; /* Random Y translation between -3px and 3px */
+      const rotation = (Math.random() * 6) - 3;
+      const translateX = (Math.random() * 10) - 5;
+      const translateY = (Math.random() * 6) - 3;
       return `rotate(${rotation}deg) translateX(${translateX}px) translateY(${translateY}px)`;
     }
     
@@ -175,25 +194,6 @@ description: |
     });
   });
 </script> 
-
-<div class="card-deck-container no-select">
-  <div class="card-stack">
-    <div class="card card-top">
-      <span class="card-index" id="current-card-index"></span>
-      <p class="card-content" id="current-card-content"></p>
-    </div>
-    <div class="card card-middle"></div>
-    <div class="card card-bottom"></div>
-  </div>
-  
-  <div class="question-selector">
-    <div class="button-group">
-      <button class="nav-button" id="prev-button">←&nbsp;Previous&nbsp;truth</button>
-      <button class="nav-button" id="random-button">Random&nbsp;truth</button>
-      <button class="nav-button" id="next-button">Next&nbsp;truth&nbsp;→</button>
-    </div>
-  </div>
-</div>
 
 <style>
   /* COMMON */

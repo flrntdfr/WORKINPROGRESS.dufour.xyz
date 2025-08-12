@@ -163,7 +163,6 @@ const lists = {
     "I contribute to the collective insanity.",
     "I am alive.",
     "yesterday was not the best day of my life.",
-    "I am the opposite and the lack thereof.",
     "I find silences deafening.",
     "I am the cherry on top.",
     "I won't witness the ending of time.",
@@ -246,7 +245,7 @@ const lists = {
     "I am investing in myself.",
     "I exercise regularly.",
     "I have a creative outlet.",
-    "people often tell me I look confident.",
+    "people often tell me that I look confident.",
     "I learn by looking at patterns.",
     "I am ready to get rich.",
     "I will never go to space.", 
@@ -262,7 +261,7 @@ const lists = {
     "I don't know who I am.",
     "I don't watch as much TV as my parents.",
     "I like people who like me.",
-    "I am satisfied with my genes",
+    "I am satisfied with my genes.",
     "I solve my problems instead of finding excuses.",
     "I stay away from people who victimize themselves.",
     "I am not a victim of my ideas.",
@@ -277,6 +276,7 @@ const lists = {
     "I can't imagine being dead.",
     "I don't care.",
     "I leave people better than I find them.",
+    "my country lost its last war.",
   ]
 };
 

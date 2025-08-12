@@ -61,7 +61,7 @@ description: |
           {% assign last_year = 0 %}
           {% assign current_year = 0 %}
           {% assign label_year = 0 %}
-          {% assign chantiers = site.chantiers | sort: 'created' %}
+          {% assign chantiers = site.chantiers | sort: 'started' %}
           {% for chantier in chantiers reversed %}
               {% unless chantier.ended %}
               {% unless chantier.hidden %}

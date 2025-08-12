@@ -83,13 +83,12 @@ metadata td {
     word-wrap: break-word;
 }
 
-.href {
-    margin-top: 2em;
+metadata .href th {
+    font-weight: normal;
 }
 
-.href p {
-    margin: 0;
-    padding: 0;
+.href {
+    margin-top: 2em;
 }
 
 img {

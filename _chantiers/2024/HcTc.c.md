@@ -10,7 +10,7 @@ description: |
     <p><b>Strategy:</b> The strategy consists in prompting the LLM to write a standard Request For Comments (RFC) for the intended solution before asking it to do the implementation. The steps are the following: <kbd>[Read problem] → [Reason] → [Write RFC] → [Reason] → [Implement] → [Prove]</kbd>.</p>
     <p><b>Methodology:</b> The use case presented here is in developing a non-standard title case converter made for humans in C and run it in the browser to demonstrate the result. Gemini 2.5 Pro was used.</p>
     <kbd style="padding: 1em 2em 1em 2em;">→ We will write a title case converter that implements human-centric design principles. The concept is named Human-centric Title case (cased HcTc) and introduces casing as an attribute. The system improves readability through semantic compatibility. For example, it ensures capitalizing significant words while keeping functional (or generally low importance) words lowercase. It gracefully handles modern technical terms, acronyms, and proper nouns by preserving their original case (especially for brands). The concept is open first and exception-based. First, write a comprehensive and specific Request For Comments (RFC) with multiple pseudo-code snippets. Then implement the RFC in C code. Make sure they align. Focus on speed and efficiency. Name functions accordingly and add comments to important parts of the code. Apply best practices. Additionally, add the plumbing with WebAssembly to provide an interactive online demo. The page should load with the focus on the input field. The placeholder says: "Start&nbsp;typing…".</kbd>
-    <p><b>Result:</b> The LLM expressed the solution to the Human-centric Title case project in less than 2300 words and implemented valid C code. It modified the Nix configuration of the website to add the emscripten compiler to the environment. It finally got the demo to run in the browser using WebAssembly and less than 131072&nbsp;bytes of memory. The RFC, C implementation, and demo are attached.</p>
+    <p><b>Result:</b> The LLM expressed the solution to the Human-centric Title case project in less than 2300 words and implemented valid C code. It modified the Nix configuration of the website to add the emscripten compiler to the environment. It finally got the demo to run in the browser using WebAssembly and 131072&nbsp;bytes of memory. The RFC, C implementation, and demo are attached.</p>
 ---
 
 
@@ -121,7 +121,7 @@ Table of Contents
       2.1. Problems with Existing Systems ............................2
       2.2. Benefits of Human-centric Title case ......................3
    3. Specification ..................................................3
-      3.1. Human-centric Principles .........................-........3
+      3.1. Human-centric Principles ..................................3
       3.2. Capitalization Rules ......................................4
       3.3. Algorithm .................................................5
    4. Implementation .................................................6
