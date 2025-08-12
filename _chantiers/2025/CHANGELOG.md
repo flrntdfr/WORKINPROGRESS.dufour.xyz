@@ -9,7 +9,7 @@ description: |
     Changelog of the CMS.
 ---
 
-## v{{ "now" | date: "%Y.%m" }}-rc
+## v0.1.{{ "now" | date: "%y%m" }}-rc
 🏗️ Bug fixes and performance improvements.
 
 {% for log in site.data.changelog %}

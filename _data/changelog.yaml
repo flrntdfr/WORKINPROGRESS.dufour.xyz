@@ -2,29 +2,29 @@
 # 🚧 🏗️ 🔨 🛠️ ⚒️ 🔧 🔩 ⚙️ 📝 📊 📈 🧰 👷 🚦 📋 🚨
 
 - emoji: 🚦
-  version: v2025.09
+  version: v0.1.2509
   description: Publish WIP on internet.
-- emoji: 🖼️
-  version: v2025.06
+- emoji: 🖼️ 
+  version: v0.0.2506
   description: Search added.
 - emoji: 🖼️
-  version: v2025.06
+  version: v0.0.2506
   description: Framed words started and ended.
 - emoji: 🏗️
-  version: v2025.04
+  version: v0.0.2504
   description: Consistent branding with dufour.xyz.
 - emoji: 🏗️
-  version: v2025.03
+  version: v0.0.2503
   description: 200 museums digitized.
 - emoji: 🏗️
-  version: v2025.02
+  version: v0.0.2502
   description: lab.dufour.xyz becomes WORKINPROGRESS.
 - emoji: 🔨
-  version: v2020.07
+  version: v0.0.2007
   description: Initial commit.
 - emoji: 🔨
-  version: v2018
+  version: v0.0.201807
   description: First draft.
 - emoji: 🔨
-  version: v2016
+  version: v0.0.16
   description: Initial idea

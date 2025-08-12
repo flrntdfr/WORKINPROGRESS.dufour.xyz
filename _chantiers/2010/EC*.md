@@ -1,7 +1,7 @@
 ---
 layout: chantier-href
 title: EC*
-result: [playlists]
+result: [mixtape]
 highlighted: true
 tech: [Apple Music, iTunes, eMule]
 started:  2010-09-01 20:00

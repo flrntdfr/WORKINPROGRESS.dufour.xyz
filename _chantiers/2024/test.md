@@ -32,7 +32,17 @@ This is body, in _italic_, and **bold**.
 
 > This is a quote
 
-<h1 style="font-family: Garamond">This is serif</h1>
+* This
+* is
+* a
+* ul
+
+1. This
+1. is
+1. a
+1. ol
+
+<h1 style="font-family: var(--font-family-serif)">This is serif</h1>
 
 ```txt
 This is a code block.

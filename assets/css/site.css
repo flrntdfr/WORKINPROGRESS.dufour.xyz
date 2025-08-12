@@ -385,7 +385,6 @@ a:has(picture):hover {
 }
 
 #searchHint {
-  color: var(--font-color-muted, #6c757d);
   text-align: center;
   font-size: 0.7em;
   display: none;
