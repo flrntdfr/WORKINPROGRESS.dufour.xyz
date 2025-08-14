@@ -178,10 +178,7 @@ Average projects per year: {{ total_chantiers | divided_by: sorted_years.size | 
     </ul>
   </details>
 {%- endif -%}
-
 <br>
-
-
 <!-- FIXME -->
 ```
 Build 189 ({{ site.time | date: "%Y-%m-%d %H:%M:%S" }}) 

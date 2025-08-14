@@ -2,11 +2,11 @@ title: WORK IN PROGRESS
 title_short: WIP
 encoding: utf-8
 owner: Florent Dufour
-email: info@dufour.xyz
+email: help@dufour.xyz
 
 author: Florent Dufour
-description: This is the description # TODO
-keywords: "florent, dufour, wip, chantiers, projects" # TODO
+description: This is work.
+keywords: "AI, bayern, biotechnology, cloud, confidential, cv, digimed, dufour, esbs, florent, health, llm, lrz, medicine, munich, privacy, security, strasbourg, tum, unistra, wip, xyz"
 languages: [en, fr]
 url: "https://WORKINPROGRESS.dufour.xyz"
 
@@ -48,4 +48,3 @@ exclude:
   - .DS_Store
   - .gitignore.d
   - em_cache
-

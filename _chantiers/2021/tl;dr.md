@@ -52,7 +52,7 @@ description: tl;dr are one-line summaries of text conversations that happened be
 		"Tout n'a pas besoin d'être compliqué.",
 		"Feed everyone.",
 		"No time is free.",
-		"tl;dr: Form always follows function (again).",
+		"Form always follows function (again).",
 		"There's no reason to feed the wrong wolf.",
 		"It is always up to the most conscious person to let go first.",
 		"It all comes from within.",

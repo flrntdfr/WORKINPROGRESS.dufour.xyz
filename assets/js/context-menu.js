@@ -89,7 +89,7 @@ class CustomContextMenu {
     const defaultItems = [
         { text: '⋯ Search', action: () => this.activateSearch() },
         { separator: true },
-        { text: '↑ Home', action: () => window.location.href = '/' },
+        { text: '↑ Start', action: () => window.location.href = '/' },
         { text: '← Previous', action: () => this.navigateToPreviousChantier() },
         { text: '→ Next', action: () => this.navigateToNextChantier() },
         { text: '↔ Random', action: () => this.openRandomPage() },

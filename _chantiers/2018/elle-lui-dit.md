@@ -4,7 +4,7 @@ title: Elle lui dit
 started:  2018-02-05 12:29
 ended: 2018-08-06 14:45
 result: [photo]
-tech: [iPhone 6, VSCO]
+tech: [iPhone SE, VSCO]
 description: |
     <i>Elle lui dit qu'avec lui c'est différent, special, intemporel.</i>
 ---

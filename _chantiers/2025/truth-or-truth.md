@@ -30,7 +30,7 @@ description: |
 <script type="module">
   document.addEventListener('DOMContentLoaded', function() {
     const questions = [
-      "Truth or Truth?",
+      "Truth or Truth",
       "What do people say when they talk about you?",
       "What have you promised in your life?",
       "What memory do you cherish the most?",

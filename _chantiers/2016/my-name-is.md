@@ -45,46 +45,16 @@ const lists = {
     
     ["rich", "poor", "successful", "working class", "middle class", "upper class", "an immigrant"],
     
-    ["climate-conscious"],
-    
-    ["a man", "a woman", "a kid", "a teenager"],
-    
-    ["young", "middle-aged", "old"],
-    
-    ["a scientist", "an artist", "a writer", "a programmer", "a designer", "a developer", "a consultant", "a manager", "unemployed", "a student", "a teacher", "a doctor", "a nurse", "a lawyer", "a police officer"],
-    
-    ["an introvert", "an extrovert", "an ambivert"],
-    
-    ["patient", "impatient"],
-
-    ["vegetarian", "vegan", "pescatarian", "flexitarian", "carnivore", "omnivore", "fruitarian", "gluten intolerant", "lactose intolerant"],
-
-    ["happy", "sad", "depressed", "burnt-out"],
-
-    ["in recovery", "alcoholic", "addicted", "sober", "clean"],
-
-    ["black", "white", "Latino", "Hispanic", "Asian", "Arab", "biracial"],
-
-    ["Jewish", "Muslim", "a Christian", "Buddhist", "Hindu", "atheist"],
-
-    ["rich", "poor", "successful", "working class", "middle class", "upper class", "an immigrant"],
-    
     ["climate-conscious", "climate-denier"],
-
+    
     ["a man", "a woman", "a kid", "a teenager"],
     
     ["young", "middle-aged", "old"],
     
-    ["a scientist", "an artist", "a writer", "a programmer", "a designer", "a developer", "a consultant", "a manager", "unemployed", "a student", "a teacher", "a doctor", "a nurse", "a lawyer", "a police officer"],
+    ["a scientist", "an artist", "unemployed", "a student"],
     
     ["an introvert", "an extrovert", "an ambivert"],
     
-    ["patient", "impatient"],
-    
-    ["a manager", "unemployed", "a student", "a teacher", "a doctor", "a nurse", "a lawyer", "a police officer", ""],
-
-    ["an introvert", "an extrovert", "an ambivert"],
-
     ["patient", "impatient"],
   ],
   listB: [

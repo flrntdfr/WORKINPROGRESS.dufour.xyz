@@ -90,8 +90,7 @@ description: |
 
 {% include license.html %}
 
-→ **Question**: [help@dufour.xyz](mailto:help@dufour.xyz) \
-→ **Business**: [biz@dufour.xyz](mailto:biz@dufour.xyz)
+<br>
 
 <div class="macmade-container">
   {% comment %}
@@ -106,7 +105,7 @@ description: |
   {% endcomment %}
 </div>
 
-<br><br><br>
+<br><br><br><br>
 
 <div class="banner">
   {% include banner.html %}

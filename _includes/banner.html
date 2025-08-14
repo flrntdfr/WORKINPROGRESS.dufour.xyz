@@ -7,7 +7,6 @@
   background-color: var(--accent-color);
   overflow: hidden;
   white-space: nowrap;
-  cursor: pointer;
 }
 
 .banner a {
@@ -30,7 +29,6 @@
 }
 
 </style>
-<a href="{% link _chantiers/2025/CHANGELOG.md %}"> 
 <p>
 🏗️ v0.1.{{ "now" | date: "%y%m" }}-rc: Bug fixes and performance improvements. 🏗️
 {% for i in (1..75) %}
@@ -43,4 +41,3 @@
 {% endfor %}
 {% endfor %}
 </p>
-</a>

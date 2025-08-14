@@ -24,7 +24,7 @@ typedef uint8_t bool;
 #define false 0
 
 /* List of functional words to be lowercased (unless first or last word) */
-/* From _chantiers/2024/titlecase.draft.md, section 4.1 */
+/* From section 4.1 */
 static const char* const functional_words[] = {
     /* Articles */
     "a", "an", "the",

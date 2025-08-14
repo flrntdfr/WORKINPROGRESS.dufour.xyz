@@ -1,9 +1,9 @@
 ---
 layout: chantier
 title: J'aime la pochette
-tech: [Apple Music, iTunes]
-result: [mixtape]
 started:  2011-04-16 20:12
+result: [mixtape]
+tech: [Apple Music, iTunes]
 description:
     <b>(fr)</b> Collection d'albums dont j'aime la pochette.<br>
     <b>(en)</b> Collection of album arts I like.
