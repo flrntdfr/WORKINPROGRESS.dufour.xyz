@@ -108,12 +108,17 @@ result:
         {% if href[0] == "int" %}
         <tr>
             <th>{{ href[1] }}</th>
-            <td><a href="{% link {{ href[3] }} %}">{{ href[2]}}</a></td>
+            <td><a href="{% link {{ href[3] }} %}">{{ href[2]}}&nbsp;➟</a></td>
         </tr>
         {% else if href[0] == "ext" %}
         <tr>
             <th>{{ href[1] }}</th>
-            <td><a href="{{ href[3]}}" target="_blank" rel="noopener noreferrer">{{ href[2] }}</a></td>
+            <td><a href="{{ href[3]}}" target="_blank" rel="noopener noreferrer">{{ href[2] }}&nbsp;➟</a></td>
+        </tr>
+        {% else %}
+        <tr>
+            <th>{{ href[1] }}</th>
+            <td>{{ href[2]}}</a></td>
         </tr>
         {% endif %}
         {% endfor %}

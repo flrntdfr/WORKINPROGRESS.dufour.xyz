@@ -228,7 +228,6 @@ const lists = {
     "I am growth minded.",
     "I am not a hero.",
     "I usually don't get what I want.",
-    "I don't know who I am.",
     "I don't watch as much TV as my parents.",
     "I like people who like me.",
     "I am satisfied with my genes.",

@@ -5,7 +5,7 @@ started:  2018-03-01 09:00
 ended:  2018-09-01 17:00
 location: [Laboratoire de Spectrométrie de Masse Bioorganique (CNRS)]
 result: [research]
-tech: [Java, Q-Exactive 2000]
+tech: [Java, Q Exactive]
 ---
 
 # Contributions

@@ -8,8 +8,8 @@ location: [Leibniz Supercomputing Centre]
 result: [research]
 tech: [OpenStack, AMD-SEV/SNP, Nvidia H200, Quobyte]
 href:
-  - ["ext", "<b>Consortium website:</b>", "digimed-bayern.de ➟", "https://www.digimed-bayern.de/en.html"]
-  - ["ext", "<b>Cloud documentation:</b>", "pages.gitlab.lrz.de ➟", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]
+  - ["ext", "<b>Consortium website:</b>", "digimed-bayern.de", "https://www.digimed-bayern.de/en.html"]
+  - ["ext", "<b>Cloud documentation:</b>", "pages.gitlab.lrz.de", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]
 description: |
     The goal of the DigiMed Bayern Project is to advance the digital transformation of Bavaria’s health system. With a focus on the secondary use of cardiovascular research data from university hospitals and research institutes, it integrates sensitive clinical, imaging, and multi-omic data to enable better, data-driven medicine. This approach supports more accurate prediction of disease risks, more targeted prevention, and improved diagnosis and treatment — starting with cardiovascular diseases but designed to be transferable to other conditions.
     <br><br>
