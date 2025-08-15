@@ -1,11 +1,12 @@
 ---
+theme-color: "#25311F"
 layout: chantier-memo
 title: Loksins Erum Við Engin
 subtitle: Or, Finally We Are No One
 author: Florent Dufour
 started: 2021-08-19
 ended: 2021-08-19
-location: [N 63° 40' 59.14" W 22° 32' 23.45"]
+location: [Reykjavík]
 result: [memo]
 ---
 
@@ -15,7 +16,7 @@ img {
 }
 </style>
 
-## Or, finally we are no one
+## {{ page.subtitle}}
 
 The kids loved it more than anything. They never missed a chance to ask me to play the record. Múm became our companion in nap. I loved<!--more--> to see their breath and mind finally getting some rest after hours of running and jumping around. Nap time was as much a precious and mindful moment for me as it was for them. I know they got it.
 

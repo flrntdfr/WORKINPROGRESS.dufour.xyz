@@ -97,12 +97,13 @@ result:
         </tr>
         {% endif %}
     </table>
+
     {% if page.description %}
         <p>{{ page.description }}</p>
     {% endif %}
+
     {% if page.href %}
-        <div class="href">
-    
+    <div class="href">
     <table>
         {% for href in page.href %}
         {% if href[0] == "int" %}
@@ -123,8 +124,8 @@ result:
         {% endif %}
         {% endfor %}
     </table>
-    {% endif %}
     </div>
+    {% endif %}
 </metadata>
 
 <data>
@@ -136,8 +137,7 @@ function toggleDaysDiff(element) {
     const daysDiffSpan = element.querySelector('.days-diff');
     daysDiffSpan.style.display = daysDiffSpan.style.display === 'none' ? 'inline' : 'none';
 }
-</script>
-<script>
+
 function back(event) {
     event.preventDefault();
     if (document.referrer && document.referrer.includes(window.location.host)) {

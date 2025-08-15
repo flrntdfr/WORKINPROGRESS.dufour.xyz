@@ -51,7 +51,6 @@ description: |
 
 .metadata-overlay .description {
   color: #b0ffb0;
-  font-style: italic;
   margin-top: 15px;
 }
 

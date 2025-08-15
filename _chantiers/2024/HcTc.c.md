@@ -29,7 +29,14 @@ description: |
 
 <style>
 data {
-    max-width: 680px;
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    min-width: 0; /* Allow shrinking */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .demo {
@@ -38,6 +45,8 @@ data {
     padding: 20px;
     margin: 1em auto 1em auto;
     width: 66%;
+    max-width: 600px;
+    box-sizing: border-box;
 }
 
 #input {
@@ -46,9 +55,9 @@ data {
     padding: 8px;
     font-size: 1em;
     box-sizing: border-box;
-    outline: none; /* Remove blue border when focused */
-    box-shadow: none; /* Remove any default focus shadow */
-    resize: none; /* Disable resize handle */
+    outline: none;
+    box-shadow: none;
+    resize: none;
     min-height: 2em;
     font-family: inherit;
     background-color: white;
@@ -60,7 +69,7 @@ data {
     margin-top: 1em;
     text-align: center;
     font-family: var(--font-family-serif);
-    white-space: pre-wrap; /* Preserve line breaks */
+    white-space: pre-wrap;
 }
 
 #statistics {
@@ -72,6 +81,18 @@ data {
 
 .rfc {
     overflow-x: auto;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.rfc pre {
+    white-space: pre; /* Keep original formatting */
+    font-size: 0.9em; /* Fixed font size */
+    margin: 0;
+    padding: 0;
+    min-width: max-content; /* Allow content to determine minimum width */
+    overflow-x: visible; /* Let parent handle scrolling */
 }
 </style>
 

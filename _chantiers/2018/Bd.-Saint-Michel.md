@@ -222,7 +222,7 @@ addClickToggle(arcsInstance);
 
 <style>
 data canvas {
-    max-width: 100%;
+    max-width: 300px;
     height: auto;
 }
 </style>

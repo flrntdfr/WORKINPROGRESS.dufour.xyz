@@ -1,9 +1,9 @@
 ---
 layout: chantier-href
 title: EC*
-result: [mixtape]
+result: [list]
 highlighted: true
-tech: [Apple Music, iTunes, eMule]
+tech: [eMule, iTunes, Apple Music]
 started:  2010-09-01 20:00
 description:
     EC* is a system of 300 playlists to store and retrieve dance music tracks.

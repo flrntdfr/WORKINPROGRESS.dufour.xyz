@@ -6,8 +6,8 @@ started:  2022-04-01 09:00
 ended: 
 result: [research]
 href:
-  - ["ext", "<sup>1</sup>", "Lehrstuhl für Artificial Intelligence in Healthcare and Medicine (Technische Universität München) ➟", "https://www.kiinformatik.mri.tum.de/de/lehrstuhl-fuer-artificial-intelligence-healthcare-and-medicine"]
-  - ["int", "<sup>2</sup>", "My Curriculum Vitae", "_chantiers/2014/cv.md"]
+  - ["ext", "<sup>1</sup>", "Lehrstuhl für Artificial Intelligence in Healthcare and Medicine (Technische Universität München)", "https://www.kiinformatik.mri.tum.de/de/lehrstuhl-fuer-artificial-intelligence-healthcare-and-medicine"]
+  - ["int", "<sup>2</sup>", "My Curriculum Vitae", "_chantiers/2012/cv.md"]
   - ["int", "<sup>3</sup>", "My contribution to the DigiMed Secure Cloud", "_chantiers/2020/digimed-secure-cloud.md"]
 description: |
     I am a Ph.D. student at the Institute of AI in Healthcare and Medicine at the Technical University of Munich (TUM) under the supervision of Prof. Dr. Daniel Rückert and PD Dr. Georgios Kaissis.<sup>1</sup> I completed my undergraduate studies at the intersection of France, Germany, and Switzerland, where I studied biotechnology and data science.<sup>2</sup>
