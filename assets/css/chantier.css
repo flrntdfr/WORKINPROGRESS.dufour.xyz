@@ -22,6 +22,14 @@ metadata {
     overflow-wrap: break-word;
 }
 
+metadata h2 {
+    margin-bottom: 0;
+}
+
+metadata h2 + p {
+    margin-bottom: 0;
+}
+
 data {
     padding: 20px;
     box-sizing: border-box;
@@ -88,7 +96,7 @@ metadata .href th {
 }
 
 .href {
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 img {

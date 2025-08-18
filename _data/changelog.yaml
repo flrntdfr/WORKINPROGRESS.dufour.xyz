@@ -1,30 +1,30 @@
 # Emojis
 # 🚧 🏗️ 🔨 🛠️ ⚒️ 🔧 🔩 ⚙️ 📝 📊 📈 🧰 👷 🚦 📋 🚨
 
-- emoji: 🚦
+- emoji:
   version: v0.1.2509
   description: Publish WIP on internet.
-- emoji: 🖼️ 
+- emoji: 
   version: v0.0.2506
   description: Search added.
-- emoji: 🖼️
+- emoji:
   version: v0.0.2506
   description: Framed words started and ended.
-- emoji: 🏗️
+- emoji:
   version: v0.0.2504
   description: Consistent branding with dufour.xyz.
-- emoji: 🏗️
+- emoji:
   version: v0.0.2503
   description: 200 museums digitized.
-- emoji: 🏗️
+- emoji:
   version: v0.0.2502
   description: lab.dufour.xyz becomes WORKINPROGRESS.
-- emoji: 🔨
+- emoji:
   version: v0.0.2007
   description: Initial commit.
-- emoji: 🔨
+- emoji:
   version: v0.0.201807
   description: First draft.
-- emoji: 🔨
+- emoji:
   version: v0.0.16
   description: Initial idea

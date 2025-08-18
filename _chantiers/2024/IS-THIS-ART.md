@@ -1,21 +1,24 @@
 ---
-layout: chantier # chantier-random-image
+layout: chantier # chantier-random-image TODO
 title: IS THIS ART?
 started:  2024-02-14 13:30
 ended: 2024-12-31 00:00
 location: [Munich]
-result: [street art]
+result: [street-art]
 tech: stickers
 description: |
-    Growing up in a post-industrial town in eastern France means you are constantly surrounded by graffitis. They are everywhere, on walls, on the ground, on the roofs, on the bridges, on trains. They are everywhere. They are a form of expression, a way of owning the town. This is where I live, this is where we are, and we all look the same things. Paris is a good example of street-art with major artists like Invader, or ... with original art, to discrete anonymous diversion of existing display on the streets (see reference).
+    I grew up in a rainy post-industrial town in eastern France. The only colors on the streets were the graffiti left behind the generation that came before me. It was only when I went to Paris for the first time that I discovered street-art in its diverse and current forms. I loved the works of Miss.Tic, Blek le Rat, and Invader. I remember finding that even discreet and unattributed pieces could be surprisingly impactful (see reference).
+
     <h2>The problem</h2>
-    Munich people seem to have found a different way.
+    <p>Today, I am witnessing Munich's unique <span style=" text-decoration-line: underline; text-decoration-style: double; cursor: help;" title="VERBOTEN means FORBIDDEN in German. Common VERBOTEN signs include: do not park your car, do not park your bike, do not play ball games, do not walk on grass, do not enter, do not smoke, do not make noise past 10pm, do not take photos, do not use mobile phones, do not feed pigeons, do not drink alcohol, do not skateboard, do not rollerblade, do not ride horses, do not barbecue, do not camp, do not fish, do not swim, do not touch, do not sit…">VERBOTEN</span> signs and I am unsure if they constitute a form of street-art. Interestingly, they seem to be strategically scattered across the city and often come in creative variations with bright colors, aggressive underlining, and excessive punctuation!!! Their sheer abundance and the apparent effort put into making them suggests they serve more than just regulatory purposes.</p>
+    
     <h2>The solution</h2>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet dignissim eros in feugiat. Cras at fringilla mauris, sit amet venenatis mi. Duis consectetur, justo ut pellentesque ultrices, neque nunc faucibus mauris, eget iaculis dolor ipsum ac tellus. Suspendisse eget pharetra orci. Mauris vel vehicula urna. Cras congue elit in tortor mattis ornare. Nulla tincidunt, metus non sagittis varius, nisl lorem dapibus lorem, vel molestie turpis odio eu lacus. Nunc sagittis, dolor at laoreet pulvinar, elit dolor lobortis lorem, ut volutpat leo metus non neque.
-    <center><img style="max-width&#x3a;200px; padding&#x3a; 2em"src="/assets/2024/ISTHISART/ISTHISART.svg"></center>
+    <p>If these signs should be considered as a form of street-art, then they should be celebrated and rightfully attributed to the citizens of Munich. I propose a 3cm sticker that points them out as references to the public discourse:</p>
+    
+    <img style="max-width: 200px; padding: 2em 0 0.5em 0; margin: auto" src="/assets/2024/ISTHISART/ISTHISART.svg">
+    
     <h2>Reference</h2>
-    <i>Défense d'<strike>afficher</strike> elephant</i>
-    <iframe src="https://www.google.com/maps/embed?pb=!4v1742034782747!6m8!1m7!1szWgObl4TQgYG8Bk0s-cF_Q!2m2!1d48.8826705839156!2d2.362238466371915!3f180.13665516268432!4f-1.3587718142888576!5f0.7820865974627469" height="410" width="410" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!4v1742034782747!6m8!1m7!1szWgObl4TQgYG8Bk0s-cF_Q!2m2!1d48.8826705839156!2d2.362238466371915!3f180.13665516268432!4f-1.3587718142888576!5f0.7820865974627469" height="400" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ---
 
 <style>
@@ -33,9 +36,7 @@ metadata {
     '/assets/2024/ISTHISART/7.jpg',
     '/assets/2024/ISTHISART/IMG_3677.HEIC',
     '/assets/2024/ISTHISART/IMG_3686.HEIC',
-    '/assets/2024/ISTHISART/IMG_3688.HEIC',
     '/assets/2024/ISTHISART/IMG_3689.HEIC',
-    '/assets/2024/ISTHISART/IMG_3690.HEIC',
     '/assets/2024/ISTHISART/IMG_3691.HEIC',
     '/assets/2024/ISTHISART/IMG_3693.HEIC',
     '/assets/2024/ISTHISART/IMG_3694.HEIC'

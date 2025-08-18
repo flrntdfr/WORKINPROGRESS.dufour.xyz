@@ -10,7 +10,7 @@ description: |
 ---
 
 ## v0.1.{{ "now" | date: "%y%m" }}-rc
-🏗️ Bug fixes and performance improvements.
+Bug fixes and performance improvements.
 
 {% for log in site.data.changelog %}
 ## {{ log.version }}
