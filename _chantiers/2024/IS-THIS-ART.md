@@ -28,16 +28,16 @@ metadata {
 </style>
 
 {% include random-image.html images="
-    '/assets/2024/ISTHISART/1.jpg', 
-    '/assets/2024/ISTHISART/2.jpg',
-    '/assets/2024/ISTHISART/3.jpg',
-    '/assets/2024/ISTHISART/4.jpg',
-    '/assets/2024/ISTHISART/6.jpg',
-    '/assets/2024/ISTHISART/7.jpg',
-    '/assets/2024/ISTHISART/IMG_3677.HEIC',
-    '/assets/2024/ISTHISART/IMG_3686.HEIC',
-    '/assets/2024/ISTHISART/IMG_3689.HEIC',
-    '/assets/2024/ISTHISART/IMG_3691.HEIC',
-    '/assets/2024/ISTHISART/IMG_3693.HEIC',
-    '/assets/2024/ISTHISART/IMG_3694.HEIC'
+    '/assets/2024/ISTHISART/1.webp', 
+    '/assets/2024/ISTHISART/2.webp',
+    '/assets/2024/ISTHISART/3.webp',
+    '/assets/2024/ISTHISART/4.webp',
+    '/assets/2024/ISTHISART/6.webp',
+    '/assets/2024/ISTHISART/7.webp',
+    '/assets/2024/ISTHISART/8.webp',
+    '/assets/2024/ISTHISART/9.webp',
+    '/assets/2024/ISTHISART/10.webp',
+    '/assets/2024/ISTHISART/11.webp',
+    '/assets/2024/ISTHISART/12.webp',
+    '/assets/2024/ISTHISART/13.webp',
 " %}

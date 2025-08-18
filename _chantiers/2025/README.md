@@ -16,4 +16,4 @@ I work with computers and they are fine tools to make websites. I maintain this 
 
 Everything here is a project, making this website is another one of them. It has become one of my favorite to work on —&nbsp;not only because it's fun!&nbsp;— but also because it gives other projects a place to be on the internet. It has shown me that everything is a project, that projects are  connected, and that despite repeating “project” a lot, it's not so much about them, but the work in progress.&nbsp;▎
 
-![WORK IN PROGRESS, 199X, Belleville, France]({% link /assets/2025/README/florent-belleville.jpg %})
+![WORK IN PROGRESS, 199X, Belleville, France]({% link /assets/2025/README/florent-belleville.webp %})

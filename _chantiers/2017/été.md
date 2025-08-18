@@ -14,13 +14,13 @@ img {
 </style>
 
 
-![]({% link /assets/2017/été-2017/1.jpg %})
-![]({% link /assets/2017/été-2017/2.jpg %})
-![]({% link /assets/2017/été-2017/3.jpg %})
-![]({% link /assets/2017/été-2017/6.jpg %})
-![]({% link /assets/2017/été-2017/7.jpg %})
-![]({% link /assets/2017/été-2017/10.jpg %})
-![]({% link /assets/2017/été-2017/11.jpg %})
-![]({% link /assets/2017/été-2017/5.jpg %})
-![]({% link /assets/2017/été-2017/9.jpg %})
-![]({% link /assets/2017/été-2017/4.jpg %})
+![]({% link /assets/2017/été-2017/1.webp %})
+![]({% link /assets/2017/été-2017/2.webp %})
+![]({% link /assets/2017/été-2017/3.webp %})
+![]({% link /assets/2017/été-2017/6.webp %})
+![]({% link /assets/2017/été-2017/7.webp %})
+![]({% link /assets/2017/été-2017/10.webp %})
+![]({% link /assets/2017/été-2017/11.webp %})
+![]({% link /assets/2017/été-2017/5.webp %})
+![]({% link /assets/2017/été-2017/9.webp %})
+![]({% link /assets/2017/été-2017/4.webp %})

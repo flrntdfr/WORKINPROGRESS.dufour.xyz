@@ -22,7 +22,7 @@ The kids loved it more than anything. They never missed a chance to ask me to pl
 
 Still, Múm is not composing kids lullabies. Instead, they are the Icelandic band that embodies what the island is all about in delicate, fragile, and organic tunes. Since the late 90’s, they released 6 full length albums and played live on several occasions. “Loksins erum við engin” or “finally we are no one” in English most certainly stands at the pinnacle of their creativity and remains one of their most polished work. I remember getting the record for people I love. I hope it still brings peace to their home today.
 
-![Album cover of the Icelandic version of "finally we are no one"]({% link /assets/2021/loksins/mum-thumb.jpg %})
+![Album cover of the Icelandic version of "finally we are no one"]({% link /assets/2021/loksins/mum-thumb.webp %})
 {: .figure}
 *Album cover of the Icelandic version of "finally we are no one"*
 {: .figcaption}

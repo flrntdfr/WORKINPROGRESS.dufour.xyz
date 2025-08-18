@@ -11,7 +11,7 @@ lib: swbasic.js
 ---
 
 <div class="ti-calculator">
-    <img src="/assets/2009/ti-83-plus-scaled.png" alt="TI-83 Plus Calculator" class="calculator-image">
+    <img src="{% link /assets/2009/ti-83-plus-scaled.webp %}" alt="TI-83 Plus Calculator" class="calculator-image">
     <div id="screen"></div>
     <div id="keyboard-container"></div>
 </div>

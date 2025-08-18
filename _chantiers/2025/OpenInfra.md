@@ -23,11 +23,11 @@ href:
 
 <div class="responsive-grid">
     <div class="left-column">
-        <img src="{% link assets/2025/OpenInfra/IMG_2818.jpg %}" alt="OpenInfra Forum 2025" />
+        <img src="{% link assets/2025/OpenInfra/IMG_2818.webp %}" alt="OpenInfra Forum 2025" />
     </div>
     <div class="right-column">
-        <img src="{% link assets/2025/OpenInfra/IMG_2822.jpg %}" alt="OpenInfra Forum 2025" />
-        <img src="{% link assets/2025/OpenInfra/IMG_20250522_173759076_MFNR_HDR.jpg %}" alt="OpenInfra Forum 2025" />
+        <img src="{% link assets/2025/OpenInfra/IMG_2822.webp %}" alt="OpenInfra Forum 2025" />
+        <img src="{% link assets/2025/OpenInfra/IMG_20250522_173759076_MFNR_HDR.webp %}" alt="OpenInfra Forum 2025" />
     </div>
 </div>
 
