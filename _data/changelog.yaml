@@ -2,29 +2,26 @@
 # 🚧 🏗️ 🔨 🛠️ ⚒️ 🔧 🔩 ⚙️ 📝 📊 📈 🧰 👷 🚦 📋 🚨
 
 - emoji:
-  version: v0.1.2509
+  date: 2025-09-01
   description: Publish WIP on internet.
 - emoji: 
-  version: v0.0.2506
+  date: 2025-06-01
   description: Search added.
 - emoji:
-  version: v0.0.2506
-  description: Framed words started and ended.
-- emoji:
-  version: v0.0.2504
-  description: Consistent branding with dufour.xyz.
-- emoji:
-  version: v0.0.2503
+  date: 2025-03-01
   description: 200 museums digitized.
 - emoji:
-  version: v0.0.2502
-  description: lab.dufour.xyz becomes WORKINPROGRESS.
+  date: 2025-01-01
+  description: New year resolution - Revive WIP.
 - emoji:
-  version: v0.0.2007
+  date: 2020-07-01
   description: Initial commit.
 - emoji:
-  version: v0.0.201807
+  date: 2018-07-01
   description: First draft.
 - emoji:
-  version: v0.0.16
-  description: Initial idea
+  date: 2016-08-01
+  description: WIP creation.
+- emoji:
+  date: 2010-09-03
+  description: Entrée au lycée.

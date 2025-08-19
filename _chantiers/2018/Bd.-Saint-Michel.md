@@ -9,27 +9,27 @@ result: [illustration]
 lib: p5.v1.4.2.min.js
 ---
 
-<div>
+<div class="item">
     <strong>Montsouris</strong><br>
     <img src="{% link /assets/2018/bd-saint-michel/Montsouris.svg %}" alt="Montsouris" />
 </div>
-<div>
+<div class="item">
     <strong>Périphérique</strong><br>
     <div id="périphérique-canvas" style="display: flex; justify-content: center;"></div>
 </div>
-<div>
+<div class="item">
     <strong>Notre-Dame</strong><br>
     <img src="{% link /assets/2018/bd-saint-michel/notre-dame.svg %}" alt="Notre-Dame" />
 </div>
-<div>
+<div class="item">
     <strong>Talamanca</strong><br>
     <img src="{% link /assets/2018/bd-saint-michel/Talamanca.svg %}" alt="Talamanca" />
 </div>
-<div>
+<div class="item">
     <strong>Dimanche</strong><br>
     <div id="dimanche-canvas" style="display: flex; justify-content: center;"></div>
 </div>
-<div>
+<div class="item">
     <strong>Lundi</strong><br>
     <div id="lundi-canvas" style="display: flex; justify-content: center;"></div>
 </div>
@@ -49,6 +49,32 @@ function addClickToggle(p5Instance) {
             });
         }
     }, 100);
+}
+
+/* Add resize handler for responsive canvases */
+function addResizeHandler(p5Instance) {
+    const resizeCanvas = () => {
+        const container = p5Instance.canvas.parentElement;
+        const size = container.clientWidth || 500;
+        p5Instance.resizeCanvas(size, size);
+        
+        /* Update sketch-specific variables that depend on canvas size */
+        if (p5Instance.updateSizeDependentVars) {
+            p5Instance.updateSizeDependentVars();
+        }
+    };
+    
+    /* Initial resize after a short delay to ensure container is ready */
+    setTimeout(resizeCanvas, 100);
+    
+    /* Add resize listener */
+    window.addEventListener('resize', resizeCanvas);
+    
+    /* Add ResizeObserver for container size changes */
+    if (window.ResizeObserver && p5Instance.canvas) {
+        const resizeObserver = new ResizeObserver(resizeCanvas);
+        resizeObserver.observe(p5Instance.canvas.parentElement);
+    }
 }
 
 const dimancheSketch = (p) => {
@@ -78,16 +104,22 @@ const dimancheSketch = (p) => {
     p.setup = function() {
         const size = p._userNode.parentElement.clientWidth || 500;
         p.createCanvas(size, size);
-        nLines = p.floor(p.map(size, 200, 500, 20, 40, true));
-        let circleAngle = 0;
-        let slicedCircleAngle = p.TWO_PI / nLines;
-
-        let direction = true;
-        for (let i = 0; i < nLines; i++) {
-            lines.push(new Line(circleAngle, direction));
-            circleAngle += slicedCircleAngle;
-            direction = !direction;
-        }
+        p.updateSizeDependentVars = function() {
+            nLines = p.floor(p.map(p.width, 200, 500, 20, 40, true));
+            /* Recalculate lines if needed */
+            if (lines.length !== nLines) {
+                lines = [];
+                let circleAngle = 0;
+                let slicedCircleAngle = p.TWO_PI / nLines;
+                let direction = true;
+                for (let i = 0; i < nLines; i++) {
+                    lines.push(new Line(circleAngle, direction));
+                    circleAngle += slicedCircleAngle;
+                    direction = !direction;
+                }
+            }
+        };
+        p.updateSizeDependentVars();
     };
 
     function drawCircle() {
@@ -108,6 +140,7 @@ const dimancheSketch = (p) => {
 
 const dimancheInstance = new p5(dimancheSketch, 'dimanche-canvas');
 addClickToggle(dimancheInstance);
+addResizeHandler(dimancheInstance);
 
 const lundiSketch = (p) => {
     let nDrops;
@@ -144,10 +177,17 @@ const lundiSketch = (p) => {
     p.setup = function() {
         const size = p._userNode.parentElement.clientWidth || 500;
         p.createCanvas(size, size);
-        nDrops = p.floor(p.map(size, 200, 500, 30, 60, true));
-        for (let i = 0; i < nDrops; i++) {
-            drops.push(new Drop());
-        }
+        p.updateSizeDependentVars = function() {
+            nDrops = p.floor(p.map(p.width, 200, 500, 30, 60, true));
+            /* Recalculate drops if needed */
+            if (drops.length !== nDrops) {
+                drops = [];
+                for (let i = 0; i < nDrops; i++) {
+                    drops.push(new Drop());
+                }
+            }
+        };
+        p.updateSizeDependentVars();
     };
 
     function drawCircle() {
@@ -168,6 +208,7 @@ const lundiSketch = (p) => {
 
 const lundiInstance = new p5(lundiSketch, 'lundi-canvas');
 addClickToggle(lundiInstance);
+addResizeHandler(lundiInstance);
 
 const arcsSketch = (p) => {
     let angle = 0;
@@ -203,7 +244,10 @@ const arcsSketch = (p) => {
     p.setup = function() {
         const size = p._userNode.parentElement.clientWidth || 500;
         p.createCanvas(size, size);
-        nArcs = p.floor(p.map(size, 200, 500, 15, 25, true));
+        p.updateSizeDependentVars = function() {
+            nArcs = p.floor(p.map(p.width, 200, 500, 15, 25, true));
+        };
+        p.updateSizeDependentVars();
     };
 
     p.draw = function() {
@@ -218,11 +262,17 @@ const arcsSketch = (p) => {
 
 const arcsInstance = new p5(arcsSketch, 'périphérique-canvas');
 addClickToggle(arcsInstance);
+addResizeHandler(arcsInstance);
 </script>
-
 <style>
-data canvas {
-    max-width: 300px;
+
+.item {
+    max-width: 370px;
+}
+
+canvas {
+    width: 100%;
     height: auto;
+    max-width: none;
 }
 </style>

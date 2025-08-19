@@ -2,9 +2,6 @@
 hidden: true
 layout: chantier
 title: CMS backend (All)
-started:  2025-06-27 17:46
-ended: 2025-06-27 17:46
-permalink: "/all"
 description: |
     <pre>make install</pre>
     <pre>make build</pre>

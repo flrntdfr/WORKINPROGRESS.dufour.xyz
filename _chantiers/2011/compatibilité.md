@@ -6,7 +6,7 @@ ended: 2011-06-28
 result: [code]
 tech: ["BASIC"]
 description: | 
-    This is the first program I wrote on my own. It is a sophisticated algorithm that calculates the love compatbility between two persons.
+    This is the first program I wrote on my own. It is a <em>sophisticated algorithm</em> that calculates the love compatbility between two persons.
 lib: swbasic.js
 ---
 
