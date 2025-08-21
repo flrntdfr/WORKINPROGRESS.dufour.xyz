@@ -1,10 +1,11 @@
 ---
+theme-color: "#60ff60"
 layout: chantier-standalone
+title: matrix
+lib: p5.v1.4.2.min.js
 started:  2017-05-01 04:15
 ended: 2017-05-01 04:15
-title: matrix
 result: [memo, web]
-theme-color: "#60ff60"
 description: |
   The problem with insomnia is that you can spend a night coding something useless.
 ---
@@ -22,8 +23,9 @@ description: |
 
 .metadata-overlay {
   position: fixed;
-  top: 50px;
-  left: 50px;
+  top: 3em;
+  margin-left: 3em;
+  margin-right: 3em;
   background: rgba(0, 0, 0, 0.8);
   color: #00ff00;
   padding: 20px;
@@ -32,8 +34,8 @@ description: |
   font-size: 14px;
   line-height: 1.4;
   z-index: 10;
-  max-width: 400px;
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  max-width: 350px;
 }
 
 .metadata-overlay h1 {
@@ -88,12 +90,10 @@ description: |
   <div class="description">{{ page.description | markdownify | strip_html }}</div>
 </div>
 
-<script src="{% link /assets/lib/p5.v1.4.2.min.js %}"></script>
 <script>
 /* April 30th, 2017
  * Reference: https://youtu.be/S1TQCi9axzg?si=cei-eOtD9tUIQY1N
  */
-
 function addClickToggle(p5Instance) {
     setTimeout(() => {
         if (p5Instance.canvas) {

@@ -1,4 +1,5 @@
 ---
+theme-color: "#fff"
 layout: chantier
 title: Cadres blancs
 started:  2025-05-24 22:20
@@ -17,7 +18,7 @@ result: [list, illustration]
 ![IDEAS AND PEOPLE]({% link assets/2025/cadres-blancs/16.webp %})
 ![FACTS AND FIGURES]({% link assets/2025/cadres-blancs/17.webp %})
 ![ADVERSAIRE ET ENNEMI]({% link assets/2025/cadres-blancs/18.webp %})
-
+![ÉCHELLE ET SUCCÈS]({% link assets/2025/cadres-blancs/19.webp %})
 
 
 {% comment %}

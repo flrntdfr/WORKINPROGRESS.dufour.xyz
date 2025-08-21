@@ -3,10 +3,11 @@ layout: chantier
 title: Compatibilité amoureuse
 started: 2011-06-28
 ended: 2011-06-28
+location: [Lycée Stanislas]
 result: [code]
 tech: ["BASIC"]
 description: | 
-    This is the first program I wrote on my own. It is a <em>sophisticated algorithm</em> that calculates the love compatbility between two persons.
+    This is the first program I wrote on my own. It is a <em>sophisticated</em> algorithm that calculates the love compatibility between two persons.
 lib: swbasic.js
 ---
 

@@ -1,6 +1,6 @@
 ---
 hidden: true
-theme-color: "#000"
+theme-color: "#fff"
 layout: blank
 title: "404 (variation 1)"
 permalink: "/404/1"
@@ -63,6 +63,8 @@ html, body {
     min-height: 340px;
     border: 1px solid #000;
     cursor: crosshair;
+    /* Account for search bar at bottom by shifting up */
+    transform: translate(-50%, calc(-50% - 30px));
 }
 
 #score {

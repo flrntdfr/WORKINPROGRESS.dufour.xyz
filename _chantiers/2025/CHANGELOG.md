@@ -80,199 +80,185 @@ Open projects    {% assign open_bars = open_chantiers | times: 50 | divided_by: 
 Closed projects  {% assign closed_bars = closed_chantiers | times: 50 | divided_by: total_chantiers %}{% for i in (1..closed_bars) %}█{% endfor %}{% for i in (closed_bars..49) %}░{% endfor %} {{ closed_chantiers }}
 Total Projects                                                      {{ total_chantiers }}
 
-Completion Rate: {{ completion_rate | round: 1 }}%
-Average Duration: {{ avg_duration_days | round: 0 }} days
+Projects completion:         {{ completion_rate | round: 1 }}%
+Average project duration:    {{ avg_duration_days | round: 0 }} days
 {%- if open_chantiers > 0 %}
-Longest Running Project: {{ longest_running_days | round: 0 }} days ({{ longest_running_project }})
+Longest running project:     {{ longest_running_days | round: 0 }} days ({{ longest_running_project }})
 {%- else %}
-Longest Running Project: N/A (no open projects)
+Longest running project: N/A (no open projects)
 {%- endif %}
-Projects started this year: {{ current_year_projects }}
-Average projects per year: {{ total_chantiers | divided_by: sorted_years.size | round: 1 }}
+Average projects per year:   {{ total_chantiers | divided_by: sorted_years.size | round: 1 }}
+Projects started this year:  {{ current_year_projects }}
 ```
 
-{% comment %} Get all chantiers with start dates {% endcomment %}
-{% assign sorted_chantiers = site.chantiers | where_exp: "chantier", "chantier.started != nil and chantier.started != ''" | sort: 'started' | reverse %}
-
-{% comment %} Collect all events {% endcomment %}
+{% comment %} Process all chantiers and create a simple list of events {% endcomment %}
 {% assign all_events = "" | split: "" %}
 
-{% comment %} Add started and ended events {% endcomment %}
-{% for chantier in sorted_chantiers %}
-  {% assign event_data = chantier.title | append: "|started|" | append: chantier.started | append: "|" | append: chantier.url %}
-  {% assign all_events = all_events | push: event_data %}
-  {% if chantier.ended and chantier.ended != "" and chantier.ended != nil %}
-    {% assign event_data = chantier.title | append: "|ended|" | append: chantier.ended | append: "|" | append: chantier.url %}
-    {% assign all_events = all_events | push: event_data %}
+{% comment %} Add all chantier events {% endcomment %}
+{% for chantier in site.chantiers %}
+  {% if chantier.started and chantier.started != "" %}
+    {% assign event = chantier.title | append: "|started|" | append: chantier.started | append: "|" | append: chantier.url %}
+    {% assign all_events = all_events | push: event %}
+  {% endif %}
+  {% if chantier.ended and chantier.ended != "" %}
+    {% assign event = chantier.title | append: "|ended|" | append: chantier.ended | append: "|" | append: chantier.url %}
+    {% assign all_events = all_events | push: event %}
   {% endif %}
 {% endfor %}
 
 {% comment %} Add manual changelog entries {% endcomment %}
 {% for entry in site.data.changelog %}
-  {% assign event_data = entry.description | append: "|manual|" | append: entry.date | append: "|manual" %}
-  {% assign all_events = all_events | push: event_data %}
+  {% assign event = entry.description | append: "|manual|" | append: entry.date | append: "|manual" %}
+  {% assign all_events = all_events | push: event %}
 {% endfor %}
 
-{% comment %} Create sortable array for proper chronological sorting {% endcomment %}
-{% assign sortable_events = "" | split: "" %}
-{% for event_data in all_events %}
-  {% assign parts = event_data | split: "|" %}
+{% comment %} Sort events by date (newest first) {% endcomment %}
+{% assign sorted_events = all_events | sort | reverse %}
+
+{% comment %} Group events by month and prepare output {% endcomment %}
+{% assign output = "" | split: "" %}
+{% assign current_month = "" %}
+{% assign current_month_events = "" | split: "" %}
+
+{% for event in sorted_events %}
+  {% assign parts = event | split: "|" %}
   {% assign title = parts[0] %}
   {% assign type = parts[1] %}
   {% assign date = parts[2] %}
   {% assign url = parts[3] %}
   
-  {% comment %} Create sortable format: YYYY-MM-DD|original_event_data {% endcomment %}
-  {% assign sortable_date = date | date: "%Y-%m-%d" %}
-  {% assign sortable_event = sortable_date | append: "|" | append: event_data %}
-  {% assign sortable_events = sortable_events | push: sortable_event %}
+  {% comment %} Extract year and month {% endcomment %}
+  {% assign date_parts = date | split: "-" %}
+  {% assign year = date_parts[0] %}
+  {% assign month = date_parts[1] %}
+  {% assign month_key = year | append: "-" | append: month %}
+  
+  {% if month_key != current_month %}
+    {% comment %} Save previous month if it exists {% endcomment %}
+    {% if current_month != "" and current_month_events.size > 0 %}
+      {% assign month_output = current_month | append: "|" | append: current_month_events | join: "||" %}
+      {% assign output = output | push: month_output %}
+    {% endif %}
+    
+    {% comment %} Start new month {% endcomment %}
+    {% assign current_month = month_key %}
+    {% assign current_month_events = "" | split: "" %}
+  {% endif %}
+  
+  {% comment %} Add event to current month {% endcomment %}
+  {% assign current_month_events = current_month_events | push: event %}
 {% endfor %}
 
-{% comment %} Sort by date (newest first) {% endcomment %}
-{% assign sorted_sortable_events = sortable_events | sort | reverse %}
-
-{% comment %} Extract original event data {% endcomment %}
-{% assign sorted_events = "" | split: "" %}
-{% for sortable_event in sorted_sortable_events %}
-  {% assign parts = sortable_event | split: "|" %}
-  {% assign original_event = parts[1] | append: "|" | append: parts[2] | append: "|" | append: parts[3] | append: "|" | append: parts[4] %}
-  {% assign sorted_events = sorted_events | push: original_event %}
-{% endfor %}
-
-{% assign current_year_month = "" %}
-{% assign current_started_projects = "" | split: "" %}
-{% assign current_ended_projects = "" | split: "" %}
-{% assign current_created_projects = "" | split: "" %}
-{% assign current_manual_entries = "" | split: "" %}
-
-{% for event_data in sorted_events %}
-{% assign parts = event_data | split: "|" %}
-{% assign title = parts[0] %}
-{% assign type = parts[1] %}
-{% assign date = parts[2] %}
-{% assign url = parts[3] %}
-
-{% assign year = date | date: "%Y" %}
-{% assign month = date | date: "%m" %}
-{% assign month_name = date | date: "%B" %}
-{% assign year_month = year | append: "-" | append: month %}
-
-{% if year_month != current_year_month %}
-{% comment %} Display previous month's data {% endcomment %}
-{% if current_year_month != "" %}
-{% if current_started_projects.size > 0 or current_ended_projects.size > 0 or current_created_projects.size > 0 or current_manual_entries.size > 0 %}
-
----
-
-## {{ month_name }} {{ year }}
-{% if current_manual_entries.size > 0 %}
-{% for entry in current_manual_entries %}
-> {{ entry }}
-{% endfor %}
-{% endif %}
-{% if current_created_projects.size > 0 %}
-### Created
-{% for project in current_created_projects %}
-{% assign project_parts = project | split: "|" %}
-{% assign project_title = project_parts[0] %}
-{% assign project_url = project_parts[1] %}
-{% assign project_location = project_parts[2] %}
-{% assign project_result = project_parts[3] %}
-- **{{ project_title }}**{% if project_location %} ({{ project_location }}){% endif %}{% if project_result %}
-({{ project_result }}){% endif %} ([GO ➟]({{ project_url }}))
-{% endfor %}
+{% comment %} Add the last month {% endcomment %}
+{% if current_month != "" and current_month_events.size > 0 %}
+  {% assign month_output = current_month | append: "|" | append: current_month_events | join: "||" %}
+  {% assign output = output | push: month_output %}
 {% endif %}
 
-{% if current_started_projects.size > 0 %}
-### Started
-{% for project in current_started_projects %}
-{% assign project_parts = project | split: "|" %}
-{% assign project_title = project_parts[0] %}
-{% assign project_url = project_parts[1] %}
-{% assign project_location = project_parts[2] %}
-- **{{ project_title }}**{% if project_location %} ({{ project_location }}){% endif %}
-{% endfor %}
-{% endif %}
-
-{% if current_ended_projects.size > 0 %}
-### Ended
-{% for project in current_ended_projects %}
-{% assign project_parts = project | split: "|" %}
-{% assign project_title = project_parts[0] %}
-{% assign project_url = project_parts[1] %}
-{% assign project_result = project_parts[2] %}
-- **{{ project_title }}**{% if project_result %} ({{ project_result }}){% endif %} ([GO ➟]({{ project_url }}))
-{% endfor %}
-{% endif %}
-{% endif %}
-{% endif %}
-
-{% comment %} Reset for new month {% endcomment %}
-{% assign current_year_month = year_month %}
-{% assign current_started_projects = "" | split: "" %}
-{% assign current_ended_projects = "" | split: "" %}
-{% assign current_created_projects = "" | split: "" %}
-{% assign current_manual_entries = "" | split: "" %}
-{% endif %}
-
-{% if type == "manual" %}
-{% comment %} Add manual changelog entry {% endcomment %}
-{% assign current_manual_entries = current_manual_entries | push: title %}
-{% elsif type == "started" %}
-{% comment %} Check if this project also ended in the same month {% endcomment %}
-{% assign chantier = site.chantiers | where: "title", title | first %}
-{% assign project_ended_same_month = false %}
-{% if chantier.ended and chantier.ended != "" and chantier.ended != nil %}
-{% assign ended_year = chantier.ended | date: "%Y" %}
-{% assign ended_month = chantier.ended | date: "%m" %}
-{% if ended_year == year and ended_month == month %}
-{% assign project_ended_same_month = true %}
-{% endif %}
-{% endif %}
-
-{% if project_ended_same_month %}
-{% comment %} Project started and ended in same month - add to created {% endcomment %}
-{% assign location_tags = "" %}
-{% if chantier.location and chantier.location.size > 0 %}
-{% assign location_tags = chantier.location | join: ", " %}
-{% endif %}
-{% assign result_tags = "" %}
-{% if chantier.result and chantier.result.size > 0 %}
-{% assign result_tags = chantier.result | join: ", " %}
-{% endif %}
-{% assign project_data = title | append: "|" | append: url | append: "|" | append: location_tags | append: "|" | append: result_tags %}
-{% assign current_created_projects = current_created_projects | push: project_data %}
-{% else %}
-{% comment %} Project only started - add to started {% endcomment %}
-{% assign location_tags = "" %}
-{% if chantier.location and chantier.location.size > 0 %}
-{% assign location_tags = chantier.location | join: ", " %}
-{% endif %}
-{% assign project_data = title | append: "|" | append: url | append: "|" | append: location_tags %}
-{% assign current_started_projects = current_started_projects | push: project_data %}
-{% endif %}
-{% elsif type == "ended" %}
-{% comment %} Check if this project also started in the same month {% endcomment %}
-{% assign chantier = site.chantiers | where: "title", title | first %}
-{% assign project_started_same_month = false %}
-{% if chantier.started and chantier.started != "" and chantier.started != nil %}
-{% assign started_year = chantier.started | date: "%Y" %}
-{% assign started_month = chantier.started | date: "%m" %}
-{% if started_year == year and started_month == month %}
-{% assign project_started_same_month = true %}
-{% endif %}
-{% endif %}
-
-{% unless project_started_same_month %}
-{% comment %} Project only ended (not started in same month) - add to ended {% endcomment %}
-{% assign result_tags = "" %}
-{% if chantier.result and chantier.result.size > 0 %}
-{% assign result_tags = chantier.result | join: ", " %}
-{% endif %}
-{% assign project_data = title | append: "|" | append: url | append: "|" | append: result_tags %}
-{% assign current_ended_projects = current_ended_projects | push: project_data %}
-{% endunless %}
-{% endif %}
+{% comment %} Now output the changelog {% endcomment %}
+{% for month_data in output %}
+  {% assign month_parts = month_data | split: "|" %}
+  {% assign month_key = month_parts[0] %}
+  {% assign month_events = month_parts[1] | split: "||" %}
+  
+  {% comment %} Extract month info {% endcomment %}
+  {% assign month_parts = month_key | split: "-" %}
+  {% assign year = month_parts[0] %}
+  {% assign month_num = month_parts[1] %}
+  {% assign month_name = month_key | append: "-01" | date: "%B" %}
+  
+  {% comment %} Process events for this month {% endcomment %}
+  {% assign started_projects = "" | split: "" %}
+  {% assign ended_projects = "" | split: "" %}
+  {% assign created_projects = "" | split: "" %}
+  {% assign manual_entries = "" | split: "" %}
+  
+  {% for event in month_events %}
+    {% assign parts = event | split: "|" %}
+    {% assign title = parts[0] %}
+    {% assign type = parts[1] %}
+    {% assign date = parts[2] %}
+    {% assign url = parts[3] %}
+    
+    {% if type == "manual" %}
+      {% assign manual_entries = manual_entries | push: title %}
+    {% elsif type == "started" %}
+      {% comment %} Check if project also ended this month {% endcomment %}
+      {% assign chantier = site.chantiers | where: "title", title | first %}
+      {% assign same_month_ended = false %}
+      {% if chantier.ended and chantier.ended != "" %}
+        {% assign ended_parts = chantier.ended | split: "-" %}
+        {% if ended_parts[0] == year and ended_parts[1] == month_num %}
+          {% assign same_month_ended = true %}
+        {% endif %}
+      {% endif %}
+      
+      {% if same_month_ended %}
+        {% assign created_projects = created_projects | push: title %}
+      {% else %}
+        {% assign started_projects = started_projects | push: title %}
+      {% endif %}
+    {% elsif type == "ended" %}
+      {% comment %} Check if project also started this month {% endcomment %}
+      {% assign chantier = site.chantiers | where: "title", title | first %}
+      {% assign same_month_started = false %}
+      {% if chantier.started and chantier.started != "" %}
+        {% assign started_parts = chantier.started | split: "-" %}
+        {% if started_parts[0] == year and started_parts[1] == month_num %}
+          {% assign same_month_started = true %}
+        {% endif %}
+      {% endif %}
+      
+      {% unless same_month_started %}
+        {% assign ended_projects = ended_projects | push: title %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+  
+  {% comment %} Output this month {% endcomment %}
+  {% if manual_entries.size > 0 or started_projects.size > 0 or ended_projects.size > 0 or created_projects.size > 0 %}
+    ---
+    
+    ## {{ month_name }} {{ year }}
+    
+    {% if manual_entries.size > 0 %}
+      {% for entry in manual_entries %}
+        > {{ entry }}
+      {% endfor %}
+    {% endif %}
+    
+    {% if created_projects.size > 0 %}
+      ### Created
+      {% for title in created_projects %}
+        {% assign chantier = site.chantiers | where: "title", title | first %}
+        {% assign ended_sec = chantier.started | date: '%s' %}
+        {% assign started_sec = chantier.ended | date: '%s' %}
+        {% assign seconds_diff = started_sec | minus: ended_sec %}
+        {% assign days_diff = seconds_diff | divided_by: 86400 | plus: 1 %}
+        - **{{ title }}** ({{ days_diff }} days, [GO ➟]({{ chantier.url }}))
+      {% endfor %}
+    {% endif %}
+    
+    {% if started_projects.size > 0 %}
+      ### Started
+      {% for title in started_projects %}
+        {% assign chantier = site.chantiers | where: "title", title | first %}
+        - **{{ title }}**
+      {% endfor %}
+    {% endif %}
+    
+    {% if ended_projects.size > 0 %}
+      ### Ended
+      {% for title in ended_projects %}
+        {% assign chantier = site.chantiers | where: "title", title | first %}
+        {% assign ended_sec = chantier.started | date: '%s' %}
+        {% assign started_sec = chantier.ended | date: '%s' %}
+        {% assign seconds_diff = started_sec | minus: ended_sec %}
+        {% assign days_diff = seconds_diff | divided_by: 86400 | plus: 1 %}
+        - **{{ title }}** ({{ days_diff }} days, [GO ➟]({{ chantier.url }}))
+      {% endfor %}
+    {% endif %}
+  {% endif %}
 {% endfor %}
 
 <style>

@@ -12,7 +12,9 @@ description: tl;dr are one-line summaries of text conversations that happened be
 
 <style>
 	.dynamic {
-		padding-bottom: 5rem;
+		padding-bottom: 3rem;
+		min-height: 3rem; /* Reserve space for 2 lines of text */
+		line-height: 1.5; /* Ensure consistent line height */
 	}
 
 	.typed-cursor {
@@ -36,7 +38,7 @@ description: tl;dr are one-line summaries of text conversations that happened be
 		"La jeunesse n'a pas d'âge.",
 		"Ce qui compte c'est que ça aurait pu être vrai.",
 		"À chaque fois c'est indélébile.",
-		"Sur ces belles paroles…",
+		"Sur ces belles paroles...",
 		"Porter son attention c'est faire exister.",
 		"Show don't tell.",
 		"Don't assume you can't fuck up.",
@@ -62,10 +64,10 @@ description: tl;dr are one-line summaries of text conversations that happened be
 		"No one is in control of the narrative.",
 		"That's what happens when you cultivate differences.",
 		"Most of what you see is what you get.",
-		"Sometimes truth doesn't fit in the narrative.",
+		"Sometimes truth doesn't fit the narrative.",
 		"C'est ça réussir sa vie ?",
 		"It takes two hands to hold a baby.",
-		"L'enfer c'est les autres.",
+		"L'enfer c'est un peu toujours les autres.",
 		"Technically, a meaningless quest is still a quest.",
 		"All ways can be paved.",
 		"It's called “poetic irony”.",
@@ -153,6 +155,7 @@ description: tl;dr are one-line summaries of text conversations that happened be
 		"Time is the ability to find stuff in space.",
 		"You can only do one thing at a time.",
 		"C'est possible d'avoir un plan pour soi même.",
+		"Parfois la réponse est vraiment dans la question.",
 	];
 
 	const container = document.getElementById('typed-container');

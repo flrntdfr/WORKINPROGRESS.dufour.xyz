@@ -20,5 +20,5 @@ href:
 ---
 
 <div style="height: calc(100vh - 20px); margin: 20px 0;">
-{% include iframe.html content="/assets/2012/curriculum-vitae/cv.pdf" %}
+{% include iframe-pdf.html content="/assets/2012/curriculum-vitae/cv.pdf" %}
 </div>

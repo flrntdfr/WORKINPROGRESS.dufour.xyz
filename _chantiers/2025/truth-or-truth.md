@@ -90,7 +90,7 @@ description: |
       "Do you miss being a kid?",
       "A world where everyone thinks like you. What does it look like?",
       "What's the last illegal thing you've done?",
-      "Do you think God is real?",
+      "Do you think God exists?",
       "How good are you at dealing with yourself?",
       "When's the last time you've done something for the first time?",
       "Are you living up to your potential?",

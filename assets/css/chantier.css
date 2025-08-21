@@ -140,7 +140,7 @@ img {
     }
     
     data {
-        width: auto;
+        width: 100%;
         min-width: 0;
         max-width: 100%;
         flex: 0 1 auto;

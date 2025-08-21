@@ -240,6 +240,7 @@ const lists = {
     "I don't think outside the box. I am the box, and the universe.",
     "I don't date people who couldn't be my friend.",
     "Some of my dreams have come true. And I intend to make more come true.",
+    "I operate at a different level.",
   ]
 };
 

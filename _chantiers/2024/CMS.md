@@ -7,10 +7,10 @@ result: [web]
 tech: [html, css, js, Jekyll]
 permalink: "/"
 description: |
-    This is a multi-media repository of projects I am working on. For more information, read the <a href="/README">README</a>.
+    This is a multi-media repository of projects I am working on. For more information, read the&nbsp;<a href="/README">README</a>.
 ---
 
-<h1 class="main-title" style="word-break: normal; overflow-wrap: break-word;">🏗️ WORKINPROGRESS.dufour.xyz 🚧</h1>
+<h1 class="main-title" style="word-break: normal; overflow-wrap: break-word;">🏗️ WORK<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IN PROGRESS 🚧</h1>
 
 {{ page.description }}
 
@@ -113,62 +113,63 @@ description: |
 
 <style>
 .main-title {
-    word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .projects-portfolio {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap-reverse;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap-reverse;
 }
 
 .projects-column {
-    flex: 1;
-    margin-left: 3%;
-    min-width: 280px;
-    max-width: 600px;
+  flex: 1;
+  margin-left: 3%;
+  min-width: 280px;
+  max-width: 600px;
 }
 
 .projects-table {
-    flex: 1;
+  flex: 1;
 }
 
 .macmade-container {
-    text-align: center;
+  text-align: center;
 }
 
 /* Result tags */
 .result-tag {
-    color: darkgrey;
-    font-weight: 350;
+  color: darkgrey;
+  font-weight: 350;
 }
 
 /* Table styles */
 tr {
-    height: 2em;
+  height: 2em;
 }
 
 td {
-    padding-right: 15px;
-    vertical-align: top;
+  padding-right: 15px;
+  vertical-align: top;
 }
-    
+
 /* Link styles */
 a:link {
-    color: black;
+  color: black;
 }
 
 a:visited {
-    color: darkgrey;
+  color: darkgrey;
 }
 
 /* Banner animation */
 @keyframes banner-slide {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 </style>
