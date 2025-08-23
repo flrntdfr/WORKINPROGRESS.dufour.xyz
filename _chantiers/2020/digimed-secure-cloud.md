@@ -60,13 +60,13 @@ ol li:last-child {
 
 ## Talks
 - 2025: F. Dufour, Jan Peschke, **"How to build 
-a confidential cloud"? — A platform for next generation medical research**, OpenInfra Sweden, Stockholm. ([link]({% link _chantiers/2025/OpenInfra.md %})).
+a confidential cloud"? — A platform for next generation medical research**, OpenInfra Sweden, Stockholm. ([link ➟]({% link _chantiers/2025/OpenInfra.md %})).
 - 2024: F. Dufour, **"We built a Trusted Research Environment for health research - 10 strategic and technical lessons learned"**, in Medical Valley, Online.
-- 2023: F. Dufour, **"Towards the Medicine of the Future in Bavaria and Germany, One Heartbeat at the Time With Confidential Computing"** in Open Confidential Computing Conference (OC3), Online. ([link]({% link _chantiers/2023/OC3.md %}))
+- 2023: F. Dufour, **"Towards the Medicine of the Future in Bavaria and Germany, One Heartbeat at the Time With Confidential Computing"** in Open Confidential Computing Conference (OC3), Online. ([link ➟]({% link _chantiers/2023/OC3.md %}))
 
 ## Posters
-1. F. Dufour, N. Zhou, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **"Towards Confidential Computing: A Cloud Architecture for Big Data Analytics and AI in Biomedical Research (poster),",** in ISC, Hamburg, Germany, May 2023. 
-1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **" DigiMed Cloud: A Highly-Secure Cloud for Big Data Analytics and AI in Biomedical Research (poster)",** in Hipeac, Munich, Germany, Jan 2024. 
+1. F. Dufour, N. Zhou, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **"Towards Confidential Computing: A Cloud Architecture for Big Data Analytics and AI in Biomedical Research"**, in ISC, Hamburg, Germany, May 2023. 
+1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **" DigiMed Cloud: A Highly-Secure Cloud for Big Data Analytics and AI in Biomedical Research"**, in Hipeac, Munich, Germany, Jan 2024. 
 
 ## Supervision and co-supervision
 - Vinzent Bode, **"tbd.",** Ludwig-Maximilians-Universität Munich. (2025)
@@ -76,8 +76,8 @@ a confidential cloud"? — A platform for next generation medical research**, Op
 
 
 ## Press releases
-- **2025**: Building Secure and Scalable Cloud Infrastructure for Medical Data: DigiMed Bayern and the Role of Quobyte ([link](https://www.quobyte.com/blog/building-secure-and-scalable-cloud-infrastructure-for-medical-data/))
-- **2024**: Blueprint for a data-protection-compliant, secure data cloud ([english](https://www.lrz.de/presse/ereignisse/2024-04-03-Secure-Cloud/), [german](https://www.lrz.de/presse/ereignisse/2024-04-03-Sichere-Cloud/))
+- **2025**: Building Secure and Scalable Cloud Infrastructure for Medical Data: DigiMed Bayern and the Role of Quobyte ([link ➟](https://www.quobyte.com/blog/building-secure-and-scalable-cloud-infrastructure-for-medical-data/))
+- **2024**: Blueprint for a data-protection-compliant, secure data cloud ([english ➟](https://www.lrz.de/presse/ereignisse/2024-04-03-Secure-Cloud/), [german ➟](https://www.lrz.de/presse/ereignisse/2024-04-03-Sichere-Cloud/)).
 - **2024**: Preventing heart attacks and strokes: with cholesterol
-measurement in children, digital heart management and data use ([link](https://www.bio-m.org/fileadmin/Webdata/Uploads/Veranstaltungen/2024/DigiMed/20241107_Press_release_Preventing_heart_attacks_and_strokes.pdf))
-- **2023**: DigiMed Bayern flagship project launches its "Secure Cloud" at symposium on data-driven medicine ([link](https://www.pressebox.com/pressrelease/biom-biotech-cluster-development-gmbh/DigiMed-Bayern-flagship-project-launches-its-Secure-Cloud-at-symposium-on-data-driven-medicine/boxid/1183210))
+measurement in children, digital heart management and data use ([link ➟](https://www.bio-m.org/fileadmin/Webdata/Uploads/Veranstaltungen/2024/DigiMed/20241107_Press_release_Preventing_heart_attacks_and_strokes.pdf)).
+- **2023**: DigiMed Bayern flagship project launches its "Secure Cloud" at symposium on data-driven medicine ([link ➟](https://www.pressebox.com/pressrelease/biom-biotech-cluster-development-gmbh/DigiMed-Bayern-flagship-project-launches-its-Secure-Cloud-at-symposium-on-data-driven-medicine/boxid/1183210))

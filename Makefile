@@ -15,7 +15,7 @@ update:
 build: ## Build the website locally
 	bundle exec jekyll $@ --verbose
 	nix build
-serve-prod: ## Build and serve the website
+serve: ## Build and serve the website
 	bundle exec jekyll serve $(SERVER_FLAGS)
 serve-dev:
 	bundle exec jekyll serve $(SERVER_FLAGS) --unpublished --future

@@ -220,7 +220,7 @@ const lists = {
     "anger is my main drive.",
     "I am growth-minded.",
     "I usually don't get what I want.",
-    "I don't have a TV and I tell people I don't have one.",
+    "I don't have a TV and I make sure people know I don't have one.",
     "I like people who like me.",
     "I am satisfied with my genes.",
     "I solve my problems instead of finding excuses.",

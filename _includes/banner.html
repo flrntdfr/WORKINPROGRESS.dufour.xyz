@@ -1,3 +1,17 @@
+<a href="{% link _chantiers/2025/CHANGELOG.md %}"><p>
+  v0.1.{{ "now" | date: "%y%m" }}-rc: Bug fixes and performance improvements.
+  {% for i in (1..75) %}
+  &nbsp;
+  {% endfor %}
+  {% for log in site.data.changelog limit: 4 %}
+  {{ log.emoji }} {{ log.version }}: {{ log.description }} {{ log.emoji }}
+  {% for i in (1..75) %}
+  &nbsp;
+  {% endfor %}
+  {% endfor %}
+  </p>
+</a>
+
 <style>
 .banner {
   position: fixed;
@@ -29,15 +43,3 @@
 }
 
 </style>
-<p>
-v0.1.{{ "now" | date: "%y%m" }}-rc: Bug fixes and performance improvements.
-{% for i in (1..75) %}
-&nbsp;
-{% endfor %}
-{% for log in site.data.changelog limit: 4 %}
-{{ log.emoji }} {{ log.version }}: {{ log.description }} {{ log.emoji }}
-{% for i in (1..75) %}
-&nbsp;
-{% endfor %}
-{% endfor %}
-</p>

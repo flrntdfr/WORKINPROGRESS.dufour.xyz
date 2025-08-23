@@ -7,10 +7,10 @@ location: [Munich]
 result: [street-art]
 tech: stickers
 description: |
-    I grew up in a rainy post-industrial town in eastern France. The only colors on the streets were the graffiti left behind the generation that came before me. It was only when I went to Paris for the first time that I discovered street-art in its diverse and current forms. I loved the works of Miss.Tic, Blek le Rat, and Invader. I remember finding that even discreet and unattributed pieces could be surprisingly impactful (see reference).
+    I grew up in a rainy post-industrial town in eastern France. The only colors on the streets were the graffiti left behind the generation that came before me. It was only when I went to Paris for the first time that I discovered street-art in its diverse and current forms through the works of Miss.Tic, Blek le Rat, Invader and anonymous (see reference).
 
     <h2>The problem</h2>
-    <p>Today, I am witnessing Munich's unique <span style=" text-decoration-line: underline; text-decoration-style: double; cursor: help;" title="VERBOTEN means FORBIDDEN in German. Common VERBOTEN signs include: do not park your car, do not park your bike, do not play ball games, do not walk on grass, do not pee here, do not let your dog pee here, do not enter, do not smoke, do not make noise past 10pm, do not take photos, do not use mobile phones, do not feed pigeons, do not drink alcohol, do not skateboard, do not rollerblade, do not ride horses, do not barbecue, do not camp, do not fish, do not swim, do not touch, do not sit…">VERBOTEN</span> signs on the streets and I am unsure if they constitute a form of street-art. Interestingly, they seem to be strategically scattered across the city and often come in creative variations with bright colors, expressive underlining, and excessive punctuation!!! Their sheer abundance and the apparent effort put into displaying them suggests they serve more than just regulatory purposes.</p>
+    <p>Today, I am witnessing Munich's unique <span style=" text-decoration-line: underline; text-decoration-style: double; cursor: help;" title="VERBOTEN means FORBIDDEN in German. Common VERBOTEN signs include: do not park your car, do not park your bike, do not play ball games, do not walk on grass, do not pee here, do not let your dog pee here, do not enter, do not smoke, do not make noise past 10pm, do not take photos, do not use mobile phones, do not feed pigeons, do not drink alcohol, do not skateboard, do not rollerblade, do not ride horses, do not barbecue, do not camp, do not fish, do not swim, do not touch, do not sit…">VERBOTEN</span> signs on the streets and I am unsure if they constitute a form of street-art. They seem to be strategically scattered across the city and often come in creative variations with bright colors, expressive underlining, and excessive punctuation!!! Their sheer abundance and the apparent effort put into displaying them suggests they serve more than just regulatory purposes.</p>
     
     <h2>The solution</h2>
     <p>If these signs should be considered as a form of street-art, then they should be celebrated and rightfully attributed to the citizens of Munich. I propose a 3cm sticker that points them out as references to the public discourse:</p>
@@ -19,6 +19,7 @@ description: |
     
     <h2>Reference</h2>
     <iframe src="https://www.google.com/maps/embed?pb=!4v1742034782747!6m8!1m7!1szWgObl4TQgYG8Bk0s-cF_Q!2m2!1d48.8826705839156!2d2.362238466371915!3f180.13665516268432!4f-1.3587718142888576!5f0.7820865974627469" height="400" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <i>Anonymous graffiti in Paris.</i>
 ---
 
 <style>
