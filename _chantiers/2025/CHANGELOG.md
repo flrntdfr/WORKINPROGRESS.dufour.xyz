@@ -10,7 +10,11 @@ result: [list]
 {% comment %} Calculate statistics {% endcomment %}
 {% assign total_chantiers = site.chantiers.size %}
 {% assign open_chantiers = 0 %}
+{% assign open_chantiers_visible = 0 %}
+{% assign open_chantiers_hidden = 0 %}
 {% assign closed_chantiers = 0 %}
+{% assign closed_chantiers_visible = 0 %}
+{% assign closed_chantiers_hidden = 0 %}
 {% assign total_duration_days = 0 %}
 {% assign longest_running_days = 0 %}
 {% assign longest_running_project = "" %}
@@ -26,6 +30,11 @@ result: [list]
   {% if ended_value and ended_value != "" and ended_value != nil %}
     {% if created_value and created_value != "" and created_value != nil %}
       {% assign closed_chantiers = closed_chantiers | plus: 1 %}
+      {% if chantier.hidden %}
+        {% assign closed_chantiers_hidden = closed_chantiers_hidden | plus: 1 %}
+      {% else %}
+        {% assign closed_chantiers_visible = closed_chantiers_visible | plus: 1 %}
+      {% endif %}
       {% assign created_sec = chantier.started | date: '%s' %}
       {% assign ended_sec = chantier.ended | date: '%s' %}
       {% assign duration_sec = ended_sec | minus: created_sec %}
@@ -34,6 +43,11 @@ result: [list]
     {% endif %}
   {% else %}
     {% assign open_chantiers = open_chantiers | plus: 1 %}
+    {% if chantier.hidden %}
+      {% assign open_chantiers_hidden = open_chantiers_hidden | plus: 1 %}
+    {% else %}
+      {% assign open_chantiers_visible = open_chantiers_visible | plus: 1 %}
+    {% endif %}
     {% if created_value and created_value != "" and created_value != nil %}
       {% assign created_sec = chantier.started | date: '%s' %}
       {% assign now_sec = "now" | date: '%s' %}
@@ -76,8 +90,8 @@ result: [list]
 WIP {{ site.time | date: "%Y-%m-%d %H:%M:%S" }} (build 150)
 ===================================
 
-Open projects    {% assign open_bars = open_chantiers | times: 50 | divided_by: total_chantiers %}{% for i in (1..open_bars) %}█{% endfor %}{% for i in (open_bars..49) %}░{% endfor %} {{ open_chantiers }}
-Closed projects  {% assign closed_bars = closed_chantiers | times: 50 | divided_by: total_chantiers %}{% for i in (1..closed_bars) %}█{% endfor %}{% for i in (closed_bars..49) %}░{% endfor %} {{ closed_chantiers }}
+Open projects    {% assign open_bars = open_chantiers | times: 50 | divided_by: total_chantiers %}{% for i in (1..open_bars) %}█{% endfor %}{% for i in (open_bars..49) %}░{% endfor %} {{ open_chantiers_visible }} (+ {{ open_chantiers_hidden }})
+Closed projects  {% assign closed_bars = closed_chantiers | times: 50 | divided_by: total_chantiers %}{% for i in (1..closed_bars) %}█{% endfor %}{% for i in (closed_bars..49) %}░{% endfor %} {{ closed_chantiers_visible }} (+ {{ closed_chantiers_hidden }})
 Total Projects                                                      {{ total_chantiers }}
 
 Projects completion:         {{ completion_rate | round: 1 }}%
@@ -204,7 +218,7 @@ h2 + h3 {
 
 /* Compact list styling */
 ul {
-  margin: 0 0 8px 0;
+  margin: 0 0 0 0;
   padding-left: 20px;
 }
 
@@ -219,7 +233,7 @@ h3 + ul {
 }
 
 blockquote {
-  margin: 0 0 0.5em 0;
+  margin: 0 0 1em 0;
   padding-left: 1em;
   border-left: 2px solid #ccc;
 }
