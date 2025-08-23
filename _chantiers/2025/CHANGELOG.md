@@ -129,46 +129,60 @@ Projects started this year:  {{ current_year_projects }}
 {% comment %} Sort timeline events by date (newest first) {% endcomment %}
 {% assign sorted_timeline = timeline_events | sort | reverse %}
 
-{% comment %} Iterate through timeline and output by month {% endcomment %}
-{% assign current_month = "" %}
-
+{% comment %} Get unique months from sorted timeline {% endcomment %}
+{% assign months = "" | split: "" %}
 {% for event in sorted_timeline %}
-  {% assign parts = event | split: "|" %}
-  {% assign date_str = parts[0] %}
-  {% assign type = parts[1] %}
-  {% assign content = parts[2] %}
-  
-  {% comment %} Extract year-month from date {% endcomment %}
-  {% assign year_month = date_str | date: "%Y-%m" %}
-  
-  {% comment %} If we encounter a new month, output the header {% endcomment %}
-  {% if current_month != year_month %}
-  {% assign current_month = year_month %}
+    {% assign date_str = event | split: "|" | first %}
+    {% assign year_month = date_str | date: "%Y.%m" %}
+    {% unless months contains year_month %}
+        {% assign months = months | push: year_month %}
+    {% endunless %}
+{% endfor %}
+
+{% comment %} Iterate through months and output events {% endcomment %}
+{% for month in months %}
 
 ---
 
-## {{ current_month }}
+## v{{ month }}
 
-  {% endif %}
-  
-  {% comment %} Output the event {% endcomment %}
-  {% if type == "note" %}
-    {% assign note_parts = event | split: "|" %}
-    {% assign note_desc = note_parts[2] %}
+  {% comment %} Output notes for this month first {% endcomment %}
+  {% for event in sorted_timeline %}
+    {% assign parts = event | split: "|" %}
+    {% assign event_date = parts[0] %}
+    {% assign event_month = event_date | date: "%Y.%m" %}
+    {% if event_month == month %}
+      {% assign type = parts[1] %}
+      {% if type == "note" %}
+        {% assign note_desc = parts[2] %}
 > {{ note_desc }}
-  {% elsif type == "created" %}
-    {% assign chantier_index = content | plus: 0 %}
-    {% assign chantier = site.chantiers[chantier_index] %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {% comment %} Output project events for this month {% endcomment %}
+  {% for event in sorted_timeline %}
+    {% assign parts = event | split: "|" %}
+    {% assign event_date = parts[0] %}
+    {% assign event_month = event_date | date: "%Y.%m" %}
+    {% if event_month == month %}
+      {% assign type = parts[1] %}
+      {% assign content = parts[2] %}
+      {% if type == "created" %}
+        {% assign chantier_index = content | plus: 0 %}
+        {% assign chantier = site.chantiers[chantier_index] %}
 - **{{ chantier.title }}** created, ([see ➟]({{ chantier.url }}))
-  {% elsif type == "started" %}
-    {% assign chantier_index = content | plus: 0 %}
-    {% assign chantier = site.chantiers[chantier_index] %}
+      {% elsif type == "started" %}
+        {% assign chantier_index = content | plus: 0 %}
+        {% assign chantier = site.chantiers[chantier_index] %}
 - **{{ chantier.title }}** started
-  {% elsif type == "ended" %}
-    {% assign chantier_index = content | plus: 0 %}
-    {% assign chantier = site.chantiers[chantier_index] %}
+      {% elsif type == "ended" %}
+        {% assign chantier_index = content | plus: 0 %}
+        {% assign chantier = site.chantiers[chantier_index] %}
 - **{{ chantier.title }}** ended, ([see ➟]({{ chantier.url }}))
-  {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
 {% endfor %}
 
 
@@ -184,7 +198,6 @@ h3 {
   font-size: 1.05em;
 }
 
-/* First h3 after h2 has less top margin */
 h2 + h3 {
   margin-top: 8px;
 }
@@ -201,7 +214,6 @@ li {
   color: #24292e;
 }
 
-/* Tighter spacing between sections */
 h3 + ul {
   margin-top: 4px;
 }

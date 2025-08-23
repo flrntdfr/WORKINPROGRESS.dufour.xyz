@@ -1,19 +1,17 @@
 # Emojis
 # 🚧 🏗️ 🔨 🛠️ ⚒️ 🔧 🔩 ⚙️ 📝 📊 📈 🧰 👷 🚦 📋 🚨
 
-- date: 2025-09
-  description: Publish WIP on internet.
-- date: 2025-06
+- date: "2025-09-01"
+  description: WIP is online.
+- date: "2025-08-01"
+  description: Speleology&#x3a; TI-83 plus.
+- date: "2025-06-01"
   description: Search added.
-- date: 2025-03
-  description: 200 museums digitized.
-- date: 2025-01
-  description: New year resolution - Revive WIP.
-- date: 2020-07
-  description: Initial commit.
-- date: 2018-07
-  description: First draft.
-- date: 2016-08
-  description: WIP creation.
-- date: 2010-09
-  description: Entrée au lycée.
+- date: "2025-03-01"
+  description: First 200 museums digitized.
+- date: "2024-11-01"
+  description: New year resolution&#x3a; Revive WIP.
+- date: "2020-07-01"
+  description: First commit of the CMS made.
+- date: "2016-08-01"
+  description: First draft of the CMS made.

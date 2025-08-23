@@ -7,7 +7,7 @@ location: [Lycée Stanislas]
 result: [code]
 tech: ["BASIC"]
 description: | 
-    This is the first program I wrote on my own. It is a <em>sophisticated</em> algorithm that calculates the love compatibility between two persons.
+    This is the first program I wrote on my own. It calculates the love compatibility between two persons.
 lib: swbasic.js
 ---
 
@@ -84,9 +84,29 @@ let outputElement;
             const originalWidth = 1296; /* Original image width */
             const originalHeight = 2737; /* Original image height */
             
-            /* Calculate scaling factors */
-            const scaleX = calculatorImage.offsetWidth / originalWidth;
-            const scaleY = calculatorImage.offsetHeight / originalHeight;
+            const containerWidth = calculatorImage.offsetWidth;
+            const containerHeight = calculatorImage.offsetHeight;
+
+            const imageAspectRatio = originalWidth / originalHeight;
+            const containerAspectRatio = containerWidth / containerHeight;
+
+            let renderedWidth, renderedHeight, offsetX = 0, offsetY = 0;
+
+            if (imageAspectRatio > containerAspectRatio) {
+                /* Image is wider than container, limited by width */
+                renderedWidth = containerWidth;
+                renderedHeight = containerWidth / imageAspectRatio;
+                offsetY = (containerHeight - renderedHeight) / 2;
+            } else {
+                /* Image is taller than container, limited by height */
+                renderedHeight = containerHeight;
+                renderedWidth = containerHeight * imageAspectRatio;
+                offsetX = (containerWidth - renderedWidth) / 2;
+            }
+
+            /* Calculate scaling factors based on the rendered image size */
+            const scaleX = renderedWidth / originalWidth;
+            const scaleY = renderedHeight / originalHeight;
             
             /* Create buttons with scaled coordinates */
             Object.entries(keys).forEach(([key, coords]) => {
@@ -94,8 +114,8 @@ let outputElement;
                 button.className = 'calc-key';
                 button.id = 'key-' + key; /* Add ID for easy identification */
                 button.setAttribute('data-key', key);
-                button.style.left = (coords.x * scaleX) + 'px';
-                button.style.top = (coords.y * scaleY) + 'px';
+                button.style.left = (coords.x * scaleX + offsetX) + 'px';
+                button.style.top = (coords.y * scaleY + offsetY) + 'px';
                 button.style.width = (coords.w * scaleX) + 'px';
                 button.style.height = (coords.h * scaleY) + 'px';
                 
@@ -108,15 +128,17 @@ let outputElement;
             
             /* Set screen positioning with scaling */
             const screen = document.getElementById('screen');
+            const screenWidth = SCREEN.w * scaleX;
+            const screenHeight = SCREEN.h * scaleY;
             
-            screen.style.left = (SCREEN.x * scaleX) + 'px';
-            screen.style.top = (SCREEN.y * scaleY) + 'px';
-            screen.style.width = (SCREEN.w * scaleX) + 'px';
-            screen.style.height = (SCREEN.h * scaleY) + 'px';
+            screen.style.left = (SCREEN.x * scaleX + offsetX) + 'px';
+            screen.style.top = (SCREEN.y * scaleY + offsetY) + 'px';
+            screen.style.width = screenWidth + 'px';
+            screen.style.height = screenHeight + 'px';
             
             /* Calculate font size to fit exactly 16 characters per line and 8 lines */
-            const charWidth = (SCREEN.w * scaleX) / SCREEN_CHARS.cols; /* Width per character */
-            const charHeight = (SCREEN.h * scaleY) / SCREEN_CHARS.rows; /* Height per character */
+            const charWidth = screenWidth / SCREEN_CHARS.cols; /* Width per character */
+            const charHeight = screenHeight / SCREEN_CHARS.rows; /* Height per character */
             const fontSize = Math.min(charWidth * 0.8, charHeight * 0.9); /* Slightly smaller to account for spacing */
             
             screen.style.fontSize = fontSize + 'px';
@@ -131,13 +153,16 @@ let outputElement;
             calculatorImage.addEventListener('load', positionElements);
         }
         
-        /* Reposition elements on window resize */
-        window.addEventListener('resize', () => {
+        /* Use ResizeObserver for more reliable repositioning */
+        const resizeObserver = new ResizeObserver(() => {
             /* Clear existing buttons */
             keyboardContainer.innerHTML = '';
             /* Reposition everything */
             positionElements();
         });
+
+        /* Observe the calculator image for size changes */
+        resizeObserver.observe(calculatorImage);
     }
     
     /* Initialize keyboard */
@@ -174,50 +199,53 @@ let outputElement;
     }
     
     /* Calculator button event handlers */
-    document.querySelectorAll('.calc-key').forEach(key => {
-        key.addEventListener('click', (e) => {
-            e.preventDefault();
-            const keyValue = key.getAttribute('data-key');
-            
-            /* Only respond to clicks when waiting for input */
-            if (!isWaitingForInput) {
-                return;
-            }
-            
-            switch(keyValue) {
-                case 'ENTER':
-                    /* Submit input and continue */
-                    const value = currentInput;
-                    interpreter.input_stack.push(value);
-                    isWaitingForInput = false;
-                    inputFocused = false; /* Remove focus */
-                    /* Show final input without cursor */
-                    const displayText = baseOutput + inputPrompt + currentInput;
-                    outputElement.textContent = displayText;
-                    currentInput = ''; /* Clear input after displaying */
-                    interpreter.resume_input();
-                    break;
-                case 'CLEAR':
-                    currentInput = '';
-                    printFunction('', false); /* Update display with cursor */
-                    break;
-                case 'SPACE':
-                    currentInput += ' ';
-                    printFunction('', false); /* Update display with cursor */
-                    break;
-                case 'TOP':
-                case 'BOTTOM':
-                case 'LEFT':
-                case 'RIGHT':
-                    /* Navigation keys - could be used for cursor movement */
-                    break;
-                default:
-                    /* All other keys (letters, numbers, symbols) */
-                    currentInput += keyValue;
-                    printFunction('', false); /* Update display with cursor */
-                    break;
-            }
-        });
+    keyboardContainer.addEventListener('click', (e) => {
+        const key = e.target.closest('.calc-key');
+        if (!key) {
+            return;
+        }
+
+        e.preventDefault();
+        const keyValue = key.getAttribute('data-key');
+        
+        /* Only respond to clicks when waiting for input */
+        if (!isWaitingForInput) {
+            return;
+        }
+        
+        switch(keyValue) {
+            case 'ENTER':
+                /* Submit input and continue */
+                const value = currentInput;
+                interpreter.input_stack.push(value);
+                isWaitingForInput = false;
+                inputFocused = false; /* Remove focus */
+                /* Show final input without cursor */
+                const displayText = baseOutput + inputPrompt + currentInput;
+                outputElement.textContent = displayText;
+                currentInput = ''; /* Clear input after displaying */
+                interpreter.resume_input();
+                break;
+            case 'CLEAR':
+                currentInput = '';
+                printFunction('', false); /* Update display with cursor */
+                break;
+            case 'SPACE':
+                currentInput += ' ';
+                printFunction('', false); /* Update display with cursor */
+                break;
+            case 'TOP':
+            case 'BOTTOM':
+            case 'LEFT':
+            case 'RIGHT':
+                /* Navigation keys - could be used for cursor movement */
+                break;
+            default:
+                /* All other keys (letters, numbers, symbols) */
+                currentInput += keyValue;
+                printFunction('', false); /* Update display with cursor */
+                break;
+        }
     });
     
     /* Physical keyboard support */
@@ -321,7 +349,6 @@ let outputElement;
 
 .ti-calculator {
     position: relative;
-    margin-left: 20px;
     margin-right: auto;
     display: block;
     overflow: visible; /* Allow full height to show */
