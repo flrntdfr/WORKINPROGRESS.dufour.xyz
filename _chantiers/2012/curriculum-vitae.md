@@ -5,7 +5,7 @@ started:  2012-06-28
 result: [research]
 ended: 
 description: |
-    My first job ever was fun, I prepared scientific activities for a kids summer camp. We did what all true scientists would do: build model volcanoes, launch water rockets, and experiment with molecular “gastronomy.”
+    I really enjoyed my first job, I prepared scientific activities for a kids summer camp. We did what all true scientists would do: build model volcanoes, launch water rockets, and experiment with molecular “gastronomy.”
     <br><br>
     I was fortunate to know early on that I wanted to work in health research. I majored in biotechnology in high school and continued through my undergraduate studies in France, Germany, and Switzerland.<sup>1</sup> I was introduced to nanotechnology, and interned at the Freie Universität Berlin and INSERM, where I worked on chronic pain medication and artificial organ coatings.<sup>2</sup> As my passion in computer science grew, I pursued a master's in bioinformatics and data science, completing an internship at the CNRS to develop sequencing software for digitally encoded polymers.<sup>3</sup> I got to work on privacy in a real world setting with the DUNE/éole project, where I explored cloud computing and blockchain technology.<sup>4</sup>
     <br><br>
