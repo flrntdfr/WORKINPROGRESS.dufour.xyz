@@ -4,6 +4,7 @@ title: .com
 result: [list]
 started:  2002-12-31 00:00:00
 ended: 2002-12-31 00:00:00
+description: This is a list of cool domain names.
 ---
 
 - [abc.com ➟](https://abc.com){:target="_blank" rel="noopener noreferrer"}

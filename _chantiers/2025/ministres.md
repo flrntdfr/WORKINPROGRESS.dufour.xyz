@@ -84,8 +84,8 @@ href:
     <img src="{% link /assets/2025/ministres/81323ADF-71F1-4885-8FFD-23B7F28B1BBC.webp %}" alt="Portrait du Ministre de l'efficacité religieuse">
 </div>
 <div class="minister-card">
-    <div class="titre">Ministre de l'impuissance</div>
-    <img src="{% link /assets/2025/ministres/409A3463-1945-4021-A2B9-E90EE9AB8C92.webp %}" alt="Portrait du Ministre de l'impuissance">
+    <div class="titre">Ministre du soft power</div>
+    <img src="{% link /assets/2025/ministres/409A3463-1945-4021-A2B9-E90EE9AB8C92.webp %}" alt="Portrait du Ministre du soft power">
 </div>
 <div class="minister-card">
     <div class="titre">Ministre de la recherche et du développement</div>
