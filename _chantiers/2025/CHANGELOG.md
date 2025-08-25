@@ -96,11 +96,11 @@ Total Projects                                                      {{ total_cha
 
 Projects completion:         {{ completion_rate | round: 1 }}%
 Average project duration:    {{ avg_duration_days | round: 0 }} days
-{% if open_chantiers > 0 %}
+{%- if open_chantiers > 0 -%}
 Longest running project:     {{ longest_running_days | round: 0 }} days ({{ longest_running_project }})
-{% else %}
+{%- else -%}
 Longest running project: N/A (no open projects)
-{% endif %}
+{%- endif -%}
 Average projects per year:   {{ total_chantiers | divided_by: sorted_years.size | round: 1 }}
 Projects started this year:  {{ current_year_projects }}
 ```
