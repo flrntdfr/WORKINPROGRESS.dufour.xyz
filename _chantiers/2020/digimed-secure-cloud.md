@@ -55,7 +55,8 @@ ol li:last-child {
 # Contributions
 
 ## Papers
-1.  **Comparative Overview of Medical Research Data Platforms: Interoperability, Privacy, and Federated Learning in Translational Biomedical Research** (in review), 2025.
+1. **High-performance Computing Systems: Security Threats, Countermeasures and Prospects** (in review), 2025.
+1. **Comparative Overview of Medical Research Data Platforms: Interoperability, Privacy, and Federated Learning in Translational Biomedical Research** (in review), 2025.
 1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, and D. Kranzlmüller, **"Towards Confidential Computing: A Secure Cloud Architecture for Big Data Analytics and AI,"** in IEEE International Conference on Cloud Computing (IEEE CLOUD), (Chicago, Illinois, USA), 2023.
 
 ## Talks

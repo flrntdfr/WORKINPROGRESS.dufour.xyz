@@ -47,7 +47,7 @@ const lists = {
     
     ["climate-conscious", "climate-denier"],
     
-    ["a man", "a woman", "a kid", "a teenager"],
+    ["a man", "a woman", "a kid", "a teenager", "an adult"],
     
     ["young", "middle-aged", "old"],
     
@@ -241,6 +241,8 @@ const lists = {
     "I don't date people who couldn't be my friend.",
     "Some of my dreams have come true. And I intend to make more come true.",
     "I operate at a different level.",
+    "I think being happy is worth the effort.",
+    "I never try to solve problems I don't have ",
   ]
 };
 
@@ -483,84 +485,82 @@ document.addEventListener('DOMContentLoaded', function() {
 </script> 
 
 <style>
-#iam-container {
-
-}
+#iam-container {}
 
 .iam-interface {
-    border: 1px solid #ccc;
-    padding: 1em;
-    margin-bottom: 1em;
+  border: 1px solid #ccc;
+  padding: 1em;
+  margin-bottom: 1em;
 }
 
 .name-input-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1em;
-    gap: 1em;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  gap: 1em;
 }
 
 .name-input-container span {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 #name-input {
-    flex-grow: 1;
-    border: 1px solid #ccc;
-    padding: 8px;
-    font-size: 1em;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 1em;
 }
 
 .statement-display {
-    margin-bottom: 1em;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .statement-display input {
-    border: 1px solid #ccc;
-    padding: 8px;
-    font-size: 1em;
-    background-color: #f9f9f9;
-    border-radius: 0;
-    margin: 0 4px;
-    min-width: 150px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 1em;
+  background-color: #f9f9f9;
+  border-radius: 0;
+  margin: 0 4px;
+  min-width: 150px;
 }
 
 #list-b-item {
-    flex: 1;
-    min-width: 200px;
+  flex: 1;
+  min-width: 200px;
 }
 
 .button-group {
-    display: flex;
-    gap: 1em;
-    justify-content: center;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
 }
 
 .action-button {
-    padding: 8px 16px;
-    font-size: 1em;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    min-width: 80px;
+  padding: 8px 16px;
+  font-size: 1em;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  min-width: 80px;
 }
 
 .action-button:hover {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 /* End screen centering */
 .iam-interface.end-screen {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
 }
 
 .end-message {
-    text-align: center;
+  text-align: center;
 }
 </style>

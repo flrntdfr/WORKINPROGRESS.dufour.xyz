@@ -3,7 +3,6 @@ layout: chantier
 title: Compatibilité en amour
 started: 2011-06-28
 ended: 2011-06-28
-location: [Lycée Stanislas]
 result: [code]
 tech: ["BASIC"]
 description: | 
