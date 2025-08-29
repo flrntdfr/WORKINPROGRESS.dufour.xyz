@@ -352,12 +352,10 @@ let outputElement;
     display: block;
     overflow: visible; /* Allow full height to show */
     line-height: 0; /* Remove any line spacing */
+    max-width: 350px;
 }
 
 .calculator-image {
-    width: 100%;
-    max-height: calc(100vh - 250px);
-    max-width: 100vw; /* Ensure it doesn't exceed viewport width */
     height: auto;
     display: block; /* Remove any inline spacing */
     margin: 0; /* Remove any margins */
