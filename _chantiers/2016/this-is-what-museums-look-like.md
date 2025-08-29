@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
         dataElement.appendChild(nextBuffer);
         
         shuffledOrder = [...Array(museums.length).keys()];
-        preloadImages();
         showMuseum(0);
+        preloadImages();
     } else {
         console.error('No museums found');
     }
