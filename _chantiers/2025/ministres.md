@@ -265,8 +265,8 @@ data{
 
 .portrait {
   border: 1px solid #000;
-  width: 400px;
-  height: 600px;
+  max-width: 400px;
+  max-height: 600px;
   object-fit: contain;
 }
 </style>
