@@ -515,6 +515,7 @@ document.addEventListener('DOMContentLoaded', function() {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: 0.3em;
 }
 
 .statement-display input {

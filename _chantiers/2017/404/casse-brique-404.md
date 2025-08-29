@@ -408,8 +408,7 @@ if (!window.brickBreakerInitialized) {
     gameArea.addEventListener('pointerdown', (e) => {
         if (!isPlaying) {
             if (isGameOver) {
-                updateScore(0);
-                createBricks();
+                /* Don't reset score or recreate bricks - just respawn the ball */
                 isGameOver = false;
                 gameOverElement.innerHTML = `<div>TAP TO START</div>`;
             }

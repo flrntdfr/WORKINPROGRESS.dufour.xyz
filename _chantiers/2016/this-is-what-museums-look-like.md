@@ -19,6 +19,11 @@ description: This project is inpired by <a href="https://pippinbarr.com" target=
     </div>
 </div>
 
+<!-- Pre-created image background divs for immediate display -->
+<div id="currentBuffer" class="image-background current"></div>
+<div id="previousBuffer" class="image-background previous"></div>
+<div id="nextBuffer" class="image-background next"></div>
+
 <style>
 data {
     background-repeat: no-repeat;
@@ -98,22 +103,17 @@ const imageCache = new Map();
 
 document.addEventListener('DOMContentLoaded', function() {
     if (museums && museums.length > 0) {
-        /* Create triple buffer image backgrounds */
-        const dataElement = document.querySelector('data');
-        const currentBuffer = document.createElement('div');
-        currentBuffer.className = 'image-background current';
-        currentBuffer.id = 'currentBuffer';
-        const previousBuffer = document.createElement('div');
-        previousBuffer.className = 'image-background previous';
-        previousBuffer.id = 'previousBuffer';
-        const nextBuffer = document.createElement('div');
-        nextBuffer.className = 'image-background next';
-        nextBuffer.id = 'nextBuffer';
-        dataElement.appendChild(currentBuffer);
-        dataElement.appendChild(previousBuffer);
-        dataElement.appendChild(nextBuffer);
-        
         shuffledOrder = [...Array(museums.length).keys()];
+        
+        /* Set first image immediately */
+        const firstMuseum = museums[0];
+        if (firstMuseum && firstMuseum.filename) {
+            const currentBuffer = document.getElementById('currentBuffer');
+            if (currentBuffer) {
+                currentBuffer.style.backgroundImage = `url(/assets/2016/museums/${firstMuseum.filename})`;
+            }
+        }
+        
         showMuseum(0);
         preloadImages();
     } else {
