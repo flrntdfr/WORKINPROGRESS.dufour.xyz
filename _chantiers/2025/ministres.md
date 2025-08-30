@@ -244,7 +244,7 @@ href:
 
 <style>
 data{
-    max-width: 2000px;
+    max-width: 1600px;
     font-family: var(--font-family-serif);
 }
 
