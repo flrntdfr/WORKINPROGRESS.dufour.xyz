@@ -16,7 +16,7 @@ description: |
 
 <div class="projects-portfolio">
   <div class="projects-column">
-    <h2>Closed projects</h2>
+    <h2>Finished projects</h2>
     <div class="projects-table">
       <table>
         <thead>
@@ -52,7 +52,7 @@ description: |
   </div>
 
   <div class="projects-column">
-    <h2>Open projects</h2>
+    <h2>Ongoing projects</h2>
     <div class="projects-table">
       <table>
         <thead>
