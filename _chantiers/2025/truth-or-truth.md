@@ -42,6 +42,7 @@ description: |
       "How much of what's necessary to know do you think you know?",
       "What are your core values?",
       "What gives you hope?",
+      "What have you made better for yourself recently?",
       "Is there something everyone should own?",
       "How do you decide if you like something or not?",
       "When did you lie for the last time?",

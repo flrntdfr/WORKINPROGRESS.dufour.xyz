@@ -241,7 +241,8 @@ const lists = {
     "I don't date people who couldn't be my friend.",
     "I operate at a different level.",
     "I think being happy is worth the effort.",
-    "I never try to solve problems I don't have ",
+    "I never try to solve problems I don't have.",
+    "I deserve everything I have.",
   ]
 };
 

@@ -243,24 +243,24 @@ href:
 </div>
 
 <style>
-data{
-    max-width: 1600px;
-    font-family: var(--font-family-serif);
+data {
+  max-width: 1600px;
+  font-family: var(--font-family-serif);
 }
 
 .titre {
-    margin-bottom: 0.5em;
-    text-align: center;
-    max-width: 90%;
-    text-wrap: balance;
+  margin-bottom: 0.5em;
+  text-align: center;
+  max-width: 90%;
+  text-wrap: balance;
 }
 
 .minister-card {
-    margin-bottom: 4em;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+  margin-bottom: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .portrait {
