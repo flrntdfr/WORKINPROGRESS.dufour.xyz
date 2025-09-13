@@ -26,12 +26,16 @@ collections:
   pages:
     output: true
     permalink: "/:path.html"
-# https://github.com/jekyll/jekyll-feed
 
+# https://github.com/jekyll/jekyll-feed
 feed:
+  title: WORK IN PROGRESS
+  author: Florent Dufour
+  icon: /assets/2025/favicons/dot/dot-32.png
   collections:
     chantiers:
-      path: "/rss"
+      path: "/feeds/chantiers.xml"
+      icon: /assets/2025/favicons/dot/dot-32.png
 
 exclude:
   - .sass-cache/
