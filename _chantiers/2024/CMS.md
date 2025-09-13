@@ -11,7 +11,6 @@ description: |
 ---
 
 <!-- Search -->
-{% include chantiers-index.html %}
 <script type="text/javascript" src="{% link /assets/js/search.js %}"></script>
 
 <h1 class="main-title" style="word-break: normal; overflow-wrap: break-word;">🏗️ WORK<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IN PROGRESS 🚧</h1>

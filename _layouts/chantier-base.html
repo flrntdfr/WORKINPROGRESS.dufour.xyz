@@ -141,7 +141,11 @@ function toggleDaysDiff(element) {
 function back(event) {
     event.preventDefault();
     if (document.referrer && document.referrer.includes(window.location.host)) {
-        history.back();
+        try {
+            history.back();
+        } catch (error) {
+            window.location.href = '/';
+        }
     } else {
         window.location.href = '/';
     }
