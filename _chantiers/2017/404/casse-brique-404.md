@@ -377,6 +377,8 @@ if (!window.brickBreakerInitialized) {
             isPlaying = false;
             isGameOver = true;
             hideMouseHint();
+            /* Reset score to 0 on game over */
+            updateScore(0);
             gameOverElement.style.display = 'block';
             gameOverElement.innerHTML = `
                 <div>GAME OVER</div>
