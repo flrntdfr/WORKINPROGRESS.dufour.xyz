@@ -93,7 +93,6 @@ data {
 <div class="screenshots-grid" markdown="1">
 
 {% comment %} 2018 → 2020 {% endcomment %}
-![IMG_0040.webp]({% link /assets/2024/screenshots/IMG_0040.webp %})
 ![IMG_0067.webp]({% link /assets/2024/screenshots/IMG_0067.webp %})
 ![IMG_0079.webp]({% link /assets/2024/screenshots/IMG_0079.webp %})
 ![IMG_0304.webp]({% link /assets/2024/screenshots/IMG_0304.webp %})

@@ -32,7 +32,7 @@ ended: 2025-09-15 16:47
       <label for="status-filter">Status</label>
       <select id="status-filter">
         <option value="">All</option>
-        <option value="completed">Completed</option>
+        <option value="finished">finished</option>
         <option value="ongoing">Ongoing</option>
       </select>
     </div>
@@ -121,7 +121,7 @@ function formatDate(dateStr) {
 }
 
 function getStatus(chantier) {
-  return chantier.ended ? 'completed' : 'ongoing';
+  return chantier.ended ? 'finished' : 'ongoing';
 }
 
 function getYear(dateStr) {
@@ -226,7 +226,7 @@ function renderTable() {
       <td><div class="tech-tags">${renderTechTags(chantier.tech)}</div></td>
       <td>${renderLocation(chantier.location)}</td>
       <td>
-        <span class="status-badge clickable-tag ${getStatus(chantier) === 'completed' ? 'status-completed' : 'status-ongoing'}" data-status="${getStatus(chantier)}">
+        <span class="status-badge clickable-tag ${getStatus(chantier) === 'finished' ? 'status-finished' : 'status-ongoing'}" data-status="${getStatus(chantier)}">
           ${getStatus(chantier)}
         </span>
       </td>
@@ -685,7 +685,7 @@ h1 {
   padding: 0.1em 0.3em;
 }
 
-.status-completed {
+.status-finished {
   background: #e8f5e8;
   color: #2e7d32;
 }
@@ -704,7 +704,7 @@ h1 {
   transform: scale(1.05);
 }
 
-.status-completed.clickable-tag:hover {
+.status-finished.clickable-tag:hover {
   background: #c8e6c9;
 }
 
@@ -712,7 +712,7 @@ h1 {
   background: #ffecb3;
 }
 
-.status-completed.clickable-tag.active {
+.status-finished.clickable-tag.active {
   background: #2e7d32;
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
