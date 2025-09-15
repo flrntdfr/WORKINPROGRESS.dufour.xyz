@@ -1,8 +1,8 @@
 ---
 layout: chantier-href
 title: La Boîte à Bougies
-started:  2020-12-13 20:55:37
-ended: 2023-04-02 08:54:23
+started: 2020-12-13 20:55
+ended: 2023-04-02 08:54
 location: München, Reykjavík
 result: [podcast]
 feat: [Héloïse Wary]

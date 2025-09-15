@@ -3,3 +3,23 @@ layout: default
 ---
 
 {{ content }}
+
+<script>
+function toggleDaysDiff(element) {
+    const daysDiffSpan = element.querySelector('.days-diff');
+    daysDiffSpan.style.display = daysDiffSpan.style.display === 'none' ? 'inline' : 'none';
+}
+
+function back(event) {
+    event.preventDefault();
+    if (document.referrer && document.referrer.includes(window.location.host)) {
+        try {
+            history.back();
+        } catch (error) {
+            window.location.href = '/';
+        }
+    } else {
+        window.location.href = '/';
+    }
+}
+</script>

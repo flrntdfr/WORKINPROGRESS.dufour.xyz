@@ -87,7 +87,7 @@ result: [list]
 
 ```
 ===================================
-WIP {{ site.time | date: "%Y-%m-%d %H:%M:%S" }} (build 150)
+{% include site-now.html %}
 ===================================
 
 Open projects    {% assign open_bars = open_chantiers | times: 50 | divided_by: total_chantiers %}{% for i in (1..open_bars) %}█{% endfor %}{% for i in (open_bars..49) %}░{% endfor %} {{ open_chantiers_visible }} (+ {{ open_chantiers_hidden }})

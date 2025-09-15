@@ -93,8 +93,9 @@ class CustomContextMenu {
         { text: '← Previous', action: () => this.navigateToPreviousChantier() },
         { text: '→ Next', action: () => this.navigateToNextChantier() },
         { text: '↔ Random', action: () => this.openRandomPage() },
-        { separator: true },
         { text: '↻ Restart', action: () => this.restart() },
+        { separator: true },
+        { text: '☰ Admin panel', action: () => { window.location.href = '/CMS'; } },
     ];
 
     /* Add target-specific items */
