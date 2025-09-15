@@ -1,10 +1,12 @@
 ---
 layout: chantier
-title: All projects
-permalink: /all
+title: Table of Contents
+permalink: /TOC
 started:  2025-06-27 17:46
 ended: 2025-06-27 17:46
 ---
+
+# All projects by result
 
 {% comment %} Collect all unique results from chantiers {% endcomment %}
 {%- assign all_results = "" | split: "" -%}

@@ -11,9 +11,9 @@ href:
   - ["ext", "<b>Consortium website:</b>", "digimed-bayern.de", "https://www.digimed-bayern.de/en.html"]
   - ["ext", "<b>Cloud documentation:</b>", "pages.gitlab.lrz.de", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]
 description: |
-    The goal of the DigiMed Bayern Project is to advance the digital transformation of Bavaria’s health system. With an initial focus on the secondary use of cardiovascular research data from university hospitals and research institutes, it integrates sensitive clinical, imaging, and multi-omic data to enable better, data-driven medicine. This approach supports more accurate prediction of disease risks, more targeted prevention, and improved diagnosis and treatment — starting with cardiovascular diseases but designed to be transferable to other conditions.
+    The goal of the DigiMed Bayern Project is to advance the digital transformation of Bavaria’s health system. With an initial focus on the secondary use of cardiovascular research data from university hospitals and research institutes, it integrates sensitive clinical, imaging, and multi-omic data to enable better, data-driven medicine.
     <br><br>
-    Under Work Package 6, which focuses on the storage and compute infrastructure, I contributed to the design and deployment of a secure, privacy-compliant cloud platform for integrating, sharing, and analyzing large-scale biomedical data. This included developing an architecture that replaces existing data silos, implements FAIR data principles, and supports AI-driven analytics. The infrastructure is built for scalability, interoperability, and long-term sustainability, providing a foundation for collaborative research and clinical translation.
+    Under Work Package 6, which focuses on the storage and compute infrastructure, I contributed to the design and deployment of a confidential cloud platform for integrating, sharing, and analyzing large-scale biomedical data. This included developing an architecture that replaces existing data silos, implements FAIR data principles, and supports AI-driven analytics. The infrastructure is built for scalability, interoperability, and long-term sustainability, providing a foundation for collaborative research and clinical translation.
 ---
 
 <style>
