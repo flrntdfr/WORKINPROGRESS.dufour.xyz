@@ -15,7 +15,7 @@ ended: 2025-09-15 16:47
     </div>
     
     <div class="control-group">
-      <label for="result-filter">Result Type</label>
+      <label for="result-filter">Result</label>
       <select id="result-filter">
         <option value="">All Results</option>
       </select>
@@ -51,6 +51,11 @@ ended: 2025-09-15 16:47
         <option value="true">Highlighted Only</option>
         <option value="false">Regular Only</option>
       </select>
+    </div>
+    
+    <div class="control-group">
+      <label>&nbsp;</label>
+      <button id="clear-filters" type="button">Clear All Filters</button>
     </div>
   </div>
 
@@ -408,6 +413,20 @@ function handleTagClick(tagValue, tagType) {
   applyFilters();
 }
 
+/* Clear all filters function */
+function clearAllFilters() {
+  /* Reset all filter controls */
+  document.getElementById('search-input').value = '';
+  document.getElementById('result-filter').value = '';
+  document.getElementById('tech-filter').value = '';
+  document.getElementById('status-filter').value = '';
+  document.getElementById('year-filter').value = '';
+  document.getElementById('highlighted-filter').value = '';
+  
+  /* Reapply filters to show all data */
+  applyFilters();
+}
+
 /* Lock table layout after initial render to preserve column widths */
 function lockTableLayout() {
   const table = document.getElementById('chantiers-table');
@@ -464,6 +483,9 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('status-filter').addEventListener('change', applyFilters);
   document.getElementById('year-filter').addEventListener('change', applyFilters);
   document.getElementById('highlighted-filter').addEventListener('change', applyFilters);
+  
+  /* Clear filters button handler */
+  document.getElementById('clear-filters').addEventListener('click', clearAllFilters);
   
   /* Tag click handlers - generalized for result, tech, and status tags */
   document.addEventListener('click', function(event) {
@@ -545,6 +567,59 @@ h1 {
  
  .control-group select:hover {
    border-color: #999;
+ }
+
+ .control-group button {
+   padding: 0.25em 0.75em;
+   border: 1px solid #ccc;
+   font-family: inherit;
+   font-size: 0.9em;
+   background: white;
+   cursor: pointer;
+   border-radius: 2px;
+   transition: all 0.2s ease;
+ }
+ 
+ .control-group button:hover {
+   border-color: #999;
+   background: #f8f9fa;
+ }
+ 
+ .control-group button:focus {
+   outline: none;
+   border-color: #000;
+   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .control-group button:active {
+   transform: scale(0.95);
+   background: #e9ecef;
+ }
+ 
+ .control-group button.clearing {
+   animation: clearPulse 0.6s ease-out;
+ }
+ 
+ @keyframes clearPulse {
+   0% {
+     transform: scale(1);
+     background: white;
+   }
+   25% {
+     transform: scale(0.95);
+     background: #d4edda;
+     border-color: #2e7d32;
+   }
+   50% {
+     transform: scale(1.05);
+     background: #d4edda;
+     border-color: #2e7d32;
+   }
+   100% {
+     transform: scale(1);
+     background: white;
+     border-color: #ccc;
+   }
  }
 
 .chantiers-container {

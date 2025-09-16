@@ -95,7 +95,7 @@ class CustomContextMenu {
         { text: '↔ Random', action: () => this.openRandomPage() },
         { text: '↻ Restart', action: () => this.restart() },
         { separator: true },
-        { text: '☰ Admin panel', action: () => { window.location.href = '/admin'; } },
+        { text: '☰ Admin panel', action: () => { window.location.href = '/admin'; } }, 
     ];
 
     /* Add target-specific items */
