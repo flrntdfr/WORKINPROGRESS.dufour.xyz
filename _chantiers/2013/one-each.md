@@ -4,6 +4,7 @@ title: One Each
 started:  2013-08-14 14:09
 ended: 
 result: [mixtape]
+tech: [iTunes, Apple Music]
 description: This mixtape only allows for one track for each artist.
 ---
 

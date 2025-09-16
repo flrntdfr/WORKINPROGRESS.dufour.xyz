@@ -5,6 +5,7 @@ author: Florent Dufour
 started:  2022-05-21
 location: [Munich High-End Audio]
 result: [mixtape]
+tech: [Apple Music]
 description: |
     This is a mixtape of songs I would like to listen to (loud) on a (very) good sound system.
 ---

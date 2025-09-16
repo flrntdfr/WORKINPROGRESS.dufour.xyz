@@ -3,7 +3,7 @@ layout: chantier
 title: J'aime les pochettes
 started:  2013-06-18
 result: [mixtape]
-tech: [Apple Music, iTunes]
+tech: [iTunes, Apple Music]
 #ended: 2025-04-11 15:20
 description: |
     This mixtape is inspired by the explicit version of <i>“Watching Movies with the Sound Off”</i> by Mac Miller. Compared to the clean version, the table cloth on the cover art has been removed. 
