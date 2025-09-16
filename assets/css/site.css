@@ -24,12 +24,6 @@
   --image-opacity-hover: 1;
 }
 
-html {
-  height: 100%;
-  /* Enable safe area support */
-  viewport-fit: cover;
-}
-
 body {
   font-family: var(--font-family-main);
   background-color: var(--background-color);
