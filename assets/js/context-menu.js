@@ -258,8 +258,9 @@ class CustomContextMenu {
       overlay.style.opacity = '1';
     }, 10);
 
-    /* Reload after 1 second */
+    /* Scroll to top before reloading after 1 second */
     setTimeout(() => {
+      window.scrollTo(0, 0);
       window.location.reload(true);
     }, 1000);
   }

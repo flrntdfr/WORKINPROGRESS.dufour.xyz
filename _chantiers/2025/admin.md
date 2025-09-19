@@ -1,6 +1,6 @@
 ---
 hidden: true
-layout: page
+layout: chantier-standalone
 title: Admin panel
 permalink: /admin
 started: 2025-09-15 16:47
