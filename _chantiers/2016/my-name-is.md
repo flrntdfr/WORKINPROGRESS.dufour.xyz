@@ -522,11 +522,21 @@ document.addEventListener('DOMContentLoaded', function() {
   white-space: nowrap;
 }
 
-#name-input {
-  flex-grow: 1;
-  border: 1px solid #ccc;
+#name-input,
+.statement-display input {
   padding: 8px;
   font-size: 1em;
+  border: 1px solid #c8c8c8;
+  border-radius: 6px;
+  background-color: #fff;
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#name-input {
+  flex-grow: 1;
 }
 
 .statement-display {
@@ -538,11 +548,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .statement-display input {
-  border: 1px solid #ccc;
-  padding: 8px;
-  font-size: 1em;
-  background-color: #f9f9f9;
-  border-radius: 0;
   margin: 0 4px;
   min-width: 150px;
 }
@@ -565,6 +570,8 @@ document.addEventListener('DOMContentLoaded', function() {
   border: 1px solid #ccc;
   background-color: #fff;
   min-width: 80px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
 .action-button:hover {
