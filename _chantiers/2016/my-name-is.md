@@ -20,6 +20,7 @@ description: You are playing “My name is…”.<br>You know who you are.
             <button class="action-button" id="yes-button">Yes</button>
             <button class="action-button" id="no-button">No</button>
         </div>
+        <div class="affirmation-counter" id="affirmation-counter"></div>
     </div>
     {% include ray-id.html %}
 </div>
@@ -287,6 +288,17 @@ function getTotalLabelsInListA() {
   return total;
 }
 
+function getTotalPossibleCombinations() {
+  let totalLabels = 0;
+  for (let i = 0; i < lists.listA.length; i += 1) {
+    const sub = lists.listA[i];
+    if (Array.isArray(sub)) {
+      totalLabels += sub.length;
+    }
+  }
+  return totalLabels * lists.listB.length;
+}
+
 function updateDisplay() {
   document.getElementById('list-a-item').value = currentLabel;
   if (currentAffirmationIndex >= 0 && currentAffirmationIndex < lists.listB.length) {
@@ -294,6 +306,11 @@ function updateDisplay() {
   } else {
     document.getElementById('list-b-item').value = "";
   }
+  /* Update affirmation counter */
+  const currentAffirmations = lists.listB.length;
+  const initialAffirmations = 185; /* Initial number of affirmations in listB */
+  const percentage = (currentAffirmations / initialAffirmations * 100).toFixed(3);
+  document.getElementById('affirmation-counter').textContent = `${percentage}%`;
 }
 
 function pickRandomSublist() {
@@ -491,6 +508,7 @@ document.addEventListener('DOMContentLoaded', function() {
   border: 1px solid #ccc;
   padding: 1em;
   margin-bottom: 1em;
+  position: relative;
 }
 
 .name-input-container {
@@ -563,5 +581,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .end-message {
   text-align: center;
+}
+
+.affirmation-counter {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  color: #999;
+  font-size: 0.75em;
 }
 </style>
