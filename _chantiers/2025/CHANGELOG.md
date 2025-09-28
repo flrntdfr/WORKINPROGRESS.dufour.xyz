@@ -241,4 +241,8 @@ blockquote {
 blockquote p {
   margin: 0 0 0 0;
 }
+
+pre {
+  overflow-x: auto;
+}
 </style>
