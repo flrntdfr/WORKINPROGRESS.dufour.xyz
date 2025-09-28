@@ -388,7 +388,7 @@ description: |
     }
 
     .button-group {
-      flex-direction: column;
+      flex-direction: column-reverse;
       align-items: center;
     }
 
