@@ -258,15 +258,22 @@ function animateToIndex(targetIndex) {
     /* Simple direction: right if target is larger, left if smaller */
     const stepDirection = clampedTarget > currentIndex ? 1 : -1;
     let currentStepIndex = currentIndex;
+    let lastAnimationTime = 0;
+    const minAnimationDelay = 16; /* Minimum 16ms between animation steps (~60fps) */
     
-    function animateTransition() {
-        if (currentStepIndex !== clampedTarget) {
-            currentStepIndex += stepDirection;
-            showMuseum(currentStepIndex);
-            requestAnimationFrame(animateTransition);
-        } else {
-            preloadAdjacentImages();
+    function animateTransition(currentTime) {
+        /* Ensure at least 16ms has passed since last animation step */
+        if (currentTime - lastAnimationTime >= minAnimationDelay) {
+            if (currentStepIndex !== clampedTarget) {
+                currentStepIndex += stepDirection;
+                showMuseum(currentStepIndex);
+                lastAnimationTime = currentTime;
+            } else {
+                preloadAdjacentImages();
+                return;
+            }
         }
+        requestAnimationFrame(animateTransition);
     }
     
     requestAnimationFrame(animateTransition);
