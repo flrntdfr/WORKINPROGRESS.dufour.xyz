@@ -288,8 +288,8 @@ data {
       }
     });
   }, {
-    /* Start loading when image is 100px away from viewport */
-    rootMargin: '100px'
+    /* Start loading when image is 20px away from viewport */
+    rootMargin: '20px'
   });
   
   /* Observe all portrait images */
