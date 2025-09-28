@@ -13,15 +13,11 @@
   --font-color: #1a1a1a;
   --font-color-muted: #6c757d;
   --accent-color: #fdf52b;
-  --accent-color-hover: #e8dc26;
   --border-color: #dee2e6;
   --selection-background: #fdf52b;
   --selection-color: #1a1a1a;
-  --link-color: #1a1a1a;
   --link-hover-background: #fdf52b;
   --link-hover-color: #1a1a1a;
-  --image-opacity: 1;
-  --image-opacity-hover: 1;
 }
 
 body {
@@ -45,13 +41,7 @@ body {
   }
 }
 
-h1 {
-
-}
-
-h2 {
-
-}
+/* h1 and h2 styles can be added here if needed */
 
 
 /* blockquote {
@@ -129,7 +119,7 @@ pre {
 .highlight .gi { color: #28a745; } /* Generic.Inserted */
 .highlight .go { color: #6c757d; } /* Generic.Output */
 .highlight .gp { color: #6c757d; } /* Generic.Prompt */
-.highlight .gs { } /* Generic.Strong */
+.highlight .gs { font-weight: bold; } /* Generic.Strong */
 .highlight .gu { color: #6c757d; } /* Generic.Subheading */
 .highlight .gt { color: #dc3545; } /* Generic.Traceback */
 .highlight .kc { color: #0d47a1; } /* Keyword.Constant */
@@ -177,6 +167,7 @@ pre {
 .highlight .vg { color: #d63384; } /* Name.Variable.Global */
 .highlight .vi { color: #d63384; } /* Name.Variable.Instance */
 .highlight .il { color: #d63384; } /* Literal.Number.Integer.Long */
+.highlight .cpf { color: #ce9178; } 
 
 /* Language-specific wrapper styling */
 .highlighter-rouge {
@@ -456,4 +447,3 @@ input[type="reset"] {
     -webkit-text-fill-color: var(--font-color);
   }
 }
-

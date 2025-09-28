@@ -85,7 +85,7 @@ result: [list]
   {% assign completion_rate = 0 %}
 {% endif %}
 
-```
+```txt
 ===================================
 {% include site-now.html %}
 ===================================
