@@ -12,7 +12,7 @@ url: "https://WORKINPROGRESS.dufour.xyz"
 
 timezone: Europe/Paris
 theme-color: "#fdf52b"
-theme-color-dark: "#2b2b2b"
+theme-color-dark: "#3A3A3A"
 
 # Plugins
 gems:
