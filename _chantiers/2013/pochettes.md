@@ -8,7 +8,7 @@ tech: [iTunes, Apple Music]
 description: |
     This mixtape is inspired by the explicit version of <i>“Watching Movies with the Sound Off”</i> by Mac Miller. Compared to the clean version, the table cloth on the cover art has been removed. 
     <br><br>
-    This mixtape shows other covers found in reissues, remixes, and other releases that are also clever or funny.
+    This mixtape shows other covers found in reissues, remixes, and other releases that pair well with their original.
 href:
     - ["int", "<strong>Related project:</strong>", "J'aime la pochette", "_chantiers/2011/pochette.md"]
 ---
