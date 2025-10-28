@@ -228,7 +228,7 @@ data {
 .titre {
   margin-bottom: 0.5em;
   text-align: center;
-  max-width: 90%;
+  max-width: 70%;
   text-wrap: balance;
 }
 
