@@ -49,6 +49,7 @@ description: |
       "When did you lie for the last time?",
       "Are you happy?",
       "What's your definition of the word: courage?",
+      "How do you make decisions?",
       "What's the first thing you'd do with free will?",
       "Are there topics you avoid with your parents?",
       "How do you explain that you think certain things?",
