@@ -1,0 +1,18 @@
+{
+  "search.exclude": {
+    "**/_site": true,
+    "**/result": true,
+    "**/.direnv": true,
+    "**/.jekyll-cache": true,
+    "**/.bundle": true,
+    "**/vendor": true
+  },
+  "files.exclude": {
+    "**/_site": true,
+    "**/result": true,
+    "**/.direnv": true,
+    "**/.jekyll-cache": true,
+    "**/.bundle": true,
+    "**/vendor": true
+  }
+}
