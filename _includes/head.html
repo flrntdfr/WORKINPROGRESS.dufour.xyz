@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     {% assign theme_color = page.theme-color | default: site.theme-color %}
-    {% assign theme_color_dark = page.theme-color-dark | default: site.theme-color-dark | default: theme_color %}
+    {% assign theme_color_dark = page.theme-color | default: site.theme-color %}
     <meta name="theme-color" content="{{ theme_color }}">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="{{ theme_color }}">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="{{ theme_color_dark }}">
@@ -69,7 +69,6 @@
     <link rel="preload" href="{% link /assets/fonts/CommitMono-1.143/CommitMono-400-Regular.otf %}" as="font" type="font/otf" crossorigin>
 
     <link rel="stylesheet" href="{% link /assets/css/site.css %}" type="text/css"/>
-    <link rel="stylesheet" href="{% link /assets/css/site-dark.css %}" type="text/css"/>
     {% if layout.css %}
     {% for item in layout.css %}
     <link rel="stylesheet" href="{{ item | prepend: '/assets/css/' | relative_url }}" type="text/css"/>
