@@ -86,13 +86,13 @@ result: [list]
 {% endif %}
 
 ```txt
-====================================
+=====================================
 {% include site-now.html %}
-====================================
+=====================================
 
-Open projects    {% assign open_bars = open_chantiers | times: 50 | divided_by: total_chantiers %}{% for i in (1..open_bars) %}█{% endfor %}{% for i in (open_bars..49) %}░{% endfor %} {{ open_chantiers_visible }} (+ {{ open_chantiers_hidden }})
-Closed projects  {% assign closed_bars = closed_chantiers | times: 50 | divided_by: total_chantiers %}{% for i in (1..closed_bars) %}█{% endfor %}{% for i in (closed_bars..49) %}░{% endfor %} {{ closed_chantiers_visible }} (+ {{ closed_chantiers_hidden }})
-Total Projects                                                      {{ total_chantiers }}
+Ongoing projects   {% assign open_bars = open_chantiers | times: 50 | divided_by: total_chantiers %}{% for i in (1..open_bars) %}█{% endfor %}{% for i in (open_bars..49) %}░{% endfor %} {{ open_chantiers_visible }}
+Finished projects  {% assign closed_bars = closed_chantiers | times: 50 | divided_by: total_chantiers %}{% for i in (1..closed_bars) %}█{% endfor %}{% for i in (closed_bars..49) %}░{% endfor %} {{ closed_chantiers_visible }}
+Total Projects                                                        {{ open_chantiers_visible | plus: closed_chantiers_visible }}
 
 Projects completion:         {{ completion_rate | round: 1 }}%
 Average project duration:    {{ avg_duration_days | round: 0 }} days
