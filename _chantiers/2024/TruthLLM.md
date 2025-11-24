@@ -45,6 +45,9 @@ description: TruthLLM is a “Large” Language Model that will truthfully answe
         "Why isn’t Earth part of any interplanetary alliance yet?",
         "Can I trade my nationality for store credit?",
         "Why is the moon so far away?",
+        "Can keywords open literal doors?",
+        "Can you cook a steak with a laser?",
+        "Can you make a sandwich with a spoon?",
     ];
     env.logLevel = 'debug';
     env.allowRemoteModels = true;
@@ -429,7 +432,7 @@ description: TruthLLM is a “Large” Language Model that will truthfully answe
 
 <style>
 #llm-container {
-    font-family: monospace;
+    font-family: var(--font-family-monospace);
 }
 
 .llm-input-container {
@@ -458,6 +461,7 @@ description: TruthLLM is a “Large” Language Model that will truthfully answe
 #llm-status {
     margin-bottom: 1em;
     color: #888;
+    font-size: 0.8em;
 }
 
 #llm-output {

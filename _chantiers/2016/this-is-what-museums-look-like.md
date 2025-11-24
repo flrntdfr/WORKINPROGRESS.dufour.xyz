@@ -6,7 +6,7 @@ title: this is what museums look like
 started:  2016-01-01 23:42
 ended:
 location: [Belleville]
-result: [list, illustration]
+result: [illustration, list]
 description: This project is inpired by <a href="https://pippinbarr.com" target="_blank" rel="noopener noreferrer">Pippin Barr ➟</a> and his series <a href="https://web.archive.org/web/20190804192943/https://www.pippinbarr.com/2015/12/28/this-is-what-museums-look-like/" target="_blank" rel="noopener noreferrer">this is what museums look like ➟</a>.
 ---
 

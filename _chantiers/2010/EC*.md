@@ -1,7 +1,7 @@
 ---
 layout: chantier-href
 title: EC*
-result: [list]
+result: [proof-of-concept]
 highlighted: true
 tech: [eMule, iTunes, Apple Music]
 started:  2010-09-01 20:00
