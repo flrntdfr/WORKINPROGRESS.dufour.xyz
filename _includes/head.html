@@ -67,7 +67,9 @@
     <link rel="preload" href="{% link /assets/fonts/Inter-4.1/Inter-Regular.woff2 %}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{% link /assets/fonts/Inter-4.1/Inter-Bold.woff2 %}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{% link /assets/fonts/CommitMono-1.143/CommitMono-400-Regular.otf %}" as="font" type="font/otf" crossorigin>
-
+    <!-- Preload critical images -->
+    <link rel="preload" href="{% link /assets/2024/start/grue-100.webp %}" as="image" type="image/webp" crossorigin>
+    <link rel="preload" href="{% link /assets/2024/start/barriere-100.webp %}" as="image" type="image/webp" crossorigin>
     <link rel="stylesheet" href="{% link /assets/css/site.css %}" type="text/css"/>
     {% if layout.css %}
     {% for item in layout.css %}
