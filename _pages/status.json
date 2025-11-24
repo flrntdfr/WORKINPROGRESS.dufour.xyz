@@ -1,0 +1,9 @@
+---
+permalink: status.json
+---
+
+{
+    "status": "200",
+    "WIP_at": "{{ site.time | date: "%Y-%m-%d %H:%M:%S" }}",
+    "build" : "150"
+}
