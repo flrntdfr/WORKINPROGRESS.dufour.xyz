@@ -1,0 +1,451 @@
+---
+title: Credits and Attribution
+permalink: /credits.txt
+---
+
+             LEGAL NOTICE AND ATTRIBUTION OF THIRD-PARTY COMPONENTS
+
+
+Effective Date: November 12, 2025
+Last Updated: November 12, 2025
+
+
+================================================================================
+
+1. PREAMBLE
+
+================================================================================
+
+This document constitutes a comprehensive and accurate attribution of all 
+third-party software components,  libraries, fonts, and related intellectual 
+property incorporated into this website and its associated materials. The 
+proprietor of this work acknowledges and respects the intellectual property 
+rights of all contributors and licensors identified herein.
+
+
+
+================================================================================
+
+2. TYPEFACE AND FONT LICENSING
+
+================================================================================
+
+2.1 Inter Font Family (Version 4.1)
+
+Licensor: Rasmus Andersson
+License: Open Font License (OFL 1.1)
+Copyright Notice: Copyright 2016–2025 The Inter Project Authors
+
+Permitted Uses: This typeface family, in its entirety, including all weight
+variants (Thin, ExtraLight, Light, Regular, Medium, SemiBold, Bold, ExtraBold,
+Black) and their corresponding italic forms, as well as the Inter Display and
+InterVariable iterations, is incorporated herein under the terms of the OFL 1.1
+license. The licensee retains the right to use, modify, and distribute this font
+family in accordance with the OFL 1.1 terms.
+
+Distribution: Complete font files are included in assets/fonts/Inter-4.1/
+directory, including WOFF2-formatted subsets for web delivery.
+Source URL: https://rsms.me/inter/
+Repository: https://github.com/rsms/inter
+License URL: https://scripts.sil.org/OFL
+
+2.2 Commit Mono Font Family (Version 1.143)
+
+Licensor: Commit Mono Project Authors
+License: SIL Open Font License (OFL 1.1)
+Copyright Notice: Copyright 2022 The Commit Mono Project Authors
+Source URL: https://commitmono.com/
+Repository: https://github.com/commitmono/CommitMono
+License URL: https://scripts.sil.org/OFL
+
+Permitted Uses: This monospace typeface, comprising Regular and Italic styles
+at weights 400 and 700, is utilized for terminal, code block, and technical
+documentation contexts. The licensee acknowledges the full applicability of
+OFL 1.1 terms to all derivative uses.
+
+Distribution: Font files are available in assets/fonts/CommitMono-1.143/
+directory in OpenType Format (OTF).
+
+2.3 Alma Mono Font Family (Version 2016)
+
+Licensor: Various Contributors
+License: License not confirmed in repository; review required before redistribution
+
+Permitted Uses: This monospace typeface family is incorporated for optional
+stylistic variation in technical content presentation.
+
+Distribution: Font files and related stylesheets are located in
+assets/fonts/alma-2016/ directory.
+
+2.4 TI-83 Plus Large Monospace Font (Version 1.0)
+
+Original Source: FontStruction “TI-83 Plus Large”
+Author: Myname5749
+License: Creative Commons Attribution-NoDerivatives 3.0 (CC BY-ND 3.0)
+Source URL: https://fontstruct.com/fontstructions/show/1659994
+
+Permitted Uses: This font, derived from the Texas Instruments TI-83 Plus
+calculator display, is provided for nostalgic and stylistic purposes only. Use
+is restricted to this website and related materials created by the proprietor.
+
+Distribution: Font files are provided in assets/fonts/ti-83-plus-large-1.0/
+directory.
+
+
+
+================================================================================
+
+3. STATIC SITE GENERATION AND FRAMEWORK
+
+================================================================================
+
+3.1 Jekyll (Version 4.4.1)
+
+Author: Tom Preston-Werner and Contributors
+License: MIT License
+License URL: https://github.com/jekyll/jekyll/blob/master/LICENSE
+Copyright Notice: Copyright 2008–2025 Jekyll Maintainers
+Project URL: https://jekyllrb.com/
+
+Permitted Uses: Jekyll serves as the foundational static site generation engine
+for this website. All content is processed, templated, and compiled through
+Jekyll's pipeline. The MIT license grants full permission for use, modification,
+and distribution, provided that the license and copyright notice are retained.
+
+3.2 Jekyll Plugin: jekyll-sitemap
+
+Author: GitHub, Inc. and Contributors
+License: MIT License
+License URL: https://github.com/jekyll/jekyll-sitemap/blob/master/LICENSE
+Copyright Notice: Copyright 2015–2025 GitHub, Inc.
+Project URL: https://github.com/jekyll/jekyll-sitemap
+
+Permitted Uses: This plugin automatically generates XML sitemaps for search
+engine indexing and discovery, enhancing discoverability of website content.
+
+3.3 Jekyll Plugin: jekyll-feed
+
+Author: GitHub, Inc. and Contributors
+License: MIT License
+License URL: https://github.com/jekyll/jekyll-feed/blob/master/LICENSE
+Copyright Notice: Copyright 2015–2025 GitHub, Inc.
+Project URL: https://github.com/jekyll/jekyll-feed
+
+Permitted Uses: This plugin generates Atom feeds for content syndication,
+enabling readers to subscribe to updates via standard feed readers and
+aggregation services.
+
+3.4 WEBrick HTTP Server
+
+Author: Ruby Core Team
+License: BSD 2-Clause License / Ruby License
+Repository: https://github.com/ruby/webrick
+Project URL: Part of Ruby Standard Library
+
+Permitted Uses: WEBrick provides local development server functionality for
+testing and preview purposes.
+
+
+
+================================================================================
+
+4. HOSTING AND PLATFORM SERVICES
+
+================================================================================
+
+4.1 GitHub Pages
+
+Service Provider: GitHub, Inc. (Microsoft Corporation subsidiary)
+License: Service Terms of Service (github.com/site/terms)
+
+Permitted Uses: This website is hosted and served through GitHub Pages, a free
+static site hosting service. Content is served directly from GitHub's
+infrastructure as permitted under the GitHub Pages service terms.
+
+4.2 Ruby Programming Language Runtime
+
+License: Ruby License / BSD 2-Clause License
+Project URL: https://www.ruby-lang.org/
+
+Permitted Uses: The Ruby runtime environment executes Jekyll and all associated
+gem dependencies during site generation.
+
+
+
+================================================================================
+
+5. RUBY GEMS AND DEPENDENCIES
+
+================================================================================
+
+5.1 Gem Dependencies
+
+The following Ruby gems are specified in Gemfile and are automatically resolved
+and installed via Bundler:
+
+  - jekyll (version 4.4.1) — Core static site generator
+  - jekyll-sitemap — Sitemap generation plugin
+  - jekyll-feed — Atom feed generation plugin
+  - webrick — HTTP server for development
+
+All gems are obtained from https://rubygems.org/ and are subject to their
+respective license terms.
+
+
+
+================================================================================
+
+6. VISUAL AND MULTIMEDIA ASSETS
+
+================================================================================
+
+6.1 Favicons and Branding Elements
+
+Status: Original work by Florent Dufour or properly licensed materials
+Formats: PNG (multiple resolutions), SVG, GIF
+Location: assets/2025/favicons/ directory
+License: All proprietary and custom branding elements are original works of
+authorship.
+
+6.2 Historical and Cultural Content
+
+Status: Various historical photographs, film stills, and cultural references
+throughout content collections
+Attribution: Individual items are attributed within their respective content
+files as applicable.
+
+
+
+================================================================================
+
+7. JAVASCRIPT AND CLIENT-SIDE FUNCTIONALITY
+
+================================================================================
+
+7.1 Custom JavaScript
+
+Files:
+  - assets/js/context-menu.js — Context menu functionality (original work)
+  - assets/js/notifications.js — Notification system (original work)
+
+License: Original work by Florent Dufour
+
+Permitted Uses: These scripts provide interactive functionality for website
+navigation and user notifications.
+
+7.2 Third-Party JavaScript Libraries
+
+assets/lib/transformers.v3.6.0.min.js
+Name: Transformers.js (browser)
+Author: Xenova and Contributors
+Repository: https://github.com/xenova/transformers.js
+License: Apache License 2.0
+License URL: https://www.apache.org/licenses/LICENSE-2.0
+
+assets/lib/p5.v1.4.2.min.js
+Name: p5.js
+Author: Processing Foundation and Contributors
+Website: https://p5js.org/
+Repository: https://github.com/processing/p5.js
+License: GNU LGPL 2.1
+License URL: https://github.com/processing/p5.js/blob/main/license.txt
+
+assets/lib/typed.v2.1.0.min.js
+Name: typed.js
+Author: Matt Boldt
+Repository: https://github.com/mattboldt/typed.js
+License: MIT
+License URL: https://github.com/mattboldt/typed.js/blob/master/LICENSE
+
+assets/lib/swbasic.js
+Name: Simple Web Basic (swbasic)
+Author: Yohanes Nugroho
+Website: https://yohan.es/swbasic/
+License: GNU GPL 3.0
+License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
+
+7.3 Demo Model and Model Hosting
+
+Model: Xenova/distilgpt2 (for in-browser demo via Transformers.js)
+Provider: Hugging Face Hub
+Model Card: https://huggingface.co/Xenova/distilgpt2
+License: See model card for current license (commonly Apache-2.0)
+Notes: Models may be downloaded in-browser at runtime per user action.
+
+
+
+================================================================================
+
+8. STYLESHEET AND DESIGN
+
+================================================================================
+
+8.1 Cascading Style Sheets (CSS)
+
+Files:
+  - assets/css/site.css - Primary stylesheet (original work)
+  - assets/css/site-dark.css - Dark theme stylesheet (original work)
+
+License: Original work by Florent Dufour
+
+Features:
+  - Color scheme management with CSS custom properties
+  - Typography hierarchy and font-family declarations
+  - Responsive design patterns
+  - Dark mode implementation
+
+
+
+================================================================================
+
+9. CONTENT AND INTELLECTUAL PROPERTY
+
+================================================================================
+
+9.1 Original Content
+
+All content contained within the _chantiers/ directory and other content
+collections represents original literary and creative works by Florent Dufour,
+except where otherwise explicitly noted.
+
+9.2 Third-Party Content Attribution
+
+Where third-party content, quotes, images, or references are incorporated, they
+are individually attributed within the relevant content files. The proprietor
+affirms that all such inclusions are either:
+
+  - Licensed under appropriate terms permitting reuse, or
+  - Included under fair use doctrine for commentary and criticism, or
+  - Explicitly attributed to the original author or rights holder.
+
+
+
+================================================================================
+
+10. SCHEMA AND STRUCTURED DATA
+
+================================================================================
+
+10.1 JSON-LD Schema Markup
+
+Included File: _includes/schema.json
+Purpose: Provides structured semantic data for search engine crawlers and
+third-party aggregators.
+Standard: Follows schema.org vocabulary standards.
+
+
+
+================================================================================
+
+11. DISCLAIMER AND ACKNOWLEDGMENT
+
+================================================================================
+
+The proprietor of this website acknowledges that:
+
+1. All third-party components are incorporated in good faith and in compliance
+   with their respective license terms.
+2. The inclusion of any component does not imply endorsement by the licensor or
+   original author.
+3. No warranty is provided regarding the fitness, accuracy, or security of any
+   third-party component.
+4. The proprietor takes full responsibility for the lawful integration and use
+   of all components herein.
+
+
+
+================================================================================
+
+12. LICENSE COMPLIANCE AND DISTRIBUTION
+
+================================================================================
+
+For the avoidance of doubt:
+
+  - MIT Licensed Components (Jekyll, jekyll-sitemap, jekyll-feed, WEBrick) may
+    be freely used, modified, and distributed in accordance with the MIT
+    License terms, provided that the license text and copyright notice are
+    preserved.
+
+  - OFL Licensed Components (Inter, Commit Mono, Alma Mono) may be used,
+    modified, and distributed according to the Open Font License 1.1 terms.
+
+  - Original Works (custom CSS, JavaScript, content) remain the exclusive
+    intellectual property of Florent Dufour, unless otherwise specified.
+
+
+
+================================================================================
+
+13. CONTACT AND INQUIRY
+
+================================================================================
+
+For questions regarding this attribution, licensing, or intellectual property
+matters, please direct correspondence to:
+
+Email: help@dufour.xyz
+Website: https://dufour.xyz/
+
+================================================================================
+
+14. AMENDMENTS AND UPDATES
+
+================================================================================
+
+This document may be updated periodically to reflect changes in dependencies,
+licensing, or attributions. The most recent version shall be maintained at
+_pages/credits.md and served at the canonical URL /credits.html.
+
+Date Last Modified: November 12, 2025
+
+================================================================================
+
+15. SITE-WIDE LICENSE (LICENSE.txt)
+
+Path: LICENSE.txt
+License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+         (CC BY-NC-SA 4.0)
+
+Summary of What This Means:
+  - Sharing: You may copy and redistribute the material in any medium or format,
+    for non-commercial purposes.
+  - Adapting: You may remix, transform, and build upon the material, for
+    non-commercial purposes.
+  - Attribution: You must give appropriate credit, provide a link to the
+    license, and indicate if changes were made. A reasonable attribution is:
+      "WORK IN PROGRESS by Florent Dufour (https://dufour.xyz),
+       licensed under CC BY-NC-SA 4.0"
+  - ShareAlike: If you remix, transform, or build upon the material, you must
+    distribute your contributions under the same license as the original
+    (CC BY-NC-SA 4.0).
+  - NonCommercial: You may not use the material for commercial purposes without
+    prior written permission from the rights holder.
+  - No Additional Restrictions: You may not apply legal terms or technological
+    measures that legally restrict others from doing anything the license
+    permits.
+  - No Warranties: The material is provided "as is", without warranties of any
+    kind, as further detailed in the full license text.
+
+Scope and Interaction with Third-Party Licenses:
+  - This site-wide license applies to original works in this repository
+    (including, for example, original prose, images/artwork created by the
+    author, and custom CSS/JS authored by the owner), except where otherwise
+    stated.
+  - Third-party components (fonts, libraries, demo models, and other assets)
+    remain governed by their respective licenses as enumerated in this
+    document. Where a third-party license conflicts with the site-wide license,
+    the third-party license controls for that component.
+
+Commercial Use:
+  - For commercial licensing requests, contact: help@dufour.xyz
+
+References:
+  - License file included in this repository: LICENSE.txt
+  - Human-readable summary: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  - Full legal code: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+================================================================================
+
+By accessing and utilizing this website, you acknowledge and accept the terms
+and attributions set forth in this document.
