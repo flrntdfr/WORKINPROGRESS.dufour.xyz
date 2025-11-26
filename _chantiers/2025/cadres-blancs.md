@@ -19,19 +19,11 @@ result: [list, illustration]
 ![FACTS AND FIGURES]({% link assets/2025/cadres-blancs/17.webp %})
 ![ADVERSAIRE ET ENNEMI]({% link assets/2025/cadres-blancs/18.webp %})
 ![ÉCHELLE ET SUCCÈS]({% link assets/2025/cadres-blancs/19.webp %})
-
+![CHAINS AND COMMAND]({% link assets/2025/cadres-blancs/20.webp %})
+![NATURE ET CULTURE]({% link assets/2025/cadres-blancs/21.webp %})
+![JOIE ET HÂTE]({% link assets/2025/cadres-blancs/22.webp %})
 
 {% comment %}
-![CONFIANCE ET MONOPOLE]({% link assets/2025/cadres-blancs/14.webp %})
-![TECHNOLOGY AND OPTIMISM]({% link assets/2025/cadres-blancs/11.webp %})
-![CURIOSITY AND FOCUS]({% link assets/2025/cadres-blancs/4.webp %})
-![PEACE AND PRINCIPLES]({% link assets/2025/cadres-blancs/6.webp %})
-![PROSPECTIVE ET PLANIFICATION]({% link x/2025/Stockholm/7.webp %})
-![NEW AND INTERESTING]({% link x/2025/Stockholm/9.webp %})
-![TRUTH AND TRUTH]({% link x/2025/Stockholm/10.webp %})
-![ALPHABÉTISATION ET CRÉATIVITÉ]({% link x/2025/Stockholm/12.webp %})
-![ATTRACTION ET AVERSION]({% link x/2025/Stockholm/13.webp %})
-
 ```sh
 magick 17.webp -shave 10x10 17.webp
 ```
