@@ -94,15 +94,15 @@ Ongoing projects   {% assign open_bars = open_chantiers | times: 50 | divided_by
 Finished projects  {% assign closed_bars = closed_chantiers | times: 50 | divided_by: total_chantiers %}{% for i in (1..closed_bars) %}█{% endfor %}{% for i in (closed_bars..49) %}░{% endfor %} {{ closed_chantiers_visible }}
 Total Projects                                                        {{ open_chantiers_visible | plus: closed_chantiers_visible }}
 
-Projects completion:         {{ completion_rate | round: 1 }}%
-Average project duration:    {{ avg_duration_days | round: 0 }} days
+Projects completion          {{ completion_rate | round: 1 }}%
 {% if open_chantiers > 0 -%}
-Longest running project:     {{ longest_running_days | round: 0 }} days ({{ longest_running_project }})
+Longest running project      {{ longest_running_days | round: 0 }} days ({{ longest_running_project }})
 {% else -%}
-Longest running project: N/A (no open projects)
+Average project duration     {{ avg_duration_days | round: 0 }} days
+Longest running project  N/A (no open projects)
 {%- endif -%}
-Average projects per year:   {{ total_chantiers | divided_by: sorted_years.size | round: 1 }}
-Projects started this year:  {{ current_year_projects }}
+Average projects per year    {{ total_chantiers | divided_by: sorted_years.size | round: 1 }}
+Projects started this year   {{ current_year_projects }}
 ```
 
 {% comment %} Generate timeline {% endcomment %}
