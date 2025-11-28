@@ -7,13 +7,21 @@ started:  2020-09-01 09:00
 location: [Leibniz Supercomputing Centre]
 result: [research]
 tech: [OpenStack, AMD-SEV/SNP, Nvidia H200, Quobyte]
-href:
-  - ["ext", "<b>Cloud documentation:</b>", "pages.gitlab.lrz.de", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]
-  - ["ext", "<b>Consortium website:</b>", "digimed-bayern.de", "https://www.digimed-bayern.de/en.html"]
 description: |
-    The goal of the DigiMed Bayern Project is to advance the digital transformation of Bavaria’s health system. With an initial focus on the secondary use of cardiovascular research data from university hospitals and research institutes, it integrates sensitive clinical, imaging, and multi-omic data to enable better, data-driven medicine.
+    <strong>DigiMed Bayern</strong>: The goal of the project is to advance the digital transformation of Bavaria's health system. The project focuses on the secondary use of cardiovascular research data from university hospitals and research institutes across the territory.<sup>1</sup>
     <br><br>
-    Under Work Package 6, which focuses on the storage and compute infrastructure, I contributed to the design and deployment of a confidential cloud platform for integrating, sharing, and analyzing large-scale biomedical data. This included developing an architecture that replaces existing data silos, implements FAIR data principles, and supports AI-driven analytics. The infrastructure is built for scalability, interoperability, and long-term sustainability, providing a foundation for collaborative research and clinical translation.
+    <strong>Work Package 6</strong>: I contributed to the design, deployment, and operation of the DigiMed Secure Cloud<sup>2</sup>, a confidential cloud platform that allows the integration, sharing, and processing of large-scale sensitive data. This included developing an architecture that can replace existing on-premises data silos and migrate medical pipelines to cloud native technologies while implementing pseudonymization, FAIR data principles, and compliance with data protection and privacy regulations.<sup>3</sup>
+    <br><br>
+    <strong>DigiMed Secure Cloud</strong>: Concretly, the platform now hosts the German Heart Centre Datawarehouse<sup>4</sup>, the Bavarian Genome Computing Centre<sup>5</sup>, the Bavarian node for the German Human Genome-Phenome Archive<sup>6</sup>, the VRONI full genome sequencing database<sup>7</sup>, and the HerzFit mobile app anonymous data donation backend.<sup>8</sup> It provides secure datasharing on the Munich scientific network and routine multi-omics tools and AI workbench for secure training and inference of medical models.
+href:
+    - ["ext", "<sup>1</sup>", "DigiMed Bayern", "https://www.digimed-bayern.de/en.html"]
+    - ["ext", "<sup>3</sup>", "DigiMed Secure Cloud documentation", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]
+    - ["ext", "<sup>2</sup>", "DigiMed Bayern: IT Conception and Infrastructure", "https://www.digimed-bayern.de/en/work-packages/wp-6it-conception-infrastructure.html"]
+    - ["ext", "<sup>4</sup>", "Deutschen Herzzentrum München", "https://deutsches-herzzentrum-muenchen.de"]
+    - ["ext", "<sup>5</sup>", "Germany’s national genomDE strategy", "https://www.nature.com/articles/s41591-025-03991-2"]
+    - ["ext", "<sup>6</sup>", "German Human Genome-Phenome Archive project", "https://www.ghga.de"]
+    - ["ext", "<sup>7</sup>", "VRONI study", "https://doi.org/10.1093/eurpub/ckac007"]
+    - ["ext", "<sup>8</sup>", "HerzFit mobile app backend", "https://herzstiftung.de/service-und-aktuelles/publikationen-und-medien/app"]
 ---
 
 <style>
@@ -40,11 +48,12 @@ ol li:last-child {
 
 | Mile | Stone |
 |-:|:-|
+| **11.2025** | Nvidia H200 GPUs are online. |
 | **09.2025** | The DigiMed future user group is created. |
 | **07.2025** | The DigiMed Secure Cloud becomes one of the 6 nodes of the German Human Genome-Phenome Archive. |
 | **03.2025** | Onboarding of the German Human Genome-Phenome Archive and Genome Computing Centre. |
 | **12.2024** | The DigiMed Bayern Project is extended for another 3 years and 2.7Mio€ are granted by the Bavarian Ministry of Health and Care. |
-| **11.2024** | The DigiMed team of the Leibniz Supercomputing Centre becomes its own group and becomes the trustworthy branch of the Big Data and AI group. |
+| **11.2024** | The DigiMed team at Leibniz Supercomputing Centre becomes an independent group and forms the trustworthy branch of the Big Data and AI group. |
 | **09.2024** | Inspection of the infrastructure by the data protection officer — Bayerische Landesbeauftragte für den Datenschutz. |
 | **12.2023** | The DigiMed Secure Cloud is announced to the public. |
 | **03.2022** | The first secure data transfer from the German Heart Centre Munich to the DigiMed Secure Cloud takes place. |
@@ -55,14 +64,14 @@ ol li:last-child {
 # Contributions
 
 ## Papers
+1. **Fully Anonymized Data Acquisition for Digital Health Research in a Public-Private Partnership : A Case Study Using the HerzFit App** (in review), 2025.
 1. **High-performance Computing Systems: Security Threats, Countermeasures and Prospects** (in review), 2025.
 1. **Comparative Overview of Medical Research Data Platforms: Interoperability, Privacy, and Federated Learning in Translational Biomedical Research** (in review), 2025.
 1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, and D. Kranzlmüller, **"Towards Confidential Computing: A Secure Cloud Architecture for Big Data Analytics and AI,"** in IEEE International Conference on Cloud Computing (IEEE CLOUD), (Chicago, Illinois, USA), 2023.
 
 ## Talks
-- 2025: F. Dufour, Jan Peschke, **"How to build 
-a confidential cloud"? — A platform for next generation medical research**, OpenInfra Sweden, Stockholm. ([link ➟]({% link _chantiers/2025/OpenInfra.md %})).
-- 2024: F. Dufour, **"We built a Trusted Research Environment for health research - 10 strategic and technical lessons learned"**, in Medical Valley, Online.
+- 2025: F. Dufour, Jan Peschke, **"How to build a confidential cloud"? — A platform for next generation medical research**, OpenInfra Sweden, Stockholm. ([link ➟]({% link _chantiers/2025/OpenInfra.md %})).
+- 2024: F. Dufour, **"We built a Trusted Research Environment for health research — 10 strategic and technical lessons learned"**, in Medical Valley, Online.
 - 2023: F. Dufour, **"Towards the Medicine of the Future in Bavaria and Germany, One Heartbeat at the Time With Confidential Computing"** in Open Confidential Computing Conference (OC3), Online. ([link ➟]({% link _chantiers/2023/OC3.md %}))
 
 ## Posters
@@ -70,8 +79,8 @@ a confidential cloud"? — A platform for next generation medical research**, Op
 1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **" DigiMed Cloud: A Highly-Secure Cloud for Big Data Analytics and AI in Biomedical Research"**, in Hipeac, Munich, Germany, Jan 2024. 
 
 ## Supervision and co-supervision
-- Vinzent Bode, **"tbd.",** Ludwig-Maximilians-Universität Munich. (2025)
-- Julia Moosmayr, **"Implementierung von ausgewählten C5-Kriterien für Cloud-Dienste im Gesundheitswesen unter Berücksichtigung von NIS2 und ISO 27001: Eine Fallstudie der DigiMed Secure Cloud"** (2025)
+- Vinzent Bode, **"tbd.",** Ludwig-Maximilians-Universität Munich. (2026)
+- Julia Moosmayr, **"Implementierung von ausgewählten C5-Kriterien für Cloud-Dienste im Gesundheitswesen unter Berücksichtigung von NIS2 und ISO 27001: Eine Fallstudie der DigiMed Secure Cloud"** (2026)
 - Yassine Sfar, **"DigiMed Trusted Research Environment: Strategic Market Positioning for Healthcare Sovereignty, Privacy, and Utility of Medical Data"**, Technical University of Munich (2025).
 - Valentin Pfeil, **"Confidential Computing Via Hardware Trusted Execution Environments by an Openstack HPC Capable Cloud"**, University of the Bundeswehr Munich (2024).
 
