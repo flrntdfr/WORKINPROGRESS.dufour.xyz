@@ -140,14 +140,14 @@ function toggleDaysDiff(element) {
 
 function back(event) {
     event.preventDefault();
-    if (document.referrer && document.referrer.includes(window.location.host)) {
-        try {
-            history.back();
-        } catch (error) {
-            window.location.href = '/';
+    try {
+        if (document.referrer?.includes(window.location.host)) {
+            const referrerPath = new URL(document.referrer).pathname;
+            if (referrerPath === '/' || referrerPath === '') {
+                return history.back();
+            }
         }
-    } else {
-        window.location.href = '/';
-    }
+    } catch (error) {}
+    window.location.href = '/';
 }
 </script>
