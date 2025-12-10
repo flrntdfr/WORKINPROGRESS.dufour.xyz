@@ -41,4 +41,6 @@ metadata {
     '/assets/2024/ISTHISART/11.webp',
     '/assets/2024/ISTHISART/12.webp',
     '/assets/2024/ISTHISART/13.webp',
+    '/assets/2024/ISTHISART/14.webp',
+    '/assets/2024/ISTHISART/15.webp',
 " %}

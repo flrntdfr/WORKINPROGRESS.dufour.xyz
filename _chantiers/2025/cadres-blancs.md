@@ -22,6 +22,7 @@ result: [list, illustration]
 ![CHAINS AND COMMAND]({% link assets/2025/cadres-blancs/20.webp %})
 ![NATURE ET CULTURE]({% link assets/2025/cadres-blancs/21.webp %})
 ![JOIE ET HÂTE]({% link assets/2025/cadres-blancs/22.webp %})
+![PROGRÈS ET SOCIÉTÉ]({% link assets/2025/cadres-blancs/23.webp %})
 
 {% comment %}
 ```sh

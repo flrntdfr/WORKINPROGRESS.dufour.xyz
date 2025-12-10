@@ -105,7 +105,7 @@ const lists = {
     "I carry someone else's problems.",
     "I am the force of change.",
     "I can define the edges of what's most important.",
-    "sometimes I would rather be an object than a person.",
+    "sometimes I would rather be an object than a subject.",
     "I am the inevitable.",
     "I use love as a currency.",
     "I execute the plan in motion.",
@@ -253,6 +253,7 @@ let isFinalAffirmationMode = false;
 let currentSublistIndex = -1;
 let currentLabel = "";
 let currentAffirmationIndex = -1;
+let initialCombinations = 0;
 
 /* --- Utilities --- */
 function getRandomIndex(length) {
@@ -305,9 +306,8 @@ function updateDisplay() {
     document.getElementById('list-b-item').value = "";
   }
   /* Update affirmation counter */
-  const currentAffirmations = lists.listB.length;
-  const initialAffirmations = 185; /* Initial number of affirmations in listB */
-  const percentage = (currentAffirmations / initialAffirmations * 100).toFixed(3);
+  const currentCombinations = getTotalPossibleCombinations();
+  const percentage = (initialCombinations > 0) ? (currentCombinations / initialCombinations * 100).toFixed(3) : "100.000";
   document.getElementById('affirmation-counter').textContent = `${percentage}%`;
 }
 
@@ -465,6 +465,25 @@ function handleNo() {
     return;
   }
   console.log(`Action: NO for combination: "${currentLabel}" AND "${lists.listB[currentAffirmationIndex]}"`);
+
+  /* Check if current sublist is locked (length 1) */
+  const currentSublist = lists.listA[currentSublistIndex];
+  if (Array.isArray(currentSublist) && currentSublist.length === 1) {
+    /* If locked, No implies the affirmation is false (since the label is true) */
+    if (currentAffirmationIndex >= 0) {
+      lists.listB.splice(currentAffirmationIndex, 1);
+    }
+    
+    /* If no more affirmations remain, trigger final round */
+    if (lists.listB.length === 0) {
+      showFinalAffirmation();
+      updateDisplay();
+      animateButton(document.getElementById('no-button'));
+      logListLengths();
+      return;
+    }
+  }
+
   /* Always switch to a different random sublist, then pick a random label */
   const nextSublistIndex = pickRandomSublistDifferent(currentSublistIndex);
   if (nextSublistIndex !== -1) {
@@ -472,7 +491,7 @@ function handleNo() {
   }
   pickRandomLabelFromCurrentSublist();
   /* Also pick a new affirmation */
-  pickRandomAffirmation(currentAffirmationIndex);
+  pickRandomAffirmation();
   updateDisplay();
   animateButton(document.getElementById('no-button'));
   logListLengths();
@@ -480,6 +499,7 @@ function handleNo() {
 
 /* Initialize on page load */
 document.addEventListener('DOMContentLoaded', function() {
+  initialCombinations = getTotalPossibleCombinations();
   initializeGame();
   /* Add individual button event listeners */
   document.getElementById('yes-button').addEventListener('click', handleYes);

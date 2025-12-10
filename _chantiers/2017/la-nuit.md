@@ -1,7 +1,7 @@
 ---
 layout: chantier-youtube
 title: LA NUIT
-started:  2017-06-01 13:00
+started: 2017-06-01 13:00
 ended: 2017-07-01 03:00
 result: [shortfilm]
 tech: [Final Cut Pro X, Color Finale]
