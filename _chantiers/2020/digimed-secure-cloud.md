@@ -15,8 +15,8 @@ description: |
     <strong>DigiMed Secure Cloud</strong>: Concretly, the platform now hosts the German Heart Centre Datawarehouse<sup>4</sup>, the Bavarian Genome Computing Centre<sup>5</sup>, the Bavarian node for the German Human Genome-Phenome Archive<sup>6</sup>, the VRONI full genome sequencing database<sup>7</sup>, and the HerzFit mobile app anonymous data donation backend.<sup>8</sup> It provides secure datasharing on the Munich scientific network and routine multi-omics tools and AI workbench for secure training and inference of medical models.
 href:
     - ["ext", "<sup>1</sup>", "DigiMed Bayern", "https://www.digimed-bayern.de/en.html"]
-    - ["ext", "<sup>3</sup>", "DigiMed Secure Cloud documentation", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]
     - ["ext", "<sup>2</sup>", "DigiMed Bayern: IT Conception and Infrastructure", "https://www.digimed-bayern.de/en/work-packages/wp-6it-conception-infrastructure.html"]
+    - ["ext", "<sup>3</sup>", "DigiMed Secure Cloud documentation", "https://digimed.pages.gitlab.lrz.de/user-documentation/"]
     - ["ext", "<sup>4</sup>", "Deutschen Herzzentrum München", "https://deutsches-herzzentrum-muenchen.de"]
     - ["ext", "<sup>5</sup>", "Germany’s national genomDE strategy", "https://www.nature.com/articles/s41591-025-03991-2"]
     - ["ext", "<sup>6</sup>", "German Human Genome-Phenome Archive project", "https://www.ghga.de"]
