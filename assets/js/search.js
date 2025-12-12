@@ -73,15 +73,17 @@ class ChantierSearch {
     }
 
     handleGlobalKeydown(event) {
-        /* Show search on Ctrl+F or Cmd+F */
-        if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
-            event.preventDefault();
-            this.show();
-        }
+        if (window.location.pathname === '/') {
+            /* Show search on Ctrl+F or Cmd+F on home page */
+            if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
+                event.preventDefault();
+                this.show();
+            }
 
-        /* Hide search on Escape */
-        if (event.key === 'Escape' && this.isVisible) {
-            this.hide();
+            /* Hide search on Escape */
+            if (event.key === 'Escape' && this.isVisible) {
+                this.hide();
+            }
         }
     }
 

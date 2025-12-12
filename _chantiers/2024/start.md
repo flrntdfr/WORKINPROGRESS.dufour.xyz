@@ -13,9 +13,6 @@ head_raw_inject:
   - <link rel="preload" href="/assets/2024/start/barriere-100.webp" as="image" type="image/webp">
 ---
 
-<!-- Search -->
-<script type="text/javascript" src="{% link /assets/js/search.js %}"></script>
-
 {% include start.html %}
 
 {{ page.description }}
