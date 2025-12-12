@@ -7,16 +7,18 @@ started:  2016-01-01 23:42
 ended:
 location: [Belleville]
 result: [illustration, list]
-description: This project is inpired by <a href="https://pippinbarr.com" target="_blank" rel="noopener noreferrer">Pippin Barr ➟</a> and his series <a href="https://web.archive.org/web/20190804192943/https://www.pippinbarr.com/2015/12/28/this-is-what-museums-look-like/" target="_blank" rel="noopener noreferrer">this is what museums look like ➟</a>.
+description: This project is inpired by <a href="https://pippinbarr.com" target="_blank" rel="noopener noreferrer">Pippin Barr ➟</a> and his series <a href="https://www.instagram.com/pippinbarr" target="_blank" rel="noopener noreferrer">this is what museums look like ➟</a>.
 ---
 
+<!-- https://web.archive.org/web/20190804192943/https://www.pippinbarr.com/2015/12/28/this-is-what-museums-look-like/ -->
+
 <div class="header-controls">
-    <p id="museumText" class="info"></p>
     <div class="controls">
         <button onclick="nextMuseum()">→ Next</button>
         <button onclick="randomMuseum()">↔ Random</button>
         <button onclick="previousMuseum()">← Previous</button>
     </div>
+    <p id="museumText" class="info"></p>
 </div>
 
 <!-- Pre-created image background divs for immediate display -->
@@ -43,6 +45,11 @@ data {
 #museumText {
     background-color: white;
     padding: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 0 4em 0;
 }
 
 .controls {
@@ -97,225 +104,200 @@ data {
 
 <script>
 const museums = {% include museums/museums.db.json %};
-let currentIndex = 0;
-let shuffledOrder = [];
-const imageCache = new Map();
+const state = {
+    currentIndex: 0,
+    shuffledOrder: [],
+    imageCache: new Map(),
+    animationFrameId: null,
+    numberBuffer: '',
+    numberTimeout: null
+};
+
+const dom = {
+    text: null,
+    buffers: { current: null, prev: null, next: null }
+};
 
 document.addEventListener('DOMContentLoaded', function() {
+    dom.text = document.getElementById('museumText');
+    dom.buffers.current = document.getElementById('currentBuffer');
+    dom.buffers.prev = document.getElementById('previousBuffer');
+    dom.buffers.next = document.getElementById('nextBuffer');
+
     if (museums && museums.length > 0) {
-        shuffledOrder = [...Array(museums.length).keys()];
+        state.shuffledOrder = [...Array(museums.length).keys()];
         
-        /* Set first image immediately */
-        const firstMuseum = museums[0];
-        if (firstMuseum && firstMuseum.filename) {
-            const currentBuffer = document.getElementById('currentBuffer');
-            if (currentBuffer) {
-                currentBuffer.style.backgroundImage = `url(/assets/2016/museums/${firstMuseum.filename})`;
-            }
-        }
-        
-        showMuseum(0);
-        preloadImages();
+        /* Initial display */
+        updateDisplay(0);
     } else {
         console.error('No museums found');
     }
 });
 
-/* Simple preloading - load all images */
-function preloadImages() {
-    museums.forEach((museum, index) => {
-        if (museum.filename) {
-            const img = new Image();
-            img.onload = function() {
-                imageCache.set(museum.filename, 'loaded');
-                if (index < 5) {
-                    console.log(`Image loaded: ${museum.filename}`);
-                }
-            };
-            img.onerror = function() {
-                console.warn(`Failed to load image: ${museum.filename}`);
-                imageCache.set(museum.filename, 'failed');
-            };
-            img.src = `/assets/2016/museums/${museum.filename}`;
-        }
-    });
+function getMuseum(index) {
+    if (!museums || museums.length === 0) return null;
+    const i = (index + museums.length) % museums.length;
+    return museums[state.shuffledOrder[i]];
 }
 
-function showMuseum(index) {
-    if (!museums || museums.length === 0) return;
-    
-    const museum = museums[shuffledOrder[index]];
-    const museumText = document.getElementById('museumText');
-    
-    /* Update text immediately */
-    if (museumText) {
-        let displayText = "";
-        if (museum.id != "") {
-            displayText = museum.id + ". " + museum.description;
-        } else {
-            displayText = museum.description;
-        }
-        /* Convert \n to HTML line breaks */
-        displayText = displayText.replace(/\\n/g, '<br>');
-        museumText.innerHTML = displayText;
-    }
-    
-    /* Display image with triple buffer system */
-    if (museum.filename) {
-        const currentBuffer = document.getElementById('currentBuffer');
-        const previousBuffer = document.getElementById('previousBuffer');
-        const nextBuffer = document.getElementById('nextBuffer');
-        
-        if (currentBuffer) {
-            /* Load image on current buffer */
-            if (imageCache.get(museum.filename) === 'loaded') {
-                currentBuffer.style.backgroundImage = `url(/assets/2016/museums/${museum.filename})`;
-            } else {
-                const img = new Image();
-                img.onload = function() {
-                    imageCache.set(museum.filename, 'loaded');
-                    currentBuffer.style.backgroundImage = `url(/assets/2016/museums/${museum.filename})`;
-                };
-                img.src = `/assets/2016/museums/${museum.filename}`;
-            }
-        }
-        
-        /* Preload adjacent images on other buffers */
-        const prevIndex = (index - 1 + museums.length) % museums.length;
-        const nextIndex = (index + 1) % museums.length;
-        
-        if (previousBuffer && museums[shuffledOrder[prevIndex]].filename) {
-            const prevImg = new Image();
-            prevImg.onload = function() {
-                imageCache.set(museums[shuffledOrder[prevIndex]].filename, 'loaded');
-                previousBuffer.style.backgroundImage = `url(/assets/2016/museums/${museums[shuffledOrder[prevIndex]].filename})`;
-            };
-            prevImg.src = `/assets/2016/museums/${museums[shuffledOrder[prevIndex]].filename}`;
-        }
-        
-        if (nextBuffer && museums[shuffledOrder[nextIndex]].filename) {
-            const nextImg = new Image();
-            nextImg.onload = function() {
-                imageCache.set(museums[shuffledOrder[nextIndex]].filename, 'loaded');
-                nextBuffer.style.backgroundImage = `url(/assets/2016/museums/${museums[shuffledOrder[nextIndex]].filename})`;
-            };
-            nextImg.src = `/assets/2016/museums/${museums[shuffledOrder[nextIndex]].filename}`;
+/* Preload a window of images around the center index */
+function preloadWindow(centerIndex, radius = 3) {
+    for (let i = -radius; i <= radius; i++) {
+        if (i === 0) continue;
+        const m = getMuseum(centerIndex + i);
+        if (m && m.filename && !state.imageCache.has(m.filename)) {
+            const img = new Image();
+            img.onload = () => state.imageCache.set(m.filename, 'loaded');
+            img.onerror = () => state.imageCache.set(m.filename, 'failed');
+            img.src = `/assets/2016/museums/${m.filename}`;
+            state.imageCache.set(m.filename, 'loading');
         }
     }
-    
-    currentIndex = index;
 }
 
-/* Preload adjacent images for smoother navigation */
-function preloadAdjacentImages() {
-    if (!museums || museums.length === 0) return;
+function updateDisplay(index) {
+    /* Stop any ongoing animation if manual navigation occurs */
+    /* Note: animateToIndex handles its own cancellation, but manual clicks should also stop it */
+    /* We don't cancel here blindly because animateToIndex calls this function. */
     
-    const prevIndex = (currentIndex - 1 + museums.length) % museums.length;
-    const nextIndex = (currentIndex + 1) % museums.length;
+    state.currentIndex = index;
+    const museum = getMuseum(index);
+    if (!museum) return;
+
+    /* Logic to sync text and image:
+       Only update text when image is ready to prevent mismatch */
     
-    [prevIndex, nextIndex].forEach(idx => {
-        const museum = museums[shuffledOrder[idx]];
-        if (museum.filename && !imageCache.has(museum.filename)) {
-            const img = new Image();
-            img.onload = function() {
-                imageCache.set(museum.filename, 'loaded');
-            };
-            img.onerror = function() {
-                imageCache.set(museum.filename, 'failed');
-            };
-            imageCache.set(museum.filename, 'loading');
-            img.src = `/assets/2016/museums/${museum.filename}`;
+    const applyUpdate = () => {
+        /* Verify this is still the requested index to prevent race conditions */
+        if (state.currentIndex !== index) return;
+
+        /* 1. Update Text */
+        if (dom.text) {
+            let txt = (museum.id ? museum.id + ". " : "") + museum.description;
+            dom.text.innerHTML = txt.replace(/\\n/g, '<br>');
         }
-    });
+
+        /* 2. Update Current Buffer */
+        if (dom.buffers.current && museum.filename) {
+             dom.buffers.current.style.backgroundImage = `url(/assets/2016/museums/${museum.filename})`;
+        }
+        
+        /* 3. Update buffers and preload */
+        updateAdjacentBuffers(index);
+        preloadWindow(index);
+    };
+
+    /* Check Cache */
+    if (state.imageCache.get(museum.filename) === 'loaded') {
+        applyUpdate();
+    } else {
+        /* Not loaded? Load then update. 
+           This ensures strict sync between text and image. */
+        const img = new Image();
+        img.onload = () => {
+            state.imageCache.set(museum.filename, 'loaded');
+            applyUpdate();
+        };
+        img.onerror = () => {
+            /* If failed, maybe still show text? or show error? 
+               For now, we update anyway so UI isn't stuck. */
+            state.imageCache.set(museum.filename, 'failed');
+            applyUpdate();
+        };
+        img.src = `/assets/2016/museums/${museum.filename}`;
+    }
 }
 
-function nextMuseum() {
-    if (!museums || museums.length === 0) return;
-    const nextIndex = Math.min(museums.length - 1, currentIndex + 1);
-    showMuseum(nextIndex);
-    preloadAdjacentImages();
-}
-
-function previousMuseum() {
-    if (!museums || museums.length === 0) return;
-    const prevIndex = Math.max(0, currentIndex - 1);
-    showMuseum(prevIndex);
-    preloadAdjacentImages();
+function updateAdjacentBuffers(index) {
+    const prev = getMuseum(index - 1);
+    const next = getMuseum(index + 1);
+    
+    if (dom.buffers.prev && prev) 
+        dom.buffers.prev.style.backgroundImage = `url(/assets/2016/museums/${prev.filename})`;
+    
+    if (dom.buffers.next && next) 
+        dom.buffers.next.style.backgroundImage = `url(/assets/2016/museums/${next.filename})`;
 }
 
 function animateToIndex(targetIndex) {
     if (!museums || museums.length === 0) return;
     
-    const totalImages = museums.length;
-    const clampedTarget = Math.max(0, Math.min(totalImages - 1, targetIndex));
-    
-    /* If already at target, just make sure neighbors are preloaded */
-    if (clampedTarget === currentIndex) {
-        preloadAdjacentImages();
-        return;
+    if (state.animationFrameId) {
+        cancelAnimationFrame(state.animationFrameId);
+        state.animationFrameId = null;
     }
     
-    /* Simple direction: right if target is larger, left if smaller */
-    const stepDirection = clampedTarget > currentIndex ? 1 : -1;
-    let currentStepIndex = currentIndex;
-    let lastAnimationTime = 0;
-    const minAnimationDelay = 16; /* Minimum 16ms between animation steps (~60fps) */
+    const total = museums.length;
+    const clampedTarget = Math.max(0, Math.min(total - 1, targetIndex));
     
-    function animateTransition(currentTime) {
-        /* Ensure at least 16ms has passed since last animation step */
-        if (currentTime - lastAnimationTime >= minAnimationDelay) {
-            if (currentStepIndex !== clampedTarget) {
-                currentStepIndex += stepDirection;
-                showMuseum(currentStepIndex);
-                lastAnimationTime = currentTime;
+    if (clampedTarget === state.currentIndex) return;
+
+    const direction = clampedTarget > state.currentIndex ? 1 : -1;
+    let lastTime = 0;
+    const delay = 16; /* 60fps cap */
+
+    function step(time) {
+        if (time - lastTime >= delay) {
+            if (state.currentIndex !== clampedTarget) {
+                const nextIndex = state.currentIndex + direction;
+                updateDisplay(nextIndex);
+                lastTime = time;
+                state.animationFrameId = requestAnimationFrame(step);
             } else {
-                preloadAdjacentImages();
-                return;
+                state.animationFrameId = null;
             }
+        } else {
+            state.animationFrameId = requestAnimationFrame(step);
         }
-        requestAnimationFrame(animateTransition);
     }
-    
-    requestAnimationFrame(animateTransition);
+    state.animationFrameId = requestAnimationFrame(step);
+}
+
+function nextMuseum() {
+    stopAnimation();
+    updateDisplay(Math.min(museums.length - 1, state.currentIndex + 1));
+}
+
+function previousMuseum() {
+    stopAnimation();
+    updateDisplay(Math.max(0, state.currentIndex - 1));
+}
+
+function stopAnimation() {
+    if (state.animationFrameId) {
+        cancelAnimationFrame(state.animationFrameId);
+        state.animationFrameId = null;
+    }
 }
 
 function randomMuseum() {
-    if (!museums || museums.length === 0) return;
-    
-    /* Pick a random index from all available museums */
-    const randomIndex = Math.floor(Math.random() * museums.length);
-    
-    /* Use the shared animation function */
-    animateToIndex(randomIndex);
+    if (!museums || !museums.length) return;
+    animateToIndex(Math.floor(Math.random() * museums.length));
 }
 
-let numberBuffer = '';
-let numberTimeout = null;
-
 document.addEventListener('keydown', function(event) {
+    /* If user interacts, stop any auto-animation */
+    if (['ArrowLeft', 'ArrowRight', ' '].includes(event.key)) {
+        stopAnimation();
+    }
+
     switch(event.key) {
         case 'ArrowLeft':
-            if (numberBuffer.length > 0) {
-                /* Move left by the number of images specified */
-                const steps = parseInt(numberBuffer);
-                const targetIndex = (currentIndex - steps + museums.length) % museums.length;
-                animateToIndex(targetIndex);
-                numberBuffer = '';
-                clearTimeout(numberTimeout);
-                numberTimeout = null;
+            if (state.numberBuffer.length > 0) {
+                const steps = parseInt(state.numberBuffer);
+                const target = (state.currentIndex - steps + museums.length) % museums.length;
+                animateToIndex(target);
+                clearNumberBuffer();
             } else {
                 previousMuseum();
             }
             break;
         case 'ArrowRight':
-            if (numberBuffer.length > 0) {
-                /* Move right by the number of images specified */
-                const steps = parseInt(numberBuffer);
-                const targetIndex = (currentIndex + steps) % museums.length;
-                animateToIndex(targetIndex);
-                numberBuffer = '';
-                clearTimeout(numberTimeout);
-                numberTimeout = null;
+            if (state.numberBuffer.length > 0) {
+                const steps = parseInt(state.numberBuffer);
+                const target = (state.currentIndex + steps) % museums.length;
+                animateToIndex(target);
+                clearNumberBuffer();
             } else {
                 nextMuseum();
             }
@@ -325,28 +307,25 @@ document.addEventListener('keydown', function(event) {
             randomMuseum();
             break;
         case 'Enter':
-            if (numberBuffer.length > 0) {
-                const targetIndex = parseInt(numberBuffer); /* Convert to 0-based index */
-                if (targetIndex >= 0 && targetIndex < museums.length) {
-                    /* Use the shared animation function */
-                    animateToIndex(targetIndex);
-                }
-                numberBuffer = '';
-                clearTimeout(numberTimeout);
-                numberTimeout = null;
+            if (state.numberBuffer.length > 0) {
+                const target = parseInt(state.numberBuffer);
+                animateToIndex(target);
+                clearNumberBuffer();
             }
             break;
         default:
-            /* Handle number input */
             if (event.key >= '0' && event.key <= '9') {
-                numberBuffer += event.key;
-                clearTimeout(numberTimeout);
-                numberTimeout = setTimeout(() => {
-                    numberBuffer = '';
-                }, 3000); /* Clear buffer after 3 seconds of inactivity */
+                state.numberBuffer += event.key;
+                clearTimeout(state.numberTimeout);
+                state.numberTimeout = setTimeout(clearNumberBuffer, 3000);
             }
             break;
     }
 });
-</script>
 
+function clearNumberBuffer() {
+    state.numberBuffer = '';
+    clearTimeout(state.numberTimeout);
+    state.numberTimeout = null;
+}
+</script>
