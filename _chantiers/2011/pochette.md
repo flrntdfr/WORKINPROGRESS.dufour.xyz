@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: J'aime la pochette
-started:  2011-04-16 20:12
+started: 2011-04-16 20:12
 result: [mixtape]
 tech: [iTunes, Apple Music]
 description:

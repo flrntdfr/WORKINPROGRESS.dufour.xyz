@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: Truth or Truth
-started:  2022-05-16 22:58
+started: 2022-05-16 22:58
 ended: 2025-01-19 19:45
 result: [list, game]
 description: |

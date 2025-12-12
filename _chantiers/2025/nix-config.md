@@ -2,7 +2,7 @@
 hidden: true
 layout: chantier-href
 title: nix-config
-started:  2025-04-15 14:00
+started: 2025-04-15 14:00
 ended: 
 result: [code]
 tech: [nix]

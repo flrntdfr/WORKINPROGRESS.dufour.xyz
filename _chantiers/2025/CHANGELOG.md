@@ -2,7 +2,7 @@
 hidden: true
 layout: chantier
 title: CHANGELOG
-started:  2025-08-23 11:45:16
+started: 2025-08-23 11:45:16
 ended: 
 result: [list]
 ---

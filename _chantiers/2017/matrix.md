@@ -3,7 +3,7 @@ theme-color: "#60ff60"
 layout: chantier-standalone
 title: matrix
 lib: p5.v1.4.2.min.js
-started:  2017-05-01 04:15
+started: 2017-05-01 04:15
 ended: 2017-05-01 04:15
 result: [memo, web]
 tech: [p5.js]

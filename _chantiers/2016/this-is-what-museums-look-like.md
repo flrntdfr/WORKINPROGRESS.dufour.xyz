@@ -3,7 +3,7 @@ layout: chantier-blank
 theme-color: "#000"
 highlighted: true
 title: this is what museums look like
-started:  2016-01-01 23:42
+started: 2016-01-01 23:42
 ended:
 location: [Belleville]
 result: [illustration, list]

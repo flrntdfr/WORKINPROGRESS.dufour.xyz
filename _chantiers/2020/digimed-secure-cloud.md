@@ -2,7 +2,7 @@
 layout: chantier
 highlighted: true
 title: DigiMed Secure Cloud
-started:  2020-09-01 09:00
+started: 2020-09-01 09:00
 #ended: 2027-11-30 17:00
 location: [Leibniz Supercomputing Centre]
 result: [research]

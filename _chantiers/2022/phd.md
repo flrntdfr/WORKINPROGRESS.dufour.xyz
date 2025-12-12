@@ -2,7 +2,7 @@
 layout: chantier
 title: Ph.D.
 highlighted: true
-started:  2022-04-01 09:00
+started: 2022-04-01 09:00
 ended: 
 result: [research]
 href:

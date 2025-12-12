@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: J'aime les pochettes
-started:  2013-06-18
+started: 2013-06-18
 result: [mixtape]
 tech: [iTunes, Apple Music]
 #ended: 2025-04-11 15:20

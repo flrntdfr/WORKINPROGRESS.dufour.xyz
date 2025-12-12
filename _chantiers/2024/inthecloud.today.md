@@ -1,7 +1,7 @@
 ---
 layout: chantier-href
 title: inthecloud.today
-started:  2024-08-08 02:00
+started: 2024-08-08 02:00
 modified: 
 result: [proof-of-concept]
 description: |

@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: My name is…
-started:  2016-03-06 11:09
+started: 2016-03-06 11:09
 ended: 2016-07-13 11:09
 result: [list, game]
 description: You are playing “My name is…”.<br>You know who you are.

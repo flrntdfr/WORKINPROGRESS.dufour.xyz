@@ -1,7 +1,7 @@
 ---
 layout: chantier # chantier-random-image TODO
 title: IS THIS ART?
-started:  2024-02-14 13:30
+started: 2024-02-14 13:30
 ended: 2024-12-31 00:00
 location: [Munich]
 result: [street-art]

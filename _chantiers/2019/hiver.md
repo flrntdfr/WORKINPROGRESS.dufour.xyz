@@ -1,7 +1,7 @@
 ---
 layout: chantier-columns-x3
 title: hiver 2018
-started:  2018-11-02
+started: 2018-11-02
 ended: 2019-04-20
 result: [illustration] 
 ---

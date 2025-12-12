@@ -1,7 +1,7 @@
 ---
 layout: chantier-blank
 title: été 2017
-started:  2017-06-25
+started: 2017-06-25
 ended: 2017-11-24
 location: [Strasbourg]
 result: [photo]

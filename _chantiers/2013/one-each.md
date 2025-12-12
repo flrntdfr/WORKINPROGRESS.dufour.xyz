@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: One Each
-started:  2013-08-14 14:09
+started: 2013-08-14 14:09
 ended: 
 result: [mixtape]
 tech: [iTunes, Apple Music]

@@ -2,7 +2,7 @@
 theme-color: "#fff"
 layout: chantier
 title: Cadres blancs
-started:  2025-05-24 22:20
+started: 2025-05-24 22:20
 ended: 2025-06-04 23:10
 location: [Stockholm]
 tech: Stable diffusion

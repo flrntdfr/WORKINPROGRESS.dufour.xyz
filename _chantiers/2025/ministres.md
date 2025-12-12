@@ -1,7 +1,7 @@
 ---
 layout: chantier-columns-x3
 title: "Ministres (2100)"
-started:  2024-07-27 11:08
+started: 2024-07-27 11:08
 ended: 2025-07-16 22:10
 location: [Paris]
 result: [list, illustration]

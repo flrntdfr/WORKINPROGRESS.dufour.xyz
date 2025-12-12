@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: TruthLLM
-started:  2024-08-04 00:00
+started: 2024-08-04 00:00
 ended: 2024-10-02 00:00
 result: [web, LLM]
 tech: [GPT-2]

@@ -2,7 +2,7 @@
 hidden: true
 layout: chantier-standalone
 title: Start here
-started:  2024-08-04 00:00
+started: 2024-08-04 00:00
 result: [web]
 tech: [html, css, js, Jekyll]
 permalink: "/"
