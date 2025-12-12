@@ -4,7 +4,10 @@ title: .com
 result: [list]
 started: 2002-12-31 00:00
 ended: 2002-12-31 00:00
-description: This is a list of cool .com.
+description: |
+    I first “surfed the web” in 2002 so I made a list of .com I wanted to visit to see if they existed.
+    <br><br>
+    The list was updated in 2010, 2023, 2024 with other cool domain names.
 ---
 
 - [abc.com ➟](https://abc.com){:target="_blank" rel="noopener noreferrer"}
