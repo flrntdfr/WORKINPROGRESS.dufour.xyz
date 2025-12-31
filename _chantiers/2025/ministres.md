@@ -6,7 +6,7 @@ ended: 2025-07-16 22:10
 location: [Paris]
 result: [list, illustration]
 tech: [Stable diffusion]
-description: This project is inspired by the fact that “Roughly 60% of employment in 2018 is found in job titles that did not exist in 1940.”<sup>1</sup>
+description: This project is inspired by the fact that “roughly 60% of employment in 2018 is found in job titles that did not exist in 1940.”<sup>1</sup>
 href:
   - ["ext", "<sup>1</sup>", "Autor, David, et al. “New frontiers: The origins and content of new work, 1940–2018.” <i>The Quarterly Journal of Economics</i> 139.3 (2024): 1399-1465.", "https://academic.oup.com/qje/article-abstract/139/3/1399/7630187"]
 ---

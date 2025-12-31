@@ -242,6 +242,7 @@ const lists = {
     "I think being happy is worth the effort.",
     "I never try to solve problems I don't have.",
     "I deserve everything I have.",
+    "And I understand that I live in time."
   ]
 };
 

@@ -156,6 +156,8 @@ description: tl;dr are one-line summaries of text conversations that happened be
 		"You can only do one thing at a time.",
 		"C'est possible d'avoir un plan pour soi même.",
 		"Parfois la réponse est vraiment dans la question.",
+		"People approach life differently.",
+		"Reality is relative to people.",
 	];
 
 	const container = document.getElementById('typed-container');
