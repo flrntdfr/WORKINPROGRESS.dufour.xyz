@@ -23,9 +23,12 @@ result: [list, illustration]
 ![NATURE ET CULTURE]({% link assets/2025/cadres-blancs/21.webp %})
 ![JOIE ET HÂTE]({% link assets/2025/cadres-blancs/22.webp %})
 ![PROGRÈS ET SOCIÉTÉ]({% link assets/2025/cadres-blancs/23.webp %})
+![SYSTEM AND THINGS]({% link assets/2025/cadres-blancs/24.webp %})
 
 {% comment %}
 ```sh
-magick 17.webp -shave 10x10 17.webp
+cd assets/2025/cadres-blancs
+.jpg → .webp (2x?)
+magick 24.webp -shave 10x10 24.webp
 ```
 {% endcomment %}
