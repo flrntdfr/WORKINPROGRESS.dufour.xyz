@@ -45,7 +45,7 @@ description: TruthLLM is a “Large” Language Model that will truthfully answe
         "Why isn’t Earth part of any interplanetary alliance yet?",
         "Can I trade my nationality for store credit?",
         "Why is the moon so far away?",
-        "Does confidentiality rime with privacy?"
+        "Does confidentiality rime with privacy?",
         "Can keywords literally open doors?",
         "Can you cook a steak with a laser?",
         "Can you make a sandwich with a spoon?",
