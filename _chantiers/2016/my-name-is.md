@@ -68,7 +68,6 @@ const lists = {
     "I am ignorance talking.",
     "I am convergence in action.",
     "I am what happens when strangers meet.",
-    "I am practicing love.",
     "I don't want to die before my time.",
     "I am on the path forward.",
     "I am God in her infinite wisdom.",
@@ -77,7 +76,6 @@ const lists = {
     "I could make a compelling case against humanity.",
     "I am the face of immense suffering.",
     "I am the end before the beginning.",
-    "I can see the same issue from two different sides.",
     "I practice thinking against myself.", 
     "I am unable to love.",
     "I am the trend in the other direction.",
@@ -100,12 +98,10 @@ const lists = {
     "I believe in truth.",
     "I am the difference between life and death.",
     "I wear a Swiss army smile.", 
-    "I am the eroded sense of love.",
     "I can recall what I had for lunch yesterday.",
     "I carry someone else's problems.",
     "I am the force of change.",
     "I can define the edges of what's most important.",
-    "sometimes I would rather be an object than a subject.",
     "I am the inevitable.",
     "I use love as a currency.",
     "I execute the plan in motion.",
@@ -165,7 +161,6 @@ const lists = {
     "I know how much an ounce of gold costs.",
     "I have good intentions.",
     "I am tired.",
-    "I can hold two opposite opinions at the same time.",
     "I think capitalism works.",
     "I want my part.",
     "I have disposable income.",
@@ -199,7 +194,7 @@ const lists = {
     "I think people are generally well meaning.",
     "I do not support the leader of my country.",
     "life is hard on me.",
-    "things I touch generally break.",
+    "things I touch tend to break.",
     "I took an IQ test and I was not surprised by the result.",
     "I am willing to take action.",
     "I am open to changing my story.",
@@ -208,7 +203,7 @@ const lists = {
     "I exercise regularly.",
     "I have a creative outlet.",
     "people often tell me that I look confident.",
-    "I learn by looking at patterns.",
+    "I learn by looking for patterns.",
     "I am ready to get rich.",
     "I will never go to space.", 
     "I know I will be alive tomorrow.",
@@ -242,7 +237,7 @@ const lists = {
     "I think being happy is worth the effort.",
     "I never try to solve problems I don't have.",
     "I deserve everything I have.",
-    "And I understand that I live in time."
+    "I understand that I live in time."
   ]
 };
 
