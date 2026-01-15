@@ -18,7 +18,9 @@ description: This project is inpired by <a href="https://pippinbarr.com" target=
         <button onclick="randomMuseum()">↔ Random</button>
         <button onclick="previousMuseum()">← Previous</button>
     </div>
-    <p id="museumText" class="info"></p>
+    <div id="museumText" class="info">
+        <div id="status">1%</div>
+        <div id="title">This is what museums look like</div>
 </div>
 
 <!-- Pre-created image background divs for immediate display -->
@@ -43,13 +45,30 @@ data {
 }
 
 #museumText {
-    background-color: white;
-    padding: 5px;
+    background-color: transparent;
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0 0 4em 0;
+    bottom: 4em;
+    right: 85px;
+    width: 100%;
+    height: 2rem;
+}
+
+#status {
+    background-color: white;
+    padding: 0.5rem 0.5rem;
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: calc(50% + 0.5rem); /* 0.5rem is half the gap */
+    text-align: right;
+    min-width: 45px;
+}
+
+#title {
+    background-color: white;
+    padding: 0.5rem 0.5rem;
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: calc(50% + 0.5rem); /* 0.5rem is half the gap */
 }
 
 .controls {
@@ -58,6 +77,7 @@ data {
     align-items: flex-start;
     width: fit-content;
     background: white;
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.1);
 }
 
 .controls button {
@@ -110,16 +130,20 @@ const state = {
     imageCache: new Map(),
     animationFrameId: null,
     numberBuffer: '',
-    numberTimeout: null
+    numberTimeout: null,
+    preloadedCount: 0,
+    backgroundPreloadIndex: 0
 };
 
 const dom = {
-    text: null,
+    status: null,
+    title: null,
     buffers: { current: null, prev: null, next: null }
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    dom.text = document.getElementById('museumText');
+    dom.status = document.getElementById('status');
+    dom.title = document.getElementById('title');
     dom.buffers.current = document.getElementById('currentBuffer');
     dom.buffers.prev = document.getElementById('previousBuffer');
     dom.buffers.next = document.getElementById('nextBuffer');
@@ -129,6 +153,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         /* Initial display */
         updateDisplay(0);
+        
+        /* Start background preloading from index 0 onwards */
+        startBackgroundPreload();
     } else {
         console.error('No museums found');
     }
@@ -147,10 +174,71 @@ function preloadWindow(centerIndex, radius = 3) {
         const m = getMuseum(centerIndex + i);
         if (m && m.filename && !state.imageCache.has(m.filename)) {
             const img = new Image();
-            img.onload = () => state.imageCache.set(m.filename, 'loaded');
-            img.onerror = () => state.imageCache.set(m.filename, 'failed');
+            img.onload = () => {
+                state.imageCache.set(m.filename, 'loaded');
+                state.preloadedCount++;
+                updateProgressDisplay();
+            };
+            img.onerror = () => {
+                state.imageCache.set(m.filename, 'failed');
+                state.preloadedCount++;
+                updateProgressDisplay();
+            };
             img.src = `/assets/2016/museums/${m.filename}`;
             state.imageCache.set(m.filename, 'loading');
+        }
+    }
+}
+
+/* Background preloader that loads all images sequentially from 0 onwards */
+function startBackgroundPreload() {
+    function loadNextImage() {
+        if (state.backgroundPreloadIndex >= museums.length) {
+            return; /* All images loaded */
+        }
+        
+        const m = getMuseum(state.backgroundPreloadIndex);
+        if (m && m.filename && !state.imageCache.has(m.filename)) {
+            const img = new Image();
+            img.onload = () => {
+                state.imageCache.set(m.filename, 'loaded');
+                state.preloadedCount++;
+                updateProgressDisplay();
+                state.backgroundPreloadIndex++;
+                loadNextImage();
+            };
+            img.onerror = () => {
+                state.imageCache.set(m.filename, 'failed');
+                state.preloadedCount++;
+                updateProgressDisplay();
+                state.backgroundPreloadIndex++;
+                loadNextImage();
+            };
+            img.src = `/assets/2016/museums/${m.filename}`;
+            state.imageCache.set(m.filename, 'loading');
+        } else {
+            /* Image already cached or loading, skip to next */
+            state.backgroundPreloadIndex++;
+            loadNextImage();
+        }
+    }
+    
+    loadNextImage();
+}
+
+/* Update progress display */
+function updateProgressDisplay() {
+    if (dom.status && museums && museums.length > 0) {
+        const museum = getMuseum(state.currentIndex);
+        if (museum) {
+            if (museum.id === "") {
+                /* Show loading progress for museum with empty ID */
+                const progress = Math.round((state.preloadedCount / museums.length) * 100);
+                dom.status.textContent = `${progress}%`;
+            } else {
+                /* Show museum ID */
+                dom.status.textContent = museum.id + ".";
+            }
         }
     }
 }
@@ -171,10 +259,20 @@ function updateDisplay(index) {
         /* Verify this is still the requested index to prevent race conditions */
         if (state.currentIndex !== index) return;
 
-        /* 1. Update Text */
-        if (dom.text) {
-            let txt = (museum.id ? museum.id + ". " : "") + museum.description;
-            dom.text.innerHTML = txt.replace(/\\n/g, '<br>');
+        /* 1. Update Status and Title */
+        if (dom.status) {
+            if (museum.id === "") {
+                /* Show loading progress for museum with empty ID */
+                const progress = Math.round((state.preloadedCount / museums.length) * 100);
+                dom.status.textContent = `${progress}%`;
+            } else {
+                /* Show museum ID */
+                dom.status.textContent = museum.id + ".";
+            }
+        }
+        
+        if (dom.title) {
+            dom.title.innerHTML = museum.description.replace(/\\n/g, '<br>');
         }
 
         /* 2. Update Current Buffer */
@@ -272,7 +370,20 @@ function stopAnimation() {
 
 function randomMuseum() {
     if (!museums || !museums.length) return;
-    animateToIndex(Math.floor(Math.random() * museums.length));
+    
+    /* Calculate random jump between 7 and 50 images away */
+    const minDistance = 7;
+    const maxDistance = 50;
+    const distance = minDistance + Math.floor(Math.random() * (maxDistance - minDistance + 1));
+    
+    /* Randomly choose direction (forward or backward) */
+    const direction = Math.random() < 0.5 ? 1 : -1;
+    const offset = distance * direction;
+    
+    /* Calculate target with wraparound */
+    const targetIndex = (state.currentIndex + offset + museums.length) % museums.length;
+    
+    animateToIndex(targetIndex);
 }
 
 document.addEventListener('keydown', function(event) {
