@@ -227,21 +227,30 @@ function startBackgroundPreload() {
     loadNextImage();
 }
 
-/* Update progress display */
-function updateProgressDisplay() {
-    if (dom.status && museums && museums.length > 0) {
-        const museum = getMuseum(state.currentIndex);
-        if (museum) {
-            if (museum.id === "") {
-                /* Show loading progress for museum with empty ID */
-                const progress = Math.round((state.preloadedCount / museums.length) * 100);
-                dom.status.textContent = `${progress}%`;
-            } else {
-                /* Show museum ID */
-                dom.status.textContent = museum.id + ".";
-            }
+/* Update status display based on current museum and loading progress */
+function updateStatusDisplay() {
+    if (!dom.status || !museums || museums.length === 0) return;
+    
+    const museum = getMuseum(state.currentIndex);
+    if (!museum) return;
+    
+    if (museum.id === "") {
+        /* Show loading progress or arrow when complete */
+        const progress = Math.round((state.preloadedCount / museums.length) * 100);
+        if (progress < 100) {
+            dom.status.textContent = `${progress}%`;
+        } else {
+            dom.status.textContent = "0000.";
         }
+    } else {
+        /* Show museum ID */
+        dom.status.textContent = museum.id + ".";
     }
+}
+
+/* Update progress display - calls updateStatusDisplay */
+function updateProgressDisplay() {
+    updateStatusDisplay();
 }
 
 function updateDisplay(index) {
@@ -261,16 +270,7 @@ function updateDisplay(index) {
         if (state.currentIndex !== index) return;
 
         /* 1. Update Status and Title */
-        if (dom.status) {
-            if (museum.id === "") {
-                /* Show loading progress for museum with empty ID */
-                const progress = Math.round((state.preloadedCount / museums.length) * 100);
-                dom.status.textContent = `${progress}%`;
-            } else {
-                /* Show museum ID */
-                dom.status.textContent = museum.id + ".";
-            }
-        }
+        updateStatusDisplay();
         
         if (dom.title) {
             dom.title.innerHTML = museum.description.replace(/\\n/g, '<br>');
@@ -432,7 +432,7 @@ document.addEventListener('keydown', function(event) {
                 if (state.numberBuffer.length > 0) {
                     /* Update display with remaining digits */
                     if (dom.status) {
-                        dom.status.textContent = state.numberBuffer.padStart(3, '0') + ".";
+                        dom.status.textContent = state.numberBuffer.padStart(4, '0') + ".";
                     }
                     clearTimeout(state.numberTimeout);
                     state.numberTimeout = setTimeout(clearNumberBuffer, 3000);
@@ -470,16 +470,6 @@ function clearNumberBuffer() {
     state.numberTimeout = null;
     
     /* Restore normal status display */
-    if (dom.status && museums && museums.length > 0) {
-        const museum = getMuseum(state.currentIndex);
-        if (museum) {
-            if (museum.id === "") {
-                const progress = Math.round((state.preloadedCount / museums.length) * 100);
-                dom.status.textContent = `${progress}%`;
-            } else {
-                dom.status.textContent = museum.id + ".";
-            }
-        }
-    }
+    updateStatusDisplay();
 }
 </script>
