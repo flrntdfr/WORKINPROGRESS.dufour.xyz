@@ -2,16 +2,16 @@ title: WORK IN PROGRESS
 title_short: WIP
 encoding: utf-8
 owner: Florent Dufour
-email: help@dufour.xyz
+email: mayday@dufour.xyz
 
 author: Florent Dufour
-description: This is work.
+description: Clearly a work in progress.
 keywords: "AI, bayern, biotechnology, cloud, confidential, cv, digimed, dufour, esbs, florent, health, llm, lrz, medicine, munich, privacy, security, strasbourg, tum, unistra, wip, xyz"
 languages: [en, fr]
 url: "https://WORKINPROGRESS.dufour.xyz"
 
 timezone: Europe/Paris
-theme-color: "#fdf52b"
+theme-color: "#fdf52b" # https://roger.zone/theme-color-preview/
 
 # Plugins
 gems:
@@ -53,5 +53,5 @@ exclude:
   - result/
   - .idea
   - .DS_Store
-  - .gitignore.d
+  - gitignore.d
   - em_cache

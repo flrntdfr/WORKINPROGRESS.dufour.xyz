@@ -1,9 +1,13 @@
-.DS_Store
-.direnv
+# Environment
+.env
 gitignore.d
-
 *.draft*
 
+# System
+.DS_Store
+.direnv
+
+# Jekyll
 .jekyll-cache
 _site
 result
