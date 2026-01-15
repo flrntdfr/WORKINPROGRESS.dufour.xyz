@@ -324,11 +324,11 @@ class ChantierSearch {
     }
 
     showNoResultsMessage(searchTerm) {
-        this.resultsContainer.innerHTML = `
-        <div class="search-message">
-          Nothing matching: "${searchTerm}"
-        </div>
-      `;
+        this.resultsContainer.innerHTML = '';
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'search-message';
+        messageDiv.textContent = `Nothing matching: "${searchTerm}"`;
+        this.resultsContainer.appendChild(messageDiv);
         this.resultsContainer.style.display = 'block';
     }
 
