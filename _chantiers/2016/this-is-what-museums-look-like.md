@@ -69,6 +69,7 @@ data {
     box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.1);
     position: absolute;
     left: calc(50% + 0.5rem); /* 0.5rem is half the gap */
+    max-width: 100%;
 }
 
 .controls {
@@ -424,11 +425,40 @@ document.addEventListener('keydown', function(event) {
                 clearNumberBuffer();
             }
             break;
+        case 'Backspace':
+            if (state.numberBuffer.length > 0) {
+                event.preventDefault();
+                state.numberBuffer = state.numberBuffer.slice(0, -1);
+                if (state.numberBuffer.length > 0) {
+                    /* Update display with remaining digits */
+                    if (dom.status) {
+                        dom.status.textContent = state.numberBuffer.padStart(3, '0') + ".";
+                    }
+                    clearTimeout(state.numberTimeout);
+                    state.numberTimeout = setTimeout(clearNumberBuffer, 3000);
+                } else {
+                    /* No digits left, restore normal display */
+                    clearNumberBuffer();
+                }
+            }
+            break;
+        case 'Escape':
+            if (state.numberBuffer.length > 0) {
+                clearNumberBuffer();
+            }
+            break;
         default:
             if (event.key >= '0' && event.key <= '9') {
-                state.numberBuffer += event.key;
-                clearTimeout(state.numberTimeout);
-                state.numberTimeout = setTimeout(clearNumberBuffer, 3000);
+                /* Limit to 4 digits */
+                if (state.numberBuffer.length < 4) {
+                    state.numberBuffer += event.key;
+                    /* Display the typed number in status with leading zeros */
+                    if (dom.status) {
+                        dom.status.textContent = state.numberBuffer.padStart(4, '0') + ".";
+                    }
+                    clearTimeout(state.numberTimeout);
+                    state.numberTimeout = setTimeout(clearNumberBuffer, 3000);
+                }
             }
             break;
     }
@@ -438,5 +468,18 @@ function clearNumberBuffer() {
     state.numberBuffer = '';
     clearTimeout(state.numberTimeout);
     state.numberTimeout = null;
+    
+    /* Restore normal status display */
+    if (dom.status && museums && museums.length > 0) {
+        const museum = getMuseum(state.currentIndex);
+        if (museum) {
+            if (museum.id === "") {
+                const progress = Math.round((state.preloadedCount / museums.length) * 100);
+                dom.status.textContent = `${progress}%`;
+            } else {
+                dom.status.textContent = museum.id + ".";
+            }
+        }
+    }
 }
 </script>
