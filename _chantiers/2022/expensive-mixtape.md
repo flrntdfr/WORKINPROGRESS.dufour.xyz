@@ -1,11 +1,11 @@
 ---
 layout: chantier
-title: Expensive Mixtape
+title: DJ FLAC
 author: Florent Dufour
 started: 2022-05-21
 location: [Munich High-End Audio]
 result: [mixtape]
-tech: [Apple Music]
+tech: [Apple&nbsp;Music]
 description: |
     This is a mixtape of tracks I would like to listen to (loud) on a (very) good sound system.
 ---
