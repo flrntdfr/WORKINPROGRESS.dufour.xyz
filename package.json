@@ -1,0 +1,14 @@
+{
+  "name": "x.dufour.xyz-scripts",
+  "version": "1.0.0",
+  "description": "Scripts for x.dufour.xyz",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch-playlists": "node scripts/fetch-playlists.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+

@@ -16,20 +16,23 @@ install: gems ## Alias for gems target
 update: ## Update gems
 	bundle update
 
-build: ## Build the website locally
+prebuild: ## Prebuild step
+	#$(MAKE) -C assets/2024/human-centric-title-case/ wasm
+	npm run fetch-playlists
+
+build: prebuild ## Build the website locally
 	bundle exec jekyll $@ --verbose
 
 build-nix: ## Build the website using Nix
 	nix build
 
-serve: ## Build and serve the website
+serve: prebuild ## Build and serve the website
 	bundle exec jekyll serve $(SERVER_FLAGS)
 
 serve-dev: ## Build and serve the website with drafts and future posts
 	bundle exec jekyll serve $(SERVER_FLAGS) --unpublished --future
 
-wasm: ## Build WebAssembly modules TODO
-	cd assets/2024/human-title-case && make wasm
+
 
 clean: ## Clean Jekyll caches
 	bundle exec jekyll $@
