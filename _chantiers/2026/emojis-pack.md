@@ -1,8 +1,8 @@
 ---
 layout: chantier-blank
 title: Emojis Pack
-started: 2026-01-15
-ended: 2026-01-15
+started: 2026-01-16 01:28:53
+ended: 2026-01-16 01:28:53
 result: [web]
 href:
     - ["ext", "1", "Figma community file: 1079620626888497486", "https://www.figma.com/community/file/1079620626888497486"]
