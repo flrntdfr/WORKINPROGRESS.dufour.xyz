@@ -435,3 +435,8 @@ input[type="reset"] {
     -webkit-text-fill-color: var(--font-color);
   }
 }
+
+.emoji {
+  width: 1em;
+  height: 1em;
+}

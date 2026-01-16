@@ -97,7 +97,7 @@ const chantiers = [
       result: {{ chantier.result | jsonify }},
       tech: {{ chantier.tech | jsonify }},
       location: {{ chantier.location | jsonify }},
-      highlighted: {{ chantier.highlighted | jsonify }},
+      spicy: {{ chantier.spicy | jsonify }},
       description: {{ chantier.description | strip_html | jsonify }},
       layout: {{ chantier.layout | jsonify }}
     },
@@ -223,7 +223,7 @@ function renderTable() {
     <tr>
       <td>
         <a href="${chantier.url}">${chantier.title}</a>
-        ${chantier.highlighted ? '<span class="highlighted-indicator">★</span>' : ''}
+        ${chantier.spicy ? '<span class="highlighted-indicator">{% include emojis/spicy.html %}</span>' : ''}
       </td>
       <td>${formatDate(chantier.started)}</td>
       <td>${formatDate(chantier.ended)}</td>
@@ -348,7 +348,7 @@ function applyFilters() {
     
     /* Highlighted filter */
     if (highlightedFilter !== '') {
-      const isHighlighted = chantier.highlighted === true;
+      const isHighlighted = chantier.spicy === true;
       if ((highlightedFilter === 'true') !== isHighlighted) {
         return false;
       }

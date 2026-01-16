@@ -6,7 +6,7 @@ started:
 favicon:
 ended:
 modified:
-highlighted:
+spicy:
 location:
 feat:
 permalink:
@@ -30,10 +30,10 @@ result:
     <h1><a href="/" onclick="back(event)">←</a> {{ page.title }}</h1>
     <table>
         <tr>
-        {% if page.highlighted %}
+        {% if page.spicy %}
         <tr>
-            <th>highlight</th>
-            <td>★</td>
+            <th></th>
+            <td>{% include emojis/spicy.html %}</td>
         </tr>
         {% endif %}
         {% if page.ended == page.started %}

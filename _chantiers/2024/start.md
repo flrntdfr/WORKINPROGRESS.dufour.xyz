@@ -43,7 +43,7 @@ head_raw_inject:
                   {% if chantier.ended %}
                   <tr>
                   <td><b>{{ label_year }}</b></td>
-                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a>{% if chantier.highlighted %}★{% endif %}<span class="result-tag"> {{ chantier.result | first }}</span></td>
+                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a>{% if chantier.spicy %}{% include emojis/spicy.html %}{% endif %}<span class="result-tag"> {{ chantier.result | first }}</span></td>
                   </tr>
                   {% endif %}
               {% endif %}
@@ -79,7 +79,7 @@ head_raw_inject:
                   {% if chantier.started %}
                   <tr>
                   <td><b>{{ label_year }}</b></td>
-                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.highlighted %}★{% endif %} <span class="result-tag"> {{ chantier.result | first }}</span></td>
+                  <td><a href="{{ chantier.url }}">{{ chantier.title }}</a> {% if chantier.spicy %}{% include emojis/spicy.html %}{% endif %} <span class="result-tag"> {{ chantier.result | first }}</span></td>
                   </tr>
                   {% endif %}
               {% endunless %}

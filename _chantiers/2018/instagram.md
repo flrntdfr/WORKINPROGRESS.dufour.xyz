@@ -1,6 +1,5 @@
 ---
 layout: chantier-href
-highlighted: true
 title: Instagram
 started: 2018-01-12 12:00
 ended: 

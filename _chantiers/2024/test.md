@@ -5,7 +5,7 @@ title: test
 started: 1970-01-01 00:00
 ended: 1970-01-01 00:00
 modified: 1970-01-01 00:00
-highlighted: true
+spicy: true
 result: [test, test]
 tech: [tech1, tech2, tech3]
 result: [web]

@@ -1,7 +1,7 @@
 ---
 layout: chantier-blank
 theme-color: "#000"
-highlighted: true
+spicy: true
 title: this is what museums look like
 started: 2016-01-01 23:42
 ended:
@@ -61,6 +61,7 @@ data {
     right: calc(50% + 0.5rem); /* 0.5rem is half the gap */
     text-align: right;
     min-width: 45px;
+    border: 1px solid black;
 }
 
 #title {
@@ -70,6 +71,7 @@ data {
     position: absolute;
     left: calc(50% + 0.5rem); /* 0.5rem is half the gap */
     max-width: 100%;
+    border: 1px solid black;
 }
 
 .controls {
@@ -79,6 +81,9 @@ data {
     width: fit-content;
     background: white;
     box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+    padding: 1rem 1rem;
+    gap: 0.375rem;
 }
 
 .controls button {
