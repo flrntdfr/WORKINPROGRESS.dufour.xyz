@@ -4,10 +4,10 @@ title: Emojis Pack
 started: 2026-01-16 01:28:53
 ended: 2026-01-16 01:28:53
 result: [web]
-href:
-    - ["ext", "1", "Figma community file: 1079620626888497486", "https://www.figma.com/community/file/1079620626888497486"]
+#href:
+#   - ["ext", "1", "Figma community file: 1079620626888497486", "https://www.figma.com/community/file/1079620626888497486"]
 description: |
-    These are all Apple iOS 15 emojis (2021) in 72x72 SVG format, collected from Figma community.<sup>1</sup>
+    These are all Apple iOS 15 emojis (2021) in 72x72 SVG format. <a target="_blank" noreferrer noopener href="https://www.figma.com/community/file/1079620626888497486">Credit to figma Community file 1079620626888497486</a>.
     <br>
     <div style="font-size: 10px;">© Apple Inc. All emojis are copyrighted and trademarked by Apple Inc. Not affiliated with or endorsed by Apple Inc. Not for commercial use.</div>
 ---
