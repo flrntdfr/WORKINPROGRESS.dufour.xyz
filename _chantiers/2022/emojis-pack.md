@@ -19,8 +19,10 @@ description: |
 /* Emojis container */
 
 .emojis-container {
-    width: fit-content;
-    min-width: 100%;
+    width: 100%;
+    height: 96vh;
+    min-height: 96vh;
+    overflow: auto;
     border: 1px solid black;
     background: #ffffff;
     padding: 20px;
@@ -29,6 +31,10 @@ description: |
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+    /* Better scrollbar styling for webkit browsers */
+    -webkit-overflow-scrolling: touch;
 }
 
 .emojis-container img {
@@ -43,4 +49,21 @@ description: |
 }
 
 /* Scrollbars */
+
+.emojis-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.emojis-container::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.emojis-container::-webkit-scrollbar-thumb {
+    background: #000000;
+}
+
+.emojis-container::-webkit-scrollbar-thumb:hover {
+    background: #333333;
+}
 </style>
