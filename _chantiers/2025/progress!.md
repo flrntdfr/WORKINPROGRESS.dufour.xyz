@@ -14,7 +14,7 @@ description: |
 > Create a retro BIOS boot sequence animation with scrolling text showing system initialization, memory checks, and hardware detection in green monospace font on black background. As an easter egg, place Secure Nested Paging as part of the sequence.
 
 <div class="preview">
-{% include progress/bios.html %}
+{% include_relative progress/bios.html %}
 </div>
 
 ---
@@ -24,7 +24,7 @@ description: |
 > Recreate a classic 2 loading-bars DOS DLL animation with .dll names appearing one by one, showing "Loading..." for the first bar and overall progress for the second. Generate .dll names and load them randomly. Some of them should take longer to load than others.
 
 <div class="preview">
-{% include progress/dll.html %}
+{% include_relative progress/dll.html %}
 </div>
 
 ---
@@ -34,7 +34,7 @@ description: |
 > Recreate the authentic Windows 95 loading interface with the classic gray shell window, Microsoft Windows 95 logo, navy blue progress bar with smooth 1% increments, and authentic typography.
 
 <div class="preview">
-{% include progress/win95.html %}
+{% include_relative progress/win95.html %}
 </div>
 
 ---
@@ -44,7 +44,7 @@ description: |
 > Recreate the classic macOS Aqua loading interface with authentic traffic light controls, retro gradient titlebar, animated candy-striped progress bar with blue gradient fill, and the distinctive early 2000s Apple design aesthetic.
 
 <div class="preview">
-{% include progress/aqua.html %}
+{% include_relative progress/aqua.html %}
 </div>
 
 ---
@@ -54,7 +54,7 @@ description: |
 > Recreate a Windows 8 loading window with blue titlebar, flat design controls, rotating spinner animation, and the signature Segoe UI typography characteristic of the Metro design language.
 
 <div class="preview">
-{% include progress/win8.html %}
+{% include_relative progress/win8.html %}
 </div>
 
 ---
@@ -64,7 +64,7 @@ description: |
 > Recreate the macOS Time Machine setting interface according to the screenshot. Make sure the animation works.
 
 <div class="preview">
-{% include progress/time-machine.html id="main" %}
+{% include_relative progress/time-machine.html id="main" %}
 </div>
 
 ---
@@ -74,7 +74,7 @@ description: |
 > Draw Claude 4.
 
 <div class="preview">
-{% include progress/claude.html %}
+{% include_relative progress/claude.html %}
 </div>
 
 ---
@@ -84,7 +84,7 @@ description: |
 > Make as many classic spinners as you can. Be creative!
 
 <div class="preview">
-{% include progress/spinners.html %}
+{% include_relative progress/spinners.html %}
 </div>
 
 <style>

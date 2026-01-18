@@ -86,7 +86,7 @@ description: |
       "How do you like your life so far?",
       "What are you most certain about?",
       "How do you deal with uncertainty?",
-      "What's the most meaningful thing parents should give to their kids?",
+      "What's the most meaningful thing parents should give their kids?",
       "What's your most unpopular opinion?",
       "Do you miss being a kid?",
       "A world where everyone thinks like you. What does it look like?",

@@ -1,7 +1,7 @@
 ---
 layout: chantier
 title: EC*
-result: [proof-of-concept]
+result: [dataset]
 spicy: true
 tech: [eMule, iTunes, Apple&nbsp;Music, Music&nbsp;Kit.js]
 started: 2010-09-01 20:00

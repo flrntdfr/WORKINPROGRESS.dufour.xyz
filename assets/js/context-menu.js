@@ -4,7 +4,12 @@ class CustomContextMenu {
   constructor() {
     this.menu = null;
     this.isVisible = false;
+    this.customItems = [];
     this.init();
+  }
+
+  registerItem(item) {
+    this.customItems.push(item);
   }
 
   init() {
@@ -112,10 +117,18 @@ class CustomContextMenu {
     if (target.tagName === 'IMG') {
       items.push(
         { separator: true },
-        { text: 'Open image', action: () => window.open(target.src, '_blank') },
-        { text: 'Copy image URL', action: () => this.copyToClipboard(target.src) }
+        { text: '↘ Open in new tab', action: () => window.open(target.src, '_blank') },
+        { text: '↘ Copy URL', action: () => this.copyToClipboard(target.src) },
+        { text: '↘ Download', action: () => this.downloadImage(target.src) }
       );
     }
+
+    /* Add custom registered items */
+    this.customItems.forEach(item => {
+      if (!item.condition || item.condition(target)) {
+        items.push(item);
+      }
+    });
 
     /* Create menu items */
     items.forEach(item => {
@@ -237,6 +250,18 @@ class CustomContextMenu {
     }
   }
 
+  downloadImage(url) {
+    if (window.showNotification) {
+      window.showNotification('Download started…');
+    }
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = url.split('/').pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   restart() {
     /* Create overlay with accent color */
     const overlay = document.createElement('div');
@@ -268,7 +293,7 @@ class CustomContextMenu {
 
 /* Initialize context menu when DOM is loaded */
 document.addEventListener('DOMContentLoaded', () => {
-  new CustomContextMenu();
+  window.customContextMenu = new CustomContextMenu();
   
   /* Check if search should be activated after navigation */
   if (sessionStorage.getItem('activateSearch') === 'true') {
