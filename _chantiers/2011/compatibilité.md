@@ -11,7 +11,7 @@ lib: swbasic.js
 ---
 
 <div class="ti-calculator">
-    <img src="{% link /assets/2009/ti-83-plus-scaled.webp %}" alt="TI-83 Plus Calculator" class="calculator-image">
+    <img src="{% link /assets/2011/ti-83-plus-scaled.webp %}" alt="TI-83 Plus Calculator" class="calculator-image">
     <div id="screen"></div>
     <div id="keyboard-container"></div>
 </div>
@@ -298,7 +298,7 @@ let outputElement;
     
     try {
         /* Create parser and interpreter */        
-        const program = '{% include compatbilite.bas %}';
+        const program = '{% include_relative compatibilite/compatbilite.bas %}';
         parser = new Parser(program);
         parser.parse();
         

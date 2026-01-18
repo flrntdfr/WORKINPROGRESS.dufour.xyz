@@ -437,6 +437,12 @@ input[type="reset"] {
 }
 
 .emoji {
-  width: 1em;
-  height: 1em;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  /* Fix for iOS Safari SVG sizing */
+  max-width: 16px;
+  max-height: 16px;
+  object-fit: contain;
 }

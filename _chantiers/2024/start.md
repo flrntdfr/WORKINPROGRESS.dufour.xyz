@@ -13,7 +13,7 @@ head_raw_inject:
   - <link rel="preload" href="/assets/2024/start/barriere-100.webp" as="image" type="image/webp">
 ---
 
-{% include start.html %}
+{% include_relative start/WIP_logo_animated.html %}
 
 {{ page.description }}
 
@@ -111,7 +111,7 @@ head_raw_inject:
 <br><br><br><br>
 
 <div class="banner">
-  {% include banner.html %}
+  {% include_relative start/banner.html %}
 </div>
 
 <style>

@@ -1,10 +1,13 @@
 ---
 hidden: true
-layout: chantier-standalone
+layout: chantier-blank
 title: Admin panel
 permalink: /admin
+result: [web]
 started: 2025-09-15 16:47
 ended: 2025-09-15 16:47
+description: |
+  This view give an overview of all projects.
 ---
 
 <div class="chantiers-container">  
@@ -13,21 +16,18 @@ ended: 2025-09-15 16:47
       <label for="search-input">Search</label>
       <input type="text" id="search-input" placeholder="Search title, description, tech...">
     </div>
-    
     <div class="control-group">
       <label for="result-filter">Result</label>
       <select id="result-filter">
         <option value="">All Results</option>
       </select>
     </div>
-    
     <div class="control-group">
       <label for="tech-filter">Technology</label>
       <select id="tech-filter">
         <option value="">All Tech</option>
       </select>
     </div>
-    
     <div class="control-group">
       <label for="status-filter">Status</label>
       <select id="status-filter">
@@ -36,14 +36,12 @@ ended: 2025-09-15 16:47
         <option value="ongoing">Ongoing</option>
       </select>
     </div>
-    
     <div class="control-group">
       <label for="year-filter">Year</label>
       <select id="year-filter">
         <option value="">All Years</option>
       </select>
     </div>
-    
     <div class="control-group">
       <label for="highlighted-filter">Highlighted</label>
       <select id="highlighted-filter">
@@ -52,7 +50,6 @@ ended: 2025-09-15 16:47
         <option value="false">Regular Only</option>
       </select>
     </div>
-    
     <div class="control-group">
       <label>&nbsp;</label>
       <button id="clear-filters" type="button">Clear All Filters</button>
@@ -508,14 +505,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-
-body {
-  padding: 20px;
-}
-
-h1 {
-  font-size: 1em;
-}
 
 .controls-panel {
   margin-bottom: 1em;

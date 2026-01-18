@@ -1,10 +1,10 @@
 ---
 layout: chantier-blank
 theme-color: "#000"
-spicy: true
+#spicy: true
 title: this is what museums look like
 started: 2016-01-01 23:42
-ended:
+ended: 2026-01-18 11:02
 location: [Belleville]
 result: [illustration, list]
 description: This project is inpired by <a href="https://pippinbarr.com" target="_blank" rel="noopener noreferrer">Pippin Barr ➟</a> and his series <a href="https://www.instagram.com/pippinbarr" target="_blank" rel="noopener noreferrer">this is what museums look like ➟</a>.
@@ -129,7 +129,7 @@ data {
 </style>
 
 <script>
-const museums = {% include museums/museums.db.json %};
+const museums = {% include_relative museums/museums.db.json %};
 const state = {
     currentIndex: 0,
     shuffledOrder: [],
