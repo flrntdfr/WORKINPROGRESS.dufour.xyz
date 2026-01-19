@@ -59,13 +59,13 @@ description:
           <div class="ec-vu-meter-bar" id="vu-meter-right"></div>
         </div>
       </div>
-    </div>
-    <!-- Center: Now Playing -->
-    <div class="ec-player">
-      <div class="ec-player-controls">
+      <div class="ec-vu-controls">
         <button id="player-next" class="ec-player-btn" title="Next track (random)"><i class="fas fa-forward"></i></button>
         <button id="player-mute" class="ec-player-btn" title="Mute"><i class="fas fa-volume-up"></i></button>
       </div>
+    </div>
+    <!-- Center: Now Playing -->
+    <div class="ec-player">
       <div id="player-artwork" class="ec-player-artwork"></div>
       <div class="ec-player-track-info">
         <div class="ec-live-badge">LIVE</div>
