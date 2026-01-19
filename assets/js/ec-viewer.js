@@ -307,6 +307,7 @@ class ECViewer {
     
     /* Display metadata - table view selection only shows metadata */
     this.displayMetadata(track);
+    this.updateStructure(track);
   }
   
   displayMetadata(track) {
@@ -398,6 +399,71 @@ class ECViewer {
       playBtn.addEventListener('click', () => {
         this.loadSelectedTrack();
       });
+    }
+  }
+
+  updateStructure(track) {
+    const structureList = document.getElementById('structure-list');
+    if (!structureList) return;
+    
+    if (!track) {
+      structureList.innerHTML = '<div class="ec-empty-state">Select a track</div>';
+      return;
+    }
+    
+    /* Find all playlists containing this track */
+    const containingPlaylists = this.playlists.filter(playlist => {
+      if (!playlist.tracks) return false;
+      return playlist.tracks.some(t => 
+        t.title === track.title && 
+        t.artist === track.artist
+      );
+    });
+    
+    if (containingPlaylists.length === 0) {
+      structureList.innerHTML = '<div class="ec-empty-state">No playlists found</div>';
+      return;
+    }
+    
+    /* Sort playlists by name */
+    containingPlaylists.sort((a, b) => a.name.localeCompare(b.name));
+    
+    /* Build HTML */
+    const html = containingPlaylists.map(playlist => {
+      /* Calculate depth based on prefixes within the set */
+      /* Count how many other playlists in this set are prefixes of this one */
+      const depth = containingPlaylists.filter(p => 
+        p !== playlist && playlist.name.startsWith(p.name)
+      ).length;
+      
+      const indent = depth * 20; /* 20px per level */
+      const isCurrentPlaylist = this.currentPlaylist && this.currentPlaylist.id === playlist.id;
+      
+      return `
+        <div class="ec-tree-node ${isCurrentPlaylist ? 'current-playlist' : ''}" 
+             data-playlist-id="${playlist.id}"
+             style="padding-left: ${indent}px"
+             title="${this.escapeHtml(playlist.name)} (${playlist.trackCount} tracks)">
+          ${this.escapeHtml(playlist.name)}
+        </div>
+      `;
+    }).join('');
+    
+    structureList.innerHTML = `<div class="ec-structure-list">${html}</div>`;
+    
+    /* Attach click handlers */
+    structureList.querySelectorAll('.ec-tree-node').forEach(node => {
+      node.addEventListener('click', () => {
+        const playlistId = node.dataset.playlistId;
+        this.selectPlaylistById(playlistId);
+      });
+    });
+  }
+
+  clearStructure() {
+    const structureList = document.getElementById('structure-list');
+    if (structureList) {
+      structureList.innerHTML = '<div class="ec-empty-state">Nothing to show</div>';
     }
   }
   
@@ -517,6 +583,7 @@ class ECViewer {
   clearMetadata() {
     const metadataContainer = document.getElementById('track-metadata');
     metadataContainer.innerHTML = '<div class="ec-empty-state">Nothing to show</div>';
+    this.clearStructure();
   }
   
   formatDuration(ms) {

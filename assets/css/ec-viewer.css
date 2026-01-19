@@ -137,10 +137,6 @@ body:has(.ec-viewer) data {
   background: var(--accent);
 }
 
-.ec-player-btn.muted:hover {
-
-}
-
 /* Mute Button Boop Circles Animation - Extremely Discrete */
 .ec-player-btn.muted::before,
 .ec-player-btn.muted::after {
@@ -537,7 +533,6 @@ body:has(.ec-viewer) data {
 #filter-playlists:focus,
 #filter-tracks:focus {
   outline: none;
-  border-color: var(--accent);
   background: var(--bg);
 }
 
@@ -559,10 +554,10 @@ body:has(.ec-viewer) data {
   font-weight: 500;
 }
 
-/* 3-Column Layout */
+/* 3-Column Layout (Default) - Modified to 4 columns */
 .ec-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 0;
   flex: 1;
   overflow: hidden;
@@ -579,6 +574,44 @@ body:has(.ec-viewer) data {
 
 .ec-column:last-child {
   border-right: none;
+}
+
+/* Tree Structure Column Styles - Last Column */
+.ec-structure-list {
+  padding: 16px 14px;
+  line-height: 1.6;
+}
+
+.ec-tree-node {
+  padding: 4px 8px;
+  font-family: var(--font-family-ui);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  text-decoration: underline;
+  background: transparent;
+}
+  
+.ec-tree-node:hover {
+  text-decoration: none;
+  background: var(--accent);
+}
+
+.ec-tree-node.current-playlist {
+  font-weight: 700;
+}
+
+.ec-tree-node.current-playlist:hover {
+  background: var(--accent);
+}
+
+.ec-tree-indent {
+  display: inline-block;
+  width: 20px;
 }
 
 /* Column Headers - Hidden but functional */
@@ -1013,7 +1046,7 @@ body:has(.ec-viewer) data {
 /* Responsive Design */
 @media (max-width: 1400px) {
   .ec-columns {
-    grid-template-columns: 1.2fr 1.2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   
   .ec-player-track-info {
@@ -1076,7 +1109,8 @@ body:has(.ec-viewer) data {
     grid-template-columns: 1fr 1fr;
   }
   
-  .ec-metadata-column {
+  .ec-metadata-column,
+  .ec-structure-column {
     display: none;
   }
   
@@ -1158,7 +1192,8 @@ body:has(.ec-viewer) data {
   }
   
   .ec-tracks-column,
-  .ec-metadata-column {
+  .ec-metadata-column,
+  .ec-structure-column {
     display: none;
   }
   

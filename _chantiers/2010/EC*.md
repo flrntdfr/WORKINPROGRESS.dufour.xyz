@@ -7,6 +7,8 @@ tech: [eMule, iTunes, Apple&nbsp;Music, Music&nbsp;Kit.js]
 started: 2010-09-01 20:00
 description:
     EC* is a system of playlists made to store and retrieve electronic music. It is fuzzy.
+css:
+  - ec-viewer.css
 ---
 
 {% include fonteawesome.html %}
@@ -108,7 +110,7 @@ description:
     </div>
     <!-- Stats -->
     <div class="ec-stats">
-      <span id="stats-display">{{ total_tracks }} tracks <br> {{ total_duration_days }} days</span>
+      <span id="stats-display">{{ total_tracks }} tracks <br>{{ total_duration_days }} days<br>{{ site.now | date: "%Y" }}</span>
     </div>
   </div>
   
@@ -167,6 +169,15 @@ description:
         <div class="ec-empty-state">Nothing to show</div>
       </div>
     </div>
+    <!-- Column 4: Structure -->
+    <div class="ec-column ec-structure-column">
+      <div class="ec-column-header">
+        <span>Playlists</span>
+      </div>
+      <div class="ec-column-content" id="structure-list">
+        <div class="ec-empty-state">Select a track</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -175,7 +186,7 @@ description:
   window.ecPlaylistData = {{ ec_playlists | jsonify }}.filter(p => p.name.startsWith('EC'));
 </script>
 <script src="{{ '/assets/js/ec-viewer.js' | relative_url }}"></script>
-<link rel="stylesheet" href="{{ '/assets/css/ec-viewer.css' | relative_url }}">
+<!-- <link rel="stylesheet" href="{{ '/assets/css/ec-viewer.css' | relative_url }}"> -->
 
 {% else %}
 <p>No playlists found (yet).</p>
