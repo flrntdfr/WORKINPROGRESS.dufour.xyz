@@ -836,7 +836,7 @@ body:has(.ec-viewer) data {
 
 /* Metadata Display */
 .ec-metadata-content {
-  padding: 10px 12px;
+  padding: 12px 12px;
   color: var(--text);
 }
 
@@ -981,7 +981,7 @@ body:has(.ec-viewer) data {
   display: inline-block;
   margin-top: 8px;
   padding: 5px 12px;
-  background: var(--accent);
+  background: var(--bg);
   color: var(--bg);
   text-decoration: none;
   font-size: 10px;
@@ -989,11 +989,10 @@ body:has(.ec-viewer) data {
   letter-spacing: 0.3px;
   font-family: var(--font-family-ui);
   border: 1px solid var(--border);
-  transition: background 0.15s ease;
 }
 
 .ec-metadata-link:hover {
-  background: var(--accent-hover);
+  background: var(--accent);
 }
 
 /* Keyboard Navigation Indicators */

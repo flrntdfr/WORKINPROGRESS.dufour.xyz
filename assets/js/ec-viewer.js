@@ -1,8 +1,3 @@
-/* 
- * EC* Viewer - 3-Column Interactive Browser
- * With keyboard navigation and real-time filtering
- */
-
 class ECViewer {
   constructor(data) {
     this.playlists = data || [];
@@ -15,9 +10,10 @@ class ECViewer {
     this.filterPlaylistTerm = '';
     this.filterTrackTerm = '';
     this.filteredPlaylists = [];
-  this.filteredTracks = [];
+    this.filteredTracks = [];
+    this.filterMode = 'and';
   
-  /* Dual audio players for crossfading */
+    /* Dual audio players for crossfading */
   this.audioPlayer = new Audio();
   this.audioPlayer.crossOrigin = 'anonymous'; /* Enable CORS for Web Audio API */
   this.audioPlayer.muted = true; /* Muted by default */
@@ -313,6 +309,12 @@ class ECViewer {
   displayMetadata(track) {
     const metadataContainer = document.getElementById('track-metadata');
     
+    /* Construct Apple Music URL if missing */
+    let trackUrl = track.url;
+    if (!trackUrl && track.playParams && track.playParams.catalogId) {
+      trackUrl = `https://music.apple.com/song/${track.playParams.catalogId}`;
+    }
+    
     const hasArtwork = track.artwork && track.artwork.large;
     const artwork = hasArtwork ? 
       `<img src="${track.artwork.large}" alt="${this.escapeHtml(track.title)}" class="ec-metadata-artwork" onclick="window.ecViewer.openLightbox('${track.artwork.large}')">` :
@@ -383,10 +385,19 @@ class ECViewer {
         </div>
         ` : ''}
         
-        ${track.url ? `
-        <a href="${track.url}" target="_blank" class="ec-metadata-link">
-          Open in Apple Music →
+        ${trackUrl ? `
+        <a href="${trackUrl}" target="_blank" class="ec-metadata-link">
+          Open in Apple Music
         </a>
+        ` : ''}
+        
+        ${this.currentPlaylist && this.currentPlaylist.url ? `
+        <div class="ec-metadata-section">
+          <div class="ec-metadata-label">Playlist</div>
+          <a href="${this.currentPlaylist.url}" target="_blank" class="ec-metadata-link">
+            Open Playlist in Apple Music
+          </a>
+        </div>
         ` : ''}
       </div>
     `;
@@ -484,15 +495,27 @@ class ECViewer {
     /* Track filter */
     const trackFilterInput = document.getElementById('filter-tracks');
     if (trackFilterInput) {
-    let debounceTimer;
+      let debounceTimer;
       trackFilterInput.addEventListener('input', (e) => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
           this.filterTrackTerm = e.target.value.toLowerCase().trim();
+          this.filterPlaylists();
           this.filterTracks();
-      }, 200);
-    });
+        }, 200);
+      });
     }
+
+    /* Filter Mode Radio Buttons */
+    const filterModes = document.querySelectorAll('input[name="filter-mode"]');
+    filterModes.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          this.filterMode = e.target.value;
+          this.filterPlaylists();
+        }
+      });
+    });
   }
   
   filterPlaylists() {
@@ -506,9 +529,32 @@ class ECViewer {
       
       let matches = false;
       
-      /* Filter by playlist name only */
-      if (this.filterPlaylistTerm === '' || playlistName.includes(this.filterPlaylistTerm)) {
-        matches = true;
+      const pTerm = this.filterPlaylistTerm;
+      const tTerm = this.filterTrackTerm;
+      
+      const pMatches = playlistName.includes(pTerm);
+      let tMatches = false;
+      if (playlist.tracks) {
+        tMatches = playlist.tracks.some(track => 
+          track.title.toLowerCase().includes(tTerm) ||
+          track.artist.toLowerCase().includes(tTerm) ||
+          (track.album && track.album.toLowerCase().includes(tTerm))
+        );
+      }
+      
+      if (this.filterMode === 'or') {
+        if (pTerm === '' && tTerm === '') {
+          matches = true;
+        } else {
+          const m1 = pTerm !== '' && pMatches;
+          const m2 = tTerm !== '' && tMatches;
+          matches = m1 || m2;
+        }
+      } else {
+        /* AND mode */
+        const m1 = pTerm === '' || pMatches;
+        const m2 = tTerm === '' || tMatches;
+        matches = m1 && m2;
       }
       
       if (matches) {

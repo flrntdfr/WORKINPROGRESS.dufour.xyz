@@ -52,7 +52,7 @@ css:
   {% endif %}
 {% endfor %}
 
-{% assign total_duration_days = total_duration_ms | divided_by: 86400000.0 | round: 1 %}
+{% assign total_duration_days = total_duration_ms | divided_by: 86400000.0 | round: 2 %}
 
 <!-- Artwork Lightbox -->
 <div id="artwork-lightbox" class="artwork-lightbox">
@@ -110,7 +110,7 @@ css:
     </div>
     <!-- Stats -->
     <div class="ec-stats">
-      <span id="stats-display">{{ total_tracks }} tracks <br>{{ total_duration_days }} days<br>{{ site.now | date: "%Y" }}</span>
+      <span id="stats-display">{{ total_tracks }} tracks <br>{{ total_duration_days }} days<br>{{ "now" | date: "%Y.%m" }}</span>
     </div>
   </div>
   
@@ -157,7 +157,7 @@ css:
         <span id="track-counter">0</span>
       </div>
       <div class="ec-column-content" id="tracks-list">
-        <div class="ec-empty-state">Select a playlist</div>
+        <div class="ec-empty-state">Nothing to show.</div>
       </div>
     </div>
     <!-- Column 3: Track Metadata -->
@@ -166,7 +166,7 @@ css:
         <span>Metadata</span>
       </div>
       <div class="ec-column-content" id="track-metadata">
-        <div class="ec-empty-state">Nothing to show</div>
+        <div class="ec-empty-state">Nothing to show.</div>
       </div>
     </div>
     <!-- Column 4: Structure -->
@@ -175,7 +175,7 @@ css:
         <span>Playlists</span>
       </div>
       <div class="ec-column-content" id="structure-list">
-        <div class="ec-empty-state">Select a track</div>
+        <div class="ec-empty-state">Nothing to show.</div>
       </div>
     </div>
   </div>
