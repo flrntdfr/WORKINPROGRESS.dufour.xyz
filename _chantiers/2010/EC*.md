@@ -43,12 +43,22 @@ description:
   <div class="ec-controls">
     <!-- Left side: Filter, VU Meters, and Controls -->
     <div class="ec-controls-left">
+      <div class="ec-filter-mode">
+        <label class="ec-radio-label">
+          <input type="radio" name="filter-mode" value="and" checked>
+          <span>&&</span>
+        </label>
+        <label class="ec-radio-label">
+          <input type="radio" name="filter-mode" value="or">
+          <span>||</span>
+        </label>
+      </div>
       <div class="ec-filters-wrapper">
         <div class="ec-filter-container">
-          <input type="search" id="filter-playlists" name="filter-playlists" placeholder="Filter playlists" autocomplete="off">
+          <input type="search" id="filter-playlists" name="filter-playlists" placeholder="Filter 1" autocomplete="off">
         </div>
         <div class="ec-filter-container">
-          <input type="search" id="filter-tracks" name="filter-tracks" placeholder="Filter tracks" autocomplete="off">
+          <input type="search" id="filter-tracks" name="filter-tracks" placeholder="Filter 2" autocomplete="off">
         </div>
       </div>
       <div class="ec-vu-meters">

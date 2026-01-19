@@ -309,7 +309,14 @@ class ECViewer {
         
         <div class="ec-metadata-section">
           <div class="ec-metadata-label">Title</div>
-          <div class="ec-metadata-value large">${this.escapeHtml(track.title)}</div>
+          <div class="ec-metadata-title-row">
+            <div class="ec-metadata-value large">${this.escapeHtml(track.title)}</div>
+            ${track.previewUrl ? `
+            <button id="metadata-play-btn" class="ec-metadata-play-btn" title="Play this track (override radio)">
+              <i class="fas fa-play"></i>
+            </button>
+            ` : ''}
+          </div>
           ${badges.length > 0 ? `<div class="ec-metadata-badges">${badges.join('')}</div>` : ''}
         </div>
         
@@ -353,15 +360,6 @@ class ECViewer {
         </div>
         ` : ''}
         
-        ${track.previewUrl ? `
-        <div class="ec-metadata-section ec-preview-section">
-          <div class="ec-metadata-label">Preview</div>
-          <button id="metadata-preview-btn" class="ec-preview-btn" title="Play this track (override radio)">
-            <i class="fas fa-play"></i> Play Track
-          </button>
-        </div>
-        ` : ''}
-        
         ${track.url ? `
         <a href="${track.url}" target="_blank" class="ec-metadata-link">
           Open in Apple Music →
@@ -372,10 +370,10 @@ class ECViewer {
     
     metadataContainer.innerHTML = metadataHTML;
     
-    /* Attach preview button handler */
-    const previewBtn = document.getElementById('metadata-preview-btn');
-    if (previewBtn) {
-      previewBtn.addEventListener('click', () => {
+    /* Attach play button handler */
+    const playBtn = document.getElementById('metadata-play-btn');
+    if (playBtn) {
+      playBtn.addEventListener('click', () => {
         this.loadSelectedTrack();
       });
     }

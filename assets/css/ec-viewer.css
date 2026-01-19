@@ -219,62 +219,62 @@ body:has(.ec-viewer) data {
   }
 }
 
-/* Preview Section in Metadata */
-.ec-preview-section {
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  padding-top: 12px;
-  margin-top: 8px;
+/* Metadata Title Row with Play Button */
+.ec-metadata-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
 }
 
-.ec-preview-btn {
-  padding: 8px 16px;
-  width: 100%;
+.ec-metadata-play-btn {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
   background: linear-gradient(to bottom, 
     rgba(0, 119, 204, 0.9) 0%, 
     rgba(0, 102, 170, 0.9) 100%);
   border: 1px solid rgba(0, 85, 145, 0.8);
-  border-radius: 4px;
+  border-radius: 50%;
   color: rgba(255, 255, 255, 0.95);
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: all 0.15s ease;
-  font-family: var(--font-family-ui);
+  font-size: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  padding: 0;
+  position: relative;
   box-shadow: 
     0 1px 0 rgba(255, 255, 255, 0.2) inset,
     0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.15s ease;
+  flex-shrink: 0;
 }
 
-.ec-preview-btn i {
+.ec-metadata-play-btn i {
   pointer-events: none;
-  font-size: 12px;
+  margin-left: 1px;
 }
 
-.ec-preview-btn:hover {
+.ec-metadata-play-btn:hover {
   background: linear-gradient(to bottom, 
     rgba(0, 136, 238, 1) 0%, 
     rgba(0, 119, 204, 1) 100%);
   border-color: rgba(0, 85, 145, 1);
-  color: rgba(255, 255, 255, 1);
   box-shadow: 
     0 1px 0 rgba(255, 255, 255, 0.3) inset,
     0 2px 5px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
 }
 
-.ec-preview-btn:active {
+.ec-metadata-play-btn:active {
   background: linear-gradient(to bottom, 
     rgba(0, 85, 145, 1) 0%, 
     rgba(0, 68, 119, 1) 100%);
   box-shadow: 
     0 1px 2px rgba(0, 0, 0, 0.25) inset,
     0 1px 2px rgba(0, 0, 0, 0.15);
-  transform: translateY(1px);
+  transform: scale(0.95);
 }
 
 /* Player Info Container */
@@ -578,6 +578,75 @@ body:has(.ec-viewer) data {
   }
 }
 
+/* Filter Mode Radio Buttons */
+.ec-filter-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.ec-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: var(--font-family-ui);
+  color: var(--vsc-text);
+  font-weight: 500;
+  user-select: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.ec-radio-label:hover {
+
+}
+
+.ec-radio-label input[type="radio"] {
+  cursor: pointer;
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 50%;
+  border: 2px solid var(--vsc-border);
+  background: var(--vsc-bg-lighter);
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.ec-radio-label input[type="radio"]:hover {
+  border-color: var(--vsc-blue);
+}
+
+.ec-radio-label input[type="radio"]:checked {
+  border-color: var(--vsc-blue);
+  background: var(--vsc-blue);
+  box-shadow: 0 0 0 2px rgba(0, 102, 170, 0.1);
+}
+
+.ec-radio-label input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+.ec-radio-label span {
+  font-size: 10px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 /* Filters Wrapper - Stacks filter boxes vertically */
 .ec-filters-wrapper {
   display: flex;
@@ -723,31 +792,9 @@ body:has(.ec-viewer) data {
   border-right: none;
 }
 
-/* Column Headers */
+/* Column Headers - Hidden but functional */
 .ec-column-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 14px;
-  background: linear-gradient(to bottom, #ececec 0%, #e0e0e0 100%);
-  border-bottom: 1px solid #b0b0b0;
-  border-top: 1px solid rgba(255, 255, 255, 0.8);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #1a1a1a;
-  font-family: var(--font-family-ui);
-  flex-shrink: 0;
-  box-shadow: 
-    0 1px 0 rgba(255, 255, 255, 0.6) inset,
-    0 1px 2px rgba(0, 0, 0, 0.08);
-}
-
-.ec-column-header span {
-  color: #1a1a1a;
-  font-weight: 700;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  display: none;
 }
 
 /* Column Content - Scrollable */
