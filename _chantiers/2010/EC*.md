@@ -32,6 +32,26 @@ description:
 </style>
 
 {% if site.data.playlists %}
+{% assign ec_playlists = site.data.playlists | where_exp: "item", "item.name contains 'EC'" %}
+{% assign total_tracks = 0 %}
+{% assign total_playlists = 0 %}
+{% assign total_duration_ms = 0 %}
+
+{% for playlist in ec_playlists %}
+  {% assign playlist_prefix = playlist.name | slice: 0, 2 %}
+  {% if playlist_prefix == "EC" %}
+    {% assign total_playlists = total_playlists | plus: 1 %}
+    {% assign total_tracks = total_tracks | plus: playlist.trackCount %}
+    {% for track in playlist.tracks %}
+      {% if track.duration %}
+        {% assign total_duration_ms = total_duration_ms | plus: track.duration %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+{% assign total_duration_days = total_duration_ms | divided_by: 86400000.0 | round: 1 %}
+
 <!-- Artwork Lightbox -->
 <div id="artwork-lightbox" class="artwork-lightbox">
   <div class="artwork-lightbox-overlay"></div>
@@ -46,11 +66,11 @@ description:
       <div class="ec-filter-mode">
         <label class="ec-radio-label">
           <input type="radio" name="filter-mode" value="and" checked>
-          <span>&&</span>
+          <span>&</span>
         </label>
         <label class="ec-radio-label">
           <input type="radio" name="filter-mode" value="or">
-          <span>||</span>
+          <span>|</span>
         </label>
       </div>
       <div class="ec-filters-wrapper">
@@ -83,12 +103,12 @@ description:
         <div id="player-artist" class="ec-player-artist">—</div>
       </div>
       <button id="player-goto" class="ec-player-goto-btn" title="Show in table">
-<i class="fa-solid fa-angle-right"></i>
+        <i class="fa-solid fa-angle-right"></i>
       </button>
     </div>
     <!-- Stats -->
     <div class="ec-stats">
-      <span id="stats-display">build {% commit_counts %}</span>
+      <span id="stats-display">Build {% commit_counts %}<br> {{ total_tracks }} tracks <br> {{ total_duration_days }} days of music</span>
     </div>
   </div>
   
@@ -152,7 +172,6 @@ description:
 
 <!-- Embed playlist data for JavaScript -->
 <script>
-  {% assign ec_playlists = site.data.playlists | where_exp: "item", "item.name contains 'EC'" %}
   window.ecPlaylistData = {{ ec_playlists | jsonify }}.filter(p => p.name.startsWith('EC'));
 </script>
 <script src="{{ '/assets/js/ec-viewer.js' | relative_url }}"></script>
