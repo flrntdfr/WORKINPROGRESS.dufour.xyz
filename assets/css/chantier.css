@@ -31,7 +31,6 @@ metadata h2 + p {
 }
 
 data {
-    padding: 20px;
     box-sizing: border-box;
     min-width: 400px;
     flex: 1;

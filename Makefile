@@ -18,7 +18,7 @@ update: ## Update gems
 
 prebuild: ## Prebuild step
 	#$(MAKE) -C assets/2024/human-centric-title-case/ wasm
-	npm run fetch-playlists
+	$(MAKE) -C prebuild/EC* all
 
 build: prebuild ## Build the website locally
 	bundle exec jekyll $@ --verbose

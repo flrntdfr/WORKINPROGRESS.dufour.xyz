@@ -5,10 +5,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "fetch-playlists": "node scripts/fetch-playlists.js"
+    "fetch-playlists": "node \"scripts/Music Kit.js/fetch-playlists.js\"",
+    "generate-token": "node \"scripts/Music Kit.js/generate-dev-token.js\""
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
   }
 }
 
