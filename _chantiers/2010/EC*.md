@@ -45,13 +45,10 @@ description:
     <div class="ec-controls-left">
       <div class="ec-filters-wrapper">
         <div class="ec-filter-container">
-          <input type="search" id="ec-filter" placeholder="Filter" autocomplete="off">
+          <input type="search" id="filter-playlists" name="filter-playlists" placeholder="Filter playlists" autocomplete="off">
         </div>
-        <div class="ec-letter-buttons">
-          <button class="ec-letter-btn" data-letter="A">A</button>
-          <button class="ec-letter-btn" data-letter="B">B</button>
-          <button class="ec-letter-btn" data-letter="C">C</button>
-          <button class="ec-letter-btn" data-letter="D">D</button>
+        <div class="ec-filter-container">
+          <input type="search" id="filter-tracks" name="filter-tracks" placeholder="Filter tracks" autocomplete="off">
         </div>
       </div>
       <div class="ec-vu-meters">
@@ -62,14 +59,13 @@ description:
           <div class="ec-vu-meter-bar" id="vu-meter-right"></div>
         </div>
       </div>
+    </div>
+    <!-- Center: Now Playing -->
+    <div class="ec-player">
       <div class="ec-player-controls">
         <button id="player-next" class="ec-player-btn" title="Next track (random)"><i class="fas fa-forward"></i></button>
         <button id="player-mute" class="ec-player-btn" title="Mute"><i class="fas fa-volume-up"></i></button>
       </div>
-    </div>
-    
-    <!-- Center: Now Playing -->
-    <div class="ec-player">
       <div id="player-artwork" class="ec-player-artwork"></div>
       <div class="ec-player-track-info">
         <div class="ec-live-badge">LIVE</div>
@@ -77,10 +73,9 @@ description:
         <div id="player-artist" class="ec-player-artist">—</div>
       </div>
     </div>
-    
     <!-- Stats -->
     <div class="ec-stats">
-      <span id="stats-display">{% include site-now.html %}</span>
+      <span id="stats-display">build {% commit_counts %}</span>
     </div>
   </div>
   
@@ -120,7 +115,6 @@ description:
         </table>
       </div>
     </div>
-    
     <!-- Column 2: Tracks -->
     <div class="ec-column ec-tracks-column">
       <div class="ec-column-header">
@@ -131,7 +125,6 @@ description:
         <div class="ec-empty-state">Select a playlist</div>
       </div>
     </div>
-    
     <!-- Column 3: Track Metadata -->
     <div class="ec-column ec-metadata-column">
       <div class="ec-column-header">

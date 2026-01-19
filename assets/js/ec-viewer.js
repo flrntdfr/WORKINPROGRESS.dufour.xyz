@@ -11,8 +11,10 @@ class ECViewer {
     this.currentTrack = null;
     this.selectedPlaylistIndex = -1;
     this.selectedTrackIndex = -1;
-    this.filterTerm = '';
+    this.filterPlaylistTerm = '';
+    this.filterTrackTerm = '';
     this.filteredPlaylists = [];
+    this.filteredTracks = [];
     this.audioPlayer = new Audio();
     this.audioPlayer.muted = true; /* Muted by default */
     this.currentlyPlayingTrackIndex = -1;
@@ -77,7 +79,7 @@ class ECViewer {
   setupKeyboardNavigation() {
     document.addEventListener('keydown', (e) => {
       /* Check if user is typing in filter */
-      if (e.target.id === 'ec-filter') {
+      if (e.target.id === 'filter-playlists' || e.target.id === 'filter-tracks') {
         return;
       }
       
@@ -220,10 +222,6 @@ class ECViewer {
         `<img src="${track.artwork.small}" alt="${this.escapeHtml(track.title)}" class="ec-track-thumb" loading="lazy">` :
         '<div class="ec-track-thumb ec-no-artwork"></div>';
       
-      const previewButton = track.previewUrl ? 
-        `<button class="ec-preview-btn" data-track-index="${index}" title="Play 30s preview">▶</button>` :
-        `<button class="ec-preview-btn disabled" disabled title="No preview available">—</button>`;
-      
       return `
         <tr class="ec-track-row" data-track-index="${index}">
           <td class="ec-track-num-cell">${index + 1}</td>
@@ -233,7 +231,6 @@ class ECViewer {
             <div class="ec-track-artist">${this.escapeHtml(track.artist)}</div>
           </td>
           <td class="ec-track-duration-cell">${this.formatDuration(track.duration)}</td>
-          <td class="ec-track-preview-cell">${previewButton}</td>
         </tr>
       `;
     }).join('');
@@ -248,22 +245,15 @@ class ECViewer {
     
     /* Attach click handlers to tracks */
     document.querySelectorAll('.ec-track-row').forEach((row, index) => {
-      row.addEventListener('click', (e) => {
-        /* Don't select track if clicking preview button */
-        if (!e.target.classList.contains('ec-preview-btn')) {
+      row.addEventListener('click', () => {
           this.selectTrack(index);
-        }
       });
     });
     
-    /* Attach preview button handlers */
-    document.querySelectorAll('.ec-preview-btn:not(.disabled)').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const trackIndex = parseInt(btn.dataset.trackIndex);
-        this.togglePreview(trackIndex);
-      });
-    });
+    /* Apply track filter if active */
+    if (this.filterTrackTerm) {
+      this.filterTracks();
+    }
     
     /* Update preview button states when audio ends */
     this.audioPlayer.addEventListener('ended', () => {
@@ -368,15 +358,6 @@ class ECViewer {
         </div>
         ` : ''}
         
-        ${track.previewUrl ? `
-        <div class="ec-metadata-section">
-          <div class="ec-metadata-label">Preview</div>
-          <button onclick="window.ecViewer.togglePreview(${this.selectedTrackIndex})" class="ec-preview-btn-large">
-            ${this.currentlyPlayingTrackIndex === this.selectedTrackIndex && !this.audioPlayer.paused ? '⏸ Pause' : '▶ Play'} 30s Preview
-          </button>
-        </div>
-        ` : ''}
-        
         ${track.url ? `
         <a href="${track.url}" target="_blank" class="ec-metadata-link">
           Open in Apple Music →
@@ -389,20 +370,34 @@ class ECViewer {
   }
   
   setupFilter() {
-    const filterInput = document.getElementById('ec-filter');
-    if (!filterInput) return;
+    /* Playlist filter */
+    const playlistFilterInput = document.getElementById('filter-playlists');
+    if (playlistFilterInput) {
+      let debounceTimer;
+      playlistFilterInput.addEventListener('input', (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          this.filterPlaylistTerm = e.target.value.toLowerCase().trim();
+          this.filterPlaylists();
+        }, 200);
+      });
+    }
     
+    /* Track filter */
+    const trackFilterInput = document.getElementById('filter-tracks');
+    if (trackFilterInput) {
     let debounceTimer;
-    filterInput.addEventListener('input', (e) => {
+      trackFilterInput.addEventListener('input', (e) => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
-        this.filterTerm = e.target.value.toLowerCase().trim();
-        this.filterContent();
+          this.filterTrackTerm = e.target.value.toLowerCase().trim();
+          this.filterTracks();
       }, 200);
     });
+    }
   }
   
-  filterContent() {
+  filterPlaylists() {
     const playlistRows = document.querySelectorAll('.ec-playlist-row');
     this.filteredPlaylists = [];
     
@@ -413,18 +408,9 @@ class ECViewer {
       
       let matches = false;
       
-      /* Filter by playlist name */
-      if (playlistName.includes(this.filterTerm)) {
+      /* Filter by playlist name only */
+      if (this.filterPlaylistTerm === '' || playlistName.includes(this.filterPlaylistTerm)) {
         matches = true;
-      }
-      
-      /* Filter by tracks */
-      if (!matches && playlist && playlist.tracks) {
-        matches = playlist.tracks.some(track => 
-          track.title.toLowerCase().includes(this.filterTerm) ||
-          track.artist.toLowerCase().includes(this.filterTerm) ||
-          (track.album && track.album.toLowerCase().includes(this.filterTerm))
-        );
       }
       
       if (matches) {
@@ -446,6 +432,39 @@ class ECViewer {
         this.clearMetadata();
       }
     }
+  }
+  
+  filterTracks() {
+    if (!this.currentPlaylist || !this.currentPlaylist.tracks) {
+      return;
+    }
+    
+    const trackRows = document.querySelectorAll('.ec-track-row');
+    this.filteredTracks = [];
+    
+    trackRows.forEach(row => {
+      const trackIndex = parseInt(row.dataset.trackIndex);
+      const track = this.currentPlaylist.tracks[trackIndex];
+      
+      if (!track) return;
+      
+      let matches = false;
+      
+      /* Filter by track title, artist, or album */
+      if (this.filterTrackTerm === '' ||
+          track.title.toLowerCase().includes(this.filterTrackTerm) ||
+          track.artist.toLowerCase().includes(this.filterTrackTerm) ||
+          (track.album && track.album.toLowerCase().includes(this.filterTrackTerm))) {
+        matches = true;
+      }
+      
+      if (matches) {
+        row.style.display = '';
+        this.filteredTracks.push(track);
+      } else {
+        row.style.display = 'none';
+      }
+    });
   }
   
   updatePlaylistCounter() {
@@ -515,16 +534,7 @@ class ECViewer {
   }
   
   updatePreviewButtons() {
-    document.querySelectorAll('.ec-preview-btn:not(.disabled)').forEach(btn => {
-      const trackIndex = parseInt(btn.dataset.trackIndex);
-      if (trackIndex === this.currentlyPlayingTrackIndex && !this.audioPlayer.paused) {
-        btn.textContent = '⏸';
-        btn.classList.add('playing');
-      } else {
-        btn.textContent = '▶';
-        btn.classList.remove('playing');
-      }
-    });
+    /* Preview buttons removed - function kept for compatibility */
   }
   
   /* Player Methods */
@@ -568,19 +578,84 @@ class ECViewer {
   
   setupWebAudio() {
     try {
-      this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      this.analyser = this.audioContext.createAnalyser();
-      this.analyser.fftSize = 512;
-      this.analyser.smoothingTimeConstant = 0; /* NO smoothing for instant 60fps response */
+      console.log('EC* Viewer: Setting up Web Audio...');
+      /* Create audio context if it doesn't exist */
+      if (!this.audioContext) {
+        this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        console.log('EC* Viewer: Audio context created, state:', this.audioContext.state);
+      } else {
+        console.log('EC* Viewer: Audio context already exists, state:', this.audioContext.state);
+      }
       
-      const source = this.audioContext.createMediaElementSource(this.audioPlayer);
-      source.connect(this.analyser);
-      this.analyser.connect(this.audioContext.destination);
+      /* Resume context if suspended */
+      if (this.audioContext.state === 'suspended') {
+        this.audioContext.resume().then(() => {
+          console.log('EC* Viewer: Audio context resumed during setup, new state:', this.audioContext.state);
+        });
+      }
       
-      const bufferLength = this.analyser.frequencyBinCount;
-      this.dataArray = new Uint8Array(bufferLength);
+      /* Only create analyser if it doesn't exist */
+      if (!this.analyser) {
+        console.log('EC* Viewer: Creating analyser...');
+        this.analyser = this.audioContext.createAnalyser();
+        this.analyser.fftSize = 512;
+        this.analyser.smoothingTimeConstant = 0; /* NO smoothing for instant 60fps response */
+        
+        /* Create MediaElementSource - can only be done once per audio element */
+        /* Check if source already exists by checking a flag or trying to create it */
+        if (!this.audioPlayer._mediaSourceCreated) {
+          try {
+            console.log('EC* Viewer: Creating MediaElementSource...');
+            const source = this.audioContext.createMediaElementSource(this.audioPlayer);
+            console.log('EC* Viewer: MediaElementSource created, connecting...');
+            source.connect(this.analyser);
+            this.analyser.connect(this.audioContext.destination);
+            this.audioPlayer._mediaSourceCreated = true;
+            console.log('EC* Viewer: Web Audio API connected successfully', {
+              sourceConnected: true,
+              analyserInputs: this.analyser.numberOfInputs,
+              analyserOutputs: this.analyser.numberOfOutputs
+            });
+          } catch (sourceError) {
+            /* Source might already exist - this is OK, just log it */
+            if (sourceError.name === 'InvalidStateError') {
+              console.warn('EC* Viewer: MediaElementSource already exists, reusing analyser');
+              this.audioPlayer._mediaSourceCreated = true;
+              /* Try to connect analyser directly if source exists */
+              this.analyser.connect(this.audioContext.destination);
+              console.log('EC* Viewer: Analyser connected directly', {
+                analyserInputs: this.analyser.numberOfInputs,
+                analyserOutputs: this.analyser.numberOfOutputs
+              });
+            } else {
+              console.error('EC* Viewer: Failed to create MediaElementSource:', sourceError);
+              throw sourceError;
+            }
+          }
+        } else {
+          console.log('EC* Viewer: MediaElementSource already created, reusing');
+          /* Ensure analyser is connected */
+          if (this.analyser.numberOfOutputs === 0) {
+            console.log('EC* Viewer: Reconnecting analyser to destination...');
+            this.analyser.connect(this.audioContext.destination);
+          }
+          console.log('EC* Viewer: Analyser connection state', {
+            analyserInputs: this.analyser.numberOfInputs,
+            analyserOutputs: this.analyser.numberOfOutputs
+          });
+        }
+        
+        const bufferLength = this.analyser.frequencyBinCount;
+        this.dataArray = new Uint8Array(bufferLength);
+        console.log('EC* Viewer: Web Audio setup complete', {
+          bufferLength,
+          dataArrayLength: this.dataArray.length
+        });
+      } else {
+        console.log('EC* Viewer: Analyser already exists, skipping setup');
+      }
     } catch (e) {
-      console.warn('Web Audio API not supported:', e);
+      console.error('EC* Viewer: Web Audio API setup error:', e);
     }
   }
   
@@ -595,7 +670,29 @@ class ECViewer {
       let level;
       
       try {
-        if (this.isPlaying && this.analyser && this.dataArray) {
+        /* Check if audio is actually playing and we have analyser data */
+        /* Note: We check muted separately - VU meters can work even when muted */
+        const hasAudioData = !this.audioPlayer.paused && 
+                             this.audioPlayer.readyState >= 2 && 
+                             this.analyser && 
+                             this.dataArray;
+        
+        /* Log VU meter state periodically (every 60 frames ~1 second) */
+        if (!this._vuLogCounter) this._vuLogCounter = 0;
+        this._vuLogCounter++;
+        if (this._vuLogCounter % 60 === 0) {
+          console.log('EC* Viewer: VU Meter state:', {
+            hasAudioData,
+            paused: this.audioPlayer.paused,
+            muted: this.audioPlayer.muted,
+            readyState: this.audioPlayer.readyState,
+            hasAnalyser: !!this.analyser,
+            hasDataArray: !!this.dataArray,
+            audioContextState: this.audioContext ? this.audioContext.state : 'null'
+          });
+        }
+        
+        if (hasAudioData && !this.audioPlayer.muted) {
           /* Use real audio data when playing - 60FPS ULTRA FAST MODE! */
           this.analyser.getByteFrequencyData(this.dataArray);
           
@@ -725,43 +822,180 @@ class ECViewer {
   
   playCurrentTrack() {
     if (!this.currentTrack || !this.currentTrack.previewUrl) {
-      console.warn('No preview URL available for current track');
+      console.warn('EC* Viewer: No preview URL available for current track');
       return;
     }
     
-    /* Resume audio context if suspended (browser autoplay policy) */
-    if (this.audioContext && this.audioContext.state === 'suspended') {
-      this.audioContext.resume();
-    }
-    
-    /* If different track, load it */
-    if (this.audioPlayer.src !== this.currentTrack.previewUrl) {
-      this.audioPlayer.src = this.currentTrack.previewUrl;
-    }
-    
-    this.audioPlayer.play().catch(err => {
-      console.warn('Playback failed:', err);
+    console.log('EC* Viewer: playCurrentTrack called', {
+      currentTrack: this.currentTrack.title,
+      currentSrc: this.audioPlayer.src,
+      targetSrc: this.currentTrack.previewUrl,
+      paused: this.audioPlayer.paused,
+      muted: this.audioPlayer.muted
     });
-    this.isPlaying = true;
+    
+    /* Ensure Web Audio is set up FIRST */
+    if (!this.analyser) {
+      this.setupWebAudio();
+    }
+    
+    /* Resume audio context if suspended (browser autoplay policy) */
+    const resumePromise = this.audioContext && this.audioContext.state === 'suspended'
+      ? this.audioContext.resume().then(() => {
+          console.log('EC* Viewer: Audio context resumed');
+        }).catch(err => {
+          console.warn('EC* Viewer: Failed to resume audio context:', err);
+        })
+      : Promise.resolve();
+    
+    resumePromise.then(() => {
+      /* ALWAYS set the source if it's different or empty - this ensures source is never lost */
+      const needsNewSource = !this.audioPlayer.src || 
+                             this.audioPlayer.src !== this.currentTrack.previewUrl ||
+                             this.audioPlayer.readyState === 0;
+      
+      if (needsNewSource) {
+        console.log('EC* Viewer: Setting audio source:', this.currentTrack.previewUrl);
+        this.audioPlayer.src = this.currentTrack.previewUrl;
+        
+        /* Wait for track to load before playing */
+        const onLoadedData = () => {
+          console.log('EC* Viewer: Track loaded, readyState:', this.audioPlayer.readyState);
+          this.audioPlayer.play().then(() => {
+            console.log('EC* Viewer: Playback started successfully after load');
+            this.isPlaying = true;
+          }).catch(err => {
+            console.warn('EC* Viewer: Playback failed after load:', err);
+            this.isPlaying = false;
+          });
+        };
+        
+        /* Remove any existing listeners to avoid duplicates */
+        this.audioPlayer.removeEventListener('loadeddata', onLoadedData);
+        this.audioPlayer.addEventListener('loadeddata', onLoadedData, { once: true });
+        
+        /* Also try to play if already loaded */
+        if (this.audioPlayer.readyState >= 2) {
+          console.log('EC* Viewer: Track already loaded, playing immediately');
+          this.audioPlayer.play().then(() => {
+            console.log('EC* Viewer: Playback started successfully (already loaded)');
+            this.isPlaying = true;
+          }).catch(err => {
+            console.warn('EC* Viewer: Playback failed (already loaded):', err);
+            this.isPlaying = false;
+          });
+        }
+      } else {
+        /* Track already loaded with correct source, play immediately */
+        console.log('EC* Viewer: Track already loaded, playing immediately');
+        this.audioPlayer.play().then(() => {
+          console.log('EC* Viewer: Playback started successfully');
+          this.isPlaying = true;
+        }).catch(err => {
+          console.warn('EC* Viewer: Playback failed:', err);
+          this.isPlaying = false;
+        });
+      }
+    });
   }
   
   toggleMute() {
     if (this.audioPlayer.muted) {
       /* Unmuting - start playback */
-      this.audioPlayer.muted = false;
-      console.log('EC* Viewer: Unmuted - starting playback');
+      console.log('EC* Viewer: Unmuting...');
+      console.log('EC* Viewer: Audio player state:', {
+        paused: this.audioPlayer.paused,
+        muted: this.audioPlayer.muted,
+        readyState: this.audioPlayer.readyState,
+        src: this.audioPlayer.src,
+        currentTime: this.audioPlayer.currentTime,
+        duration: this.audioPlayer.duration,
+        isPlaying: this.isPlaying
+      });
+      console.log('EC* Viewer: Audio context state:', this.audioContext ? {
+        state: this.audioContext.state,
+        sampleRate: this.audioContext.sampleRate
+      } : 'null');
+      console.log('EC* Viewer: Analyser state:', this.analyser ? {
+        exists: true,
+        fftSize: this.analyser.fftSize,
+        numberOfInputs: this.analyser.numberOfInputs,
+        numberOfOutputs: this.analyser.numberOfOutputs
+      } : 'null');
       
-      /* Start playing if not already playing */
-      if (!this.isPlaying && this.currentTrack && this.currentTrack.previewUrl) {
-        this.playCurrentTrack();
-      }
+      /* Resume audio context FIRST (browser autoplay policy) */
+      const resumePromise = this.audioContext && this.audioContext.state === 'suspended' 
+        ? this.audioContext.resume().then(() => {
+            console.log('EC* Viewer: Audio context resumed, new state:', this.audioContext.state);
+          }).catch(err => {
+            console.warn('EC* Viewer: Failed to resume audio context:', err);
+          })
+        : Promise.resolve();
+      
+      resumePromise.then(() => {
+        /* Ensure Web Audio is set up */
+        if (!this.analyser) {
+          console.log('EC* Viewer: Setting up Web Audio (analyser missing)');
+          this.setupWebAudio();
+        }
+        
+        /* Unmute the audio */
+        this.audioPlayer.muted = false;
+        console.log('EC* Viewer: Audio unmuted, new state:', {
+          muted: this.audioPlayer.muted,
+          paused: this.audioPlayer.paused
+        });
+        
+        /* Always ensure source is set and playing */
+        if (this.currentTrack && this.currentTrack.previewUrl) {
+          /* Check if source is missing or different */
+          if (!this.audioPlayer.src || this.audioPlayer.src !== this.currentTrack.previewUrl) {
+            console.log('EC* Viewer: Source missing or different, calling playCurrentTrack');
+            this.playCurrentTrack();
+          } else if (this.audioPlayer.paused || !this.isPlaying) {
+            console.log('EC* Viewer: Starting playback after unmute (source already set)');
+            this.audioPlayer.play().then(() => {
+              console.log('EC* Viewer: Playback started successfully after unmute');
+              this.isPlaying = true;
+            }).catch(err => {
+              console.warn('EC* Viewer: Failed to start playback after unmute:', err);
+              /* If play fails, try playCurrentTrack which will reload the source */
+              this.playCurrentTrack();
+            });
+          } else {
+            /* Already playing, just unmute */
+            console.log('EC* Viewer: Audio already playing, just unmuting');
+            console.log('EC* Viewer: Verifying playback state:', {
+              paused: this.audioPlayer.paused,
+              readyState: this.audioPlayer.readyState,
+              currentTime: this.audioPlayer.currentTime,
+              src: this.audioPlayer.src
+            });
+            /* Ensure it's actually playing */
+            if (this.audioPlayer.paused) {
+              console.log('EC* Viewer: Audio was paused, resuming...');
+              this.audioPlayer.play().then(() => {
+                console.log('EC* Viewer: Playback resumed successfully');
+                this.isPlaying = true;
+              }).catch(err => {
+                console.warn('EC* Viewer: Failed to resume playback:', err);
+              });
+            } else {
+              console.log('EC* Viewer: Audio is not paused, should be playing');
+            }
+          }
+        } else {
+          console.warn('EC* Viewer: No current track to play');
+        }
+        
+        this.updateMuteUI();
+      });
     } else {
       /* Muting */
       this.audioPlayer.muted = true;
       console.log('EC* Viewer: Muted');
+      this.updateMuteUI();
     }
-    
-    this.updateMuteUI();
   }
   
   updateMuteUI() {
