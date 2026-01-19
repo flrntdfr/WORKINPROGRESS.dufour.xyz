@@ -207,12 +207,12 @@ class ECViewer {
     this.currentPlaylist = playlist;
     this.selectedPlaylistIndex = this.filteredPlaylists.findIndex(p => p.id === playlistId);
     
-    /* Update UI */
-    const playlistElement = document.querySelector(`.ec-playlist-row[data-playlist-id="${playlistId}"]`);
-    if (playlistElement) {
-      playlistElement.classList.add('selected');
-      playlistElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
+    /* Update UI - Highlight all instances */
+    const playlistElements = document.querySelectorAll(`.ec-playlist-row[data-playlist-id="${playlistId}"]`);
+    playlistElements.forEach(el => {
+      el.classList.add('selected');
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
     
     /* Load tracks */
     this.loadTracks(playlist);
@@ -439,33 +439,42 @@ class ECViewer {
     /* Sort playlists by name */
     containingPlaylists.sort((a, b) => a.name.localeCompare(b.name));
     
-    /* Build HTML */
-    const html = containingPlaylists.map(playlist => {
-      /* Calculate depth based on prefixes within the set */
-      /* Count how many other playlists in this set are prefixes of this one */
-      const depth = containingPlaylists.filter(p => 
-        p !== playlist && playlist.name.startsWith(p.name)
-      ).length;
-      
-      const indent = depth * 20; /* 20px per level */
+    /* Build HTML - Match Column 1 Style */
+    const rowsHtml = containingPlaylists.map(playlist => {
       const isCurrentPlaylist = this.currentPlaylist && this.currentPlaylist.id === playlist.id;
       
+      const artworkHtml = (playlist.artwork && playlist.artwork.small) ? 
+        `<img src="${playlist.artwork.small}" alt="${this.escapeHtml(playlist.name)}" class="ec-playlist-thumb" loading="lazy">` :
+        `<div class="ec-playlist-thumb ec-no-artwork"></div>`;
+
       return `
-        <div class="ec-tree-node ${isCurrentPlaylist ? 'current-playlist' : ''}" 
-             data-playlist-id="${playlist.id}"
-             style="padding-left: ${indent}px"
-             title="${this.escapeHtml(playlist.name)} (${playlist.trackCount} tracks)">
-          ${this.escapeHtml(playlist.name)}
-        </div>
+        <tr class="ec-playlist-row ${isCurrentPlaylist ? 'selected' : ''}" 
+            data-playlist-id="${playlist.id}" 
+            data-playlist-name="${this.escapeHtml(playlist.name).toLowerCase()}"
+            data-track-count="${playlist.trackCount}">
+          <td class="ec-thumb-cell">
+            ${artworkHtml}
+          </td>
+          <td class="ec-info-cell">
+            <div class="ec-playlist-name">${this.escapeHtml(playlist.name)}</div>
+            <div class="ec-playlist-meta">${playlist.description ? this.escapeHtml(playlist.description) + ' ' : ''}(${playlist.trackCount} tracks)</div>
+          </td>
+        </tr>
       `;
     }).join('');
     
-    structureList.innerHTML = `<div class="ec-structure-list">${html}</div>`;
+    structureList.innerHTML = `
+      <table class="ec-table">
+        <tbody>
+          ${rowsHtml}
+        </tbody>
+      </table>
+    `;
     
     /* Attach click handlers */
-    structureList.querySelectorAll('.ec-tree-node').forEach(node => {
-      node.addEventListener('click', () => {
-        const playlistId = node.dataset.playlistId;
+    structureList.querySelectorAll('.ec-playlist-row').forEach(row => {
+      row.addEventListener('click', () => {
+        const playlistId = row.dataset.playlistId;
         this.selectPlaylistById(playlistId);
       });
     });

@@ -550,6 +550,7 @@ body:has(.ec-viewer) data {
 }
 
 #stats-display {
+  font-family: var(--font-family-monospace);
   color: var(--text-dim);
   font-weight: 500;
 }
@@ -576,43 +577,6 @@ body:has(.ec-viewer) data {
   border-right: none;
 }
 
-/* Tree Structure Column Styles - Last Column */
-.ec-structure-list {
-  padding: 16px 14px;
-  line-height: 1.6;
-}
-
-.ec-tree-node {
-  padding: 4px 8px;
-  font-family: var(--font-family-ui);
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-  text-decoration: underline;
-  background: transparent;
-}
-  
-.ec-tree-node:hover {
-  text-decoration: none;
-  background: var(--accent);
-}
-
-.ec-tree-node.current-playlist {
-  font-weight: 700;
-}
-
-.ec-tree-node.current-playlist:hover {
-  background: var(--accent);
-}
-
-.ec-tree-indent {
-  display: inline-block;
-  width: 20px;
-}
 
 /* Column Headers - Hidden but functional */
 .ec-column-header {

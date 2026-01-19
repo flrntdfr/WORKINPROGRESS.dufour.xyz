@@ -6,7 +6,7 @@ spicy: true
 tech: [eMule, iTunes, Apple&nbsp;Music, Music&nbsp;Kit.js]
 started: 2010-09-01 20:00
 description:
-    EC* is a system of playlists made to store and retrieve electronic music. It is fuzzy.
+    EC* is a dataset of more than 3500 electronic music tracks organized in 150 playlists.
 css:
   - /assets/2026/EC*/EC*.css
 js:
@@ -14,26 +14,6 @@ js:
 ---
 
 {% include fonteawesome.html %}
-
-<style>
-  /* Override parent layout for full-height viewer */
-  body {
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  metadata {
-    height: 100vh;
-    overflow-y: auto;
-  }
-  
-  data {
-    padding: 0 !important;
-    max-width: none !important;
-    height: 100vh;
-    overflow: hidden;
-  }
-</style>
 
 {% if site.data.playlists %}
 {% assign ec_playlists = site.data.playlists | where_exp: "item", "item.name contains 'EC'" %}
@@ -112,11 +92,10 @@ js:
     </div>
     <!-- Stats -->
     <div class="ec-stats">
-      <span id="stats-display">{{ total_tracks }} tracks <br>{{ total_duration_days }} days<br>{{ "now" | date: "%Y.%m" }}</span>
+      <span id="stats-display">{{ total_tracks }} tracks <br>{{ total_duration_days }} days<br></span>
     </div>
   </div>
   
-  <!-- 3-Column Layout -->
   <div class="ec-columns">
     <!-- Column 1: Playlists -->
     <div class="ec-column ec-playlists-column">
