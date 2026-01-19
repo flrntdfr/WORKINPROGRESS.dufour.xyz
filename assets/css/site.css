@@ -4,6 +4,7 @@
 :root {
   /* Font families */
   --font-family-main: Inter, -apple-system, Helvetica, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica", "Arial", sans-serif;
+  --font-family-ui: InterDisplay, Inter, -apple-system, Helvetica, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica", "Arial", sans-serif;
   --font-family-variable: "InterVariable", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   --font-family-monospace: "CommitMono", "SF Mono", Monaco, Menlo, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
   --font-family-serif: "Garamond", "Times New Roman", "Georgia", "Charter", "Iowan Old Style", "Sitka Text", "Book Antiqua", serif;
