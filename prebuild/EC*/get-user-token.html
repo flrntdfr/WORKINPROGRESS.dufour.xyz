@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple Music User Token Generator</title>
+  <script src="https://js-cdn.music.apple.com/musickit/v3/musickit.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+    }
+    
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+    
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+    
+    .setup-section {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .setup-section h2 {
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    
+    .setup-section ol {
+      margin-left: 20px;
+      color: #555;
+      line-height: 1.8;
+    }
+    
+    .setup-section code {
+      background: #e9ecef;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 13px;
+      font-family: 'Courier New', monospace;
+    }
+    
+    .input-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e1e4e8;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+    
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    button {
+      flex: 1;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-secondary {
+      background: #f8f9fa;
+      color: #333;
+    }
+    
+    .btn-secondary:hover:not(:disabled) {
+      background: #e9ecef;
+    }
+    
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .status {
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: none;
+      white-space: pre-wrap;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    
+    .status.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .status.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    .status.info {
+      background: #d1ecf1;
+      color: #0c5460;
+      border: 1px solid #bee5eb;
+    }
+    
+    .token-output {
+      background: #f8f9fa;
+      border: 2px solid #667eea;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+      display: none;
+    }
+    
+    .token-output h3 {
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    
+    .token-value {
+      background: white;
+      padding: 12px;
+      border-radius: 6px;
+      word-break: break-all;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #333;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+    
+    .copy-btn {
+      margin-top: 10px;
+      width: 100%;
+      background: #28a745;
+      color: white;
+    }
+    
+    .copy-btn:hover {
+      background: #218838;
+    }
+    
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎵 Apple Music User Token</h1>
+    <p class="subtitle">One-time setup to authorize access to your Apple Music library</p>
+    
+    <div class="setup-section">
+      <h2>📋 Before you start:</h2>
+      <ol>
+        <li>Generate your Developer Token using <code>npm run generate-token</code></li>
+        <li>Paste the Developer Token below</li>
+        <li>Click "Authorize" to sign in with your Apple ID</li>
+        <li>Copy the User Token and add it to your <code>.envrc</code> file</li>
+      </ol>
+      <p style="margin-top: 15px; padding: 10px; background: #fff3cd; border-left: 4px solid #ffc107; font-size: 13px;">
+        <strong>💡 Debugging:</strong> Open Browser Console (F12 or Cmd+Option+I) to see detailed error logs if authorization fails.
+      </p>
+    </div>
+    
+    <div class="input-group">
+      <label for="devToken">Developer Token (JWT):</label>
+      <input 
+        type="text" 
+        id="devToken" 
+        placeholder="Paste your Developer Token here..."
+      >
+    </div>
+    
+    <div id="status" class="status"></div>
+    
+    <div class="button-group">
+      <button id="authorizeBtn" class="btn-primary" onclick="authorize()">
+        🔐 Authorize with Apple Music
+      </button>
+    </div>
+    
+    <div id="tokenOutput" class="token-output">
+      <h3>✅ User Token (save this to your .envrc file):</h3>
+      <div class="token-value" id="userToken"></div>
+      <button class="copy-btn" onclick="copyToken()">📋 Copy to Clipboard</button>
+    </div>
+  </div>
+
+  <script>
+    let music;
+    
+    function showStatus(message, type) {
+      const statusDiv = document.getElementById('status');
+      statusDiv.textContent = message;
+      statusDiv.className = `status ${type}`;
+      statusDiv.style.display = 'block';
+    }
+    
+    function hideStatus() {
+      document.getElementById('status').style.display = 'none';
+    }
+    
+    async function authorize() {
+      const devToken = document.getElementById('devToken').value.trim();
+      
+      if (!devToken) {
+        showStatus('Please enter your Developer Token', 'error');
+        return;
+      }
+      
+      try {
+        hideStatus();
+        showStatus('Initializing MusicKit...', 'info');
+        
+        console.log('=== MusicKit Authorization Debug ===');
+        console.log('Developer Token (first 50 chars):', devToken.substring(0, 50) + '...');
+        console.log('Developer Token length:', devToken.length);
+        
+        /* Configure MusicKit */
+        await MusicKit.configure({
+          developerToken: devToken,
+          app: {
+            name: 'Playlist Fetcher',
+            build: '1.0.0'
+          }
+        });
+        
+        console.log('✓ MusicKit configured successfully');
+        
+        music = MusicKit.getInstance();
+        console.log('✓ MusicKit instance obtained');
+        console.log('MusicKit version:', MusicKit.version);
+        
+        showStatus('Requesting authorization... Please sign in with your Apple ID.', 'info');
+        
+        /* Request authorization */
+        console.log('Calling music.authorize()...');
+        const musicUserToken = await music.authorize();
+        
+        console.log('✓ Authorization successful!');
+        console.log('User Token (first 50 chars):', musicUserToken.substring(0, 50) + '...');
+        
+        /* Display the token */
+        document.getElementById('userToken').textContent = musicUserToken;
+        document.getElementById('tokenOutput').style.display = 'block';
+        
+        showStatus('✓ Authorization successful! Copy the token below.', 'success');
+        
+      } catch (error) {
+        console.error('=== Authorization Error ===');
+        console.error('Error type:', error.constructor.name);
+        console.error('Error message:', error.message);
+        console.error('Error code:', error.code);
+        console.error('Error status:', error.status);
+        console.error('Full error object:', error);
+        console.error('Error stack:', error.stack);
+        
+        /* Build detailed error message */
+        let errorMsg = error.message || 'Unknown error';
+        if (error.status) errorMsg += ` (Status: ${error.status})`;
+        if (error.code) errorMsg += ` (Code: ${error.code})`;
+        
+        /* Show additional details based on error type */
+        if (error.status === 401 || errorMsg.includes('Unauthorized')) {
+          errorMsg += '\n\nPossible causes:\n';
+          errorMsg += '• Developer Token is invalid or expired\n';
+          errorMsg += '• Team ID or Key ID mismatch\n';
+          errorMsg += '• MusicKit Key not properly configured\n';
+          errorMsg += '• Check browser console for full error details';
+        }
+        
+        showStatus(`Error: ${errorMsg}`, 'error');
+      }
+    }
+    
+    function copyToken() {
+      const tokenText = document.getElementById('userToken').textContent;
+      navigator.clipboard.writeText(tokenText).then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 2000);
+      }).catch(err => {
+        showStatus('Failed to copy to clipboard', 'error');
+      });
+    }
+  </script>
+</body>
+</html>

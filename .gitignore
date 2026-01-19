@@ -1,7 +1,8 @@
 # Environment
-.env
+.envrc
 gitignore.d
 *.draft*
+node_modules
 
 # System
 .DS_Store
@@ -13,3 +14,4 @@ _site
 result
 .bundle
 em_cache
+*.p8

@@ -17,6 +17,7 @@
             bundler
             git
             gnumake
+            nodejs_20
             /* emscripten is useful for the wasm task in assets */
             emscripten
           ];
@@ -32,6 +33,11 @@
           };
 
           shellHook = ''
+            if [ -f .env ]; then
+              set -a
+              source .env
+              set +a
+            fi
             echo "Jekyll dev shell ready. To install gems, run: make gems"
           '';
         };
