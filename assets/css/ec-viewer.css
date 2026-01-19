@@ -502,6 +502,7 @@ body:has(.ec-viewer) data {
   border-radius: 2px;
   overflow: hidden;
   position: relative;
+  margin-top: 3px;
   box-shadow: 
     0 2px 3px rgba(0, 0, 0, 0.2) inset, 
     0 1px 0 rgba(255, 255, 255, 0.6),
