@@ -72,6 +72,9 @@ description:
         <div id="player-title" class="ec-player-title">—</div>
         <div id="player-artist" class="ec-player-artist">—</div>
       </div>
+      <button id="player-goto" class="ec-player-goto-btn" title="Show in table">
+<i class="fa-solid fa-angle-right"></i>
+      </button>
     </div>
     <!-- Stats -->
     <div class="ec-stats">
@@ -131,7 +134,7 @@ description:
         <span>Metadata</span>
       </div>
       <div class="ec-column-content" id="track-metadata">
-        <div class="ec-empty-state">Select a track</div>
+        <div class="ec-empty-state">Nothing to show</div>
       </div>
     </div>
   </div>

@@ -8,7 +8,8 @@ class ECViewer {
     this.playlists = data || [];
     this.totalPlaylistCount = this.playlists.length;
     this.currentPlaylist = null;
-    this.currentTrack = null;
+    this.currentTrack = null; /* Track selected in table view */
+    this.currentPlayingTrack = null; /* Track playing in player (independent) */
     this.selectedPlaylistIndex = -1;
     this.selectedTrackIndex = -1;
     this.filterPlaylistTerm = '';
@@ -19,8 +20,8 @@ class ECViewer {
     this.audioPlayer.muted = true; /* Muted by default */
     this.currentlyPlayingTrackIndex = -1;
     this.isPlaying = false;
-    this.autoAdvanceTimer = null;
-    this.autoAdvanceInterval = 30000; /* 30 seconds */
+    this.radioMode = true; /* Radio mode: auto-play random tracks */
+    this.manualOverride = false; /* User manually loaded a track */
     
     /* Web Audio API for VU meters */
     this.audioContext = null;
@@ -45,21 +46,21 @@ class ECViewer {
     /* Set initial muted UI state */
     this.updateMuteUI();
     
-    /* Select random track on page load */
-    console.log('EC* Viewer: Initializing with random track selection...');
+    /* Set initial goto button state (disabled until track loads) */
+    this.updateGotoButtonState();
+    
+    /* Start radio mode: select random track and auto-play (muted) */
     if (this.playlists.length > 0) {
+      console.log('EC* Viewer: Starting radio mode...');
       this.selectRandomTrack();
       
-      /* Auto-play after track is selected (muted) */
+      /* Auto-play after track is loaded into player (muted) */
       setTimeout(() => {
-        if (this.currentTrack && this.currentTrack.previewUrl) {
-          console.log('EC* Viewer: Auto-playing track (muted)...');
+        if (this.currentPlayingTrack && this.currentPlayingTrack.previewUrl) {
+          console.log('EC* Viewer: Auto-playing track in radio mode (muted)...');
           this.playCurrentTrack();
         }
       }, 800);
-      
-      /* Start 30-second auto-advance timer */
-      this.startAutoAdvance();
     }
   }
   
@@ -282,14 +283,8 @@ class ECViewer {
       trackElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
     
-    /* Display metadata */
+    /* Display metadata - table view selection only shows metadata */
     this.displayMetadata(track);
-    
-    /* Update player info */
-    this.updatePlayerInfo();
-    
-    /* Start VU meters animation */
-    this.startVUMeters();
   }
   
   displayMetadata(track) {
@@ -358,6 +353,15 @@ class ECViewer {
         </div>
         ` : ''}
         
+        ${track.previewUrl ? `
+        <div class="ec-metadata-section ec-preview-section">
+          <div class="ec-metadata-label">Preview</div>
+          <button id="metadata-preview-btn" class="ec-preview-btn" title="Play this track (override radio)">
+            <i class="fas fa-play"></i> Play Track
+          </button>
+        </div>
+        ` : ''}
+        
         ${track.url ? `
         <a href="${track.url}" target="_blank" class="ec-metadata-link">
           Open in Apple Music →
@@ -367,6 +371,14 @@ class ECViewer {
     `;
     
     metadataContainer.innerHTML = metadataHTML;
+    
+    /* Attach preview button handler */
+    const previewBtn = document.getElementById('metadata-preview-btn');
+    if (previewBtn) {
+      previewBtn.addEventListener('click', () => {
+        this.loadSelectedTrack();
+      });
+    }
   }
   
   setupFilter() {
@@ -484,7 +496,7 @@ class ECViewer {
   
   clearMetadata() {
     const metadataContainer = document.getElementById('track-metadata');
-    metadataContainer.innerHTML = '<div class="ec-empty-state">Select a track</div>';
+    metadataContainer.innerHTML = '<div class="ec-empty-state">Nothing to show</div>';
   }
   
   formatDuration(ms) {
@@ -541,27 +553,46 @@ class ECViewer {
   setupPlayer() {
     const muteBtn = document.getElementById('player-mute');
     const nextBtn = document.getElementById('player-next');
+    const gotoBtn = document.getElementById('player-goto');
     
     /* Mute button */
     muteBtn.addEventListener('click', () => {
       this.toggleMute();
     });
     
-    /* Next button - select random track */
+    /* Next button - skip to next random track in radio mode */
     nextBtn.addEventListener('click', () => {
+      this.radioMode = true;
+      this.manualOverride = false;
       this.selectRandomTrack();
       setTimeout(() => {
         this.playCurrentTrack();
       }, 100);
     });
     
+    /* Go to button - navigate table to show currently playing track */
+    if (gotoBtn) {
+      gotoBtn.addEventListener('click', () => {
+        this.navigateToPlayingTrack();
+      });
+    }
+    
     /* Audio player event listeners */
     this.audioPlayer.addEventListener('ended', () => {
-      /* Auto-advance to next random track */
-      this.selectRandomTrack();
-      setTimeout(() => {
-        this.playCurrentTrack();
-      }, 100);
+      if (this.manualOverride) {
+        /* Manual track ended - return to radio mode */
+        console.log('EC* Viewer: Manual track ended, returning to radio mode...');
+        this.radioMode = true;
+        this.manualOverride = false;
+      }
+      
+      /* Radio mode: auto-advance to next random track */
+      if (this.radioMode) {
+        this.selectRandomTrack();
+        setTimeout(() => {
+          this.playCurrentTrack();
+        }, 100);
+      }
     });
     
     this.audioPlayer.addEventListener('play', () => {
@@ -811,25 +842,106 @@ class ECViewer {
     const randomIndex = Math.floor(Math.random() * allTracks.length);
     const selected = allTracks[randomIndex];
     
-    console.log(`Random track selected: "${selected.track.title}" by ${selected.track.artist} from ${selected.playlist.name}`);
+    console.log(`EC* Viewer: Radio mode - Random track selected: "${selected.track.title}" by ${selected.track.artist} from ${selected.playlist.name}`);
     
-    /* Select the playlist and track in the UI */
-    this.selectPlaylistById(selected.playlist.id, false); /* Don't auto-select first track */
-    setTimeout(() => {
-      this.selectTrack(selected.trackIndex);
-    }, 150);
+    /* Load track into player WITHOUT selecting in table (radio is independent) */
+    this.loadTrackIntoPlayer(selected.track);
+  }
+  
+  loadTrackIntoPlayer(track) {
+    /* Update the currently playing track reference */
+    this.currentPlayingTrack = track;
+    
+    /* Update player info display */
+    this.updatePlayerInfo();
+    
+    /* Update goto button state */
+    this.updateGotoButtonState();
+    
+    /* Start VU meters animation */
+    this.startVUMeters();
+  }
+  
+  loadSelectedTrack() {
+    if (!this.currentTrack || !this.currentTrack.previewUrl) {
+      console.warn('EC* Viewer: No track selected or no preview URL available');
+      return;
+    }
+    
+    console.log(`EC* Viewer: Manual override - Loading track: "${this.currentTrack.title}" by ${this.currentTrack.artist}`);
+    
+    /* Switch to manual override mode */
+    this.manualOverride = true;
+    this.radioMode = false;
+    
+    /* Load track into player */
+    this.loadTrackIntoPlayer(this.currentTrack);
+    
+    /* Play the selected track */
+    this.playCurrentTrack();
+  }
+  
+  navigateToPlayingTrack() {
+    if (!this.currentPlayingTrack) {
+      console.warn('EC* Viewer: No track currently playing');
+      return;
+    }
+    
+    /* Find which playlist and track index contains the playing track */
+    let foundPlaylist = null;
+    let foundTrackIndex = -1;
+    
+    for (const playlist of this.playlists) {
+      if (playlist.tracks && playlist.tracks.length > 0) {
+        const trackIndex = playlist.tracks.findIndex(track => 
+          track.title === this.currentPlayingTrack.title && 
+          track.artist === this.currentPlayingTrack.artist
+        );
+        
+        if (trackIndex !== -1) {
+          foundPlaylist = playlist;
+          foundTrackIndex = trackIndex;
+          break;
+        }
+      }
+    }
+    
+    if (foundPlaylist && foundTrackIndex !== -1) {
+      console.log(`EC* Viewer: Navigating to playing track: "${this.currentPlayingTrack.title}" in ${foundPlaylist.name}`);
+      
+      /* Navigate to the playlist and track */
+      this.selectPlaylistById(foundPlaylist.id, false);
+      setTimeout(() => {
+        this.selectTrack(foundTrackIndex);
+      }, 150);
+    } else {
+      console.warn('EC* Viewer: Could not find playing track in playlists');
+    }
+  }
+  
+  updateGotoButtonState() {
+    const gotoBtn = document.getElementById('player-goto');
+    if (!gotoBtn) return;
+    
+    /* Enable button only if there's a track playing */
+    if (this.currentPlayingTrack) {
+      gotoBtn.disabled = false;
+    } else {
+      gotoBtn.disabled = true;
+    }
   }
   
   playCurrentTrack() {
-    if (!this.currentTrack || !this.currentTrack.previewUrl) {
-      console.warn('EC* Viewer: No preview URL available for current track');
+    /* Player plays what's loaded, not what's selected in table */
+    if (!this.currentPlayingTrack || !this.currentPlayingTrack.previewUrl) {
+      console.warn('EC* Viewer: No preview URL available for current playing track');
       return;
     }
     
     console.log('EC* Viewer: playCurrentTrack called', {
-      currentTrack: this.currentTrack.title,
+      currentPlayingTrack: this.currentPlayingTrack.title,
       currentSrc: this.audioPlayer.src,
-      targetSrc: this.currentTrack.previewUrl,
+      targetSrc: this.currentPlayingTrack.previewUrl,
       paused: this.audioPlayer.paused,
       muted: this.audioPlayer.muted
     });
@@ -851,12 +963,12 @@ class ECViewer {
     resumePromise.then(() => {
       /* ALWAYS set the source if it's different or empty - this ensures source is never lost */
       const needsNewSource = !this.audioPlayer.src || 
-                             this.audioPlayer.src !== this.currentTrack.previewUrl ||
+                             this.audioPlayer.src !== this.currentPlayingTrack.previewUrl ||
                              this.audioPlayer.readyState === 0;
       
       if (needsNewSource) {
-        console.log('EC* Viewer: Setting audio source:', this.currentTrack.previewUrl);
-        this.audioPlayer.src = this.currentTrack.previewUrl;
+        console.log('EC* Viewer: Setting audio source:', this.currentPlayingTrack.previewUrl);
+        this.audioPlayer.src = this.currentPlayingTrack.previewUrl;
         
         /* Wait for track to load before playing */
         const onLoadedData = () => {
@@ -947,9 +1059,9 @@ class ECViewer {
         });
         
         /* Always ensure source is set and playing */
-        if (this.currentTrack && this.currentTrack.previewUrl) {
+        if (this.currentPlayingTrack && this.currentPlayingTrack.previewUrl) {
           /* Check if source is missing or different */
-          if (!this.audioPlayer.src || this.audioPlayer.src !== this.currentTrack.previewUrl) {
+          if (!this.audioPlayer.src || this.audioPlayer.src !== this.currentPlayingTrack.previewUrl) {
             console.log('EC* Viewer: Source missing or different, calling playCurrentTrack');
             this.playCurrentTrack();
           } else if (this.audioPlayer.paused || !this.isPlaying) {
@@ -1019,21 +1131,24 @@ class ECViewer {
     const artistEl = document.getElementById('player-artist');
     const artworkEl = document.getElementById('player-artwork');
     
-    if (this.currentTrack) {
+    /* Use currentPlayingTrack instead of currentTrack - player is independent */
+    const trackToDisplay = this.currentPlayingTrack;
+    
+    if (trackToDisplay) {
       /* Set title with scrolling support */
-      this.setScrollingText(titleEl, this.currentTrack.title || '—');
+      this.setScrollingText(titleEl, trackToDisplay.title || '—');
       
       /* Set artist with scrolling support */
-      this.setScrollingText(artistEl, this.currentTrack.artist || '—');
+      this.setScrollingText(artistEl, trackToDisplay.artist || '—');
       
       /* Update artwork */
-      if (this.currentTrack.artwork && this.currentTrack.artwork.small) {
-        artworkEl.style.backgroundImage = `url(${this.currentTrack.artwork.small})`;
+      if (trackToDisplay.artwork && trackToDisplay.artwork.small) {
+        artworkEl.style.backgroundImage = `url(${trackToDisplay.artwork.small})`;
         artworkEl.classList.add('has-artwork');
         
         /* Add click handler for lightbox */
         artworkEl.onclick = () => {
-          const largeArtwork = this.currentTrack.artwork.large || this.currentTrack.artwork.small;
+          const largeArtwork = trackToDisplay.artwork.large || trackToDisplay.artwork.small;
           this.openLightbox(largeArtwork);
         };
       } else {
@@ -1069,25 +1184,6 @@ class ECViewer {
         element.classList.add('scrolling');
       }
     }, 100);
-  }
-  
-  startAutoAdvance() {
-    /* Clear existing timer */
-    if (this.autoAdvanceTimer) {
-      clearInterval(this.autoAdvanceTimer);
-    }
-    
-    /* Set up 30-second auto-advance */
-    this.autoAdvanceTimer = setInterval(() => {
-      this.selectRandomTrack();
-    }, this.autoAdvanceInterval);
-  }
-  
-  stopAutoAdvance() {
-    if (this.autoAdvanceTimer) {
-      clearInterval(this.autoAdvanceTimer);
-      this.autoAdvanceTimer = null;
-    }
   }
   
   /* Artwork Lightbox */
