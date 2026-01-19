@@ -8,7 +8,9 @@ started: 2010-09-01 20:00
 description:
     EC* is a system of playlists made to store and retrieve electronic music. It is fuzzy.
 css:
-  - ec-viewer.css
+  - /assets/2026/EC*/EC*.css
+js:
+  - /assets/2026/EC*/EC*.js
 ---
 
 {% include fonteawesome.html %}
@@ -185,10 +187,8 @@ css:
 <script>
   window.ecPlaylistData = {{ ec_playlists | jsonify }}.filter(p => p.name.startsWith('EC'));
 </script>
-<script src="{{ '/assets/js/ec-viewer.js' | relative_url }}"></script>
-<!-- <link rel="stylesheet" href="{{ '/assets/css/ec-viewer.css' | relative_url }}"> -->
 
 {% else %}
-<p>No playlists found (yet).</p>
+<p>Something went wrong when generating this page!</p>
 {% endif %}
 

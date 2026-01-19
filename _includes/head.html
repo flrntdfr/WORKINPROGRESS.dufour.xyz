@@ -79,12 +79,18 @@
 
     {% if page.css %}
     {% for item in page.css %}
-    <link rel="stylesheet" href="{{ item | prepend: '/assets/css/' }}" type="text/css"/>
+    <link rel="stylesheet" href="{% link {{ item }} %}" type="text/css"/>
     {% endfor %}
     {% endif %}
 
     {% if page.lib %}
     <script type="text/javascript" src="/assets/lib/{{ page.lib }}"></script>
+    {% endif %}
+
+    {% if page.js %}
+    {% for item in page.js %}
+    <script type="text/javascript" src="{% link {{ item }} %}"></script>
+    {% endfor %}
     {% endif %}
     
     <script type="application/ld+json">
