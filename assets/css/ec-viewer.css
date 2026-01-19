@@ -121,11 +121,11 @@ body:has(.ec-viewer) data {
 }
 
 .ec-player-btn.muted {
-  background: #ff0000;
+  background: #FF0000;
 }
 
 .ec-player-btn.muted:hover {
-  background: #cc0000;
+  background: #FF0000;
 }
 
 /* Mute Button Boop Circles Animation - Extremely Discrete */
@@ -622,16 +622,17 @@ body:has(.ec-viewer) data {
   background: transparent;
 }
 
-.ec-playlist-row:hover {
-  background: var(--bg-hover);
-}
-
 .ec-playlist-row.selected {
-  background: var(--accent);
+  background: var(--bg-hover);
   border-left-color: transparent;
 }
 
-.ec-playlist-row.selected .ec-playlist-name {
+.ec-playlist-row:hover {
+  background: var(--accent);
+}
+
+.ec-playlist-row.selected .ec-playlist-name,
+.ec-playlist-row:hover .ec-playlist-name {
   color: var(--text);
 }
 
@@ -683,7 +684,9 @@ body:has(.ec-viewer) data {
 }
 
 .ec-playlist-row.selected .ec-playlist-name,
-.ec-playlist-row.selected .ec-playlist-meta {
+.ec-playlist-row.selected .ec-playlist-meta,
+.ec-playlist-row:hover .ec-playlist-name,
+.ec-playlist-row:hover .ec-playlist-meta {
   color: var(--text);
 }
 
@@ -696,16 +699,17 @@ body:has(.ec-viewer) data {
   background: transparent;
 }
 
-.ec-track-row:hover {
-  background: var(--bg-hover);
-}
-
 .ec-track-row.selected {
-  background: var(--accent);
+  background: var(--bg-hover);
   border-left-color: transparent;
 }
 
-.ec-track-row.selected .ec-track-title {
+.ec-track-row:hover {
+  background: var(--accent);
+}
+
+.ec-track-row.selected .ec-track-title,
+.ec-track-row:hover .ec-track-title {
   color: var(--text);
 }
 
@@ -763,7 +767,10 @@ body:has(.ec-viewer) data {
 
 .ec-track-row.selected .ec-track-num-cell,
 .ec-track-row.selected .ec-track-artist,
-.ec-track-row.selected .ec-track-duration-cell {
+.ec-track-row.selected .ec-track-duration-cell,
+.ec-track-row:hover .ec-track-num-cell,
+.ec-track-row:hover .ec-track-artist,
+.ec-track-row:hover .ec-track-duration-cell {
   color: var(--text);
 }
 
@@ -789,7 +796,7 @@ body:has(.ec-viewer) data {
   left: 0;
   right: 0;
   bottom: 0;
-  color: var(--text-dim);
+  color: var(--text);
   font-size: 12px;
   font-family: var(--font-family-ui);
 }
