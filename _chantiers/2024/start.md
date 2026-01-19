@@ -7,7 +7,7 @@ result: [web]
 tech: [html, css, js, Jekyll]
 permalink: "/"
 description: |
-    This is a multi-media repository of projects I am working on. For more information, read the&nbsp;<a href="/README">README</a>.
+    This is a multi-media repository of projects I am working on. For more information, refer to the&nbsp;<a href="/README">README</a>.
 head_raw_inject:
   - <link rel="preload" href="/assets/2024/start/grue-100.webp" as="image" type="image/webp">
   - <link rel="preload" href="/assets/2024/start/barriere-100.webp" as="image" type="image/webp">
