@@ -287,10 +287,6 @@ body:has(.ec-viewer) data {
   transition: transform 0.1s ease;
 }
 
-.ec-player-artwork:hover {
-  transform: scale(1.02);
-}
-
 .ec-player-artwork::before {
   content: '♪';
   position: absolute;
@@ -1003,10 +999,6 @@ body:has(.ec-viewer) data {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: transform 0.1s ease;
-}
-
-.ec-metadata-artwork:hover {
-  transform: scale(1.01);
 }
 
 .ec-metadata-artwork.no-artwork {
