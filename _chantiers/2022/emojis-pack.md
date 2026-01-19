@@ -20,10 +20,9 @@ description: |
 
 .emojis-container {
     width: 100%;
-    height: 96vh;
-    min-height: 96vh;
+    height: 100vh;
+    min-height: 100vh;
     overflow: auto;
-    border: 1px solid black;
     background: #ffffff;
     padding: 20px;
     box-sizing: border-box;
