@@ -79,7 +79,7 @@ class ECViewer {
       /* Auto-play after track is loaded into player (muted) */
       setTimeout(() => {
         if (this.currentPlayingTrack && this.currentPlayingTrack.previewUrl) {
-          console.log('EC* Viewer: Auto-playing track in radio mode (muted)...');
+          console.log('EC* Viewer: Initializing track in radio mode (muted)...');
           this.playCurrentTrack();
         }
       }, 800);
@@ -560,7 +560,9 @@ class ECViewer {
     
     /* Play the new track */
     this.activePlayer.src = track.previewUrl;
-    this.activePlayer.play();
+    if (!this.activePlayer.muted) {
+      this.activePlayer.play();
+    }
     this.currentlyPlayingTrackIndex = trackIndex;
     this.updatePreviewButtons();
   }
@@ -1054,6 +1056,13 @@ class ECViewer {
         /* Wait for track to load before playing */
         const onLoadedData = () => {
           console.log('EC* Viewer: Track loaded, readyState:', this.activePlayer.readyState);
+          
+          if (this.activePlayer.muted) {
+            console.log('EC* Viewer: Player is muted - staying paused');
+            this.isPlaying = false;
+            return;
+          }
+
           this.activePlayer.play().then(() => {
             console.log('EC* Viewer: Playback started successfully after load');
             this.isPlaying = true;
@@ -1069,25 +1078,37 @@ class ECViewer {
         
         /* Also try to play if already loaded */
         if (this.activePlayer.readyState >= 2) {
-          console.log('EC* Viewer: Track already loaded, playing immediately');
-          this.activePlayer.play().then(() => {
-            console.log('EC* Viewer: Playback started successfully (already loaded)');
-            this.isPlaying = true;
-          }).catch(err => {
-            console.warn('EC* Viewer: Playback failed (already loaded):', err);
+          console.log('EC* Viewer: Track already loaded, attempting playback');
+          
+          if (this.activePlayer.muted) {
+            console.log('EC* Viewer: Player is muted - staying paused');
             this.isPlaying = false;
-          });
+          } else {
+            this.activePlayer.play().then(() => {
+              console.log('EC* Viewer: Playback started successfully (already loaded)');
+              this.isPlaying = true;
+            }).catch(err => {
+              console.warn('EC* Viewer: Playback failed (already loaded):', err);
+              this.isPlaying = false;
+            });
+          }
         }
       } else {
         /* Track already loaded with correct source, play immediately */
-        console.log('EC* Viewer: Track already loaded, playing immediately');
-        this.activePlayer.play().then(() => {
-          console.log('EC* Viewer: Playback started successfully');
-          this.isPlaying = true;
-        }).catch(err => {
-          console.warn('EC* Viewer: Playback failed:', err);
+        console.log('EC* Viewer: Track already loaded, attempting playback');
+        
+        if (this.activePlayer.muted) {
+          console.log('EC* Viewer: Player is muted - staying paused');
           this.isPlaying = false;
-        });
+        } else {
+          this.activePlayer.play().then(() => {
+            console.log('EC* Viewer: Playback started successfully');
+            this.isPlaying = true;
+          }).catch(err => {
+            console.warn('EC* Viewer: Playback failed:', err);
+            this.isPlaying = false;
+          });
+        }
       }
     });
   }
@@ -1139,6 +1160,11 @@ class ECViewer {
     
     /* Start playing next track once loaded */
     const onLoaded = () => {
+      if (fadeInPlayer.muted) {
+        console.log('EC* Viewer: Next track is muted - staying paused');
+        return;
+      }
+
       fadeInPlayer.play().then(() => {
         console.log('EC* Viewer: Next track started, beginning fade...');
         console.log('EC* Viewer: Initial state - FadeOut:', {

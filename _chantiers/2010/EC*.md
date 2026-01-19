@@ -6,7 +6,7 @@ spicy: true
 tech: [eMule, iTunes, Apple&nbsp;Music, Music&nbsp;Kit.js]
 started: 2010-09-01 20:00
 description:
-    EC* is a system of 150 playlists made to store and retrieve electronic music. It is fuzzy.
+    EC* is a system of playlists made to store and retrieve electronic music. It is fuzzy.
 ---
 
 {% include fonteawesome.html %}
@@ -108,7 +108,7 @@ description:
     </div>
     <!-- Stats -->
     <div class="ec-stats">
-      <span id="stats-display">Build {% commit_counts %}<br> {{ total_tracks }} tracks <br> {{ total_duration_days }} days of music</span>
+      <span id="stats-display">{{ total_tracks }} tracks <br> {{ total_duration_days }} days</span>
     </div>
   </div>
   
