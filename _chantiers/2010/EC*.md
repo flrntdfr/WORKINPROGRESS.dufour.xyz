@@ -2,13 +2,15 @@
 layout: chantier-blank
 title: EC*
 permalink: /2010/EC*.html
-result: [dataset]
+result: [dataset, web]
 spicy: true
 tech: [eMule, iTunes, Apple&nbsp;Music, Music&nbsp;Kit.js]
 started: 2010-09-01 20:00
 reviewed: 2026-01-20 12:00
 description:
-    EC* is a collection of 3500 electronic music tracks organized in 150 clearly labeled playlists.<br>It is released as a JSON file, a music browser, and a 24/7 radio.
+    EC* is a collection of 3500 electronic music tracks organized in 150 clearly labeled playlists.
+    <br>
+    It is released as a JSON dataset, an interactive browser, and a 24/7&nbsp;radio.
 css:
   - /assets/2026/EC*/EC*.css
 js:
@@ -96,7 +98,7 @@ href:
     </div>
     <!-- Stats -->
     <div class="ec-stats">
-      <span id="stats-display"> <br>{{ page.reviewed | date: "%d/%m/%Y" }}<br>{{ total_tracks }} tracks<br>{{ total_duration_days }} days<br></span>
+      <span id="stats-display">{{ page.reviewed | date: "%d/%m/%Y" }}<br>{{ total_tracks }} tracks<br>{{ total_duration_days }} days<br></span>
     </div>
   </div>
   
@@ -126,7 +128,7 @@ href:
               </td>
               <td class="ec-info-cell">
                 <div class="ec-playlist-name">{{ playlist.name }}</div>
-                <div class="ec-playlist-meta">{% if playlist.description %}{{ playlist.description }} {% endif %}({{ playlist.trackCount }} tracks)</div>
+                <div class="ec-playlist-meta">{% if playlist.description %}{{ playlist.description }} - {% endif %} {{ playlist.trackCount }} tracks</div>
               </td>
             </tr>
             {% endif %}
