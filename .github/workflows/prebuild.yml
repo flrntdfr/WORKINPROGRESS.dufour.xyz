@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 jobs:
-  prebuild-ec*:
+  prebuild-ec:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
