@@ -91,7 +91,7 @@ href:
         <div id="player-artist" class="ec-player-artist">—</div>
       </div>
       <button id="player-goto" class="ec-player-goto-btn" title="Show in table">
-        <i class="fa-solid fa-angle-right"></i>
+        <i class="fa-solid fa-angle-down"></i>
       </button>
     </div>
     <!-- Stats -->
