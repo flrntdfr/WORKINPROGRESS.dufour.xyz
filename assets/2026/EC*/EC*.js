@@ -922,18 +922,18 @@ class ECViewer {
               });
             }
             
-            /* Balanced calculation with good dynamic range */
-            const raw = (avg * 0.3 + max * 0.7) / 255; /* Mix of average and peak */
+            /* Balanced calculation with good dynamic range - favor peaks more */
+            const raw = (avg * 0.2 + max * 0.8) / 255; /* Mix of average and peak - more peak emphasis */
             
-            /* Moderate compression to prevent maxing out, more amplitude */
-            level = Math.pow(raw, 0.85) * 80; /* Scale to max 80% with gentle compression */
+            /* Minimal compression for more linear response - allow meters to reach higher */
+            level = Math.pow(raw, 0.95) * 100; /* Scale to max 100% with minimal compression */
             
             /* Add subtle variations for lively feel */
             level += (Math.random() - 0.5) * 2;
             
-            /* Only boost on very loud peaks */
-            if (max > 200) {
-              level = Math.min(level * 1.15, 95);
+            /* Boost on loud peaks - more aggressive threshold */
+            if (max > 175) {
+              level = Math.min(level * 1.05, 100);
             }
             
             /* Low minimum for good dynamics */

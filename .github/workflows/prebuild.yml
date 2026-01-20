@@ -34,7 +34,7 @@ jobs:
         with:
           name: playlists-json
           path: _data/playlists.json
-          retention-days: 400
+          retention-days: 90
 
       - name: Commit and Push changes
         run: |
