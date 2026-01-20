@@ -1,0 +1,1 @@
+{% assign ec_playlists = site.data.playlists | where_exp: "item", "item.name contains 'EC'" %}{{ ec_playlists | jsonify }}

@@ -1,17 +1,20 @@
 ---
 layout: chantier-blank
 title: EC*
+permalink: /2010/EC*.html
 result: [dataset]
 spicy: true
 tech: [eMule, iTunes, Apple&nbsp;Music, Music&nbsp;Kit.js]
 started: 2010-09-01 20:00
 reviewed: 2026-01-20 12:00
 description:
-    EC* is a dataset of 3500 electronic music tracks sorted in 150 labelled playlists.
+    EC* is a dataset of 3500 electronic music tracks organized into 150 labeled playlists.<br>A navigator is provided on this page.
 css:
   - /assets/2026/EC*/EC*.css
 js:
   - /assets/2026/EC*/EC*.js
+href:
+  - ["int", "<strong>Download:</strong>", "EC*.json (4.2 MB)", "_chantiers/2010/EC*.json"]
 ---
 
 {% include fonteawesome.html %}
@@ -165,7 +168,7 @@ js:
 
 <!-- Embed playlist data for JavaScript -->
 <script>
-  window.ecPlaylistData = {{ ec_playlists | jsonify }}.filter(p => p.name.startsWith('EC'));
+  window.ecPlaylistData = {% include_relative playlists %}
 </script>
 
 {% else %}
