@@ -10,7 +10,8 @@ result: [memo]
 permalink: "/README"
 ---
 
-> **Hi, my name is Florent Dufour.<br>I am maintainer and project manager here.<br>This place is intended as an answer to the question: "what are you working on?"**
+> **Hi, my name is Florent Dufour.**<br>
+> This place is intended to answer: "what are you working on?"
 
 I work with computers and they are effective tools to make websites. I maintain this one on my free time as a multi-media repository of personal projects and their results. There are several types of results: lists, illustrations, mixtapes, games, research…
 
