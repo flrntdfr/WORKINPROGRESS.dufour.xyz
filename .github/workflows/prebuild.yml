@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   prebuild-ec*:
@@ -19,9 +19,11 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
+        working-directory: prebuild/EC*/
         run: npm install
 
       - name: Fetch Apple Music Playlists
+        working-directory: prebuild/EC*/
         env:
           APPLE_MUSIC_TOKEN: ${{ secrets.APPLE_MUSIC_TOKEN }}
           MUSIC_USER_TOKEN: ${{ secrets.MUSIC_USER_TOKEN }}
