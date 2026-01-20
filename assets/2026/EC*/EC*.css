@@ -818,6 +818,7 @@ body:has(.ec-viewer) data {
   margin-bottom: 10px;
   cursor: pointer;
   transition: transform 0.1s ease;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
 .ec-metadata-artwork.no-artwork {

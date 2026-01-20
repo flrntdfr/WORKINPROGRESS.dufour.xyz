@@ -14,7 +14,7 @@ css:
 js:
   - /assets/2026/EC*/EC*.js
 href:
-  - ["int", "<strong>Download:</strong>", "EC*.json (4.2 MB)", "_chantiers/2010/EC*.json"]
+  - ["int", "<strong>Backup:</strong>", "EC*.json (4.2 MB)", "_chantiers/2010/EC*.json"]
 ---
 
 {% include fonteawesome.html %}
