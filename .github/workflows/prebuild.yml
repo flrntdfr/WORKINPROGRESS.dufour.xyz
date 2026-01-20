@@ -29,6 +29,13 @@ jobs:
           MUSIC_USER_TOKEN: ${{ secrets.MUSIC_USER_TOKEN }}
         run: npm run fetch-playlists
 
+      - name: Upload playlists.json as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: playlists-json
+          path: _data/playlists.json
+          retention-days: 400
+
       - name: Commit and Push changes
         run: |
           git config --global user.name 'automatique [bot]'
