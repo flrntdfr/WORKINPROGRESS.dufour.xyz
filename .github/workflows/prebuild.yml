@@ -1,0 +1,55 @@
+name: Prebuild - Fetch Apple Music Playlists
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fetch-playlists:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Fetch Apple Music Playlists
+        env:
+          APPLE_MUSIC_TOKEN: ${{ secrets.APPLE_MUSIC_TOKEN }}
+          MUSIC_USER_TOKEN: ${{ secrets.MUSIC_USER_TOKEN }}
+        run: |
+          SCRIPT_DIR=$(find prebuild -maxdepth 1 -type d -name 'EC*' | head -1)
+          if [ -z "$SCRIPT_DIR" ]; then
+            echo "❌ Error: Could not find prebuild/EC* directory"
+            exit 1
+          fi
+          echo "📁 Using directory: $SCRIPT_DIR"
+          cd "$SCRIPT_DIR"
+          node fetch-playlists.js
+
+      - name: Move playlists.json to _data directory
+        run: |
+          mkdir -p _data
+          SCRIPT_DIR=$(find prebuild -maxdepth 1 -type d -name 'EC*' | head -1)
+          if [ ! -f "$SCRIPT_DIR/playlists.json" ]; then
+            echo "❌ Error: playlists.json not found in $SCRIPT_DIR"
+            exit 1
+          fi
+          mv "$SCRIPT_DIR/playlists.json" _data/playlists.json
+          echo "✅ Moved playlists.json to _data/playlists.json"
+
+      - name: Display summary
+        run: |
+          echo "✅ Playlists fetched successfully!"
+          echo "📁 Output file: _data/playlists.json"
+          if [ -f "_data/playlists.json" ]; then
+            echo "📊 File size: $(du -h _data/playlists.json | cut -f1)"
+          fi
