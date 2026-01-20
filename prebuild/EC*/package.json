@@ -5,8 +5,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "fetch-playlists": "node \"scripts/Music Kit.js/fetch-playlists.js\"",
-    "generate-token": "node \"scripts/Music Kit.js/generate-dev-token.js\""
+    "fetch-playlists": "node fetch-playlists.js",
+    "generate-token": "node generate-dev-token.js",
+    "verify-token": "node verify-token.js",
+    "test-token": "node test-token.js",
+    "authorize": "node serve-auth-page.js"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -15,4 +18,3 @@
     "jsonwebtoken": "^9.0.2"
   }
 }
-

@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = path.join(__dirname, '.');
+const DATA_DIR = path.join(__dirname, '..', '..', '_data');
 const OUTPUT_FILE = path.join(DATA_DIR, 'playlists.json');
 
 const APPLE_MUSIC_TOKEN = process.env.APPLE_MUSIC_TOKEN;

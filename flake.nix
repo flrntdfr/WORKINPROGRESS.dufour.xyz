@@ -33,11 +33,6 @@
           };
 
           shellHook = ''
-            if [ -f .env ]; then
-              set -a
-              source .env
-              set +a
-            fi
             echo "Jekyll dev shell ready. To install gems, run: make gems"
           '';
         };
