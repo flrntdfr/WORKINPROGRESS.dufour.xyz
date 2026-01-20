@@ -5,8 +5,9 @@ result: [dataset]
 spicy: true
 tech: [eMule, iTunes, Apple&nbsp;Music, Music&nbsp;Kit.js]
 started: 2010-09-01 20:00
+reviewed: 2026-01-20 12:00
 description:
-    EC* is a dataset of more than 3500 electronic music tracks organized in 150 playlists.
+    EC* is a dataset of 3500 electronic music tracks sorted in 150 labelled playlists.
 css:
   - /assets/2026/EC*/EC*.css
 js:
@@ -92,7 +93,7 @@ js:
     </div>
     <!-- Stats -->
     <div class="ec-stats">
-      <span id="stats-display">{{ total_tracks }} tracks <br>{{ total_duration_days }} days<br></span>
+      <span id="stats-display">{{ page.reviewed | date: "%d/%m/%Y" }}<br>{{ total_tracks }} tracks <br>{{ total_duration_days }} days<br></span>
     </div>
   </div>
   

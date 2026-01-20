@@ -103,6 +103,7 @@ body:has(.ec-viewer) data {
   pointer-events: auto;
   z-index: 1;
   max-width: 400px;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
 .ec-player-btn {
@@ -119,6 +120,8 @@ body:has(.ec-viewer) data {
   justify-content: center;
   padding: 0;
   position: relative;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
+  transition: all 0.08s ease;
 }
 
 .ec-player-btn i {
@@ -131,6 +134,8 @@ body:has(.ec-viewer) data {
 
 .ec-player-btn:active {
   background: var(--bg-alt);
+  transform: scale(0.92);
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.15);
 }
 
 .ec-player-btn.muted {
@@ -151,14 +156,6 @@ body:has(.ec-viewer) data {
   transform: translate(-50%, -50%);
   pointer-events: none;
   opacity: 0;
-}
-
-.ec-player-btn.muted::before {
-  animation: mute-boop 4s ease-out infinite;
-}
-
-.ec-player-btn.muted::after {
-  animation: mute-boop 4s ease-out infinite;
 }
 
 /* Metadata Title Row with Play Button */
@@ -334,6 +331,8 @@ body:has(.ec-viewer) data {
   justify-content: center;
   padding: 0;
   position: relative;
+  transition: all 0.08s ease;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
 .ec-player-goto-btn i {
@@ -346,6 +345,7 @@ body:has(.ec-viewer) data {
 
 .ec-player-goto-btn:active {
   background: var(--bg-alt);
+  transform: scale(0.92);
 }
 
 .ec-player-goto-btn:disabled {
@@ -370,6 +370,7 @@ body:has(.ec-viewer) data {
   border: 1px solid var(--border);
   position: relative;
   padding: 8px 6px;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
 /* Control buttons - sit next to VU meters */
@@ -417,6 +418,9 @@ body:has(.ec-viewer) data {
   flex-direction: column;
   gap: 8px;
   flex: 0 0 auto;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
 }
 
 .ec-radio-label {
@@ -522,6 +526,7 @@ body:has(.ec-viewer) data {
   font-family: var(--font-family-ui);
   color: var(--text);
   letter-spacing: 0;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
 #filter-playlists::placeholder,
@@ -547,6 +552,7 @@ body:has(.ec-viewer) data {
   letter-spacing: 0.3px;
   text-align: right;
   flex: 0 0 auto;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 #stats-display {
@@ -1103,6 +1109,7 @@ body:has(.ec-viewer) data {
   
   .ec-vu-meter {
     height: 36px;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
   }
   
   .ec-vu-controls .ec-player-btn {
@@ -1206,6 +1213,7 @@ body:has(.ec-viewer) data {
   }
   
   .ec-vu-meters {
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
     padding: 6px 8px;
     gap: 6px;
   }

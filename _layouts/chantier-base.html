@@ -62,10 +62,10 @@ result:
             </tr>
             {% endif %}
             {% endif %}
-            {% if page.touched %}
+            {% if page.reviewed %}
             <tr>
-                <th>touched</th>
-                <td><span title="{{ page.touched | date: "%a. %b %d, %Y %H:%M"}}">{{ page.touched | date: "%d.%m.%Y" }}</span>
+                <th>reviewed</th>
+                <td><span title="{{ page.reviewed | date: "%a. %b %d, %Y %H:%M"}}">{{ page.reviewed | date: "%d.%m.%Y" }}</span>
                 </tr>
             {% endif %}
             {% if page.location %}
