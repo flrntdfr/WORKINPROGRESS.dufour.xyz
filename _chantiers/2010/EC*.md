@@ -8,7 +8,7 @@ tech: [eMule, iTunes, Apple&nbsp;Music, Music&nbsp;Kit.js]
 started: 2010-09-01 20:00
 reviewed: 2026-01-20 12:00
 description:
-    EC* is a dataset of 3500 electronic music tracks organized into 150 labeled playlists.<br>A navigator is provided on this page.
+    EC* is a dataset of 3500 electronic music tracks organized into 150 labeled playlists.<br>A browser is provided on this page.
 css:
   - /assets/2026/EC*/EC*.css
 js:
