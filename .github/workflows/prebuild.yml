@@ -1,4 +1,4 @@
-name: Prebuild - Fetch Apple Music Playlists
+name: Prebuild - EC*
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 jobs:
-  fetch-playlists:
+  prebuild-ec*:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
