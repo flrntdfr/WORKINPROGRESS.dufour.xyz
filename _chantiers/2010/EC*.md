@@ -4,7 +4,7 @@ title: EC*
 permalink: /2010/EC*.html
 result: [dataset, web]
 spicy: true
-tech: [eMule, iTunes, Apple&nbsp;Music, Music&nbsp;Kit.js]
+tech: [eMule, iTunes, Apple&nbsp;Music, MusicKit&nbsp;JS]
 started: 2010-09-01 20:00
 reviewed: 2026-01-20 12:00
 description:
