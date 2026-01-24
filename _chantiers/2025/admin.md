@@ -615,6 +615,8 @@ document.addEventListener('DOMContentLoaded', function() {
   max-width: 100vw;
   overflow-x: auto;
   box-sizing: border-box;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .chantiers-table {

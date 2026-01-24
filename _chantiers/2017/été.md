@@ -8,6 +8,10 @@ result: [photo]
 ---
 
 <style>
+data {
+    padding-left: 1em;
+}
+
 img {
     max-width:200px;,
 }

@@ -10,7 +10,7 @@ reviewed: 2026-01-20 12:00
 description:
     EC* is a collection of 3500 electronic music tracks organized in 150 clearly labeled playlists.
     <br>
-    It is released as a JSON dataset, an interactive browser, and a 24/7&nbsp;web&nbsp;radio.
+    It is released as a JSON dataset, an interactive library, and a 24/7&nbsp;web&nbsp;radio.
 css:
   - /assets/2026/EC*/EC*.css
 js:
