@@ -13,7 +13,7 @@ description:
     <br><br>
     Later, I used iTunes&nbsp;Match to import the tracks and made playlists that are now synced in Apple&nbspMusic. With 4G, it's become the way I listen to music.
     <br><br>
-    In 2025, I worked with Claude and made a front-end. The result can be viewed on this page and downloaded as a JSON&nbspfile (AGPL&nbsplicense).
+    I worked with Claude in 2025 and made a front-end. The result can be viewed on this page and downloaded as a JSON&nbspfile (AGPL&nbsplicense).
 css:
   - /assets/2026/DJ-DIGGER/DJ-DIGGER.css
 js:
