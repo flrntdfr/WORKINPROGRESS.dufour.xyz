@@ -9,9 +9,11 @@ reviewed: 2026-02-01 12:00
 description:
     <strong>DJ Digger is a platform for digging 13 days<br> of good music.</strong>
     <br><br>
-    The project started as a folder structure made to organize music incoming from eMule. I used mnemonics to keep the directory names short and the structure flat. Later, I used iTunes Match to import the tracks and made playlists that are now synced in Apple Music. The advent of 4G made it possible to rely entirely on it and that's how I navigate the music a DJ would like to find.
+    The project started as a folder structure made to organize music incoming from eMule. I used mnemonics to keep the directory names short and the structure flat.
     <br><br>
-    In 2025, I worked with Claude and made a front-end for the platform. The result can be viewed on this page and downloaded as a JSON file (AGPL license).
+    Later, I used iTunes&nbsp;Match to import the tracks and made playlists that are now synced in Apple&nbspMusic. With 4G, it's become the way I listen to music.
+    <br><br>
+    In 2025, I worked with Claude and made a front-end. The result can be viewed on this page and downloaded as a JSON&nbspfile (AGPL&nbsplicense).
 css:
   - /assets/2026/DJ-DIGGER/DJ-DIGGER.css
 js:
