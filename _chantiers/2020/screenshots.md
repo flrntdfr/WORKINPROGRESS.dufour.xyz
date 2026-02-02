@@ -133,7 +133,7 @@ data {
 ![IMG_5104.webp]({% link /assets/2024/screenshots/IMG_5104.webp %})
 ![IMG_5389.webp]({% link /assets/2024/screenshots/IMG_5389.webp %})
 ![IMG_5762.webp]({% link /assets/2024/screenshots/IMG_5762.webp %})
-[![Apple Music Replay 2022.webp]({% link /assets/2024/screenshots/AppleMusicReplay2022.webp %})]({% link _chantiers/2010/EC*.md %})
+[![Apple Music Replay 2022.webp]({% link /assets/2024/screenshots/AppleMusicReplay2022.webp %})]({% link _chantiers/2010/DJ-DIGGER.md %})
 
 {% comment %} 2023 {% endcomment %}
 ![IMG_6562.webp]({% link /assets/2024/screenshots/IMG_6562.webp %})
@@ -149,8 +149,8 @@ data {
 ![IMG_8835.webp]({% link /assets/2024/screenshots/IMG_8835.webp %})
 ![IMG_8903.webp]({% link /assets/2024/screenshots/IMG_8903.webp %})
 ![IMG_9463.webp]({% link /assets/2024/screenshots/IMG_9463.webp %})
-[![Apple Music Replay 2023.webp]({% link /assets/2024/screenshots/AppleMusicReplay2023.webp %})]({% link _chantiers/2010/EC*.md %})
-[![Apple Music Replay Top Albums 2023.webp]({% link /assets/2024/screenshots/AppleMusicReplayTopAlbums2023.webp %})]({% link _chantiers/2010/EC*.md %})
+[![Apple Music Replay 2023.webp]({% link /assets/2024/screenshots/AppleMusicReplay2023.webp %})]({% link _chantiers/2010/DJ-DIGGER.md %})
+[![Apple Music Replay Top Albums 2023.webp]({% link /assets/2024/screenshots/AppleMusicReplayTopAlbums2023.webp %})]({% link _chantiers/2010/DJ-DIGGER.md %})
 
 ![IMG_2254.webp]({% link /assets/2024/screenshots/IMG_2254.webp %})
 ![IMG_1372.webp]({% link /assets/2024/screenshots/IMG_1372.webp %})
@@ -165,8 +165,8 @@ data {
 ![IMG_9548.webp]({% link /assets/2024/screenshots/IMG_9548.webp %})
 ![IMG_9783.webp]({% link /assets/2024/screenshots/IMG_9783.webp %})
 ![IMG_9843.webp]({% link /assets/2024/screenshots/IMG_9843.webp %})
-[![Apple Music Replay 2024.webp]({% link /assets/2024/screenshots/AppleMusicReplay2024.webp %})]({% link _chantiers/2010/EC*.md %})
-[![Apple Music Replay Top Albums 2024.webp]({% link /assets/2024/screenshots/AppleMusicReplayTopAlbums2024.webp %})]({% link _chantiers/2010/EC*.md %})
+[![Apple Music Replay 2024.webp]({% link /assets/2024/screenshots/AppleMusicReplay2024.webp %})]({% link _chantiers/2010/DJ-DIGGER.md %})
+[![Apple Music Replay Top Albums 2024.webp]({% link /assets/2024/screenshots/AppleMusicReplayTopAlbums2024.webp %})]({% link _chantiers/2010/DJ-DIGGER.md %})
 <a href="https://www.instagram.com/jezzuspizzaria/" target="_blank" rel="noopener noreferrer"><img alt="IMG_1560.webp" src="{% link /assets/2024/screenshots/IMG_1560.webp %}"></a>
 ![IMG_2431.webp]({% link /assets/2024/screenshots/IMG_2431.webp %})
 

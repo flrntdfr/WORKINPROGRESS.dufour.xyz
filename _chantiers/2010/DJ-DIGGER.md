@@ -1,22 +1,23 @@
 ---
 layout: chantier-blank
-title: EC*
-permalink: /2010/EC*.html
-result: [dataset, web]
+title: DJ Digger
+result: [music, web, dataset]
 spicy: true
 tech: [eMule, iTunes, Apple&nbsp;Music, MusicKit&nbsp;JS]
 started: 2010-09-01 20:00
-reviewed: 2026-01-20 12:00
+reviewed: 2026-02-01 12:00
 description:
-    EC* is a collection of 3500 electronic music tracks organized in 150 clearly labeled playlists.
-    <br>
-    It is released as a JSON file, an interactive library, and a 24/7&nbsp;web&nbsp;radio.
+    <strong>DJ Digger is a platform for digging 13 days<br> of good music.</strong>
+    <br><br>
+    The project started as a folder structure made to organize music incoming from eMule. I used mnemonics to keep the directory names short and the structure flat. Later, I used iTunes Match to import the tracks and made playlists that are now synced in Apple Music. The advent of 4G made it possible to rely entirely on it and that's how I navigate the music a DJ would like to find.
+    <br><br>
+    In 2025, I worked with Claude and made a front-end for the platform. The result can be viewed on this page and downloaded as a JSON file (AGPL license).
 css:
-  - /assets/2026/EC*/EC*.css
+  - /assets/2026/DJ-DIGGER/DJ-DIGGER.css
 js:
-  - /assets/2026/EC*/EC*.js
+  - /assets/2026/DJ-DIGGER/DJ-DIGGER.js
 href:
-  - ["int", "<strong>Download:</strong>", "EC*.json (4.2 MB)", "_chantiers/2010/EC*.json"]
+  - ["int", "<strong>•</strong>", "DJ Digger.json (4.2 MB)", "_chantiers/2010/DJ-DIGGER.json"]
 ---
 
 {% include fonteawesome.html %}
@@ -98,7 +99,7 @@ href:
     </div>
     <!-- Stats -->
     <div class="ec-stats">
-      <span id="stats-display">{{ page.reviewed | date: "%d/%m/%Y" }}<br>{{ total_tracks }} tracks<br>{{ total_duration_days }} days<br></span>
+      <span id="stats-display">{{ total_tracks }} tracks<br>{{ total_duration_days }} days<br>{{ page.reviewed | date: "%Y.%m" }}</span>
     </div>
   </div>
   
