@@ -1,10 +1,11 @@
 # Makefile
 # 2021 - 2025
 
-.PHONY: img install build serve clean nuke help wasm gems
+.PHONY: img install build serve dev clean nuke help wasm gems
 
 SERVER_PORT    := 4000
 SERVER_FLAGS   := --trace --livereload
+DEV_CONFIG     := --config _config.yml,_config_dev.yml
 
 gems: ## Install gems for local development
 	bundle config set --local path '.direnv/bundle'
@@ -28,6 +29,9 @@ build-nix: ## Build the website using Nix
 
 serve: prebuild ## Build and serve the website
 	bundle exec jekyll serve $(SERVER_FLAGS)
+
+dev: ## Fast local dev server (no prebuild, no feed/sitemap, incremental)
+	bundle exec jekyll serve $(SERVER_FLAGS) $(DEV_CONFIG) --unpublished --future
 
 serve-dev: ## Build and serve the website with drafts and future posts
 	bundle exec jekyll serve $(SERVER_FLAGS) --unpublished --future
