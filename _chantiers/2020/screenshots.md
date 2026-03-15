@@ -98,7 +98,7 @@ data {
 ![IMG_0304.webp]({% link /assets/2024/screenshots/IMG_0304.webp %})
 ![IMG_0326.webp]({% link /assets/2024/screenshots/IMG_0326.webp %})
 ![IMG_5312.webp]({% link /assets/2024/screenshots/IMG_5312.webp %})
-[![IMG_5319.webp]({% link /assets/2024/screenshots/IMG_5319.webp %})]({% link _chantiers/2012/curriculum-vitae.md %})
+![IMG_5319.webp]({% link /assets/2024/screenshots/IMG_5319.webp %})
 ![IMG_5414.webp]({% link /assets/2024/screenshots/IMG_5414.webp %})
 ![IMG_5422.webp]({% link /assets/2024/screenshots/IMG_5422.webp %})
 ![IMG_5449.webp]({% link /assets/2024/screenshots/IMG_5449.webp %})

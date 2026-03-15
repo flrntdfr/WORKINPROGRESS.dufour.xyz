@@ -5,7 +5,7 @@ started: 2024-07-27 11:08
 ended: 2025-07-16 22:10
 location: [Paris]
 result: [list, illustration]
-tech: [Stable diffusion]
+tech: [gpt‑image‑1, Processing]
 description: This project is inspired by the fact that “roughly 60% of employment in 2018 is found in job titles that did not exist in 1940.”<sup>1</sup>
 href:
   - ["ext", "<sup>1</sup>", "Autor, David, et al. “New frontiers: The origins and content of new work, 1940–2018.” <i>The Quarterly Journal of Economics</i> 139.3 (2024): 1399-1465.", "https://academic.oup.com/qje/article-abstract/139/3/1399/7630187"]
@@ -135,15 +135,6 @@ href:
     alt="Portrait du Ministre du lien social"
     src-full="{% link /assets/2025/ministres/0769E278-5272-4ED9-AC0A-A740A7A6F882.webp %}"
     srcset="{% link /assets/2025/ministres/0769E278-5272-4ED9-AC0A-A740A7A6F882.webp %} 1066w"
-    sizes="400px">
-</div>
-<div class="minister-card"  >
-    <div class="titre">Ministre des initiatives parapubliques</div>
-    <img src="data:image/webp;base64,{% include_relative ministres/BA47C74E-7916-4CB6-B297-2150B77111C7_thumb.txt %}" 
-    class="portrait"
-    alt="Portrait du Ministre des Initiatives Parapubliques"
-    src-full="{% link /assets/2025/ministres/BA47C74E-7916-4CB6-B297-2150B77111C7.webp %}"
-    srcset="{% link /assets/2025/ministres/BA47C74E-7916-4CB6-B297-2150B77111C7.webp %} 1066w"
     sizes="400px">
 </div>
 <div class="minister-card">

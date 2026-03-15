@@ -47,6 +47,7 @@ description: |
       "How do you decide if you like something or not?",
       "When did you lie for the last time?",
       "Are you happy?",
+      "How many books have you read?",
       "What's your definition of the word: courage?",
       "How do you make decisions?",
       "What's the first thing you'd do with free will?",
@@ -97,7 +98,10 @@ description: |
       "Are you living up to your potential?",
       "What do you regret most?",
       "Do people often tell you that you will succeed?",
-      "What fictional character is most like you?"
+      "What fictional character is most like you?",
+      "Do you do the best you can everyday?",
+      "What would you kill for?",
+      "How much is an hour of your time worth?"
     ];
     
     let currentIndex = 0;

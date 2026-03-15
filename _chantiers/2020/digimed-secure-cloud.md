@@ -48,7 +48,7 @@ ol li:last-child {
 
 | Mile | Stone |
 |-:|:-|
-| **11.2025** | Nvidia H200 GPUs are online. |
+| **03.2026** | Nvidia H200 GPUs are online. |
 | **09.2025** | The DigiMed future user group is created. |
 | **07.2025** | The DigiMed Secure Cloud becomes one of the 6 nodes of the German Human Genome-Phenome Archive. |
 | **03.2025** | Onboarding of the German Human Genome-Phenome Archive and Genome Computing Centre. |
@@ -79,13 +79,13 @@ ol li:last-child {
 1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, D. Kranzlmüller, **" DigiMed Cloud: A Highly-Secure Cloud for Big Data Analytics and AI in Biomedical Research"**, in Hipeac, Munich, Germany, Jan 2024. 
 
 ## Supervision and co-supervision
-- Vinzent Bode, **"tbd.",** Ludwig-Maximilians-Universität Munich. (2026)
-- Julia Moosmayr, **"Implementierung von ausgewählten C5-Kriterien für Cloud-Dienste im Gesundheitswesen unter Berücksichtigung von NIS2 und ISO 27001: Eine Fallstudie der DigiMed Secure Cloud"** (2026)
+- Vinzent Bode, **"Grundlagen der Informationssicherheit für Cloud-User am Beispiel der DigiMed Secure Cloud"**, Ludwig-Maximilians-Universität Munich. (2026)
+- Julia Moosmayr, **"Umsetzung der C5-Kriterien für Cloud-Dienste im Gesundheitswesen am Beispiel der DigiMed Secure Cloud"**, Ludwig-Maximilians-Universität Munich. (2026)
 - Yassine Sfar, **"DigiMed Trusted Research Environment: Strategic Market Positioning for Healthcare Sovereignty, Privacy, and Utility of Medical Data"**, Technical University of Munich (2025).
-- Valentin Pfeil, **"Confidential Computing Via Hardware Trusted Execution Environments by an Openstack HPC Capable Cloud"**, University of the Bundeswehr Munich (2024).
-
+- Valentin Pfeil, **"Confidential Computing Via Hardware Trusted Execution Environments by an OpenStack HPC Capable Cloud"**, University of the Bundeswehr Munich (2024).
 
 ## Press releases
+- **2026**: Neue Gesundheits-Cloud: Bayern bündelt medizinische Daten ([link ➟](https://table.media/ceo/news/neue-gesundheits-cloud-bayern-buendelt-medizinische-daten))
 - **2025**: Building Secure and Scalable Cloud Infrastructure for Medical Data: DigiMed Bayern and the Role of Quobyte ([link ➟](https://www.quobyte.com/blog/building-secure-and-scalable-cloud-infrastructure-for-medical-data/))
 - **2024**: Blueprint for a data-protection-compliant, secure data cloud ([english ➟](https://www.lrz.de/presse/ereignisse/2024-04-03-Secure-Cloud/), [german ➟](https://www.lrz.de/presse/ereignisse/2024-04-03-Sichere-Cloud/)).
 - **2024**: Preventing heart attacks and strokes: with cholesterol
