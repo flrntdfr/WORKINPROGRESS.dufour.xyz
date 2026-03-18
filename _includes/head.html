@@ -17,7 +17,11 @@
     <meta name="keywords" content="{{ site.keywords }}">
     <meta name="language" content="{{ site.languages | join: ', ' }}">
 
+    {% if page.title %}
+    <meta property="og:title" content="{{ page.title }} ({{ site.title_short }})">
+    {% else %}
     <meta property="og:title" content="Florent Dufour">
+    {% endif %}
     <meta property="og:locale" content="en_US">
     <meta property="og:description" content="{{ site.description | escape }}">
     <meta property="og:url" content="{{ site.url }}">
@@ -62,6 +66,7 @@
     {% endif %}
 
     <link rel="canonical" href="{{ site.url }}">
+    {% feed_meta %}
     <link type="application/atom+xml" rel="alternate" href="/feeds/chantiers.xml" title="WORK IN PROGRESS"/>
 
     <!-- Preload critical fonts -->
