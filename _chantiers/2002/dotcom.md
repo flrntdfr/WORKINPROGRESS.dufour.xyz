@@ -5,7 +5,9 @@ result: [list]
 started: 2002-12-31 00:00
 ended: 2002-12-31 00:00
 description: |
-    I first “surfed the web” in 2002 so I made a list of .com I wanted to visit to see if they existed.
+    I first “surfed the web” in 2002 so I made a list of .com I wanted to visit to see if they existed. 
+    <br>
+    I later learned about the existence of google.com.
     <br><br>
     The list was updated in 2010, 2023, 2024 with other cool domain names.
 ---
