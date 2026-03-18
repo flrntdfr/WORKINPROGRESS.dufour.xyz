@@ -67,23 +67,39 @@ class CustomContextMenu {
   }
 
   positionMenu(x, y) {
-    /* Get menu dimensions */
+    /* Make menu measurable while hidden (display: none gives 0x0 rect) */
+    this.menu.style.visibility = 'hidden';
+    this.menu.style.display = 'block';
     const menuRect = this.menu.getBoundingClientRect();
+    const menuWidth = menuRect.width;
+    const menuHeight = menuRect.height;
+    this.menu.style.visibility = '';
+    this.menu.style.display = '';
+
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
-    
-    /* Adjust position if menu would go off-screen */
+    const padding = 10;
+
+    /* Pop left: not enough space on the right → align menu's right edge with click */
     let finalX = x;
+    if (x + menuWidth > windowWidth - padding) {
+      finalX = x - menuWidth;
+    }
+    /* Clamp so menu does not go off the left */
+    if (finalX < padding) {
+      finalX = padding;
+    }
+
+    /* Pop north: not enough space below → open upward (menu's bottom at click) */
     let finalY = y;
-    
-    if (x + menuRect.width > windowWidth) {
-      finalX = windowWidth - menuRect.width - 10;
+    if (y + menuHeight > windowHeight - padding) {
+      finalY = y - menuHeight;
     }
-    
-    if (y + menuRect.height > windowHeight) {
-      finalY = windowHeight - menuRect.height - 10;
+    /* Clamp so menu does not go off the top */
+    if (finalY < padding) {
+      finalY = padding;
     }
-    
+
     /* Apply position */
     this.menu.style.left = finalX + 'px';
     this.menu.style.top = finalY + 'px';

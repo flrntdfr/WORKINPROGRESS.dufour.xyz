@@ -816,6 +816,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .site-now {
   text-align: center;
   margin-top: 2em;
+  margin-bottom: 2em;
   color: #666;
   font-size: 0.85em;
 }
