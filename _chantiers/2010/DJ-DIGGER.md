@@ -5,15 +5,15 @@ result: [music, web, dataset]
 spicy: true
 tech: [eMule, iTunes, Apple&nbsp;Music, MusicKit&nbsp;JS]
 started: 2010-09-01 20:00
-reviewed: 2026-02-01 12:00
+reviewed: 2026-03-01 12:00
 description:
-    <strong>DJ Digger is a platform for digging 13 days<br> of good music.</strong>
+    <strong>DJ Digger is where I put the music I dig.</strong>
     <br><br>
-    The project started as a folder structure made to organize music incoming from eMule. I used mnemonics to keep the directory names short and the structure flat.
+    The project started as a folder structure made to organize incoming tracks from eMule. I used mnemonics instead of genres or energy to keep the folder structure flat.
     <br><br>
-    Later, I used iTunes&nbsp;Match to import the tracks and made playlists that are now synced in Apple&nbspMusic. With 4G, it's become the way I listen to music.
+    Later, iTunes&nbsp;Match allowed me to import the library in the cloud and turn folders into playlists. Since 4G, I was able to rely on DJ DIGGER's library every day to reliably retrieve music.
     <br><br>
-    I worked with Claude in 2025 and made a front-end. The result can be viewed on this page and downloaded as a JSON&nbspfile (AGPL&nbsplicense).
+    I worked with Claude in 2025 and made a front-end. The result can be viewed on this page. The library can be downloaded as a JSON&nbspfile (AGPL&nbsplicense).
 css:
   - /assets/2026/DJ-DIGGER/DJ-DIGGER.css
 js:
@@ -44,6 +44,15 @@ href:
 {% endfor %}
 
 {% assign total_duration_days = total_duration_ms | divided_by: 86400000.0 | round: 2 %}
+{% assign duration_days = total_duration_ms | divided_by: 86400000 %}
+{% assign ms_after_days = duration_days | times: 86400000 %}
+{% assign remainder_ms = total_duration_ms | minus: ms_after_days %}
+{% assign duration_hours = remainder_ms | divided_by: 3600000 %}
+{% assign ms_after_hours = duration_hours | times: 3600000 %}
+{% assign remainder_ms = remainder_ms | minus: ms_after_hours %}
+{% assign duration_minutes = remainder_ms | divided_by: 60000 %}
+{% assign ms_after_minutes = duration_minutes | times: 60000 %}
+{% assign duration_seconds = remainder_ms | minus: ms_after_minutes | divided_by: 1000 %}
 
 <!-- Artwork Lightbox -->
 <div id="artwork-lightbox" class="artwork-lightbox">
@@ -101,7 +110,7 @@ href:
     </div>
     <!-- Stats -->
     <div class="ec-stats">
-      <span id="stats-display">{{ total_tracks }} tracks<br>{{ total_duration_days }} days<br>{{ page.reviewed | date: "%Y.%m" }}</span>
+      <span id="stats-display">{{ total_tracks }} tracks<br>{{ duration_days }}:{% if duration_hours < 10 %}0{% endif %}{{ duration_hours }}:{% if duration_minutes < 10 %}0{% endif %}{{ duration_minutes }}:{% if duration_seconds < 10 %}0{% endif %}{{ duration_seconds }}<br>{{ page.reviewed | date: "%Y.%m" }}</span>
     </div>
   </div>
   

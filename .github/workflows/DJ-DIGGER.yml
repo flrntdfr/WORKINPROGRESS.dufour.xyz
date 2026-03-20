@@ -1,4 +1,4 @@
-name: Prebuild EC*
+name: Prebuild DJ-DIGGER
 
 on:
   workflow_dispatch:
@@ -14,16 +14,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Install dependencies
-        working-directory: prebuild/EC*/
+        working-directory: prebuild/DJ-DIGGER/
         run: npm install
 
       - name: Fetch Apple Music Playlists
-        working-directory: prebuild/EC*/
+        working-directory: prebuild/DJ-DIGGER/
         env:
           APPLE_MUSIC_TOKEN: ${{ secrets.APPLE_MUSIC_TOKEN }}
           MUSIC_USER_TOKEN: ${{ secrets.MUSIC_USER_TOKEN }}
@@ -39,7 +39,7 @@ jobs:
       - name: Commit and Push changes
         run: |
           git config --global user.name 'automatique [bot]'
-          git config --global user.email 'automatique [bot]@users.noreply.github.com'
+          git config --global user.email 'automatique-bot@users.noreply.github.com'
           git add _data/playlists.json
-          git commit -m "PREBUILD EC* [bot]"
+          git diff --staged --quiet || git commit -m "PREBUILD DJ-DIGGER [bot]"
           git push
