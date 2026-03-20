@@ -1,5 +1,5 @@
 ---
-permalink: /2010/EC*.json
+permalink: /2010/DJ-DIGGER.json
 ---
 
 {{ site.data.playlists | where_exp: "item", "item.name contains 'EC'" | jsonify }}
