@@ -1,0 +1,14 @@
+# Development overrides — used with: jekyll serve --config _config.yml,_config_dev.yml
+# Speeds up live-reload cycles by disabling production-only work.
+
+# Skip HTML compression (compress.html layout checks this list)
+compress_html:
+  ignore:
+    envs:
+      - development
+
+# Faster rebuilds: only re-render changed files
+incremental: true
+
+# Loosen URL so asset links work on localhost
+url: "http://localhost:4000"
