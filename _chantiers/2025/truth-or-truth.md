@@ -101,7 +101,8 @@ description: |
       "What fictional character is most like you?",
       "Do you do the best you can everyday?",
       "What would you kill for?",
-      "How much is an hour of your time worth?"
+      "How much is an hour of your time worth?",
+      "Do you deserve all the good things that happened to you?"
     ];
     
     let currentIndex = 0;

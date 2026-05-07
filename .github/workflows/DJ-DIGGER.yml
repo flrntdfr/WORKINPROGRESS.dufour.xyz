@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 jobs:
-  prebuild-ec:
+  prebuild-dj-digger:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
