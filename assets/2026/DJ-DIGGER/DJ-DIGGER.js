@@ -13,7 +13,7 @@ class ECViewer {
     this.filteredTracks = [];
     this.filterMode = 'and';
   
-    /* Dual audio players for crossfading */
+  /* Dual audio players for crossfading */
   this.audioPlayer = new Audio();
   this.audioPlayer.crossOrigin = 'anonymous'; /* Enable CORS for Web Audio API */
   this.audioPlayer.muted = true; /* Muted by default */
@@ -497,6 +497,7 @@ class ECViewer {
         debounceTimer = setTimeout(() => {
           this.filterPlaylistTerm = e.target.value.toLowerCase().trim();
           this.filterPlaylists();
+          this.filterTracks();
         }, 200);
       });
     }
@@ -522,6 +523,7 @@ class ECViewer {
         if (e.target.checked) {
           this.filterMode = e.target.value;
           this.filterPlaylists();
+          this.filterTracks();
         }
       });
     });
@@ -540,29 +542,23 @@ class ECViewer {
       
       const pTerm = this.filterPlaylistTerm;
       const tTerm = this.filterTrackTerm;
+      const matchesPlaylistName = (term) => {
+        if (!term) return false;
+        if (playlistName.includes(term)) return true;
+        return false;
+      };
       
-      const pMatches = playlistName.includes(pTerm);
-      let tMatches = false;
-      if (playlist.tracks) {
-        tMatches = playlist.tracks.some(track => 
-          track.title.toLowerCase().includes(tTerm) ||
-          track.artist.toLowerCase().includes(tTerm) ||
-          (track.album && track.album.toLowerCase().includes(tTerm))
-        );
-      }
+      const m1 = pTerm === '' || matchesPlaylistName(pTerm);
+      const m2 = tTerm === '' || matchesPlaylistName(tTerm);
       
       if (this.filterMode === 'or') {
         if (pTerm === '' && tTerm === '') {
           matches = true;
         } else {
-          const m1 = pTerm !== '' && pMatches;
-          const m2 = tTerm !== '' && tMatches;
           matches = m1 || m2;
         }
       } else {
         /* AND mode */
-        const m1 = pTerm === '' || pMatches;
-        const m2 = tTerm === '' || tMatches;
         matches = m1 && m2;
       }
       
@@ -589,34 +585,15 @@ class ECViewer {
   
   filterTracks() {
     if (!this.currentPlaylist || !this.currentPlaylist.tracks) {
+      this.filteredTracks = [];
       return;
     }
     
     const trackRows = document.querySelectorAll('.ec-track-row');
-    this.filteredTracks = [];
-    
+    this.filteredTracks = [...this.currentPlaylist.tracks];
+      
     trackRows.forEach(row => {
-      const trackIndex = parseInt(row.dataset.trackIndex);
-      const track = this.currentPlaylist.tracks[trackIndex];
-      
-      if (!track) return;
-      
-      let matches = false;
-      
-      /* Filter by track title, artist, or album */
-      if (this.filterTrackTerm === '' ||
-          track.title.toLowerCase().includes(this.filterTrackTerm) ||
-          track.artist.toLowerCase().includes(this.filterTrackTerm) ||
-          (track.album && track.album.toLowerCase().includes(this.filterTrackTerm))) {
-        matches = true;
-      }
-      
-      if (matches) {
-        row.style.display = '';
-        this.filteredTracks.push(track);
-      } else {
-        row.style.display = 'none';
-      }
+      row.style.display = '';
     });
   }
   
