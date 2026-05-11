@@ -1,9 +1,16 @@
-/* 
- * DJ-DIGGER Viewer - Minimal Flat High-Contrast Design
- * Clean, modern, high-contrast interface
+/*
+ * DJ-DIGGER Viewer — Minimal Flat High-Contrast Design
+ *
+ * Layout:
+ *   Desktop (>=1180px): single row of [controls-left | player | stats] above a
+ *     4-column data grid. Components naturally pull closer as the window narrows.
+ *   Mobile  (<1180px) : data grid, filters and stats are hidden. Only the
+ *     VU meters, the now-playing player and the two transport buttons remain.
  */
 
-/* Minimal High-Contrast Color Palette */
+/* ============================================================================
+   1. Tokens
+   ========================================================================= */
 :root {
   --bg: #ffffff;
   --bg-alt: #f5f5f5;
@@ -14,9 +21,22 @@
   --text-dim: #666666;
   --border: #000000;
   --highlight: var(--accent-color);
+
+  --shadow:      4px 4px 8px 0 rgba(0, 0, 0, 0.15);
+  --shadow-sm:   2px 2px 4px 0 rgba(0, 0, 0, 0.15);
+  --shadow-text: 4px 4px 8px      rgba(0, 0, 0, 0.15);
+
+  --ec-controls-h:   99px;
+  --ec-player-w:     300px;
+  --ec-player-text:  250px;
+  --ec-btn-size:     32px;
+  --ec-row-h:        60px;
+  --ec-thumb:        44px;
 }
 
-/* Override parent data element to allow full height */
+/* ============================================================================
+   2. Page chrome (full-bleed viewer inside the chantier layout)
+   ========================================================================= */
 body:has(.ec-viewer) {
   height: 100vh;
   overflow: hidden;
@@ -36,8 +56,8 @@ body:has(.ec-viewer) data {
   flex-direction: column;
 }
 
-/* Main Container - Full Width and Height */
 .ec-viewer {
+  flex: 1;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -47,213 +67,205 @@ body:has(.ec-viewer) data {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  flex: 1;
 }
 
-/* Controls Bar - 3 Column Flexbox Layout */
+/* ============================================================================
+   3. Controls bar — three flex children pull together as width shrinks
+   ========================================================================= */
+/* Height is locked with both `height` and `min-height` so the row never
+   shrinks below the design value, no matter what `min-height: auto` does
+   to the inner flex/grid content. */
 .ec-controls {
+  flex-shrink: 0;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  height: var(--ec-controls-h);
+  min-height: var(--ec-controls-h);
   padding: 14px 16px;
-  min-height: 68px;
+  box-sizing: border-box;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
-  flex-shrink: 0;
 }
 
-/* Left Column: Filter Switch, Filters, VU Meter, Buttons - 2 Row Grid */
+/* Two-row, four-column micro-grid:
+   col1 = filter mode (rows 1–2), col2 = filter inputs (one per row),
+   col3 = VU meters (rows 1–2), col4 = transport buttons (one per row) */
 .ec-controls-left {
+  flex: 0 1 auto;
+  min-width: 0;
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-template-rows: 1fr 1fr;
   grid-auto-flow: column;
   gap: 6px 12px;
   align-items: center;
-  flex: 0 1 auto;
-  min-width: 0;
 }
 
-/* Filter mode spans 2 rows - column 1 */
-.ec-controls-left .ec-filter-mode {
-  grid-column: 1;
-  grid-row: 1 / 3;
+.ec-controls-left .ec-filter-mode             { grid-column: 1; grid-row: 1 / 3; }
+.ec-controls-left .ec-filters-wrapper          { display: contents; }
+.ec-controls-left .ec-filter-container:nth-child(1) { grid-column: 2; grid-row: 1; }
+.ec-controls-left .ec-filter-container:nth-child(2) { grid-column: 2; grid-row: 2; }
+.ec-controls-left .ec-vu-meters                { grid-column: 3; grid-row: 1 / 3; }
+.ec-controls-left .ec-vu-controls              { display: contents; }
+.ec-controls-left .ec-vu-controls .ec-player-btn:nth-child(1) { grid-column: 4; grid-row: 1; }
+.ec-controls-left .ec-vu-controls .ec-player-btn:nth-child(2) { grid-column: 4; grid-row: 2; }
+
+/* ============================================================================
+   4. Filter mode (radios) and filter inputs
+   ========================================================================= */
+.ec-filter-mode {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
-/* Filters wrapper becomes transparent to grid - children participate directly */
-.ec-controls-left .ec-filters-wrapper {
-  display: contents;
+.ec-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-family-ui);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text);
 }
 
-/* First filter container - column 2, row 1 */
-.ec-controls-left .ec-filter-container:nth-child(1) {
-  grid-column: 2;
-  grid-row: 1;
+.ec-radio-label input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
 
-/* Second filter container - column 2, row 2 */
-.ec-controls-left .ec-filter-container:nth-child(2) {
-  grid-column: 2;
-  grid-row: 2;
+.ec-radio-label input[type="radio"]:checked {
+  background: var(--text);
 }
 
-/* VU meters span 2 rows - column 3 */
-.ec-controls-left .ec-vu-meters {
-  grid-column: 3;
-  grid-row: 1 / 3;
+.ec-radio-label span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
-/* VU controls wrapper becomes transparent to grid */
-.ec-controls-left .ec-vu-controls {
-  display: contents;
+#filter-playlists,
+#filter-tracks {
+  width: 100%;
+  padding: 6px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  font-family: var(--font-family-ui);
+  font-size: 13px;
+  color: var(--text);
 }
 
-/* First button - column 4, row 1 */
-.ec-controls-left .ec-vu-controls .ec-player-btn:nth-child(1) {
-  grid-column: 4;
-  grid-row: 1;
+#filter-playlists::placeholder,
+#filter-tracks::placeholder {
+  color: var(--text-dim);
+  font-size: 12px;
 }
 
-/* Second button - column 4, row 2 */
-.ec-controls-left .ec-vu-controls .ec-player-btn:nth-child(2) {
-  grid-column: 4;
-  grid-row: 2;
+#filter-playlists:focus,
+#filter-tracks:focus {
+  outline: none;
 }
 
-/* Center Column: Player is a direct child of ec-controls */
-/* Styles handled in .ec-player below */
+/* ============================================================================
+   5. VU meters and their stacked transport buttons
+   ========================================================================= */
+.ec-vu-meters {
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 32px;
+  padding: 10px 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
 
-/* Right Column: Stats is a direct child of ec-controls */
-/* Styles handled in .ec-stats below */
+.ec-vu-controls {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
 
-/* Player - Now Playing (Cover Art and Track Info) */
+.ec-vu-meter {
+  position: relative;
+  width: 5px;
+  height: 40px;
+  margin-top: 3px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.ec-vu-meter-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  background: linear-gradient(to top,
+    #00ff00 0%,
+    #33ff33 10%,
+    #88ff00 30%,
+    #ddff00 50%,
+    #ffcc00 65%,
+    #ff8800 80%,
+    #ff3300 90%,
+    #ff0000 100%);
+  transition: none;
+  will-change: height;
+  transform: translateZ(0);
+}
+
+/* ============================================================================
+   6. Player (now-playing strip)
+   ========================================================================= */
 .ec-player {
+  flex: 0 0 var(--ec-player-w);
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
-  padding: 10px 14px;
   height: 68px;
-  max-width: 394px;
+  padding: 10px 14px;
   background: var(--bg);
   border: 1px solid var(--border);
-  box-sizing: border-box;
-  max-width: 400px;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
-}
-
-.ec-player-btn {
-  width: 32px;
-  height: 32px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  color: var(--text);
-  cursor: pointer;
-  font-size: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  position: relative;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
-  transition: all 0.08s ease;
-}
-
-.ec-player-btn i {
-  pointer-events: none;
-}
-
-.ec-player-btn:hover {
-  background: var(--bg-hover);
-}
-
-.ec-player-btn:active {
-  background: var(--bg-alt);
-  transform: scale(0.92);
-  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.15);
-}
-
-.ec-player-btn.muted {
-  background: var(--accent);
-}
-
-/* Mute Button Boop Circles Animation - Extremely Discrete */
-.ec-player-btn.muted::before,
-.ec-player-btn.muted::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  opacity: 0;
-}
-
-/* Metadata Title Row with Play Button */
-.ec-metadata-title-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: flex-start;
-}
-
-.ec-metadata-play-btn {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  color: var(--text);
-  cursor: pointer;
-  font-size: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  position: relative;
-  transition: all 0.12s ease;
-  flex-shrink: 0;
-}
-
-.ec-metadata-play-btn i {
-  pointer-events: none;
-  margin-left: 1px;
-}
-
-.ec-metadata-play-btn:hover {
-  background: var(--bg-hover);
-}
-
-.ec-metadata-play-btn:active {
-  background: var(--bg-alt);
-}
-
-/* Player Info Container */
-.ec-player-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 0 0 auto;
+  box-shadow: var(--shadow);
 }
 
 .ec-player-artwork {
+  position: relative;
+  flex-shrink: 0;
   width: 48px;
-  height: 48px;
   min-width: 48px;
+  height: 48px;
   background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 0;
   background-size: cover;
   background-position: center;
-  flex-shrink: 0;
-  position: relative;
+  border: 1px solid var(--border);
   cursor: pointer;
   transition: transform 0.1s ease;
 }
@@ -273,333 +285,225 @@ body:has(.ec-viewer) data {
 }
 
 .ec-player-track-info {
+  position: relative;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  width: 250px;
-  flex-shrink: 0;
+  width: var(--ec-player-text);
   overflow: hidden;
-  position: relative;
 }
 
-/* Live Badge - Minimal and Discreet */
 .ec-live-badge {
+  width: fit-content;
+  margin-bottom: 3px;
+  padding: 2px 6px;
+  background: #ff0000;
+  border: 1px solid var(--border);
+  font-family: var(--font-family-ui);
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.8px;
-  color: var(--text);
-  background: #ff0000;
-  color: white;
-  border: 1px solid var(--border);
-  padding: 2px 6px;
   text-transform: uppercase;
-  font-family: var(--font-family-ui);
-  width: fit-content;
-  margin-bottom: 3px;
+  color: #ffffff;
 }
 
 .ec-player-title,
 .ec-player-artist {
+  position: relative;
+  font-family: var(--font-family-ui);
+  line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
-  line-height: 1.3;
-  position: relative;
 }
 
-.ec-player-title {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--text);
-  font-family: var(--font-family-ui);
-}
+.ec-player-title  { font-size: 11px; font-weight: 500; color: var(--text); }
+.ec-player-artist { font-size:  9px; color: var(--text-dim); }
 
-.ec-player-artist {
-  font-size: 9px;
-  color: var(--text-dim);
-  font-family: var(--font-family-ui);
-}
-
-/* iPod-style scrolling animation for long text */
 .ec-player-title:hover,
 .ec-player-artist:hover {
   overflow: visible;
 }
 
-.ec-player-title > span,
+.ec-player-title  > span,
 .ec-player-artist > span {
   display: inline-block;
   padding-right: 40px;
 }
 
-/* Scrolling animation when text is too long - iPod style */
+/* iPod-style marquee — only when JS adds the `scrolling` class */
 @keyframes scroll-text {
-  0% {
-    transform: translateX(0);
-  }
-  15% {
-    transform: translateX(0);
-  }
-  85% {
-    transform: translateX(calc(-100% + 250px));
-  }
-  100% {
-    transform: translateX(calc(-100% + 250px));
-  }
+  0%,  15% { transform: translateX(0); }
+  85%, 100% { transform: translateX(calc(-100% + var(--ec-player-text))); }
 }
 
-.ec-player-title.scrolling > span,
+.ec-player-title.scrolling  > span,
 .ec-player-artist.scrolling > span {
   animation: scroll-text 12s ease-in-out infinite;
   animation-delay: 1s;
 }
 
-/* Go to track button in player - styled like other player buttons */
+/* ============================================================================
+   7. Circular buttons (player transport, go-to-track, A–Z letter filter)
+   ========================================================================= */
+.ec-player-btn,
 .ec-player-goto-btn {
-  width: 32px;
-  height: 32px;
+  position: relative;
+  width: var(--ec-btn-size);
+  height: var(--ec-btn-size);
+  padding: 0;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 50%;
+  box-shadow: var(--shadow);
+  font-size: 11px;
   color: var(--text);
   cursor: pointer;
-  font-size: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  position: relative;
   transition: all 0.08s ease;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
-.ec-player-goto-btn i {
-  pointer-events: none;
-}
+.ec-player-btn i,
+.ec-player-goto-btn i { pointer-events: none; }
 
-.ec-player-goto-btn:hover {
-  background: var(--bg-hover);
-}
+.ec-player-btn:hover,
+.ec-player-goto-btn:hover { background: var(--bg-hover); }
 
+.ec-player-btn:active,
 .ec-player-goto-btn:active {
   background: var(--bg-alt);
+  box-shadow: var(--shadow-sm);
   transform: scale(0.92);
 }
 
+.ec-player-btn.muted { background: var(--accent); }
+
+/* Subtle "boop" pulse hooks used by the muted state — kept invisible until
+   JS animates them. */
+.ec-player-btn.muted::before,
+.ec-player-btn.muted::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+}
+
 .ec-player-goto-btn:disabled {
+  color: var(--text-dim);
   opacity: 0.4;
   cursor: not-allowed;
-  color: var(--text-dim);
 }
 
-.ec-player-goto-btn:disabled:hover {
-  background: var(--bg);
-}
+.ec-player-goto-btn:disabled:hover { background: var(--bg); }
 
-/* VU Meters Container - Just the meters */
-.ec-vu-meters {
+/* Compact play button used inside the metadata column */
+.ec-metadata-title-row {
   display: flex;
-  gap: 6px;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
+}
+
+.ec-metadata-play-btn {
   flex-shrink: 0;
-  width: 32px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  position: relative;
-  padding: 10px 6px;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
-}
-
-/* Control buttons - sit next to VU meters */
-.ec-vu-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.ec-vu-meter {
-  width: 5px;
-  height: 40px;
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  overflow: hidden;
-  position: relative;
-  margin-top: 3px;
-}
-
-.ec-vu-meter-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0%;
-  background: linear-gradient(to top, 
-    #00ff00 0%, 
-    #33ff33 10%,
-    #88ff00 30%, 
-    #ddff00 50%, 
-    #ffcc00 65%,
-    #ff8800 80%, 
-    #ff3300 90%,
-    #ff0000 100%);
-  transition: none;
-  will-change: height;
-  transform: translateZ(0);
-}
-
-/* Filter Mode Radio Buttons */
-.ec-filter-mode {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 0 0 auto;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
-  border: 1px solid var(--border);
-  padding: 6px 12px;
-}
-
-.ec-radio-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  font-size: 11px;
-  font-family: var(--font-family-ui);
-  color: var(--text);
-  font-weight: 500;
-  user-select: none;
-  padding: 4px 8px;
-}
-
-.ec-radio-label input[type="radio"] {
-  cursor: pointer;
-  margin: 0;
-  width: 16px;
-  height: 16px;
-  appearance: none;
-  -webkit-appearance: none;
-  border-radius: 0;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  position: relative;
-  transition: all 0.15s ease;
-}
-
-.ec-radio-label input[type="radio"]:checked {
-  background: var(--text);
-}
-
-.ec-radio-label span {
-  font-size: 10px;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-/* Filter containers */
-.ec-filter-container {
-  min-width: 180px;
-  max-width: 220px;
-}
-
-/* Letter Buttons (A, B, C, D) */
-.ec-letter-buttons {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.ec-letter-btn {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  padding: 0;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 50%;
+  font-size: 9px;
   color: var(--text);
   cursor: pointer;
-  font-size: 12px;
-  font-weight: 600;
-  font-family: var(--font-family-ui);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.12s ease;
+}
+
+.ec-metadata-play-btn i {
+  pointer-events: none;
+  margin-left: 1px;
+}
+
+.ec-metadata-play-btn:hover  { background: var(--bg-hover); }
+.ec-metadata-play-btn:active { background: var(--bg-alt); }
+
+/* A / B / C / D letter buttons */
+.ec-letter-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+}
+
+.ec-letter-btn {
+  width: var(--ec-btn-size);
+  height: var(--ec-btn-size);
   padding: 0;
-  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-family: var(--font-family-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.1s ease;
 }
 
-.ec-letter-btn:hover {
-  background: var(--bg-hover);
-}
-
-.ec-letter-btn:active {
-  background: var(--bg-alt);
-}
-
+.ec-letter-btn:hover  { background: var(--bg-hover); }
+.ec-letter-btn:active { background: var(--bg-alt); }
 .ec-letter-btn.active {
   background: var(--accent);
   color: var(--bg);
 }
 
-/* Filter input styling */
-#filter-playlists,
-#filter-tracks {
-  width: 100%;
-  padding: 6px 14px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  font-size: 13px;
-  font-family: var(--font-family-ui);
-  color: var(--text);
-  letter-spacing: 0;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
-}
-
-#filter-playlists::placeholder,
-#filter-tracks::placeholder {
-  color: var(--text-dim);
-  font-size: 12px;
-}
-
-#filter-playlists:focus,
-#filter-tracks:focus {
-  outline: none;
-  background: var(--bg);
-}
-
+/* ============================================================================
+   8. Stats display
+   ========================================================================= */
 .ec-stats {
+  flex: 0 0 auto;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  font-size: 11px;
-  color: var(--text-dim);
-  white-space: nowrap;
+  justify-content: flex-end;
   font-family: var(--font-family-ui);
+  font-size: 11px;
   letter-spacing: 0.3px;
   text-align: right;
-  flex: 0 0 auto;
-  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+  text-shadow: var(--shadow-text);
+  color: var(--text-dim);
+  white-space: nowrap;
 }
 
 #stats-display {
   font-family: var(--font-family-monospace);
-  color: var(--text-dim);
   font-weight: 500;
+  color: var(--text-dim);
 }
 
-/* 3-Column Layout (Default) - Modified to 4 columns */
+/* ============================================================================
+   9. Data grid (4 columns)
+   ========================================================================= */
 .ec-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 0;
   flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   overflow: hidden;
 }
 
-/* Individual Column */
 .ec-column {
   display: flex;
   flex-direction: column;
@@ -608,36 +512,24 @@ body:has(.ec-viewer) data {
   overflow: hidden;
 }
 
-.ec-column:last-child {
-  border-right: none;
-}
+.ec-column:last-child { border-right: none; }
 
+.ec-column-header { display: none; }
 
-/* Column Headers - Hidden but functional */
-.ec-column-header {
-  display: none;
-}
-
-/* Column Content - Scrollable */
 .ec-column-content {
   flex: 1;
+  position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  position: relative;
 }
 
-/* Table Styling */
 .ec-table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  padding: 0;
 }
 
-.ec-table tbody {
-  display: block;
-  width: 100%;
-}
+.ec-table tbody { display: block; width: 100%; }
 
 .ec-table tr {
   display: table;
@@ -645,29 +537,47 @@ body:has(.ec-viewer) data {
   table-layout: fixed;
 }
 
-/* Playlist Rows */
-.ec-playlist-row {
-  height: 60px;
-  cursor: pointer;
-  border-bottom: none;
-  border-left: 3px solid transparent;
+/* ============================================================================
+   10. Playlist + track rows (identical chrome, shared selectors)
+   ========================================================================= */
+.ec-playlist-row,
+.ec-track-row {
+  height: var(--ec-row-h);
   background: transparent;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.05s ease;
 }
 
-.ec-playlist-row.selected {
-  background: var(--bg-hover);
-  border-left-color: transparent;
+.ec-playlist-row.selected,
+.ec-track-row.selected   { background: var(--bg-hover); }
+
+.ec-playlist-row:hover,
+.ec-track-row:hover      { background: var(--accent); }
+
+.ec-playlist-row:focus,
+.ec-track-row:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
-.ec-playlist-row:hover {
-  background: var(--accent);
-}
-
+/* Force text back to default colour on hover/selected (accent backgrounds) */
 .ec-playlist-row.selected .ec-playlist-name,
-.ec-playlist-row:hover .ec-playlist-name {
+.ec-playlist-row.selected .ec-playlist-meta,
+.ec-playlist-row:hover    .ec-playlist-name,
+.ec-playlist-row:hover    .ec-playlist-meta,
+.ec-track-row.selected    .ec-track-title,
+.ec-track-row.selected    .ec-track-artist,
+.ec-track-row.selected    .ec-track-num-cell,
+.ec-track-row.selected    .ec-track-duration-cell,
+.ec-track-row:hover       .ec-track-title,
+.ec-track-row:hover       .ec-track-artist,
+.ec-track-row:hover       .ec-track-num-cell,
+.ec-track-row:hover       .ec-track-duration-cell {
   color: var(--text);
 }
 
+/* Cells — playlist column */
 .ec-thumb-cell {
   width: 60px;
   padding: 8px 0 8px 9px;
@@ -675,84 +585,20 @@ body:has(.ec-viewer) data {
 }
 
 .ec-info-cell {
-  padding: 8px 12px 8px 12px;
+  padding: 8px 12px;
   vertical-align: middle;
   overflow: hidden;
 }
 
-.ec-playlist-thumb {
-  width: 44px;
-  height: 44px;
-  object-fit: cover;
-  border: 1px solid var(--border);
-  display: block;
-}
-
-.ec-no-artwork {
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-}
-
-.ec-playlist-name {
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text);
-  line-height: 1.4;
-  font-family: var(--font-family-ui);
-  letter-spacing: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 3px;
-}
-
-.ec-playlist-meta {
-  font-size: 11px;
-  color: var(--text-dim);
-  font-family: var(--font-family-ui);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.ec-playlist-row.selected .ec-playlist-name,
-.ec-playlist-row.selected .ec-playlist-meta,
-.ec-playlist-row:hover .ec-playlist-name,
-.ec-playlist-row:hover .ec-playlist-meta {
-  color: var(--text);
-}
-
-/* Track Rows */
-.ec-track-row {
-  height: 60px;
-  cursor: pointer;
-  border-bottom: none;
-  border-left: 3px solid transparent;
-  background: transparent;
-}
-
-.ec-track-row.selected {
-  background: var(--bg-hover);
-  border-left-color: transparent;
-}
-
-.ec-track-row:hover {
-  background: var(--accent);
-}
-
-.ec-track-row.selected .ec-track-title,
-.ec-track-row:hover .ec-track-title {
-  color: var(--text);
-}
-
+/* Cells — track column */
 .ec-track-num-cell {
   width: 40px;
   padding: 8px 0;
+  font-family: var(--font-family-ui);
+  font-size: 11px;
   text-align: center;
   vertical-align: middle;
   color: var(--text-dim);
-  font-family: var(--font-family-ui);
-  font-size: 11px;
 }
 
 .ec-track-thumb-cell {
@@ -761,159 +607,111 @@ body:has(.ec-viewer) data {
   vertical-align: middle;
 }
 
-.ec-track-thumb {
-  width: 44px;
-  height: 44px;
-  object-fit: cover;
-  border: 1px solid var(--border);
-  display: block;
-}
-
 .ec-track-info-cell {
-  padding: 8px 8px;
+  padding: 8px;
   vertical-align: middle;
   overflow: hidden;
-}
-
-.ec-track-title {
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text);
-  line-height: 1.4;
-  font-family: var(--font-family-ui);
-  letter-spacing: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 3px;
-}
-
-.ec-track-artist {
-  font-size: 11px;
-  color: var(--text-dim);
-  font-family: var(--font-family-ui);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.ec-track-row.selected .ec-track-num-cell,
-.ec-track-row.selected .ec-track-artist,
-.ec-track-row.selected .ec-track-duration-cell,
-.ec-track-row:hover .ec-track-num-cell,
-.ec-track-row:hover .ec-track-artist,
-.ec-track-row:hover .ec-track-duration-cell {
-  color: var(--text);
 }
 
 .ec-track-duration-cell {
   width: 60px;
-  padding: 8px 8px 8px 8px;
+  padding: 8px;
+  font-family: var(--font-family-ui);
+  font-size: 11px;
   text-align: right;
   vertical-align: middle;
-  font-family: var(--font-family-ui);
-  color: var(--text-dim);
-  font-size: 11px;
   white-space: nowrap;
+  color: var(--text-dim);
 }
 
+/* Thumbnails — shared dimensions */
+.ec-playlist-thumb,
+.ec-track-thumb {
+  display: block;
+  width: var(--ec-thumb);
+  height: var(--ec-thumb);
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
 
-/* Empty State */
+.ec-no-artwork {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+
+/* Text content — primary + secondary line */
+.ec-playlist-name,
+.ec-track-title {
+  margin-bottom: 3px;
+  font-family: var(--font-family-ui);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ec-playlist-meta,
+.ec-track-artist {
+  font-family: var(--font-family-ui);
+  font-size: 11px;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ec-playlist-row::selection,
+.ec-track-row::selection,
+.ec-playlist-name::selection,
+.ec-track-title::selection {
+  background: var(--highlight);
+  color: var(--text);
+}
+
 .ec-empty-state {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  color: var(--text);
-  font-size: 12px;
   font-family: var(--font-family-ui);
+  font-size: 12px;
+  color: var(--text);
 }
 
-/* Metadata Display */
+/* ============================================================================
+   11. Metadata column content
+   ========================================================================= */
 .ec-metadata-content {
-  padding: 12px 12px;
+  padding: 12px;
   color: var(--text);
 }
 
 .ec-metadata-artwork {
   width: 100%;
   aspect-ratio: 1;
+  margin-bottom: 10px;
   object-fit: cover;
   border: 1px solid var(--border);
-  margin-bottom: 10px;
+  box-shadow: var(--shadow);
   cursor: pointer;
   transition: transform 0.1s ease;
-  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
 .ec-metadata-artwork.no-artwork {
-  background: var(--bg-alt);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-dim);
+  background: var(--bg-alt);
   font-size: 48px;
+  color: var(--text-dim);
   cursor: default;
 }
 
-.ec-metadata-artwork.no-artwork:hover {
-  transform: none;
-}
-
-/* Artwork Lightbox */
-.artwork-lightbox {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 10000;
-  align-items: center;
-  justify-content: center;
-}
-
-.artwork-lightbox.active {
-  display: flex;
-}
-
-.artwork-lightbox-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--bg);
-  opacity: 0.95;
-  cursor: pointer;
-}
-
-.artwork-lightbox-img {
-  position: relative;
-  max-width: 98vw;
-  max-height: 98vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border: 1px solid var(--border);
-  cursor: pointer;
-  animation: artwork-zoom-in 0.3s ease-out;
-}
-
-@keyframes artwork-zoom-in {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+.ec-metadata-artwork.no-artwork:hover { transform: none; }
 
 .ec-metadata-section {
   margin-bottom: 8px;
@@ -921,32 +719,29 @@ body:has(.ec-viewer) data {
   border-bottom: 1px solid var(--border);
 }
 
-.ec-metadata-section:last-child {
-  border-bottom: none;
-}
+.ec-metadata-section:last-child { border-bottom: none; }
 
 .ec-metadata-label {
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  color: var(--text-dim);
-  font-weight: 600;
-  font-family: var(--font-family-ui);
   margin-bottom: 4px;
+  font-family: var(--font-family-ui);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-dim);
 }
 
 .ec-metadata-value {
-  font-size: 11px;
-  color: var(--text);
   font-family: var(--font-family-ui);
+  font-size: 11px;
   line-height: 1.4;
+  color: var(--text);
   word-wrap: break-word;
 }
 
 .ec-metadata-value.large {
   font-size: 13px;
   font-weight: 500;
-  color: var(--text);
   line-height: 1.3;
 }
 
@@ -959,19 +754,15 @@ body:has(.ec-viewer) data {
 .ec-badge {
   display: inline-block;
   padding: 2px 6px;
-  font-size: 8px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
   border: 1px solid var(--border);
   font-family: var(--font-family-ui);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
 }
 
-.ec-badge.explicit {
-  background: var(--text);
-  color: var(--bg);
-}
-
+.ec-badge.explicit,
 .ec-badge.lyrics {
   background: var(--text);
   color: var(--bg);
@@ -982,42 +773,57 @@ body:has(.ec-viewer) data {
   margin-top: 8px;
   padding: 5px 12px;
   background: var(--bg);
-  color: var(--bg);
-  text-decoration: none;
+  border: 1px solid var(--border);
+  font-family: var(--font-family-ui);
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.3px;
-  font-family: var(--font-family-ui);
+  text-decoration: none;
+  color: var(--bg);
+}
+
+.ec-metadata-link:hover { background: var(--accent); }
+
+/* ============================================================================
+   12. Artwork lightbox
+   ========================================================================= */
+.artwork-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+}
+
+.artwork-lightbox.active { display: flex; }
+
+.artwork-lightbox-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  opacity: 0.95;
+  cursor: pointer;
+}
+
+.artwork-lightbox-img {
+  position: relative;
+  max-width: 98vw;
+  max-height: 98vh;
+  object-fit: contain;
   border: 1px solid var(--border);
+  cursor: pointer;
+  animation: artwork-zoom-in 0.3s ease-out;
 }
 
-.ec-metadata-link:hover {
-  background: var(--accent);
+@keyframes artwork-zoom-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1);   }
 }
 
-/* Keyboard Navigation Indicators */
-.ec-playlist-row:focus,
-.ec-track-row:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: -2px;
-}
-
-/* Table row transitions - Keep it reactive */
-.ec-playlist-row,
-.ec-track-row {
-  transition: background-color 0.05s ease;
-}
-
-/* User selection styling */
-.ec-playlist-row::selection,
-.ec-track-row::selection,
-.ec-playlist-name::selection,
-.ec-track-title::selection {
-  background: var(--highlight);
-  color: var(--text);
-}
-
-/* Scrollbar Styling - Minimal Flat */
+/* ============================================================================
+   13. Scrollbars (column content)
+   ========================================================================= */
 .ec-column-content::-webkit-scrollbar {
   width: 12px;
   background: var(--bg);
@@ -1029,68 +835,31 @@ body:has(.ec-viewer) data {
 }
 
 .ec-column-content::-webkit-scrollbar-thumb {
+  min-height: 40px;
   background: var(--text);
   border: 1px solid var(--border);
-  min-height: 40px;
 }
 
-.ec-column-content::-webkit-scrollbar-thumb:hover {
-  background: var(--text-dim);
+.ec-column-content::-webkit-scrollbar-thumb:hover  { background: var(--text-dim); }
+.ec-column-content::-webkit-scrollbar-thumb:active { background: var(--accent); }
+
+/* ============================================================================
+   14. Loading spinner
+   ========================================================================= */
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-.ec-column-content::-webkit-scrollbar-thumb:active {
-  background: var(--accent);
+.ec-loading {
+  animation: spin 1s linear infinite;
+  color: var(--vsc-blue);
 }
 
-/* Compact horizontal bar: fits controls row up to 1400px; 1180px stays one line */
-@media (max-width: 1400px) and (min-width: 1180px) {
-  .ec-controls {
-    padding: 12px 12px;
-    gap: 8px;
-  }
-
-  .ec-controls-left {
-    gap: 4px 8px;
-  }
-
-  .ec-filter-container {
-    min-width: 96px;
-    max-width: 148px;
-  }
-
-  #filter-playlists,
-  #filter-tracks {
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-
-  .ec-player {
-    max-width: 268px;
-    padding: 8px 10px;
-    gap: 10px;
-  }
-
-  .ec-player-track-info {
-    width: 148px;
-  }
-
-  @keyframes scroll-text {
-    0% {
-      transform: translateX(0);
-    }
-    15% {
-      transform: translateX(0);
-    }
-    85% {
-      transform: translateX(calc(-100% + 148px));
-    }
-    100% {
-      transform: translateX(calc(-100% + 148px));
-    }
-  }
-}
-
-/* Below 1180px: chantier-like metadata stack + now-playing strip only */
+/* ============================================================================
+   15. Mobile (<1180px) — only VU meters, player, transport buttons subsist
+   The data grid, filters and stats are removed; metadata stacks above the
+   controls bar in the surrounding chantier layout.
+   ========================================================================= */
 @media (max-width: 1179px) {
   body:has(.ec-viewer) {
     display: block;
@@ -1109,128 +878,76 @@ body:has(.ec-viewer) data {
   }
 
   body:has(.ec-viewer) data {
+    flex: none;
+    display: flex;
+    flex-direction: column;
     height: auto;
     min-height: 0;
     overflow: visible;
-    display: flex;
-    flex-direction: column;
-    flex: none;
   }
 
   .ec-viewer {
     flex: 1 1 auto;
-    min-height: 50vh;
     height: auto;
+    min-height: 50vh;
   }
 
+  /* Hide everything that does not belong in the mobile strip */
   .ec-columns,
-  .ec-stats {
-    display: none !important;
-  }
-
-  #player-goto {
-    display: none !important;
-  }
-
-  .ec-controls {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    min-height: auto;
-    padding: 2em 6px 8px;
-    border-bottom: none;
-  }
-
+  .ec-stats,
+  #player-goto,
   .ec-controls-left .ec-filter-mode,
   .ec-controls-left .ec-filters-wrapper,
   .ec-controls-left .ec-filter-container {
     display: none !important;
   }
 
-  /* Hoist VU + transport into .ec-controls single row (VU | now playing | buttons) */
+  .ec-controls {
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 2em 6px 8px;
+    border-bottom: none;
+    height: auto;
+    min-height: var(--ec-controls-h);
+  }
+
+  /* Switch the micro-grid to a simple flex row that only carries the VU
+     meters and the two transport buttons. */
   .ec-controls-left {
-    display: contents;
-    grid-template-columns: unset;
-    grid-template-rows: unset;
-    grid-auto-flow: unset;
-  }
-
-  .ec-controls .ec-vu-meters {
-    order: 1;
-    flex-shrink: 0;
-    align-self: center;
-  }
-
-  .ec-controls .ec-vu-controls {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 6px;
-    order: 3;
-    flex-shrink: 0;
+    gap: 8px;
   }
 
-  /* Fluid title column width for marquee (inherited by scrolling spans) */
-  .ec-player {
-    --ec-np-text-width: min(12rem, calc(100vw - 11rem));
+  .ec-controls-left .ec-vu-controls {
+    display: flex;
+  }
 
-    order: 2;
+  /* Let the player flex to fill remaining space, capped at its design width */
+  .ec-player {
     flex: 1 1 auto;
-    min-width: 0;
     width: auto;
-    max-width: min(320px, calc(100vw - 120px));
+    max-width: var(--ec-player-w);
+    min-width: 0;
     height: auto;
-    min-height: 56px;
-    justify-content: flex-start;
-    margin: 0;
+    min-height: 68px;
     padding: 6px 8px;
     gap: 8px;
-    box-sizing: border-box;
-  }
-
-  .ec-player-artwork {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
   }
 
   .ec-player-track-info {
-    min-width: 0;
-    width: var(--ec-np-text-width);
-    max-width: 100%;
     flex-shrink: 1;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
   }
 
+  /* Marquee endpoint follows the new flexible width */
   @keyframes scroll-text {
-    0% {
-      transform: translateX(0);
-    }
-    15% {
-      transform: translateX(0);
-    }
-    85% {
-      transform: translateX(calc(-100% + var(--ec-np-text-width, 12rem)));
-    }
-    100% {
-      transform: translateX(calc(-100% + var(--ec-np-text-width, 12rem)));
-    }
+    0%,  15% { transform: translateX(0); }
+    85%, 100% { transform: translateX(calc(-100% + 12rem)); }
   }
-}
-
-/* Loading Animation - VSCode Spinner */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.ec-loading {
-  animation: spin 1s linear infinite;
-  color: var(--vsc-blue);
 }
