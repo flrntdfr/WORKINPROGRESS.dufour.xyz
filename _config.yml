@@ -50,6 +50,7 @@ exclude:
   - vendor/ruby/
   - "*.ko*"
   - .direnv/
+  - result
   - result/
   - .idea
   - .DS_Store
