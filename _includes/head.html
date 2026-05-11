@@ -7,49 +7,49 @@
     {% assign theme_color_dark = page.theme-color | default: site.theme-color %}
     <meta name="theme-color" content="{{ theme_color }}">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="{{ theme_color }}">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="{{ theme_color_dark }}">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="{{ theme_color_dark }}">
     <link rel="manifest" href="{% link wip.webmanifest %}">
 
     <title>{{ page.title }} ({{ site.title_short }})</title>
 
-    <meta name="author" content="{{ site.author }}">
+    <meta name="author"      content="{{ site.author }}">
     <meta name="description" content="{{ site.description | escape }}">
-    <meta name="keywords" content="{{ site.keywords }}">
-    <meta name="language" content="{{ site.languages | join: ', ' }}">
+    <meta name="keywords"    content="{{ site.keywords }}">
+    <meta name="language"    content="{{ site.languages | join: ', ' }}">
 
     {% if page.title %}
     <meta property="og:title" content="{{ page.title }} ({{ site.title_short }})">
     {% else %}
     <meta property="og:title" content="Florent Dufour">
     {% endif %}
-    <meta property="og:locale" content="en_US">
-    <meta property="og:description" content="{{ site.description | escape }}">
-    <meta property="og:url" content="{{ site.url }}">
-    <meta property="og:site_name" content="{{ site.title }}">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="{{ site.url }}{% link /assets/2024/avatar-500.jpg %}">
-    <meta property="og:image:alt" content="Florent Dufour">
+    <meta property="og:locale"       content="en_US">
+    <meta property="og:description"  content="{{ site.description | escape }}">
+    <meta property="og:url"          content="{{ site.url }}">
+    <meta property="og:site_name"    content="{{ site.title }}">
+    <meta property="og:type"         content="website">
+    <meta property="og:image"        content="{{ site.url }}{% link /assets/2024/avatar-500.jpg %}">
+    <meta property="og:image:alt"    content="Florent Dufour">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ site.title }} · {{ site.author}}">
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="{{ site.title }} · {{ site.author}}">
     <meta name="twitter:description" content="{{ site.description | escape }}">
-    <meta name="twitter:image" content="{{ site.url }}{% link /assets/2024/avatar-500.jpg %}">
+    <meta name="twitter:image"       content="{{ site.url }}{% link /assets/2024/avatar-500.jpg %}">
 
     <link rel="me" href="https://piaille.fr/@flrntdfr">
     <meta name="fediverse:creator" content="@flrntdfr@piaille.fr">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{% link /assets/2025/favicons/dot/dot-180.png %}">
-    <link rel="apple-touch-icon" sizes="64x64" href="{% link /assets/2025/favicons/dot/dot-64.png %}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{% link /assets/2025/favicons/dot/dot-60.png %}">
-    <link rel="apple-touch-icon" sizes="48x48" href="{% link /assets/2025/favicons/dot/dot-48.png %}">
-    <link rel="apple-touch-icon" sizes="32x32" href="{% link /assets/2025/favicons/dot/dot-32.png %}">
-    <link rel="apple-touch-icon" sizes="16x16" href="{% link /assets/2025/favicons/dot/dot-16.png %}">
+    <link rel="apple-touch-icon" sizes="64x64"   href="{% link /assets/2025/favicons/dot/dot-64.png %}">
+    <link rel="apple-touch-icon" sizes="60x60"   href="{% link /assets/2025/favicons/dot/dot-60.png %}">
+    <link rel="apple-touch-icon" sizes="48x48"   href="{% link /assets/2025/favicons/dot/dot-48.png %}">
+    <link rel="apple-touch-icon" sizes="32x32"   href="{% link /assets/2025/favicons/dot/dot-32.png %}">
+    <link rel="apple-touch-icon" sizes="16x16"   href="{% link /assets/2025/favicons/dot/dot-16.png %}">
     <link rel="apple-touch-icon-precomposed" sizes="192x192" href="{% link /assets/2025/favicons/dot/dot-192.png %}">
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{% link /assets/2025/favicons/dot/dot-180.png %}">
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{% link /assets/2025/favicons/dot/dot-152.png %}">
     <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{% link /assets/2025/favicons/dot/dot-120.png %}">
 
-    <link rel="mask-icon" href="{% link /assets/2025/favicons/dot/dot.svg %}" color="#000000">
+    <link rel="mask-icon"     href="{% link /assets/2025/favicons/dot/dot.svg %}" color="#000000">
     <link rel="shortcut icon" href="{% link /assets/2025/favicons/digging/digging-man-steve-kangas.gif %}">
 
     {% if page.favicon %}
@@ -72,7 +72,7 @@
     <!-- Preload critical fonts -->
     <link rel="preload" href="{% link /assets/fonts/Inter-4.1/InterVariable.woff2 %}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{% link /assets/fonts/Inter-4.1/Inter-Regular.woff2 %}" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="{% link /assets/fonts/Inter-4.1/Inter-Bold.woff2 %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% link /assets/fonts/Inter-4.1/Inter-Bold.woff2 %}"    as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{% link /assets/fonts/CommitMono-1.143/CommitMono-400-Regular.otf %}" as="font" type="font/otf" crossorigin>
 
     <link rel="stylesheet" href="{% link /assets/css/site.css %}" type="text/css"/>
