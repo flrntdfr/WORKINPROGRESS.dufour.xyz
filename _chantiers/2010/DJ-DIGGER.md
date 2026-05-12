@@ -6,20 +6,17 @@ spicy: true
 tech: [eMule, iTunes, Apple&nbsp;Music, MusicKit&nbsp;JS]
 started: 2010-09-01 20:00
 reviewed: 2026-06-11 12:00
-description:
-    <strong>DJ Digger is where I organize the music I dig.</strong>
-    <br><br>
-    The project started as a folder structure made to sort incoming tracks from eMule. I used mnemonics instead of genre or energy to keep the folder structure flat.
-    <br><br>
-    Later, iTunes&nbsp;Match allowed me to import the library in the cloud and turn folders into playlists. Since 4G, I was able to rely on DJ DIGGER's library every day to reliably retrieve music.
-    <br><br>
-    I worked with Claude in 2025 and made a front-end. The result can be viewed on this page. The library can be downloaded as a JSON&nbspfile (AGPL&nbsplicense).
+description: |
+  <strong>DJ Digger is where I organize the music I dig.</strong>
+  <br><br>
+  It started in 2010 as folders for tracks I was pulling off eMule.
+  I used mnemonics instead of genre or energy to keep the structure flat.
 css:
   - /assets/2026/DJ-DIGGER/DJ-DIGGER.css
 js:
   - /assets/2026/DJ-DIGGER/DJ-DIGGER.js
 href:
-  - ["int", "<strong>•</strong>", "DJ Digger.json (4.9 MB)", "_chantiers/2010/DJ-DIGGER.json"]
+  - ["int", "<strong>•</strong>", "DJ Digger.json (AGPL, 4.9 MB)", "_chantiers/2010/DJ-DIGGER.json"]
 ---
 
 {% include fonteawesome.html %}
