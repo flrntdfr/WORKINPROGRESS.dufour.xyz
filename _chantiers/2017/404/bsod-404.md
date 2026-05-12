@@ -69,7 +69,9 @@ html, body {
 </style>
 
 <script>
-document.addEventListener('keydown', function(event) {
+function bsodDismiss() {
   window.location.href = '/';
-});
+}
+document.addEventListener('keydown', bsodDismiss);
+document.addEventListener('click', bsodDismiss);
 </script>
