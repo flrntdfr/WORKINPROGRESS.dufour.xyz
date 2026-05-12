@@ -64,10 +64,10 @@ ol li:last-child {
 # Contributions
 
 ## Papers
-1. **Fully Anonymized Data Acquisition for Digital Health Research in a Public-Private Partnership : A Case Study Using the HerzFit App** (in review), 2025.
-1. **High-performance Computing Systems: Security Threats, Countermeasures and Prospects** (in review), 2025.
-1. **Comparative Overview of Medical Research Data Platforms: Interoperability, Privacy, and Federated Learning in Translational Biomedical Research** (in review), 2025.
-1. N. Zhou, F. Dufour, V. Bode, P. Zinterhof, N. J. Hammer, and D. Kranzlmüller, **"Towards Confidential Computing: A Secure Cloud Architecture for Big Data Analytics and AI,"** in IEEE International Conference on Cloud Computing (IEEE CLOUD), (Chicago, Illinois, USA), 2023.
+1. Reimer, L. M., Nissen, L., Starnecker, F., Stepanova, O., Dufour, F., Ney, R., Najem, S. A., Schunkert, H., & Jonas, S. M. (2026). **Fully Anonymized Digital Health Data Acquisition in a Research Partnership Using a Blinded Deidentification Proxy in the HerzFit App: Implementation Study**. JMIR Formative Research
+1. **High-performance Computing Systems: Security Threats, Countermeasures and Prospects** (in review)
+1. **Comparative Overview of Medical Research Data Platforms: Interoperability, Privacy, and Federated Learning in Translational Biomedical Research** (in review)
+1. Zhou, N., Dufour, F., Bode, V., Zinterhof, P., Hammer, N. J., & Kranzlmüller, D. (2023). **Towards Confidential Computing: A Secure Cloud Architecture for Big Data Analytics and AI**. IEEE 16th International Conference on Cloud Computing (CLOUD)
 
 ## Talks
 - 2025: F. Dufour, Jan Peschke, **"How to build a confidential cloud"? — A platform for next generation medical research**, OpenInfra Sweden, Stockholm. ([link ➟]({% link _chantiers/2025/OpenInfra.md %})).
