@@ -126,7 +126,6 @@ data {
 ![IMG_3983.webp]({% link /assets/2024/screenshots/IMG_3983.webp %})
 [![IMG_4313.webp]({% link /assets/2024/screenshots/IMG_4313.webp %})]({% link _chantiers/2025/truth-or-truth.md %})
 ![IMG_4496.webp]({% link /assets/2024/screenshots/IMG_4496.webp %})
-![IMG_4562.webp]({% link /assets/2024/screenshots/IMG_4562.webp %})
 ![IMG_4573.webp]({% link /assets/2024/screenshots/IMG_4573.webp %})
 ![IMG_4924.webp]({% link /assets/2024/screenshots/IMG_4924.webp %})
 ![IMG_4990.webp]({% link /assets/2024/screenshots/IMG_4990.webp %})
