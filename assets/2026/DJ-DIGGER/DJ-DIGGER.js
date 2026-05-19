@@ -43,6 +43,9 @@ class ECViewer {
   this.mediaSource2 = null; /* Store the MediaElementSource for player 2 */
   this.dataArray = null;
   this.animationFrame = null;
+  this.audioLoading = false;
+  this.loadingPlayer = null;
+  this._streamReadyFrames = 0;
     
     if (this.playlists.length > 0) {
       this.init();
@@ -685,6 +688,9 @@ class ECViewer {
     nextBtn.addEventListener('click', () => {
       this.radioMode = true;
       this.manualOverride = false;
+      if (!this.audioPlayer.muted) {
+        this.setAudioLoading(true, this.activePlayer);
+      }
       this.selectRandomTrack();
       setTimeout(() => {
         this.playCurrentTrack();
@@ -725,6 +731,15 @@ class ECViewer {
           this.isPlaying = true;
         }
       });
+
+      player.addEventListener('playing', () => {
+        if (this.audioLoading && !this.audioPlayer.muted) {
+          const target = this.loadingPlayer || this.activePlayer;
+          if (player === target) {
+            this.tryClearAudioLoading(player, 0);
+          }
+        }
+      });
       
       player.addEventListener('pause', () => {
         if (player === this.activePlayer) {
@@ -754,6 +769,9 @@ class ECViewer {
         });
         if (player.error && player.error.code === 4) {
           console.error('DJ-DIGGER Viewer: MEDIA_ERR_SRC_NOT_SUPPORTED - Possible CORS issue!');
+        }
+        if (this.audioLoading && (player === this.loadingPlayer || player === this.activePlayer)) {
+          this.setAudioLoading(false);
         }
       });
     };
@@ -856,6 +874,7 @@ class ECViewer {
     
     const updateVU = () => {
       let level;
+      let freqMax = 0;
       
       try {
         /* Check if audio is actually playing and we have analyser data */
@@ -877,6 +896,7 @@ class ECViewer {
           /* Calculate overall energy across all frequencies */
           const avg = this.calculateAverage(this.dataArray, 0, this.dataArray.length);
           const max = this.calculateMax(this.dataArray, 0, this.dataArray.length);
+          freqMax = max;
           
           /* Check if we're actually getting audio data (CORS can block this) */
           if (max === 0) {
@@ -944,6 +964,10 @@ class ECViewer {
         
         if (leftMeter) leftMeter.style.height = height;
         if (rightMeter) rightMeter.style.height = height;
+
+        if (this.audioLoading && !this.audioPlayer.muted) {
+          this.tryClearAudioLoading(this.loadingPlayer || this.activePlayer, freqMax);
+        }
       } catch (e) {
         console.warn('VU meter update error:', e);
         /* Fallback to simulated animation on error */
@@ -1146,6 +1170,10 @@ class ECViewer {
       const needsNewSource = !this.activePlayer.src || 
                              this.activePlayer.src !== this.currentPlayingTrack.previewUrl ||
                              this.activePlayer.readyState === 0;
+
+      if (!this.audioPlayer.muted && (needsNewSource || this.activePlayer.readyState < 2)) {
+        this.setAudioLoading(true, this.activePlayer);
+      }
       
       if (needsNewSource) {
         console.log('DJ-DIGGER Viewer: Setting audio source:', this.currentPlayingTrack.previewUrl);
@@ -1242,6 +1270,10 @@ class ECViewer {
     fadeInPlayer.src = this.currentPlayingTrack.previewUrl;
     fadeInPlayer.volume = 0; /* Start silent */
     fadeInPlayer.muted = fadeOutPlayer.muted; /* Match mute state */
+
+    if (!fadeOutPlayer.muted) {
+      this.setAudioLoading(true, fadeInPlayer);
+    }
     
     /* CRITICAL: If fadeOutPlayer is unmuted, ensure fadeInPlayer is also unmuted */
     /* This handles the case where fadeInPlayer was previously muted when paused */
@@ -1380,6 +1412,7 @@ class ECViewer {
         /* Unmute both audio players */
         this.audioPlayer.muted = false;
         this.audioPlayer2.muted = false;
+        this.setAudioLoading(true, this.activePlayer);
         console.log('DJ-DIGGER Viewer: Audio unmuted, new state:', {
           muted: this.activePlayer.muted,
           paused: this.activePlayer.paused,
@@ -1416,11 +1449,10 @@ class ECViewer {
             this.playCurrentTrack();
           }, 100);
         }
-        
-        this.updateMuteUI();
       });
     } else {
       /* Muting - pause playback on both players */
+      this.setAudioLoading(false);
       this.audioPlayer.muted = true;
       this.audioPlayer2.muted = true;
       this.activePlayer.pause();
@@ -1430,20 +1462,71 @@ class ECViewer {
       this.updateMuteUI();
     }
   }
-  
+
+  setAudioLoading(loading, player) {
+    if (loading && this.audioPlayer.muted) {
+      return;
+    }
+    this.audioLoading = loading;
+    this.loadingPlayer = loading ? (player || this.activePlayer) : null;
+    this._streamReadyFrames = 0;
+    this.updateMuteUI();
+  }
+
+  isStreamReady(player, frequencyMax) {
+    if (this.audioPlayer.muted) {
+      return false;
+    }
+    if (!player || player.paused || player.readyState < 2) {
+      return false;
+    }
+    if (player.readyState >= 3) {
+      return true;
+    }
+    const target = this.loadingPlayer || this.activePlayer;
+    if (player !== target) {
+      return false;
+    }
+    if (frequencyMax > 0) {
+      return true;
+    }
+    if (!player.paused && player.currentTime > 0.01) {
+      return true;
+    }
+    return false;
+  }
+
+  tryClearAudioLoading(player, frequencyMax) {
+    if (!this.audioLoading) {
+      return;
+    }
+    if (this.isStreamReady(player, frequencyMax)) {
+      this._streamReadyFrames += 1;
+      if (this._streamReadyFrames >= 3) {
+        this.setAudioLoading(false);
+      }
+    } else {
+      this._streamReadyFrames = 0;
+    }
+  }
+
   updateMuteUI() {
     const muteBtn = document.getElementById('player-mute');
     if (!muteBtn) return;
-    
-    const icon = muteBtn.querySelector('i');
-    if (!icon) return;
-    
+
+    muteBtn.classList.remove('muted', 'loading');
+
     if (this.audioPlayer.muted) {
-      icon.className = 'fas fa-volume-mute';
       muteBtn.classList.add('muted');
+      muteBtn.title = 'Unmute';
+      muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+    } else if (this.audioLoading) {
+      muteBtn.classList.add('loading');
+      muteBtn.title = 'Loading…';
+      muteBtn.innerHTML = '<span class="ec-player-spinner" aria-hidden="true"></span>';
     } else {
-      icon.className = 'fas fa-volume-up';
-      muteBtn.classList.remove('muted');
+      muteBtn.title = 'Mute';
+      muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
     }
   }
   
