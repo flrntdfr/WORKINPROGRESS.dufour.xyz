@@ -1,5 +1,8 @@
 name: Prebuild DJ-Digger
 
+# After this workflow commits playlists.json, "Build and deploy Jekyll site" runs
+# via workflow_run (bot pushes do not trigger push events).
+
 on:
   workflow_dispatch:
 

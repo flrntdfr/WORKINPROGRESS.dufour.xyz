@@ -484,17 +484,14 @@ body:has(.ec-viewer) data {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  font-family: var(--font-family-ui);
   font-size: 11px;
   letter-spacing: 0.3px;
   text-align: right;
-  text-shadow: var(--shadow-text);
   color: var(--text-dim);
   white-space: nowrap;
 }
 
 #stats-display {
-  font-family: var(--font-family-monospace);
   font-weight: 500;
   color: var(--text-dim);
 }

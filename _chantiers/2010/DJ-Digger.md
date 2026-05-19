@@ -5,39 +5,38 @@ result: [music, web, dataset]
 spicy: true
 tech: [eMule, iTunes, Apple&nbsp;Music, MusicKit&nbsp;JS]
 started: 2010-09-01 20:00
-reviewed: 2026-06-11 12:00
+reviewed: 2026-06-19 21:28
 description: |
-  <strong>DJ Digger is where I organize the music I dig.</strong>
+  <strong>DJ Digger is where I keep the music I dig.</strong>
   <br><br>
-  It started in 2010 as folders for tracks I was pulling off eMule.
-  I used mnemonics instead of genre or energy to keep the structure flat.
+  This project began in 2010 as a folder structure I&nbsp;made to sort music incoming from eMule. I&nbsp;started using mnemonics instead of genres or energy to keep the structure flat and tracks easy to find.
+  <br><br>
+  The system has kept evolving since then, shaped by my listening history, emotional connections, and practical needs. Today, it lives in the cloud, and I&nbsp;can add and retrieve tracks from anywhere, whether to play at home or at house parties.
+  <br><br>
+  I like this project a lot because it has followed me everywhere and has never let me down!
 css:
   - /assets/2026/DJ-Digger/DJ-Digger.css
 js:
   - /assets/2026/DJ-Digger/DJ-Digger.js
 href:
-  - ["int", "<strong>•</strong>", "DJ Digger.json (AGPL, 4.9 MB)", "_chantiers/2010/DJ-Digger.json"]
+  - ["int", "<strong>•</strong>", "DJ Digger.json (AGPL, 9.6 MB)", "_chantiers/2010/DJ-Digger.json"]
 ---
 
 {% include fonteawesome.html %}
 
 {% if site.data.playlists %}
-{% assign ec_playlists = site.data.playlists | where_exp: "item", "item.name contains 'EC'" %}
+{% include DJ-Digger-playlists.json.html %}
+{% assign total_playlists = playlists.size %}
 {% assign total_tracks = 0 %}
-{% assign total_playlists = 0 %}
 {% assign total_duration_ms = 0 %}
 
-{% for playlist in ec_playlists %}
-  {% assign playlist_prefix = playlist.name | slice: 0, 2 %}
-  {% if playlist_prefix == "EC" %}
-    {% assign total_playlists = total_playlists | plus: 1 %}
-    {% assign total_tracks = total_tracks | plus: playlist.trackCount %}
-    {% for track in playlist.tracks %}
-      {% if track.duration %}
-        {% assign total_duration_ms = total_duration_ms | plus: track.duration %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
+{% for playlist in playlists %}
+  {% assign total_tracks = total_tracks | plus: playlist.trackCount %}
+  {% for track in playlist.tracks %}
+    {% if track.duration %}
+      {% assign total_duration_ms = total_duration_ms | plus: track.duration %}
+    {% endif %}
+  {% endfor %}
 {% endfor %}
 
 {% assign total_duration_days = total_duration_ms | divided_by: 86400000.0 | round: 2 %}
@@ -107,7 +106,13 @@ href:
     </div>
     <!-- Stats -->
     <div class="ec-stats">
-      <span id="stats-display">{{ total_tracks }} tracks<br>{{ duration_days }}:{% if duration_hours < 10 %}0{% endif %}{{ duration_hours }}:{% if duration_minutes < 10 %}0{% endif %}{{ duration_minutes }}:{% if duration_seconds < 10 %}0{% endif %}{{ duration_seconds }}<br>{{ page.reviewed | date: "%Y.%m" }}</span>
+      <span id="stats-display">
+      Playlists: {{ total_playlists }}
+      <br>
+      Tracks: {{ total_tracks }}
+      <br>
+      {{ duration_days }}:{% if duration_hours < 10 %}0{% endif %}{{ duration_hours }}:{% if duration_minutes < 10 %}0{% endif %}{{ duration_minutes }}:{% if duration_seconds < 10 %}0{% endif %}{{ duration_seconds }}
+      </span>
     </div>
   </div>
   
@@ -121,9 +126,7 @@ href:
       <div class="ec-column-content" id="playlists-list">
         <table class="ec-table">
           <tbody>
-            {% for playlist in site.data.playlists %}
-            {% assign playlist_prefix = playlist.name | slice: 0, 2 %}
-            {% if playlist_prefix == "EC" %}
+            {% for playlist in playlists %}
             <tr class="ec-playlist-row" 
                 data-playlist-id="{{ playlist.id }}" 
                 data-playlist-name="{{ playlist.name | downcase }}"
@@ -140,7 +143,6 @@ href:
                 <div class="ec-playlist-meta">{% if playlist.description %}{{ playlist.description }} - {% endif %} {{ playlist.trackCount }} tracks</div>
               </td>
             </tr>
-            {% endif %}
             {% endfor %}
           </tbody>
         </table>
@@ -179,7 +181,7 @@ href:
 
 <!-- Embed playlist data for JavaScript -->
 <script>
-  window.ecPlaylistData = {% include_relative playlists %}
+  window.ecPlaylistData = {{ playlists | jsonify }}
 </script>
 
 {% else %}

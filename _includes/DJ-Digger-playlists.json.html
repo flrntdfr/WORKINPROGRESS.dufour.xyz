@@ -1,0 +1,42 @@
+{%- comment -%}
+  DJ Digger viewer: build playlists from site.data.playlists.
+  Each family matches bare prefix (e.g. "F") or prefix + single space (e.g. "F +1").
+  Rejects names that only share leading letters (e.g. "Farewell" for F).
+  Sets playlists; jsonify in DJ-Digger.md and DJ-Digger.json.
+{%- endcomment -%}
+{%- assign playlists = "" | split: "" -%}
+{%- for item in site.data.playlists -%}
+  {%- assign include_in_viewer = false -%}
+  {%- assign name_len = item.name | size -%}
+  {%- if item.name == "KCK" -%}
+    {%- assign include_in_viewer = true -%}
+  {%- elsif name_len >= 4 -%}
+    {%- assign head4 = item.name | slice: 0, 4 -%}
+    {%- if head4 == "KCK " -%}
+      {%- assign include_in_viewer = true -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if include_in_viewer == false -%}
+    {%- if item.name == "EC" or item.name == "JV" or item.name == "XB" or item.name == "PP" or item.name == "TB" -%}
+      {%- assign include_in_viewer = true -%}
+    {%- elsif name_len >= 3 -%}
+      {%- assign head3 = item.name | slice: 0, 3 -%}
+      {%- if head3 == "EC " or head3 == "JV " or head3 == "XB " or head3 == "PP " or head3 == "TB " -%}
+        {%- assign include_in_viewer = true -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if include_in_viewer == false -%}
+    {%- if item.name == "F" -%}
+      {%- assign include_in_viewer = true -%}
+    {%- elsif name_len >= 2 -%}
+      {%- assign head2 = item.name | slice: 0, 2 -%}
+      {%- if head2 == "F " -%}
+        {%- assign include_in_viewer = true -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if include_in_viewer -%}
+    {%- assign playlists = playlists | push: item -%}
+  {%- endif -%}
+{%- endfor -%}

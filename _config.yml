@@ -70,7 +70,6 @@ exclude:
   - result
   - result/
   # Chantier includes (include_relative only — not standalone pages)
-  - _chantiers/2010/playlists
   - _chantiers/*/compatibilite/
   - _chantiers/*/compatibilite/*
   - _chantiers/*/progress/*
