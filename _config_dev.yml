@@ -1,0 +1,10 @@
+# Dev overlay for `make serve` — merged over _config.yml
+# Production builds use _config.yml only (`make build`)
+
+# No plugins: Feed, sitemap etc.
+plugins: []
+
+# Do not compress html
+compress_html:
+  ignore:
+    envs: [development]

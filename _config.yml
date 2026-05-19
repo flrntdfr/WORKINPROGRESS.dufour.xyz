@@ -13,8 +13,8 @@ url: "https://WORKINPROGRESS.dufour.xyz"
 timezone: Europe/Paris
 theme-color: "#fdf52b" # https://roger.zone/theme-color-preview/
 
-# Plugins
-gems:
+# Plugins (production; disabled in _config_dev.yml for `make serve`)
+plugins:
   - jekyll-sitemap
   - jekyll-feed
 
@@ -38,21 +38,52 @@ feed:
       excerpt_only: true
 
 exclude:
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
+  # Repo / dev tooling (static copies at site root today)
+  - _config.yml
+  - _config_dev.yml
+  - .cursor/
+  - .direnv/
+  - .github/
+  - .idea
+  - AGENTS.md
+  - flake.lock
+  - flake.nix
+  - gitignore.d
+  - Makefile
+  - prebuild/
+  - SECURITY.md
+  # Bundler / Ruby
   - Gemfile
   - Gemfile.lock
-  - node_modules/
+  - gemfiles/
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  # Caches / OS
+  - .DS_Store
+  - .jekyll-cache/
+  - .sass-cache/
   - "*.ko*"
-  - .direnv/
+  - em_cache
+  - node_modules/
   - result
   - result/
-  - .idea
-  - .DS_Store
-  - gitignore.d
-  - em_cache
+  # Chantier includes (include_relative only — not standalone pages)
+  - _chantiers/2010/playlists
+  - _chantiers/*/compatibilite/
+  - _chantiers/*/compatibilite/*
+  - _chantiers/*/progress/*
+  - _chantiers/*/start/banner.html
+  - _chantiers/*/start/WIP_logo_animated.html
+  - _chantiers/*/ministres/*_thumb.txt
+  - _chantiers/*/museums/museums.db.json
+  - _chantiers/*/museums/museums.db.numbers
+  # Font Awesome — site uses css/ + webfonts/ only (_includes/fonteawesome.html)
+  - assets/fonts/fontawesome-7.1.0/js/
+  - assets/fonts/fontawesome-7.1.0/metadata/
+  - assets/fonts/fontawesome-7.1.0/scss/
+  - assets/fonts/fontawesome-7.1.0/sprites/
+  - assets/fonts/fontawesome-7.1.0/sprites-full/
+  - assets/fonts/fontawesome-7.1.0/svgs/
+  - assets/fonts/fontawesome-7.1.0/svgs-full/

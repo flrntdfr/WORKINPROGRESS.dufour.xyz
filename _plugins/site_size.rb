@@ -5,6 +5,8 @@ module Jekyll
     end
 
     def render(context)
+      return "0.0" if Jekyll.env == "development"
+
       total_size = 0
       
       # Walk through all files in the current directory

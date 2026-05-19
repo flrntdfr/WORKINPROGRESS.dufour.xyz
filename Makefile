@@ -1,36 +1,31 @@
 # Makefile
-# 2021 - 2025
+# 2021 - 2026
 
-.PHONY: img install build serve clean nuke help wasm gems
+.PHONY: img install build serve build-nix serve clean nuke help wasm gems update-gems prebuild
 
 SERVER_PORT    := 4000
-SERVER_FLAGS   := --trace --livereload
+JEKYLL_CONFIG  := _config.yml,_config_dev.yml
 
 gems:           ## Install gems for local development
 	bundle config set --local path '.direnv/bundle'
 	bundle install
 	bundle binstubs --all
 
-install: gems   ## Alias for gems target
-
-update:         ## Update gems
+update-gems:         ## Update gems
 	bundle update
 
 prebuild:       ## Prebuild step
 	#$(MAKE) -C assets/2024/human-centric-title-case/ wasm
 	$(MAKE) -C prebuild/DJ-DIGGER all
 
-build: prebuild ## Build the website locally
-	bundle exec jekyll $@ --verbose
+build: prebuild ## Build the website for production
+	JEKYLL_ENV=production bundle exec jekyll build --verbose
 
 build-nix:      ## Build the website using Nix
 	nix build
 
-serve: prebuild ## Build and serve the website
-	bundle exec jekyll serve $(SERVER_FLAGS)
-
-serve-dev:      ## Build and serve the website with drafts and future posts
-	bundle exec jekyll serve $(SERVER_FLAGS) --unpublished --future
+serve:          ## Dev server (incremental, livereload, dev config)
+	JEKYLL_ENV=development JEKYLL_NO_BUNDLER_REQUIRE=1 bundle exec jekyll serve --incremental --livereload --unpublished --future --config $(JEKYLL_CONFIG)
 
 clean:          ## Clean Jekyll caches
 	bundle exec jekyll $@

@@ -5,6 +5,8 @@ module Jekyll
     end
 
     def render(context)
+      return "dev" if Jekyll.env == "development"
+
       count = `git rev-list --count WIP 2>/dev/null`.strip
       
       if $?.success?

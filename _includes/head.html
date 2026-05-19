@@ -1,27 +1,27 @@
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset={{ site.encoding }}">
+    <meta http-equiv="Content-Type"    content="text/html;charset={{ site.encoding }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    
-    {% assign theme_color = page.theme-color | default: site.theme-color %}
-    {% assign theme_color_dark = page.theme-color | default: site.theme-color %}
+    <meta name="viewport"              content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Theming -->
+    {% assign theme_color = page.theme-color | default: site.theme-color -%}
+    {%- assign theme_color_dark = page.theme-color | default: site.theme-color -%}
     <meta name="theme-color" content="{{ theme_color }}">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="{{ theme_color }}">
     <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="{{ theme_color_dark }}">
     <link rel="manifest" href="{% link wip.webmanifest %}">
-
+    <!-- Page title -->
     <title>{{ page.title }} ({{ site.title_short }})</title>
-
+    <!-- Site metadata -->
     <meta name="author"      content="{{ site.author }}">
     <meta name="description" content="{{ site.description | escape }}">
     <meta name="keywords"    content="{{ site.keywords }}">
     <meta name="language"    content="{{ site.languages | join: ', ' }}">
-
-    {% if page.title %}
+    <!-- Open graph -->
+    {% if page.title -%}
     <meta property="og:title" content="{{ page.title }} ({{ site.title_short }})">
-    {% else %}
+    {%- else -%}
     <meta property="og:title" content="Florent Dufour">
-    {% endif %}
+    {%- endif -%}
     <meta property="og:locale"       content="en_US">
     <meta property="og:description"  content="{{ site.description | escape }}">
     <meta property="og:url"          content="{{ site.url }}">
@@ -29,15 +29,15 @@
     <meta property="og:type"         content="website">
     <meta property="og:image"        content="{{ site.url }}{% link /assets/2024/avatar-500.jpg %}">
     <meta property="og:image:alt"    content="Florent Dufour">
-
+    <!-- Twitter -->
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:title"       content="{{ site.title }} · {{ site.author}}">
     <meta name="twitter:description" content="{{ site.description | escape }}">
     <meta name="twitter:image"       content="{{ site.url }}{% link /assets/2024/avatar-500.jpg %}">
-
+    <!-- Fediverse-->
     <link rel="me" href="https://piaille.fr/@flrntdfr">
     <meta name="fediverse:creator" content="@flrntdfr@piaille.fr">
-
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% link /assets/2025/favicons/dot/dot-180.png %}">
     <link rel="apple-touch-icon" sizes="64x64"   href="{% link /assets/2025/favicons/dot/dot-64.png %}">
     <link rel="apple-touch-icon" sizes="60x60"   href="{% link /assets/2025/favicons/dot/dot-60.png %}">
@@ -48,61 +48,57 @@
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{% link /assets/2025/favicons/dot/dot-180.png %}">
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{% link /assets/2025/favicons/dot/dot-152.png %}">
     <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{% link /assets/2025/favicons/dot/dot-120.png %}">
-
+    {%- if page.favicon -%}
+    <link rel="icon" type="{{ page.favicon_type | default: 'image/gif' }}" href="{{ page.favicon }}">
+    {%- else -%}
+    <link rel="icon" type="image/gif" href="{% link /assets/2025/favicons/digging/digging-man-steve-kangas.gif %}">
+    {%- endif -%}
     <link rel="mask-icon"     href="{% link /assets/2025/favicons/dot/dot.svg %}" color="#000000">
     <link rel="shortcut icon" href="{% link /assets/2025/favicons/digging/digging-man-steve-kangas.gif %}">
-
-    {% if page.favicon %}
-    <link rel="icon" type="{{ page.favicon_type | default: 'image/gif' }}" href="{{ page.favicon }}">
-    {% else %}
-    <link rel="icon" type="image/gif" href="{% link /assets/2025/favicons/digging/digging-man-steve-kangas.gif %}">
-    {% endif %}
-
     {% if page.head_raw_inject %}
     <!-- Head raw inject -->
-    {% for item in page.head_raw_inject %}
+    {%- for item in page.head_raw_inject -%}
     {{ item }}
-    {% endfor %}
-    {% endif %}
-
+    {%- endfor -%}
+    {%- endif -%}
+    <!-- Canonical href -->
     <link rel="canonical" href="{{ site.url }}">
-    {% feed_meta %}
-    <link type="application/atom+xml" rel="alternate" href="/feeds/chantiers.xml" title="WORK IN PROGRESS"/>
-
+    {%- unless jekyll.environment == "development" -%}
+    {%- include head-feed.html -%}
+    {%- endunless -%}
     <!-- Preload critical fonts -->
     <link rel="preload" href="{% link /assets/fonts/Inter-4.1/InterVariable.woff2 %}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{% link /assets/fonts/Inter-4.1/Inter-Regular.woff2 %}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{% link /assets/fonts/Inter-4.1/Inter-Bold.woff2 %}"    as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{% link /assets/fonts/CommitMono-1.143/CommitMono-400-Regular.otf %}" as="font" type="font/otf" crossorigin>
-
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{% link /assets/css/site.css %}" type="text/css"/>
-    {% if layout.css %}
-    {% for item in layout.css %}
+    {%- if layout.css -%}
+    {%- for item in layout.css -%}
     <link rel="stylesheet" href="{{ item | prepend: '/assets/css/' | relative_url }}" type="text/css"/>
-    {% endfor %}
-    {% endif %}
-
-    {% if page.css %}
-    {% for item in page.css %}
+    {%- endfor -%}
+    {%- endif -%}
+    {%- if page.css -%}
+    {%- for item in page.css -%}
     <link rel="stylesheet" href="{% link {{ item }} %}" type="text/css"/>
-    {% endfor %}
-    {% endif %}
+    {%- endfor -%}
+    {%- endif -%}
 
-    {% if page.lib %}
+    {%- if page.lib -%}
     <script type="text/javascript" src="/assets/lib/{{ page.lib }}"></script>
-    {% endif %}
+    {%- endif -%}
 
-    {% if page.js %}
-    {% for item in page.js %}
+    {%- if page.js -%}
+    {%- for item in page.js -%}
     <script type="text/javascript" src="{% link {{ item }} %}"></script>
-    {% endfor %}
-    {% endif %}
+    {%- endfor -%}
+    {%- endif -%}
     
     <script type="application/ld+json">
-    {% include schema.json %}
+    {%- include schema.json -%}
     </script>
     
-    {% include chantiers-index.html %}
+    {%- include chantiers-index.html -%}
     <script type="text/javascript" src="{% link /assets/js/site.js %}"></script>
     <script type="text/javascript" src="{% link /assets/js/search.js %}"></script>
     <script type="text/javascript" src="{% link /assets/js/context-menu.js %}"></script>
