@@ -72,13 +72,13 @@ class ECViewer {
     
     /* Start radio mode: select random track and auto-play (muted) */
     if (this.playlists.length > 0) {
-      console.log('DJ-DIGGER Viewer: Starting radio mode...');
+      console.log('DJ-Digger Viewer: Starting radio mode...');
       this.selectRandomTrack();
       
       /* Auto-play after track is loaded into player (muted) */
       setTimeout(() => {
         if (this.currentPlayingTrack && this.currentPlayingTrack.previewUrl) {
-          console.log('DJ-DIGGER Viewer: Initializing track in radio mode (muted)...');
+          console.log('DJ-Digger Viewer: Initializing track in radio mode (muted)...');
           this.playCurrentTrack();
         }
       }, 800);
@@ -711,7 +711,7 @@ class ECViewer {
         if (player === this.activePlayer && !this.isCrossfading) {
           if (this.manualOverride) {
             /* Manual track ended - return to radio mode */
-            console.log('DJ-DIGGER Viewer: Manual track ended, returning to radio mode...');
+            console.log('DJ-Digger Viewer: Manual track ended, returning to radio mode...');
             this.radioMode = true;
             this.manualOverride = false;
           }
@@ -760,15 +760,15 @@ class ECViewer {
       
       /* Detect CORS errors */
       player.addEventListener('error', (e) => {
-        console.error('DJ-DIGGER Viewer: Audio error:', e);
-        console.error('DJ-DIGGER Viewer: Error details:', {
+        console.error('DJ-Digger Viewer: Audio error:', e);
+        console.error('DJ-Digger Viewer: Error details:', {
           error: player.error,
           code: player.error ? player.error.code : 'unknown',
           message: player.error ? player.error.message : 'unknown',
           src: player.src
         });
         if (player.error && player.error.code === 4) {
-          console.error('DJ-DIGGER Viewer: MEDIA_ERR_SRC_NOT_SUPPORTED - Possible CORS issue!');
+          console.error('DJ-Digger Viewer: MEDIA_ERR_SRC_NOT_SUPPORTED - Possible CORS issue!');
         }
         if (this.audioLoading && (player === this.loadingPlayer || player === this.activePlayer)) {
           this.setAudioLoading(false);
@@ -786,32 +786,32 @@ class ECViewer {
   
   setupWebAudio() {
     try {
-      console.log('DJ-DIGGER Viewer: Setting up Web Audio...');
+      console.log('DJ-Digger Viewer: Setting up Web Audio...');
       /* Create audio context if it doesn't exist */
       if (!this.audioContext) {
         this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        console.log('DJ-DIGGER Viewer: Audio context created, state:', this.audioContext.state);
+        console.log('DJ-Digger Viewer: Audio context created, state:', this.audioContext.state);
       } else {
-        console.log('DJ-DIGGER Viewer: Audio context already exists, state:', this.audioContext.state);
+        console.log('DJ-Digger Viewer: Audio context already exists, state:', this.audioContext.state);
       }
       
       /* Resume context if suspended */
       if (this.audioContext.state === 'suspended') {
         this.audioContext.resume().then(() => {
-          console.log('DJ-DIGGER Viewer: Audio context resumed during setup, new state:', this.audioContext.state);
+          console.log('DJ-Digger Viewer: Audio context resumed during setup, new state:', this.audioContext.state);
         });
       }
       
       /* Only create analyser if it doesn't exist */
       if (!this.analyser) {
-        console.log('DJ-DIGGER Viewer: Creating analyser...');
+        console.log('DJ-Digger Viewer: Creating analyser...');
         this.analyser = this.audioContext.createAnalyser();
         this.analyser.fftSize = 512;
         this.analyser.smoothingTimeConstant = 0; /* NO smoothing for instant 60fps response */
         
         const bufferLength = this.analyser.frequencyBinCount;
         this.dataArray = new Uint8Array(bufferLength);
-        console.log('DJ-DIGGER Viewer: Analyser created', {
+        console.log('DJ-Digger Viewer: Analyser created', {
           fftSize: this.analyser.fftSize,
           bufferLength,
           dataArrayLength: this.dataArray.length
@@ -821,17 +821,17 @@ class ECViewer {
       /* Create MediaElementSource for both players - can only be done once per audio element */
       if (!this.mediaSource) {
         try {
-          console.log('DJ-DIGGER Viewer: Creating MediaElementSource for Player 1...');
+          console.log('DJ-Digger Viewer: Creating MediaElementSource for Player 1...');
           this.mediaSource = this.audioContext.createMediaElementSource(this.audioPlayer);
-          console.log('DJ-DIGGER Viewer: Connecting Player 1: source → analyser → destination');
+          console.log('DJ-Digger Viewer: Connecting Player 1: source → analyser → destination');
           this.mediaSource.connect(this.analyser);
           this.analyser.connect(this.audioContext.destination);
-          console.log('DJ-DIGGER Viewer: Player 1 connected successfully');
+          console.log('DJ-Digger Viewer: Player 1 connected successfully');
         } catch (sourceError) {
           if (sourceError.name === 'InvalidStateError') {
-            console.error('DJ-DIGGER Viewer: MediaElementSource 1 already exists but we lost the reference!');
+            console.error('DJ-Digger Viewer: MediaElementSource 1 already exists but we lost the reference!');
           } else {
-            console.error('DJ-DIGGER Viewer: Failed to create MediaElementSource 1:', sourceError);
+            console.error('DJ-Digger Viewer: Failed to create MediaElementSource 1:', sourceError);
           }
           throw sourceError;
         }
@@ -839,29 +839,29 @@ class ECViewer {
       
       if (!this.mediaSource2) {
         try {
-          console.log('DJ-DIGGER Viewer: Creating MediaElementSource for Player 2...');
+          console.log('DJ-Digger Viewer: Creating MediaElementSource for Player 2...');
           this.mediaSource2 = this.audioContext.createMediaElementSource(this.audioPlayer2);
-          console.log('DJ-DIGGER Viewer: Connecting Player 2: source → analyser → destination');
+          console.log('DJ-Digger Viewer: Connecting Player 2: source → analyser → destination');
           this.mediaSource2.connect(this.analyser);
-          console.log('DJ-DIGGER Viewer: Player 2 connected successfully');
-          console.log('DJ-DIGGER Viewer: Both players connected to Web Audio API');
-          console.log('DJ-DIGGER Viewer: Audio routing: Both AudioElements → Analyser → AudioContext.destination');
+          console.log('DJ-Digger Viewer: Player 2 connected successfully');
+          console.log('DJ-Digger Viewer: Both players connected to Web Audio API');
+          console.log('DJ-Digger Viewer: Audio routing: Both AudioElements → Analyser → AudioContext.destination');
           
           /* IMPORTANT: Once MediaElementSource is created, audio ONLY flows through Web Audio graph */
-          console.warn('DJ-DIGGER Viewer: Audio elements output now routes through Web Audio API only');
+          console.warn('DJ-Digger Viewer: Audio elements output now routes through Web Audio API only');
         } catch (sourceError) {
           if (sourceError.name === 'InvalidStateError') {
-            console.error('DJ-DIGGER Viewer: MediaElementSource 2 already exists but we lost the reference!');
+            console.error('DJ-Digger Viewer: MediaElementSource 2 already exists but we lost the reference!');
           } else {
-            console.error('DJ-DIGGER Viewer: Failed to create MediaElementSource 2:', sourceError);
+            console.error('DJ-Digger Viewer: Failed to create MediaElementSource 2:', sourceError);
           }
           throw sourceError;
         }
       } else {
-        console.log('DJ-DIGGER Viewer: Both MediaElementSources already exist');
+        console.log('DJ-Digger Viewer: Both MediaElementSources already exist');
       }
     } catch (e) {
-      console.error('DJ-DIGGER Viewer: Web Audio API setup error:', e);
+      console.error('DJ-Digger Viewer: Web Audio API setup error:', e);
     }
   }
   
@@ -902,7 +902,7 @@ class ECViewer {
           if (max === 0) {
             /* No audio data - likely CORS blocking analyser - use simulated meters */
             if (this._vuLogCounter % 60 === 0) {
-              console.warn('DJ-DIGGER Viewer: No frequency data (likely CORS) - using simulated VU meters');
+              console.warn('DJ-Digger Viewer: No frequency data (likely CORS) - using simulated VU meters');
             }
             /* Fall back to simulated animation */
             const time = Date.now() / 100;
@@ -912,7 +912,7 @@ class ECViewer {
           } else {
             /* We have real audio data! */
             if (this._vuLogCounter % 60 === 0) {
-              console.log('DJ-DIGGER Viewer: VU Meter - Using Real Audio Data:', {
+              console.log('DJ-Digger Viewer: VU Meter - Using Real Audio Data:', {
                 avg: avg.toFixed(2),
                 max: max.toFixed(2),
                 nonZeroSamples: this.dataArray.filter(v => v > 0).length
@@ -946,7 +946,7 @@ class ECViewer {
           
           /* Debug: log why we're using simulated data */
           if (this._vuLogCounter % 60 === 0) {
-            console.log('DJ-DIGGER Viewer: VU Meter - Using Simulated Data (no audio):', {
+            console.log('DJ-Digger Viewer: VU Meter - Using Simulated Data (no audio):', {
               paused: this.activePlayer.paused,
               readyState: this.activePlayer.readyState,
               hasAnalyser: !!this.analyser,
@@ -1047,7 +1047,7 @@ class ECViewer {
     const randomIndex = Math.floor(Math.random() * allTracks.length);
     const selected = allTracks[randomIndex];
     
-    console.log(`DJ-DIGGER Viewer: Radio mode - Random track selected: "${selected.track.title}" by ${selected.track.artist} from ${selected.playlist.name}`);
+    console.log(`DJ-Digger Viewer: Radio mode - Random track selected: "${selected.track.title}" by ${selected.track.artist} from ${selected.playlist.name}`);
     
     /* Load track into player WITHOUT selecting in table (radio is independent) */
     this.loadTrackIntoPlayer(selected.track);
@@ -1069,11 +1069,11 @@ class ECViewer {
   
   loadSelectedTrack() {
     if (!this.currentTrack || !this.currentTrack.previewUrl) {
-      console.warn('DJ-DIGGER Viewer: No track selected or no preview URL available');
+      console.warn('DJ-Digger Viewer: No track selected or no preview URL available');
       return;
     }
     
-    console.log(`DJ-DIGGER Viewer: Manual override - Loading track: "${this.currentTrack.title}" by ${this.currentTrack.artist}`);
+    console.log(`DJ-Digger Viewer: Manual override - Loading track: "${this.currentTrack.title}" by ${this.currentTrack.artist}`);
     
     /* Switch to manual override mode */
     this.manualOverride = true;
@@ -1088,7 +1088,7 @@ class ECViewer {
   
   navigateToPlayingTrack() {
     if (!this.currentPlayingTrack) {
-      console.warn('DJ-DIGGER Viewer: No track currently playing');
+      console.warn('DJ-Digger Viewer: No track currently playing');
       return;
     }
     
@@ -1112,7 +1112,7 @@ class ECViewer {
     }
     
     if (foundPlaylist && foundTrackIndex !== -1) {
-      console.log(`DJ-DIGGER Viewer: Navigating to playing track: "${this.currentPlayingTrack.title}" in ${foundPlaylist.name}`);
+      console.log(`DJ-Digger Viewer: Navigating to playing track: "${this.currentPlayingTrack.title}" in ${foundPlaylist.name}`);
       
       /* Navigate to the playlist and track */
       this.selectPlaylistById(foundPlaylist.id, false);
@@ -1120,7 +1120,7 @@ class ECViewer {
         this.selectTrack(foundTrackIndex);
       }, 150);
     } else {
-      console.warn('DJ-DIGGER Viewer: Could not find playing track in playlists');
+      console.warn('DJ-Digger Viewer: Could not find playing track in playlists');
     }
   }
   
@@ -1139,11 +1139,11 @@ class ECViewer {
   playCurrentTrack() {
     /* Player plays what's loaded, not what's selected in table */
     if (!this.currentPlayingTrack || !this.currentPlayingTrack.previewUrl) {
-      console.warn('DJ-DIGGER Viewer: No preview URL available for current playing track');
+      console.warn('DJ-Digger Viewer: No preview URL available for current playing track');
       return;
     }
     
-    console.log('DJ-DIGGER Viewer: playCurrentTrack called', {
+    console.log('DJ-Digger Viewer: playCurrentTrack called', {
       currentPlayingTrack: this.currentPlayingTrack.title,
       currentSrc: this.activePlayer.src,
       targetSrc: this.currentPlayingTrack.previewUrl,
@@ -1159,9 +1159,9 @@ class ECViewer {
     /* Resume audio context if suspended (browser autoplay policy) */
     const resumePromise = this.audioContext && this.audioContext.state === 'suspended'
       ? this.audioContext.resume().then(() => {
-          console.log('DJ-DIGGER Viewer: Audio context resumed');
+          console.log('DJ-Digger Viewer: Audio context resumed');
         }).catch(err => {
-          console.warn('DJ-DIGGER Viewer: Failed to resume audio context:', err);
+          console.warn('DJ-Digger Viewer: Failed to resume audio context:', err);
         })
       : Promise.resolve();
     
@@ -1176,25 +1176,25 @@ class ECViewer {
       }
       
       if (needsNewSource) {
-        console.log('DJ-DIGGER Viewer: Setting audio source:', this.currentPlayingTrack.previewUrl);
+        console.log('DJ-Digger Viewer: Setting audio source:', this.currentPlayingTrack.previewUrl);
         this.activePlayer.src = this.currentPlayingTrack.previewUrl;
         this.activePlayer.volume = 1.0; /* Ensure full volume for active player */
         
         /* Wait for track to load before playing */
         const onLoadedData = () => {
-          console.log('DJ-DIGGER Viewer: Track loaded, readyState:', this.activePlayer.readyState);
+          console.log('DJ-Digger Viewer: Track loaded, readyState:', this.activePlayer.readyState);
           
           if (this.activePlayer.muted) {
-            console.log('DJ-DIGGER Viewer: Player is muted - staying paused');
+            console.log('DJ-Digger Viewer: Player is muted - staying paused');
             this.isPlaying = false;
             return;
           }
 
           this.activePlayer.play().then(() => {
-            console.log('DJ-DIGGER Viewer: Playback started successfully after load');
+            console.log('DJ-Digger Viewer: Playback started successfully after load');
             this.isPlaying = true;
           }).catch(err => {
-            console.warn('DJ-DIGGER Viewer: Playback failed after load:', err);
+            console.warn('DJ-Digger Viewer: Playback failed after load:', err);
             this.isPlaying = false;
           });
         };
@@ -1205,34 +1205,34 @@ class ECViewer {
         
         /* Also try to play if already loaded */
         if (this.activePlayer.readyState >= 2) {
-          console.log('DJ-DIGGER Viewer: Track already loaded, attempting playback');
+          console.log('DJ-Digger Viewer: Track already loaded, attempting playback');
           
           if (this.activePlayer.muted) {
-            console.log('DJ-DIGGER Viewer: Player is muted - staying paused');
+            console.log('DJ-Digger Viewer: Player is muted - staying paused');
             this.isPlaying = false;
           } else {
             this.activePlayer.play().then(() => {
-              console.log('DJ-DIGGER Viewer: Playback started successfully (already loaded)');
+              console.log('DJ-Digger Viewer: Playback started successfully (already loaded)');
               this.isPlaying = true;
             }).catch(err => {
-              console.warn('DJ-DIGGER Viewer: Playback failed (already loaded):', err);
+              console.warn('DJ-Digger Viewer: Playback failed (already loaded):', err);
               this.isPlaying = false;
             });
           }
         }
       } else {
         /* Track already loaded with correct source, play immediately */
-        console.log('DJ-DIGGER Viewer: Track already loaded, attempting playback');
+        console.log('DJ-Digger Viewer: Track already loaded, attempting playback');
         
         if (this.activePlayer.muted) {
-          console.log('DJ-DIGGER Viewer: Player is muted - staying paused');
+          console.log('DJ-Digger Viewer: Player is muted - staying paused');
           this.isPlaying = false;
         } else {
           this.activePlayer.play().then(() => {
-            console.log('DJ-DIGGER Viewer: Playback started successfully');
+            console.log('DJ-Digger Viewer: Playback started successfully');
             this.isPlaying = true;
           }).catch(err => {
-            console.warn('DJ-DIGGER Viewer: Playback failed:', err);
+            console.warn('DJ-Digger Viewer: Playback failed:', err);
             this.isPlaying = false;
           });
         }
@@ -1242,18 +1242,18 @@ class ECViewer {
   
   startCrossfade() {
     if (this.isCrossfading) {
-      console.log('DJ-DIGGER Viewer: Already crossfading, skipping');
+      console.log('DJ-Digger Viewer: Already crossfading, skipping');
       return;
     }
     
-    console.log('DJ-DIGGER Viewer: Starting crossfade...');
+    console.log('DJ-Digger Viewer: Starting crossfade...');
     this.isCrossfading = true;
     
     /* Select next random track */
     this.selectRandomTrack();
     
     if (!this.currentPlayingTrack || !this.currentPlayingTrack.previewUrl) {
-      console.warn('DJ-DIGGER Viewer: No track to crossfade to');
+      console.warn('DJ-Digger Viewer: No track to crossfade to');
       this.isCrossfading = false;
       return;
     }
@@ -1262,9 +1262,9 @@ class ECViewer {
     const fadeOutPlayer = this.activePlayer;
     const fadeInPlayer = this.nextPlayer;
     
-    console.log(`DJ-DIGGER Viewer: Crossfade - Fading out: ${fadeOutPlayer === this.audioPlayer ? 'Player 1' : 'Player 2'}`);
-    console.log(`DJ-DIGGER Viewer: Crossfade - Fading in: ${fadeInPlayer === this.audioPlayer ? 'Player 1' : 'Player 2'}`);
-    console.log(`DJ-DIGGER Viewer: Next track: "${this.currentPlayingTrack.title}" by ${this.currentPlayingTrack.artist}`);
+    console.log(`DJ-Digger Viewer: Crossfade - Fading out: ${fadeOutPlayer === this.audioPlayer ? 'Player 1' : 'Player 2'}`);
+    console.log(`DJ-Digger Viewer: Crossfade - Fading in: ${fadeInPlayer === this.audioPlayer ? 'Player 1' : 'Player 2'}`);
+    console.log(`DJ-Digger Viewer: Next track: "${this.currentPlayingTrack.title}" by ${this.currentPlayingTrack.artist}`);
     
     /* Prepare next player - ensure it's ready for crossfade */
     fadeInPlayer.src = this.currentPlayingTrack.previewUrl;
@@ -1278,11 +1278,11 @@ class ECViewer {
     /* CRITICAL: If fadeOutPlayer is unmuted, ensure fadeInPlayer is also unmuted */
     /* This handles the case where fadeInPlayer was previously muted when paused */
     if (!fadeOutPlayer.muted && fadeInPlayer.muted) {
-      console.warn('DJ-DIGGER Viewer: FadeIn player was muted, unmuting now');
+      console.warn('DJ-Digger Viewer: FadeIn player was muted, unmuting now');
       fadeInPlayer.muted = false;
     }
     
-    console.log('DJ-DIGGER Viewer: FadeIn player prepared:', {
+    console.log('DJ-Digger Viewer: FadeIn player prepared:', {
       src: fadeInPlayer.src,
       volume: fadeInPlayer.volume,
       muted: fadeInPlayer.muted,
@@ -1292,17 +1292,17 @@ class ECViewer {
     /* Start playing next track once loaded */
     const onLoaded = () => {
       if (fadeInPlayer.muted) {
-        console.log('DJ-DIGGER Viewer: Next track is muted - staying paused');
+        console.log('DJ-Digger Viewer: Next track is muted - staying paused');
         return;
       }
 
       fadeInPlayer.play().then(() => {
-        console.log('DJ-DIGGER Viewer: Next track started, beginning fade...');
-        console.log('DJ-DIGGER Viewer: Initial state - FadeOut:', {
+        console.log('DJ-Digger Viewer: Next track started, beginning fade...');
+        console.log('DJ-Digger Viewer: Initial state - FadeOut:', {
           volume: fadeOutPlayer.volume,
           muted: fadeOutPlayer.muted
         });
-        console.log('DJ-DIGGER Viewer: Initial state - FadeIn:', {
+        console.log('DJ-Digger Viewer: Initial state - FadeIn:', {
           volume: fadeInPlayer.volume,
           muted: fadeInPlayer.muted
         });
@@ -1322,14 +1322,14 @@ class ECViewer {
           
           /* Log progress every 15 steps */
           if (step % 15 === 0) {
-            console.log(`DJ-DIGGER Viewer: Crossfade progress ${Math.round(progress * 100)}% - Out: ${fadeOutPlayer.volume.toFixed(2)}, In: ${fadeInPlayer.volume.toFixed(2)}`);
+            console.log(`DJ-Digger Viewer: Crossfade progress ${Math.round(progress * 100)}% - Out: ${fadeOutPlayer.volume.toFixed(2)}, In: ${fadeInPlayer.volume.toFixed(2)}`);
           }
           
           if (step >= steps) {
             clearInterval(fadeInterval);
             
             /* Crossfade complete - swap players */
-            console.log('DJ-DIGGER Viewer: Crossfade complete - Final volumes:', {
+            console.log('DJ-Digger Viewer: Crossfade complete - Final volumes:', {
               fadeOutVolume: fadeOutPlayer.volume,
               fadeInVolume: fadeInPlayer.volume
             });
@@ -1344,7 +1344,7 @@ class ECViewer {
             this.nextPlayer = fadeOutPlayer;
             
             this.isCrossfading = false;
-            console.log('DJ-DIGGER Viewer: Players swapped - new active:', fadeInPlayer === this.audioPlayer ? 'Player 1' : 'Player 2');
+            console.log('DJ-Digger Viewer: Players swapped - new active:', fadeInPlayer === this.audioPlayer ? 'Player 1' : 'Player 2');
             
             /* Update UI */
             this.updatePlayerInfo();
@@ -1352,8 +1352,8 @@ class ECViewer {
           }
         }, interval);
       }).catch(err => {
-        console.error('DJ-DIGGER Viewer: Failed to start next track for crossfade:', err);
-        console.error('DJ-DIGGER Viewer: Error details:', err);
+        console.error('DJ-Digger Viewer: Failed to start next track for crossfade:', err);
+        console.error('DJ-Digger Viewer: Error details:', err);
         this.isCrossfading = false;
       });
     };
@@ -1361,10 +1361,10 @@ class ECViewer {
     /* Add timeout fallback in case loadeddata never fires */
     const loadTimeout = setTimeout(() => {
       if (fadeInPlayer.readyState >= 2) {
-        console.log('DJ-DIGGER Viewer: Track already loaded, starting immediately');
+        console.log('DJ-Digger Viewer: Track already loaded, starting immediately');
         onLoaded();
       } else {
-        console.warn('DJ-DIGGER Viewer: Track load timeout - attempting to play anyway');
+        console.warn('DJ-Digger Viewer: Track load timeout - attempting to play anyway');
         onLoaded();
       }
     }, 2000);
@@ -1378,8 +1378,8 @@ class ECViewer {
   toggleMute() {
     if (this.audioPlayer.muted) {
       /* Unmuting - start playback (user interaction allows autoplay) */
-      console.log('DJ-DIGGER Viewer: Unmuting...');
-      console.log('DJ-DIGGER Viewer: Audio player state:', {
+      console.log('DJ-Digger Viewer: Unmuting...');
+      console.log('DJ-Digger Viewer: Audio player state:', {
         paused: this.activePlayer.paused,
         muted: this.activePlayer.muted,
         readyState: this.activePlayer.readyState,
@@ -1388,23 +1388,23 @@ class ECViewer {
         duration: this.activePlayer.duration,
         isPlaying: this.isPlaying
       });
-      console.log('DJ-DIGGER Viewer: Audio context state:', this.audioContext ? {
+      console.log('DJ-Digger Viewer: Audio context state:', this.audioContext ? {
         state: this.audioContext.state,
         sampleRate: this.audioContext.sampleRate
       } : 'null');
       
       /* Ensure Web Audio is set up before unmuting */
       if (!this.analyser) {
-        console.log('DJ-DIGGER Viewer: Setting up Web Audio (analyser missing)');
+        console.log('DJ-Digger Viewer: Setting up Web Audio (analyser missing)');
         this.setupWebAudio();
       }
       
       /* Resume audio context FIRST (browser autoplay policy - user interaction allows this) */
       const resumePromise = this.audioContext && this.audioContext.state === 'suspended' 
         ? this.audioContext.resume().then(() => {
-            console.log('DJ-DIGGER Viewer: Audio context resumed, new state:', this.audioContext.state);
+            console.log('DJ-Digger Viewer: Audio context resumed, new state:', this.audioContext.state);
           }).catch(err => {
-            console.warn('DJ-DIGGER Viewer: Failed to resume audio context:', err);
+            console.warn('DJ-Digger Viewer: Failed to resume audio context:', err);
           })
         : Promise.resolve();
       
@@ -1413,7 +1413,7 @@ class ECViewer {
         this.audioPlayer.muted = false;
         this.audioPlayer2.muted = false;
         this.setAudioLoading(true, this.activePlayer);
-        console.log('DJ-DIGGER Viewer: Audio unmuted, new state:', {
+        console.log('DJ-Digger Viewer: Audio unmuted, new state:', {
           muted: this.activePlayer.muted,
           paused: this.activePlayer.paused,
           volume: this.activePlayer.volume,
@@ -1427,22 +1427,22 @@ class ECViewer {
         if (this.currentPlayingTrack && this.currentPlayingTrack.previewUrl) {
           /* Force playback to start if paused */
           if (this.activePlayer.paused) {
-            console.log('DJ-DIGGER Viewer: Audio is paused, starting playback...');
+            console.log('DJ-Digger Viewer: Audio is paused, starting playback...');
             this.activePlayer.play().then(() => {
-              console.log('DJ-DIGGER Viewer: Playback started successfully after unmute');
+              console.log('DJ-Digger Viewer: Playback started successfully after unmute');
               this.isPlaying = true;
             }).catch(err => {
-              console.error('DJ-DIGGER Viewer: Failed to start playback:', err);
+              console.error('DJ-Digger Viewer: Failed to start playback:', err);
               /* Try to reload the track */
-              console.log('DJ-DIGGER Viewer: Attempting to reload track...');
+              console.log('DJ-Digger Viewer: Attempting to reload track...');
               this.playCurrentTrack();
             });
           } else {
-            console.log('DJ-DIGGER Viewer: Audio already playing');
+            console.log('DJ-Digger Viewer: Audio already playing');
             this.isPlaying = true;
           }
         } else {
-          console.warn('DJ-DIGGER Viewer: No current track to play - selecting random track');
+          console.warn('DJ-Digger Viewer: No current track to play - selecting random track');
           /* If no track is loaded, select and play one */
           this.selectRandomTrack();
           setTimeout(() => {
@@ -1458,7 +1458,7 @@ class ECViewer {
       this.activePlayer.pause();
       this.nextPlayer.pause();
       this.isPlaying = false;
-      console.log('DJ-DIGGER Viewer: Muted and paused');
+      console.log('DJ-Digger Viewer: Muted and paused');
       this.updateMuteUI();
     }
   }
@@ -1638,6 +1638,6 @@ if (document.readyState === 'loading') {
 function initECViewer() {
   if (window.ecPlaylistData) {
     window.ecViewer = new ECViewer(window.ecPlaylistData);
-    console.log(`DJ-DIGGER Viewer initialized with ${window.ecPlaylistData.length} playlists`);
+    console.log(`DJ-Digger Viewer initialized with ${window.ecPlaylistData.length} playlists`);
   }
 }

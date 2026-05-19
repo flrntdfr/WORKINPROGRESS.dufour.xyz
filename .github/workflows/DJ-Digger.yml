@@ -1,4 +1,4 @@
-name: Prebuild DJ-DIGGER
+name: Prebuild DJ-Digger
 
 on:
   workflow_dispatch:
@@ -19,11 +19,11 @@ jobs:
           node-version: '24'
 
       - name: Install dependencies
-        working-directory: prebuild/DJ-DIGGER/
+        working-directory: prebuild/DJ-Digger/
         run: npm install
 
       - name: Fetch Apple Music Playlists
-        working-directory: prebuild/DJ-DIGGER/
+        working-directory: prebuild/DJ-Digger/
         env:
           APPLE_MUSIC_TOKEN: ${{ secrets.APPLE_MUSIC_TOKEN }}
           MUSIC_USER_TOKEN: ${{ secrets.MUSIC_USER_TOKEN }}
@@ -41,5 +41,5 @@ jobs:
           git config --global user.name 'automatique [bot]'
           git config --global user.email 'automatique-bot@users.noreply.github.com'
           git add _data/playlists.json
-          git diff --staged --quiet || git commit -m "PREBUILD DJ-DIGGER [bot]"
+          git diff --staged --quiet || git commit -m "PREBUILD DJ-Digger [bot]"
           git push

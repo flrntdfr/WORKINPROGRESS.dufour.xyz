@@ -12,11 +12,11 @@ description: |
   It started in 2010 as folders for tracks I was pulling off eMule.
   I used mnemonics instead of genre or energy to keep the structure flat.
 css:
-  - /assets/2026/DJ-DIGGER/DJ-DIGGER.css
+  - /assets/2026/DJ-Digger/DJ-Digger.css
 js:
-  - /assets/2026/DJ-DIGGER/DJ-DIGGER.js
+  - /assets/2026/DJ-Digger/DJ-Digger.js
 href:
-  - ["int", "<strong>•</strong>", "DJ Digger.json (AGPL, 4.9 MB)", "_chantiers/2010/DJ-DIGGER.json"]
+  - ["int", "<strong>•</strong>", "DJ Digger.json (AGPL, 4.9 MB)", "_chantiers/2010/DJ-Digger.json"]
 ---
 
 {% include fonteawesome.html %}

@@ -30,6 +30,10 @@
             BUNDLE_BIN = ".direnv/bin";
             JEKYLL_ENV = "development";
             TZ = "Europe/Berlin";
+            /* Case-sensitive paths in this dev shell (macOS APFS is case-insensitive). */
+            GIT_CONFIG_COUNT = "1";
+            GIT_CONFIG_KEY_0 = "core.ignorecase";
+            GIT_CONFIG_VALUE_0 = "false";
           };
 
           shellHook = ''

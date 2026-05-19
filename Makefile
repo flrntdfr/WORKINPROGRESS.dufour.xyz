@@ -16,9 +16,9 @@ update-gems:         ## Update gems
 
 prebuild:       ## Prebuild step
 	#$(MAKE) -C assets/2024/human-centric-title-case/ wasm
-	$(MAKE) -C prebuild/DJ-DIGGER all
+	$(MAKE) -C prebuild/DJ-Digger all
 
-build: prebuild ## Build the website for production
+build:          ## Build the website for production
 	JEKYLL_ENV=production bundle exec jekyll build --verbose
 
 build-nix:      ## Build the website using Nix
