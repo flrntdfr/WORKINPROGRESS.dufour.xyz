@@ -3,11 +3,11 @@ title: Credits and Attribution
 permalink: /credits.txt
 ---
 
-             LEGAL NOTICE AND ATTRIBUTION OF THIRD-PARTY COMPONENTS
+             LEGAL NOTICE AND ATTRIBUTION OF THIRD-PARTY COMPONENTS             
 
 
 Effective Date: November 12, 2025
-Last Updated: November 12, 2025
+Last Updated:   May 19, 2026
 
 
 ================================================================================
@@ -69,7 +69,8 @@ directory in OpenType Format (OTF).
 2.3 Alma Mono Font Family (Version 2016)
 
 Licensor: Various Contributors
-License: License not confirmed in repository; review required before redistribution
+License:  License not confirmed in repository; 
+          Review required before redistribution
 
 Permitted Uses: This monospace typeface family is incorporated for optional
 stylistic variation in technical content presentation.
