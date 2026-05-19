@@ -102,7 +102,10 @@ description: |
       "Do you do the best you can everyday?",
       "What would you kill for?",
       "How much is an hour of your time worth?",
-      "Do you deserve all the good things that happened to you?"
+      "Do you deserve all the good things that happened to you?",
+      "What do you say no to?",
+      "How do you take care of yourself?",
+      "How do you define success?"
     ];
     
     let currentIndex = 0;
