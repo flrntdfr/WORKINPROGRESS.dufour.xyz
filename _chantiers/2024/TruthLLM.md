@@ -50,7 +50,8 @@ description: TruthLLM is a “Large” Language Model that will truthfully answe
         "Can you cook a steak with a laser?",
         "Can you make a sandwich with a spoon?",
         "Do prisons have emergency exits?",
-        "How much is a share of Bitcoin worth?"
+        "How much is a share of Bitcoin worth?",
+        "Is it all one?"
     ];
     env.logLevel = 'debug';
     env.allowRemoteModels = true;
