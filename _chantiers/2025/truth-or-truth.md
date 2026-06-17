@@ -31,6 +31,7 @@ description: |
   document.addEventListener('DOMContentLoaded', function() {
     const questions = [
       "Truth or Truth",
+      "What do you want from life?",
       "What have you sacrificed in your life?",
       "What's the last lie you told yourself?",
       "What gives you hope?",
