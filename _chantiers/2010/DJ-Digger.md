@@ -9,7 +9,7 @@ reviewed: 2026-06-19 21:28
 description: |
   <strong>DJ Digger is where I keep the music I dig.</strong>
   <br><br>
-  This project began in 2010 as a folder structure I&nbsp;made to sort music incoming from eMule. I&nbsp;started using mnemonics instead of genres or energy to keep the structure flat and tracks easy to find.
+  This project began in 2010 as a folder structure I&nbsp;made to sort music incoming from eMule. I&nbsp;decided to use mnemonics instead of genres or energy to keep the structure flat and tracks easy to find.
   <br><br>
   The system has kept evolving since then, shaped by my listening history, emotional connections, and practical needs. Today, it lives in the cloud, and I&nbsp;can add and retrieve tracks from anywhere, whether to play at home or at house parties.
   <br><br>
