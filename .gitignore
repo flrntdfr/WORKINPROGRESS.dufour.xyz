@@ -1,3 +1,5 @@
+AGENTS.md
+
 # Environment
 .envrc
 gitignore.d
@@ -10,6 +12,7 @@ node_modules
 
 # Jekyll
 .jekyll-cache
+.jekyll-metadata
 _site
 result
 .bundle
