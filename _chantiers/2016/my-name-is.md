@@ -241,7 +241,8 @@ const lists = {
     "I have a habit of transforming myself.",
     "I am ready to die for my country.",
     "I am not waiting for a miracle.",
-    "I think I am doing gods work."
+    "I think I am doing gods work.",
+    "my generation is underrated."
   ]
 };
 
@@ -594,6 +595,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .action-button:hover {
   background-color: #f5f5f5;
+}
+
+#yes-button {
+  background-color: #eaf5ea;
+  border-color: #b9d8b9;
+  color: #2f5d2f;
+}
+
+#yes-button:hover {
+  background-color: #ddeedd;
+  border-color: #a3cba3;
+}
+
+#yes-button:active {
+  background-color: #cfe5cf;
+}
+
+#no-button {
+  background-color: #f9ecec;
+  border-color: #ddb9b9;
+  color: #6d3030;
+}
+
+#no-button:hover {
+  background-color: #f2dede;
+  border-color: #d0a3a3;
+}
+
+#no-button:active {
+  background-color: #ead0d0;
 }
 
 /* End screen centering */

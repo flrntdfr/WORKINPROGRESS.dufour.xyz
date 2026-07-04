@@ -27,8 +27,8 @@ result: [list, illustration]
 
 {% comment %}
 ```sh
-cd assets/2025/cadres-blancs
 .jpg → .webp (2x?)
+cd assets/2025/cadres-blancs
 magick 24.webp -shave 10x10 24.webp
 ```
 {% endcomment %}

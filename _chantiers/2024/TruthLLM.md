@@ -5,7 +5,7 @@ started: 2024-08-04 00:00
 ended: 2024-10-02 00:00
 result: [web, LLM]
 tech: [GPT-2]
-description: TruthLLM is a “Large” Language Model that will truthfully answer any question in less than 1000 tokens.
+description: TruthLLM is a “Large” Language Model that truthfully answers any question in less than 1000 tokens.
 ---
 
 <script type="module">
@@ -51,7 +51,10 @@ description: TruthLLM is a “Large” Language Model that will truthfully answe
         "Can you make a sandwich with a spoon?",
         "Do prisons have emergency exits?",
         "How much is a share of Bitcoin worth?",
-        "Is it all one?"
+        "Is it all one?",
+        "Are trees having a good time?",
+        "Why are the walls melting?",
+        "Who will be accused of being the first AI?"
     ];
     env.logLevel = 'debug';
     env.allowRemoteModels = true;
