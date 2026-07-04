@@ -111,10 +111,10 @@ href:
     sizes="400px">
 </div>
 <div class="minister-card">
-    <div class="titre">Ministre de la lutte contre le complotisme et le commérage</div>
+    <div class="titre">Ministre de la lutte contre la corruption et le commérage</div>
     <img src="data:image/webp;base64,{% include_relative ministres/1E949CD0-43F4-4521-93CB-AE2113048D67_thumb.txt %}" 
     class="portrait"
-    alt="Portrait du Ministre de la lutte contre le complotisme et le commérage"
+    alt="Portrait du Ministre de la lutte contre la corruption et le commérage"
     src-full="{% link /assets/2025/ministres/1E949CD0-43F4-4521-93CB-AE2113048D67.webp %}"
     srcset="{% link /assets/2025/ministres/1E949CD0-43F4-4521-93CB-AE2113048D67.webp %} 1066w"
     sizes="400px">

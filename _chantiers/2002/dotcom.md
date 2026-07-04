@@ -5,13 +5,15 @@ result: [list]
 started: 2002-12-31 00:00
 ended: 2002-12-31 00:00
 description: |
-    I first “surfed the web” in 2002 so I made a list of .com I wanted to visit to see if they existed. 
-    <br>
+    This is the list of .com I wrote down before I could first “surf the web” because I wanted to know if they existed.
+    <br><br>
     I later learned about the existence of google.com.
     <br><br>
-    The list was updated in 2010, 2023, 2024 with other cool domain names.
+    The list was updated in 2010, 2023, and 2024 with other cool domain names.
 ---
 
+- [123.com ➟](https://123.com){:target="_blank" rel="noopener noreferrer"}
+- [777.com ➟](https://777.com){:target="_blank" rel="noopener noreferrer"}
 - [abc.com ➟](https://abc.com){:target="_blank" rel="noopener noreferrer"}
 - [art.com ➟](https://art.com){:target="_blank" rel="noopener noreferrer"}
 - [azerty.com ➟](https://azerty.com){:target="_blank" rel="noopener noreferrer"}
@@ -36,5 +38,15 @@ description: |
 - [today.com ➟](https://today.com){:target="_blank" rel="noopener noreferrer"}
 - [www.com ➟](https://www.com){:target="_blank" rel="noopener noreferrer"}
 - [x.com ➟](https://x.com){:target="_blank" rel="noopener noreferrer"} (2023)
-- [123.com ➟](https://123.com){:target="_blank" rel="noopener noreferrer"}
-- [777.com ➟](https://777.com){:target="_blank" rel="noopener noreferrer"}
+
+<style>
+    ul {
+        columns: 2 14em;
+        column-gap: 2em;
+    }
+
+    ul li {
+        margin-bottom: 0.5em;
+        break-inside: avoid;
+    }
+</style>

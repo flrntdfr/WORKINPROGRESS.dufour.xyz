@@ -2,7 +2,7 @@
 layout: chantier
 title: DJ One Chance
 started: 2013-08-14 14:09
-ended: 
+ended: 2026-07-04 18:25
 result: [mixtape]
 tech: [iTunes, Apple&nbsp;Music]
 description: Each artist only has one of their tracks on this playlist.
