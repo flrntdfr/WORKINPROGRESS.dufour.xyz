@@ -165,14 +165,8 @@ a:visited {
   color: darkgrey;
 }
 
-/* Banner animation */
-@keyframes banner-slide {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
+/* Add padding to prevent content from being hidden behind fixed banner */
+body {
+  padding-bottom: 2rem;
 }
 </style>

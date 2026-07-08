@@ -1,23 +1,15 @@
-<a href="{% link _chantiers/2025/CHANGELOG.md %}"><p>
-  v{{ "now" | date: "%Y" }}.{{ "now" | date: "%m" | plus: 1 | prepend: "0" | slice: -2, 2 }}-rc: Bug fixes and performance improvements.
-  {% for i in (1..20) %}
-  &nbsp;
-  {% endfor %}
-  •
-  {% for i in (1..20) %}
-  &nbsp;
-  {% endfor %}
-  {% for log in site.data.changelog limit: 4 %}
-  v{{ log.date | date: "%Y.%m" }}: {{ log.description }}
-  {% for i in (1..20) %}
-  &nbsp;
-  {% endfor %}
-  •
-  {% for i in (1..20) %}
-  &nbsp;
-  {% endfor %}
-  {% endfor %}
-  </p>
+<a href="{% link _chantiers/2025/CHANGELOG.md %}" class="banner-link">
+  <div class="banner-content">
+    <span class="banner-item">
+      v{{ "now" | date: "%Y" }}.{{ "now" | date: "%m" | plus: 1 | prepend: "0" | slice: -2, 2 }}-rc: Bug fixes and performance improvements.
+    </span>
+    {% for log in site.data.changelog limit: 4 %}
+    <span class="banner-separator">&#8226;</span>
+    <span class="banner-item">
+      v{{ log.date | date: "%Y.%m" }}: {{ log.description }}
+    </span>
+    {% endfor %}
+  </div>
 </a>
 
 <style>
@@ -29,27 +21,64 @@
   background-color: var(--accent-color);
   overflow: hidden;
   white-space: nowrap;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
-.banner a {
+.banner-link {
   display: block;
   width: 100%;
   text-decoration: none;
   color: inherit;
+  padding: 0.5rem 0;
 }
 
-.banner a:visited {
-  color: black;
+.banner-link:visited {
+  color: inherit;
 }
 
-.banner p {
+.banner-content {
   display: inline-block;
   padding-left: 100%;
   animation: banner-slide 45s linear infinite;
-  color: var(--font-contrast-color);
+  color: var(--font-color);
+  font-family: var(--font-family-monospace);
+  font-size: 0.875rem;
+}
+
+.banner-item {
+  display: inline-block;
+  padding: 0 1.5rem;
+}
+
+.banner-separator {
+  display: inline-block;
+  color: var(--font-color);
+  opacity: 0.5;
+}
+
+@keyframes banner-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
+  .banner-content {
+    color: var(--font-color);
+  }
+}
 
+@media (max-width: 600px) {
+  .banner-content {
+    font-size: 0.75rem;
+  }
+  
+  .banner-item {
+    padding: 0 1rem;
+  }
 }
 </style>
